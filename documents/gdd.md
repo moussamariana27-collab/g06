@@ -75,6 +75,20 @@
 *ATUALIZE ESTA SEÇÃO SEMPRE QUE ALGUM REQUISITO MUDAR EM SEU PROJETO*
 
 *Exemplo de tabela de requisitos*
+
+\# | Requisitos funcionais  
+--- | ---
+RF01 | A tela inicial terá botões para cadastro e login.
+RF02 | O usuário passará por um tutorial interativo sobre a empresa e os seus produtos.
+RF03 | O jogo terá uma tela com níveis e cada um deles irá representar um tipo de comércio.
+RF04 | Haverá sistemas de pontuação para cada nível de acordo com o desempenho do jogador.
+RF05 | Cada nível irá simular uma situação real com personagens (clientes).
+RF06 | Os usuários vão ter perfis próprios e editáveis.
+RF07 | Administradores terão acesso a um dashboard.
+RF08 | Na tela dos níveis haverá um menu de acesso ao perfil e um card de ajuda para tirar dúvidas.
+RF09 | O sistema deve gerar relatórios para os administradores.
+RF10 | O sistema terá uma tela de gerenciamento.
+
 \# | Requisito  
 --- | ---
 1 | O controle do personagem será realizado usando as teclas WASD para navegação pelas fases
