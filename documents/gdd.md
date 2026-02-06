@@ -89,12 +89,12 @@ RF08 | Na tela dos níveis haverá um menu de acesso ao perfil e um card de ajud
 RF09 | O sistema deve gerar relatórios para os administradores.
 RF10 | O sistema terá uma tela de gerenciamento.
 
-\# | Requisito  
+\# | Requisitos não funcionais
 --- | ---
-1 | O controle do personagem será realizado usando as teclas WASD para navegação pelas fases
-2 | O personagem perde uma vida toda vez que tocar em um inimigo ou em algum projétil inimigo
-3 | O jogo deve possuir uma tela de abertura para o jogador selecionar se quer jogar sozinho ou em dupla
-4 | ...
+RNF01 |Funcionar online.
+RNF02 |Design intuitivo.
+RNF03 |Escalabilidade.
+
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
 
