@@ -81,10 +81,10 @@
 RF01 | A tela inicial terá botões para cadastro e login.
 RF02 | Os usuários vão ter perfis próprios e editáveis.
 RF03 | O usuário passará por um tutorial interativo sobre a empresa e os seus produtos.
-RF04 | O jogo terá uma tela com níveis e cada um deles irá representar um tipo de comércio.
-RF05 | Na tela dos níveis haverá um menu de acesso ao perfil e um card de ajuda para tirar dúvidas.
-RF06 | Cada nível irá simular uma situação real com personagens (clientes).
-RF07 | Haverá sistemas de pontuação para cada nível de acordo com o desempenho do jogador.
+RF04 | O jogo terá uma tela com turnos e cada um deles irá representar um tipo de comércio.
+RF05 | Na tela dos turnos deve ter um menu de acesso ao perfil e à central de ajuda.
+RF06 | Cada turno irá simular uma situação real com personagens (clientes).
+RF07 | Haverá sistemas de pontuação para cada turno de acordo com o desempenho do jogador.
 RF08 | Administradores terão acesso a um dashboard.
 RF09 | O sistema deve gerar relatórios para os administradores.
 RF10 | O sistema terá uma tela de gerenciamento.
