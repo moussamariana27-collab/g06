@@ -78,22 +78,23 @@
 
 \# | Requisitos funcionais  
 --- | ---
-RF01 | A tela inicial terá botões para cadastro e login.
-RF02 | Os usuários vão ter perfis próprios e editáveis.
-RF03 | O usuário passará por um tutorial interativo sobre a empresa e os seus produtos.
-RF04 | O jogo terá uma tela com turnos e cada um deles irá representar um tipo de comércio.
-RF05 | Na tela dos turnos deve ter um menu de acesso ao perfil e à central de ajuda.
-RF06 | Cada turno irá simular uma situação real com personagens (clientes).
-RF07 | Haverá sistemas de pontuação para cada turno de acordo com o desempenho do jogador.
-RF08 | Administradores terão acesso a um dashboard.
-RF09 | O sistema deve gerar relatórios para os administradores.
-RF10 | O sistema terá uma tela de gerenciamento.
+RF01 | O jogo deve ter uma tela inicial com um botão de jogar.
+RF02 | O usuário deve passar por um tutorial interativo sobre a empresa e os seus produtos.
+RF03 | O jogo deve ser mundo aberto em um ambiente com vários estabelecimentos.
+RF04 | O jogo deve ter um sistema de combate de turnos.
+RF05 | Cada turno deve simular uma situação real com personagens (clientes).   
+RF06 | O jogo deve ter um sistema de vida durante o combate, onde o jogador e o oponente podem receber dano durante a fase de turno.
+RF07 | 
+RF08 | 
+RF09 | 
+RF10 | 
+RF11 | 
 
 \# | Requisitos não funcionais
 --- | ---
-RNF01 |Funcionar online.
-RNF02 |Design intuitivo.
-RNF03 |Escalabilidade.
+RNF01 |
+RNF02 |O jogo deve possuir um design intuitivo.
+RNF03 |
 
 
 ## 1.3. Público-alvo do Projeto (sprint 2)
