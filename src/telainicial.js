@@ -32,12 +32,12 @@ class TelaInicial extends Phaser.Scene {
             btnIniciar.setScale(0.5);
         });
 
-        // Quando o botão é pressionado (click down): diminui para dar efeito de clique
+        // Quando o botão é pressionado diminui para dar efeito de clique
         btnIniciar.on('pointerdown', () => {
             btnIniciar.setScale(0.45); 
         });
 
-        // Quando o clique é solto (click up): restaura tamanho e inicia o jogo
+        // Quando o clique é solto restaura tamanho e inicia o jogo
         btnIniciar.on('pointerup', () => {
             btnIniciar.setScale(0.5); 
             // Troca para a cena principal do jogo (MainScene)
