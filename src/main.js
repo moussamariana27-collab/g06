@@ -12,7 +12,7 @@ class MainScene extends Phaser.Scene {
     }
 
     create() {
-        // --- Configuração do Ambiente ---
+        //  Configuração do Ambiente 
         // Cria o mapa e define a origem no canto superior esquerdo (0,0)
         let mapa = this.add.image(0, 0, 'mapa').setOrigin(0, 0);
 
@@ -20,7 +20,7 @@ class MainScene extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, mapa.width, mapa.height);
         this.cameras.main.setBounds(0, 0, mapa.width, mapa.height);
 
-        // --- Configuração do Personagem ---
+        // Configuração do Personagem 
         this.personagem = this.physics.add.sprite(100, 200, 'sheetFrente').setScale(4.7);
         
         // Propriedades de física do personagem
@@ -28,11 +28,11 @@ class MainScene extends Phaser.Scene {
         this.personagem.body.setSize(20, 30); // Ajuste da caixa de colisão (hitbox)
         this.personagem.body.setOffset(6, 30); // Centralização da caixa de colisão
 
-        // --- Configuração da Câmera ---
+        // Configuração da Câmera
         this.cameras.main.startFollow(this.personagem);
         this.cameras.main.setZoom(1.0); // Nível de zoom da câmera
 
-        // --- Configuração dos Controles ---
+        // Configuração dos Controles 
         this.cursor = this.input.keyboard.addKeys({
             'up': Phaser.Input.Keyboard.KeyCodes.W,
             'down': Phaser.Input.Keyboard.KeyCodes.S,
@@ -40,7 +40,7 @@ class MainScene extends Phaser.Scene {
             'right': Phaser.Input.Keyboard.KeyCodes.D
         });
 
-        // --- Criação das Animações do Personagem ---
+        // Criação das Animações do Personagem
         // Animação de andar para baixo (frente)
         this.anims.create({
             key: 'andarFrente', 
