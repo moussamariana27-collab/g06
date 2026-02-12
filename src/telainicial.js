@@ -11,16 +11,16 @@ class TelaInicial extends Phaser.Scene {
     }
 
     create() {
-        // --- Configuração do Cenário ---
+        //  Configuração do Cenário 
         this.add.image(400, 320, 'fundo'); 
         
-        // --- Criação do Botão de Iniciar ---
+        //  Criação do Botão de Iniciar 
         let btnIniciar = this.add.image(400, 525, 'button').setScale(0.5);
         
         // Habilita a interatividade do botão
         btnIniciar.setInteractive({ cursor: 'pointer' });
 
-        // --- Eventos de Mouse do Botão ---
+        //  Eventos de Mouse do Botão 
 
         // Quando o mouse passa por cima aumenta levemente o botão
         btnIniciar.on('pointerover', () => {
