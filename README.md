@@ -11,27 +11,26 @@
 ## Nome do grupo
 
 ## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 5</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 6</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 7</a>
-
+- <a href="https://www.linkedin.com/in/ana-julia-bertola-de-campos-311667312?utm_source=share_via&utm_content=profile&utm_medium=member_ios">Ana Julia Bertola de Campos</a>
+- <a href="https://www.linkedin.com/in/victorbarq/">Cauan da Rocha Martins</a>
+- <a href="https://br.linkedin.com/in/fabianne-silva-7b3b13199">Fabianne Jesus Silva Leite</a> 
+- <a href="https://www.linkedin.com/in/victorbarq/">Fernando Alves Carmo Filho</a> 
+- <a href="https://www.linkedin.com/in/jo%C3%A3o-paulo-barreto-ferreira-andrade-rodrigues-de-paula-b483203aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">João Paulo Barreto Ferreira Andrade Rodrigues de Paula</a>
+- <a href="https://www.linkedin.com/in/victorbarq/">Haila Thauane Falcão Novaes</a> 
+- <a href="https://www.linkedin.com/in/victorbarq/">Luís Felipe Campagnaro Copolillo</a>
+- <a href="https://www.linkedin.com/in/marianamoussa/">Mariana Pires de Carvalho Moussa</a>
 ## 👩‍🏫 Professores:
 ### Orientador(a) 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do orientador</a>
+- <a href="https://www.linkedin.com/in/vanunes?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Vanessa Tavares Nunes</a>
 ### Instrutores
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 1</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 2</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 3</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 4</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 5</a> 
+- <a href="https://www.linkedin.com/in/cristiano-benites-ph-d-687647a8/">Cristiano da Silva Benites</a> 
+- <a href="https://www.linkedin.com/in/pedroteberga?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Pedro Marins Freire Teberga</a> 
+- <a href="https://www.linkedin.com/in/fabiana-martins-de-oliveira-8993b0b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Fabiana Martins de Oliveira</a> 
+- <a href="https://www.linkedin.com/in/geraldo-magela-severino-vasconcelos-22b1b220?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Geraldo Magela Severino Vasconcelos</a> 
 
 ## 📜 Descrição
 
-*Descreva seu projeto (até 600 palavras)*
+Um jogo de turnos em que o jogador, no caso o gerente de vendas da Cielo deve enfrentar missões que tem como objetivo vender uma maquininha da Cielo 
 
 *Inclua o link para o jogo aqui*
 
@@ -55,15 +54,15 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 ## 🗃 Histórico de lançamentos
 
-* 0.5.0 - XX/XX/2024
+* 0.5.0 - 13/02/2026
     * 
-* 0.4.0 - XX/XX/2024
+* 0.4.0 - XX/XX/2026
     * 
-* 0.3.0 - XX/XX/2024
+* 0.3.0 - XX/XX/2026
     * 
-* 0.2.0 - XX/XX/2024
+* 0.2.0 - XX/XX/2026
     * 
-* 0.1.0 - XX/XX/2024
+* 0.1.0 - XX/XX/2026
     *
 
 ## 📋 Licença/License
