@@ -84,7 +84,7 @@ RF03 | O jogo deve ser mundo aberto em um ambiente com vários estabelecimentos.
 RF04 | O jogo deve ter um sistema de combate de turnos.
 RF05 | Cada turno deve simular uma situação real com personagens (clientes).   
 RF06 | O jogo deve ter um sistema de vida durante o combate, onde o jogador e o oponente podem receber dano durante a fase de turno.
-RF07 | 
+RF07 | O jogador deve ser capaz de controlar a movimentação do personagem principal pelo cenário (cima, baixo, esquerda, direita).
 RF08 | 
 RF09 | 
 RF10 | 
@@ -244,7 +244,37 @@ Figura 1: detalhe da cena da partida do herói para a missão, usando sua nave
 
 ## 4.1. Desenvolvimento preliminar do jogo (sprint 1)
 
-*Descreva e ilustre aqui o desenvolvimento da sua primeira versão do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos.*
+4.1. Desenvolvimento da Primeira Versão (Sprint 1)
+O desenvolvimento desta primeira versão teve como objetivo principal estabelecer a estrutura fundamental do jogo, conectando a interface de usuário inicial com o ambiente de gameplay, em conformidade com os requisitos levantados na Seção 1.2. O foco foi entregar uma navegação funcional e a ambientação visual do projeto.
+
+Implementação da Tela Inicial
+
+Como primeiro requisito funcional, foi identificada a necessidade de uma tela de "Menu Principal". A tela inicial foi construída utilizando uma paleta de cores em tons de azul e um fundo em pixel art representando o céu, elementos que remetem diretamente à identidade visual da Cielo.
+
+Na parte superior, foi inserido o título "Cielo: Mestre de Vendas" e, na inferior, o botão "Jogar". Em termos de codificação com o framework Phaser, este botão foi definido como um elemento interativo através do método setInteractive. Para garantir feedback visual ao usuário, foram programados eventos de pointerover e pointerout que alteram a escala do botão (setScale), criando um efeito dinâmico ao passar o mouse. O clique no botão dispara o evento scene.start, responsável pela transição para a cena do jogo.
+
+![foto da tela inicial](image-1.png)
+
+
+Implementação do Cenário (Escritório)
+
+Após a interação com o menu, o jogador é transportado para a cena principal: o Escritório. Nesta etapa, foi entregue a renderização do mapa de tiles (Tilemap) e o posicionamento do personagem principal. A lógica de movimentação básica foi implementada, permitindo que o jogador explore o ambiente, o que valida a base técnica para as futuras mecânicas de venda.
+
+
+Dificuldades Encontradas
+
+Durante esta etapa, a principal dificuldade técnica foi o gerenciamento de escalas dos assets em pixel art. Garantir que as imagens não ficassem borradas ao serem redimensionadas exigiu a configuração correta da propriedade pixelArt: true nas configurações do Phaser e ajustes manuais nas dimensões da câmera. Além disso, a sincronização da transição de cenas exigiu várias reviews do código para garantir que os assets da próxima cena fossem carregados corretamente.
+
+Próximos Passos
+
+Implementação da Mecânica de Vendas: Adicionar NPCs (clientes) e criar o sistema de interação/diálogo.
+HUD e Pontuação: Criar a interface que mostra o saldo e metas de vendas na tela.
+Colisões: Refinar as áreas de colisão do escritório para impedir que o personagem atravesse paredes ou móveis utilizando o sistema de física Arcade do Phaser.
+
+![foto do escritorio com o personagem](image-2.png)
+f
+
+
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
