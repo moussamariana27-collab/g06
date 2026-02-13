@@ -1,13 +1,20 @@
-image: alpine:latest
-
 pages:
   stage: deploy
   script:
-    - mkdir .public
-    - cp -r src/* .public
-    - mv .public public
+    # 1. Cria a pasta public
+    - mkdir public
+    
+    # 2. Copia o index.html da pasta src para a raiz de public
+    - cp src/index.html public/index.html
+    
+    # 3. Copia os scripts da pasta src para a raiz de public
+    - cp src/*.js public/
+    
+    # 4. Copia os assets1 da raiz para dentro de public para que o caminho relativo '../assets1' funcione
+    - cp -r assets1 public/assets1
+    
   artifacts:
     paths:
       - public
   only:
-    - main
+    - main # Ou main, dependendo da sua branch
