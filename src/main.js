@@ -5,10 +5,10 @@ class MainScene extends Phaser.Scene {
 
     preload() {
         // Carregamento de recursos (imagens e spritesheets)
-        this.load.image('mapa', 'assets/mapa.png');
-        this.load.spritesheet('sheetFrente', 'assets/frente.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetCostas', 'assets/costas.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetLado', 'assets/lado.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.image('mapa', '../assets1/mapa.png');
+        this.load.spritesheet('sheetFrente', '../assets1/frente.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetCostas', '../assets1/costas.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetLado', '../assets1/lado.png', { frameWidth: 48, frameHeight: 64 });
     }
 
     create() {
