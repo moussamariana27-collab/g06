@@ -34,6 +34,7 @@ Um jogo de turnos em que o jogador, no caso o gerente de vendas da Cielo deve en
 
 *Inclua o link para o jogo aqui*
 
+Acesse esse link para entrar no jogo [mestre de vendas](https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g06/)
 
 ## 📁 Estrutura de pastas
 
