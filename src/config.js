@@ -1,36 +1,38 @@
 /**
  * Arquivo de configuração principal do jogo.
+ * IMPORTANTE: este arquivo deve ser carregado APÓS todos os
+ * arquivos de cena (telainicial.js, main.js, game.js).
  */
 var config = {
-    // Define o tipo de renderização 
+    // Define o tipo de renderização
     type: Phaser.AUTO,
-    
+
     // Dimensões da tela do jogo em pixels
     width: 800,
     height: 640,
 
-    // Configurações de integração com o HTML e responsividade
-    parent: 'game-container', // Vincula o jogo à <div> específica no HTML
+    // Integração com o HTML
+    parent: 'game-container',
     scale: {
-        mode: Phaser.Scale.FIT, // Ajusta o tamanho do jogo para caber na tela (mantendo proporção)
-        autoCenter: Phaser.Scale.CENTER_BOTH // Centraliza o canvas horizontal e verticalmente
+        mode: Phaser.Scale.FIT,          // Ajusta mantendo proporção
+        autoCenter: Phaser.Scale.CENTER_BOTH // Centraliza na tela
     },
 
-    // Configurações de renderização visual
-    pixelArt: true, // Desativa antialiasing para manter a nitidez do pixel art
+    // Mantém nitidez do pixel art
+    pixelArt: true,
 
-    // Configurações do sistema de física
+    // Sistema de física top-down (sem gravidade)
     physics: {
-        default: 'arcade', // Utiliza o sistema de física leve "Arcade"
+        default: 'arcade',
         arcade: {
-            gravity: { y: 0 }, // Gravidade zero para movimentação top-down (vista de cima)
-            debug: false // Visualização de caixas de colisão 
+            gravity: { y: 0 },
+            debug: false // mude para true para ver hitboxes
         }
     },
 
-    // Lista de cenas do jogo (a primeira da lista é a inicial)
-    scene: [TelaInicial, MainScene]
+    // Lista de cenas — a primeira da lista é carregada automaticamente
+    scene: [TelaInicial, MainScene, GameScene]
 };
 
-// Cria a instância do jogo passando o objeto de configuração
+// Inicia o jogo
 var game = new Phaser.Game(config);
