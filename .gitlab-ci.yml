@@ -1,11 +1,14 @@
-image: alpine:latest
+image: busybox:latest
 
 pages:
   stage: deploy
   script:
     - mkdir -p .public
-    - cp -r src/* .public
+    - cp -r src/ .public/src
+    - cp -r src/* .public/
     - cp index.html .public/
+    - ls -la .public/
+    - ls -la .public/assets/ || echo "Assets folder not found"
     - mv .public public
   artifacts:
     paths:
