@@ -486,6 +486,7 @@ Fonte: Material produzido pelos autores, 2026.
 
 ![diagrama](../src/assets/diagrama.png)
 
+
 Abaixo segue o link para o Diagrama de cenas
 https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=sharing
 
@@ -524,7 +525,9 @@ Como primeiro requisito funcional, foi identificada a necessidade de uma tela de
 Na parte superior, foi inserido o título "Cielo: Mestre de Vendas" e, na inferior, o botão "Jogar". Em termos de codificação com o framework Phaser, este botão foi definido como um elemento interativo através do método setInteractive. Para garantir feedback visual ao usuário, foram programados eventos de pointerover e pointerout que alteram a escala do botão (setScale), criando um efeito dinâmico ao passar o mouse. O clique no botão dispara o evento scene.start, responsável pela transição para a cena do jogo.
 
 ![foto da tela inicial](image-1.png)
+Figura 4.1.1 - tela inicial do jogo
 
+Fonte: Material produzido pelos autores, 2026.
 
 Implementação do Cenário (Escritório)
 
@@ -542,7 +545,9 @@ HUD e Pontuação: Criar a interface que mostra o saldo e metas de vendas na tel
 Colisões: Refinar as áreas de colisão do escritório para impedir que o personagem atravesse paredes ou móveis utilizando o sistema de física Arcade do Phaser.
 
 ![foto do escritorio com o personagem](image-2.png)
-f
+Figura 4.1.2 - concept art do escritório Cielo
+
+Fonte: Material produzido pelos autores, 2026.
 
 
 
@@ -555,10 +560,16 @@ No código, o sistema de física Arcade do framework Phaser foi ativado para hab
 
 ![Figura 3.3.4.1](../src/assets/cidade2.png)
 
+Figura 3.3.4.1 - parte do concept do mapa do jogo
+
+Fonte: Material produzido pelos autores, 2026.
+
 Dificuldades Encontradas O maior desafio técnico enfrentado pela equipe esteve diretamente ligado à curva de aprendizado do Tiled e sua integração com o motor do jogo. O processo de criação do mapa demandou estudo desde os conceitos iniciais da ferramenta até a descoberta das bibliotecas corretas.
 A alta complexidade em manipular múltiplas ferramentas de design e programação simultaneamente motivou a decisão de reduzir o escopo geográfico do jogo nesta sprint. Além disso, a transição entre o mapa exportado e a sua renderização tornou-se um grande obstáculo. Compreender como a arquitetura de dados era alocada no arquivo JSON gerado pelo Tiled e conectar essas referências internas com os assets de imagem carregados no código exigiu muitas revisões para que o cenário fosse reproduzido fielmente e sem falhas de textura.
 
 ![Figura 3.3.4.1](../src/assets/cidade3.png)
+Figura 3.3.4.1 - parte do concept do mapa do jogo
+Fonte: Material produzido pelos autores, 2026.
 
 Próximos Passos (Sprint 3)
 Expansão e Detalhamento do Cenário: Adicionar novos detalhes visuais aos estabelecimentos atuais e planejar a expansão do mapa para incluir novos comércios.
