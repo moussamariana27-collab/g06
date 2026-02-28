@@ -2,16 +2,9 @@ image: alpine:latest
 
 pages:
   stage: deploy
-  before_script:
-    - apk add --no-cache optipng pngquant
   script:
     - mkdir -p .public
-    - |
-      for img in src/assets/*.png; do
-        echo "Otimizando $img"
-        optipng -o2 -strip all "$img" 2>/dev/null || echo "Pulando arquivo problemático: $img"
-      done
-    - cp -r src/* .public/
+    - cp -r src/* .public
     - cp index.html .public/
     - mv .public public
   artifacts:
