@@ -22,18 +22,18 @@ class GameScene extends Phaser.Scene {
     preload() {
 
         // Mapa exportado do Tiled como JSON
-        this.load.tilemapTiledJSON('mapa', '../g06/src/assets/mapinha.json');
+        this.load.tilemapTiledJSON('mapa', 'assets/mapinha.json');
 
         // Tilesets
-        this.load.image('img_chao',       '../g06/src/assets/chao.png');
-        this.load.image('img_padaria',    '../g06/src/assets/padaria.png');
-        this.load.image('img_loja_roupa', '../g06/src/assets/lojinhas.png');
-        this.load.image('img_cielo',      '../g06/src/assets/ct.png');
-        this.load.image('img_asfalto',    '../g06/src/assets/asfalto.png');
+        this.load.image('img_chao',       'assets/chao.png');
+        this.load.image('img_padaria',    'assets/padaria.png');
+        this.load.image('img_loja_roupa', 'assets/lojinhas.png');
+        this.load.image('img_cielo',      'assets/ct.png');
+        this.load.image('img_asfalto',    'assets/asfalto.png');
 
         // Sprite sheet da personagem — cada frame tem 16x32 px
         // frame 0 = direita | frame 1 = cima | frame 2 = esquerda | frame 3 = baixo
-        this.load.spritesheet('mulher', '../g06/src/assets/spritepersonagem1.png', {
+        this.load.spritesheet('mulher', 'assets/spritepersonagem1.png', {
             frameWidth: 16,
             frameHeight: 32
         });
