@@ -5,6 +5,7 @@ pages:
   script:
     - mkdir -p .public
     - cp -r src/* .public
+    - cp index.html .public/
     - mv .public public
   artifacts:
     paths:
