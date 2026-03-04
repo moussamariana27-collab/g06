@@ -1,4 +1,4 @@
-<img src="../assets/logointeli.png">
+<img src="./">
 
 
 # GDD - Game Design Document - Módulo 1 - Inteli
@@ -493,11 +493,17 @@ https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=shari
 
 ## 3.6. Regras do jogo (sprint 3)
 
-*Descreva aqui as regras do seu jogo: objetivos/desafios, meios para se conseguir alcançar*
-
-*Ex. O jogador deve pilotar o carro e conseguir terminar a corrida dentro de um minuto sem bater em nenhum obstáculo.*
-
-*Ex. O jogador deve concluir a fase dentro do tempo, para obter uma estrela. Se além disso ele coletar todas as moedas, ganha mais uma estrela. E se além disso ele coletar os três medalhões espalhados, ganha mais uma estrela, totalizando três. Ao final do jogo, obtendo três estrelas em todas as fases, desbloqueia o mundo secreto.*  
+- O jogador não pode avançar para um estabelecimento sem passar para o tutorial;
+- O jogador não pode avançar para um estabelecimento sem antes cumprir o anterior;
+- O jogador não pode ir para o próximo estabelecimento sem passar pelo espaço Cielo;
+- O jogador deve ir em todos os estabelecimentos;
+- O jogador não pode acessar estabelecimentos sem fazer repique;
+- A cada rodada o jogador deve convencer um comerciante a virar um cliente Cielo;
+- O jogador deve convencer todos os comerciantes da cidade a virarem clientes Cielo;
+- O jogador deve responder a todos os chamados do analista estadual;
+- A cada resposta errada o nível de humor do comerciante da rodada cai;
+- A cada resposta certa o nível de humor do comerciante da rodada sobe;
+- O jogador deve responder conforme o padrão ensinado no onboarding da Cielo.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
