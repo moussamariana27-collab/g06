@@ -233,7 +233,7 @@ Diversidade, responsabilidade social, linguagem simples e acessível, reconhecim
 
 \# | Requisitos funcionais  
 --- | ---
-RF01 |  O jogador deve controlar a movimentação do personagem principal.
+RF01 |  O jogo deve fornecer um sistema para o controle da movimentação do personagem principal para o jogador.
 RF02 |  O jogo deve ser mundo aberto.
 RF03 |  O jogo deve possuir múltiplos estabelecimentos no mapa.
 RF04 |  O jogador deve poder entrar nos estabelecimentos.
@@ -242,23 +242,33 @@ RF06 |  O jogador deve escolher entre diferentes opções durante o turno.
 RF07 |  Cada captura deve simular uma situação real com clientes.
 RF08 |  O turno deve possuir sistema de reputação do vendedor.
 RF09 |  Os personagens dos estabelecimentos devem possuir um sistema de satisfação.
-RF11 |  O jogo deve ter uma tela inicial.
-RF12 |  A tela inicial deve conter um botão de jogar.
-RF13 |  Ao clicar no botão de jogar, o usuário deve ser direcionado para o jogo.
-RF14 |  O jogo deve possuir um tutorial interativo. 
-RF15 |  O jogador deve interagir com o tutorial para avançar.
-RF16 |  O tutorial deve apresentar informações sobre a empresa.
-RF17 |  O tutorial deve apresentar informações sobre os produtos.
+RF10 |  O jogo deve ter uma tela inicial.
+RF11 |  A tela inicial deve conter um botão de jogar.
+RF12 |  Ao clicar no botão de jogar, o usuário deve ser direcionado para a tela de escolha do personagem jogável.
+RF13 |  O jogo deve fornecer mais de um personagem jogável.
+RF14 |  O jogador deve escolher seu personagem jogável dentro da opções disponíveis.
+RF15 |  O jogo deve ter um botão continuar na tela de escolha.
+RF16 |  Ao clicar no botão continuar o jogador deve ser direcionado a tel de tutorial.
+RF17 |  O jogo deve possuir um tutorial interativo. 
+RF18 |  O jogador deve interagir com o tutorial para avançar.
+RF19 |  O tutorial deve apresentar informações sobre a empresa.
+RF20 |  O tutorial deve apresentar informações sobre os produtos.
+RF21 |  O jogo deve aumentar a dificuldade a cada cena vencida pelo jogador.
+RF22 |  O jogo dever dar dicas e revisões conforme o progresso do jogo.
+RF23 |  Cada turno é vencido quando o nível de satisfação atingir o máximo.
+RF24 |  Cada turno é perdido quando o nível de satisfação atingir o mínimo.
+
 
 
 \# | Requisitos não funcionais
 --- | ---
-RNF01 |  O jogo deve possuir um design interativo
-RNF02 |  Deve funcionar em sistemas Windows 10 ou superior.
-RNF03 |  O jogo deve apresentar interface intuitiva e de fácil compreensão.
+RNF01 | O jogo deve possuir um design interativo
+RNF02 | Deve funcionar em sistemas Windows 10 ou superior.
+RNF03 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
 RNF04 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
 RNF05 | O jogo deve apresentar compatibilidade com teclado e mouse.
 RNF06 | O código do sistema deve seguir boas práticas de organização e modularização.
+RNF07 | O jogo deve ser visualmente confortável.
 
 
 

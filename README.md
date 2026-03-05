@@ -1,7 +1,7 @@
 # Inteli - Instituto de Tecnologia e Liderança 
 
 <p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
+<a href= "https://www.inteli.edu.br/"><img src="src/assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
 </p>
 
 <br>
@@ -27,12 +27,13 @@
 - <a href="https://www.linkedin.com/in/pedroteberga?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Pedro Marins Freire Teberga</a> 
 - <a href="https://www.linkedin.com/in/fabiana-martins-de-oliveira-8993b0b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Fabiana Martins de Oliveira</a> 
 - <a href="https://www.linkedin.com/in/geraldo-magela-severino-vasconcelos-22b1b220?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Geraldo Magela Severino Vasconcelos</a> 
+- <a href="https://www.linkedin.com/in/anacristinadossantos/recent-activity/all/">Ana Cristina dos Santos</a>
 
 ## 📜 Descrição
 
 Um jogo de turnos em que o jogador, no caso o gerente de vendas da Cielo deve enfrentar missões que tem como objetivo vender uma maquininha da Cielo 
 
-*Inclua o link para o jogo aqui*
+Inclua o link para o jogo aqui
 
 Acesse esse link para entrar no jogo [mestre de vendas](https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g06/)
 obs: caso haja falha reinicie a página, na troca do escritório da cielo para a cidade pressiona-se SPACE.
@@ -50,24 +51,22 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 ## 🔧 Como executar o código
 
-*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o código e executar o jogo a partir de sua máquina ou seu repositório.*
+Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o código e executar o jogo a partir de sua máquina ou seu repositório.
 
 
 ## 🗃 Histórico de lançamentos
 
-* 0.5.0 - 13/02/2026
+* 0.5.0 - xx/xx/2026
     * 
-* 0.4.0 - XX/XX/2026
+* 0.4.0 - xx/xx/2026
     * 
 * 0.3.0 - XX/XX/2026
     * 
-* 0.2.0 - XX/XX/2026
+* 0.2.0 - 28/02/2026
     * 
-* 0.1.0 - XX/XX/2026
+* 0.1.0 - 13/02/2026
     *
 
 ## 📋 Licença/License
 
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Intelihub/Template_M1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/Intelihub/Template_M1">Inteli, Nome do integrante 1, Nome do integrante 2, Nome do integrante 3, Nome do integrante 4, Nome do integrante 5, Nome do integrante 6, Nome do integrante 7</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
-
-
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Intelihub/Template_M1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/Intelihub/Template_M1">Inteli, Ana Julia Bertola de Campos ,Cauan da Rocha Martins ,Fabianne Jesus Silva Leite ,Fernando Alves Carmo Filho , João Paulo Barreto Ferreira Andrade Rodrigues de Paula, Haila Thauane Falcão Novaes ,Luís Felipe Campagnaro Copolillo, Mariana Pires de Carvalho Moussa </a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
