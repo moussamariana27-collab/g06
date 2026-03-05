@@ -319,8 +319,17 @@ A principal inspiração visual e de navegação para o projeto é a franquia cl
 
 ## 3.1. Enredo do Jogo (sprints 2 e 3)
 
-O enredo acompanha o primeiro dia de um recém-contratado Gerente de Negócios (GN) da Cielo. A história se inicia na agência/sede da empresa, onde o protagonista é recebido para o seu processo de onboarding. Nesta fase de contexto (tutorial), o jogador passa por um treinamento que o capacita sobre o portfólio de produtos (maquininhas, taxas, benefícios) e as principais técnicas de abordagem de vendas.
-O conflito se estabelece quando o GN é enviado para o trabalho de campo ("porta a porta") com uma meta desafiadora de credenciamentos a cumprir. Ao explorar o mapa da cidade e entrar nos comércios locais, o jogador enfrenta "batalhas argumentativas" com os lojistas, que apresentam diferentes perfis e objeções (ex: taxas altas da concorrência, medo de trocar de máquina, etc.). A resolução narrativa ocorre à medida que o jogador aplica com sucesso o que aprendeu, convertendo objeções em vendas, batendo sua meta e se consolidando como um GN de alto desempenho.
+O enredo acompanha o primeiro dia de trabalho de uma pessoa recém-contratada para o cargo de Gerente de Negócios (GN) da Cielo. A narrativa inicia-se no Espaço Cielo, onde a personagem protagonista é recebida para o processo de onboarding. Nessa etapa inicial de contextualização, equivalente ao tutorial, a pessoa jogadora participa de um treinamento introdutório voltado à compreensão do portfólio de produtos da empresa, incluindo maquininhas de pagamento, taxas e benefícios oferecidos, além das principais técnicas de abordagem em vendas.
+
+
+O conflito narrativo estabelece-se quando a pessoa GN é direcionada ao trabalho de campo, caracterizado pela estratégia de prospecção “porta a porta”, com o objetivo de cumprir uma meta desafiadora de credenciamentos. O jogo tem início com a visita da pessoa GN a uma padaria, na qual deve persuadir a pessoa proprietária a tornar-se cliente da Cielo. Em seguida, a pessoa jogadora deve prosseguir para o próximo estabelecimento da lista.
+
+
+Entre as possibilidades de interação, pode ocorrer a situação denominada repique, na qual a pessoa GN retorna a um estabelecimento já visitado para acompanhar a pessoa cliente e fortalecer o relacionamento comercial com a empresa. Cada estabelecimento visitado apresenta um novo aprendizado ou introduz uma nova terminologia relacionada às práticas comerciais da organização.
+
+
+Nesses momentos de aprendizado, a pessoa GN retorna ao Espaço Cielo para realizar etapas adicionais de capacitação. Após concluir o aprimoramento necessário, a personagem retorna ao campo para dar continuidade às próximas etapas do jogo. O progresso da narrativa ocorre à medida que os estabelecimentos da lista tornam-se clientes da Cielo. Ao final desse processo, quando todos os credenciamentos são realizados, o jogo é concluído e a pessoa GN finaliza o treinamento proposto.
+
 
 
 ## 3.2. Personagens (sprints 2 e 3)
