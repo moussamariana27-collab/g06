@@ -6,8 +6,8 @@ class TelaInicial extends Phaser.Scene {
 
     preload() {
         // Carregamento dos recursos visuais da tela inicial
-        this.load.image('fundo', 'src/assets/fundo.png');
-        this.load.image('button', 'src/assets/button.png');
+        this.load.image('fundo', 'assets/fundo.png');
+        this.load.image('button', 'assets/button.png');
     }
 
     create() {

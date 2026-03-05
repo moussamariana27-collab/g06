@@ -4,7 +4,7 @@ class Farmacia extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bgFarmacia', 'src/assets/farmacia_interior.png');
+        this.load.image('bgFarmacia', 'assets/farmacia_interior.png');
     }
 
     create() {

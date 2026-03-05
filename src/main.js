@@ -8,13 +8,13 @@ class MainScene extends Phaser.Scene {
 
     preload() {
         // Mapa Tiled
-        this.load.tilemapTiledJSON('mapa', 'src/assets/escritorio.json');
-        this.load.image('escritorio', 'src/assets/escritorio_tileset.png');
+        this.load.tilemapTiledJSON('mapa', 'assets/escritorio.json');
+        this.load.image('escritorio', 'assets/escritorio_tileset.png');
 
         // Sprites do personagem
-        this.load.spritesheet('sheetFrente', 'src/assets/frente.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetCostas', 'src/assets/costas.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetLado',   'src/assets/lado.png',   { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetFrente', 'assets/frente.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetCostas', 'assets/costas.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetLado',   'assets/lado.png',   { frameWidth: 48, frameHeight: 64 });
     }
 
     create() {

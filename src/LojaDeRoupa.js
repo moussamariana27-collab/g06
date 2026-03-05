@@ -4,7 +4,7 @@ class LojaDeRoupa extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bgLojaDeRoupa', 'src/assets/lojaderoupa_interior.png');
+        this.load.image('bgLojaDeRoupa', 'assets/lojaderoupa_interior.png');
     }
 
     create() {

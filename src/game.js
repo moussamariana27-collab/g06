@@ -7,12 +7,12 @@ class CidadeScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.tilemapTiledJSON('mapaCidade', 'src/assets/cidade_cielo.json');
-        this.load.image('cidade', 'src/assets/cidade_tileset.png');
+        this.load.tilemapTiledJSON('mapaCidade', 'assets/cidade_cielo.json');
+        this.load.image('cidade', 'assets/cidade_tileset.png');
 
-        this.load.spritesheet('sheetFrente', 'src/assets/frente.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetCostas', 'src/assets/costas.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetLado',   'src/assets/lado.png',   { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetFrente', 'assets/frente.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetCostas', 'assets/costas.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetLado',   'assets/lado.png',   { frameWidth: 48, frameHeight: 64 });
     }
 
     create() {

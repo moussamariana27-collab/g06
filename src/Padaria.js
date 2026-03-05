@@ -4,7 +4,7 @@ class Padaria extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bgPadaria', 'src/assets/padaria_interior.png');
+        this.load.image('bgPadaria', 'assets/padaria_interior.png');
     }
 
     create() {

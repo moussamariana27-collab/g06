@@ -4,7 +4,7 @@ class SalaoDeBeleza extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('bgSalaoDeBeleza', 'src/assets/salaodebeleza_interior.png');
+        this.load.image('bgSalaoDeBeleza', 'assets/salaodebeleza_interior.png');
     }
 
     create() {
