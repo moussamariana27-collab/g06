@@ -1,5 +1,5 @@
 // ============================================================
-// CENA 1: MAIN SCENE (Fase com WASD e mapa simples)
+// CENA 1: MAIN SCENE (Escritório com Tiled, setas e colisões)
 // ============================================================
 class MainScene extends Phaser.Scene {
     constructor() {
@@ -7,38 +7,42 @@ class MainScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('mapa', 'assets/mapa.png');
-        this.load.spritesheet('sheetFrente', 'assets/frente.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetCostas', 'assets/costas.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetLado',   'assets/lado.png',   { frameWidth: 48, frameHeight: 64 });
+        // Mapa Tiled
+        this.load.tilemapTiledJSON('mapa', 'src/assets/escritorio.json');
+        this.load.image('escritorio', 'src/assets/escritorio_tileset.png');
+
+        // Sprites do personagem
+        this.load.spritesheet('sheetFrente', 'src/assets/frente.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetCostas', 'src/assets/costas.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetLado',   'src/assets/lado.png',   { frameWidth: 48, frameHeight: 64 });
     }
 
     create() {
-        // Mapa
-        let mapa = this.add.image(0, 0, 'mapa').setOrigin(0, 0);
-        this.physics.world.setBounds(0, 0, mapa.width, mapa.height);
-        this.cameras.main.setBounds(0, 0, mapa.width, mapa.height);
+        // ---- MAPA ----
+        const map = this.make.tilemap({ key: 'mapa' });
+        const tiles = map.addTilesetImage('escritorio', 'escritorio');
+        map.createLayer('Fundo', tiles, 0, 0);
 
-        // Personagem
-        this.personagem = this.physics.add.sprite(100, 200, 'sheetFrente').setScale(4.7);
+        const mapaWidth  = map.widthInPixels;
+        const mapaHeight = map.heightInPixels;
+
+        this.physics.world.setBounds(0, 0, mapaWidth, mapaHeight);
+        this.cameras.main.setBounds(0, 0, mapaWidth, mapaHeight);
+
+        // ---- PERSONAGEM ----
+        this.personagem = this.physics.add.sprite(100, 200, 'sheetFrente').setScale(3);
         this.personagem.setCollideWorldBounds(true);
-        this.personagem.body.setSize(20, 30);
-        this.personagem.body.setOffset(6, 30);
+        this.personagem.body.setSize(20, 20);
+        this.personagem.body.setOffset(17, 40);
 
-        // Câmera
+        // ---- CÂMERA ----
         this.cameras.main.startFollow(this.personagem);
         this.cameras.main.setZoom(1.0);
 
-        // Controles WASD
-        this.cursor = this.input.keyboard.addKeys({
-            'up':    Phaser.Input.Keyboard.KeyCodes.W,
-            'down':  Phaser.Input.Keyboard.KeyCodes.S,
-            'left':  Phaser.Input.Keyboard.KeyCodes.A,
-            'right': Phaser.Input.Keyboard.KeyCodes.D
-        });
+        // ---- CONTROLES (teclas de seta) ----
+        this.cursor = this.input.keyboard.createCursorKeys();
 
-        // Animações
-        // DICA: se seus sprites tiverem apenas 1 frame, mude end: 1 para end: 0
+        // ---- ANIMAÇÕES ----
         this.anims.create({
             key: 'andarFrente',
             frames: this.anims.generateFrameNumbers('sheetFrente', { start: 0, end: 0 }),
@@ -58,20 +62,50 @@ class MainScene extends Phaser.Scene {
             repeat: -1
         });
 
-        // Transição para a próxima cena com ESPAÇO
-        this.input.keyboard.once('keydown-SPACE', () => {
-            this.scene.start('gameScene');
-        });
+        // ---- COLISÕES ----
+        const grupoColisoes = this.physics.add.staticGroup();
+
+        map.getObjectLayer('colisoes').objects
+            .filter(obj => obj.width > 0 && obj.height > 0)
+            .forEach(obj => {
+                const bloco = this.add.rectangle(
+                    obj.x + obj.width  / 2,
+                    obj.y + obj.height / 2,
+                    obj.width,
+                    obj.height
+                );
+                this.physics.add.existing(bloco, true); // true = estático
+                grupoColisoes.add(bloco);
+            });
+
+        this.physics.add.collider(this.personagem, grupoColisoes);
+        this.physics.world.createDebugGraphic();
+        // ---- PORTA → CIDADE ----
+        map.getObjectLayer('porta').objects
+            .filter(obj => obj.width > 0 && obj.height > 0)
+            .forEach(obj => {
+                const zona = this.add.zone(
+                    obj.x + obj.width  / 2,
+                    obj.y + obj.height / 2,
+                    obj.width,
+                    obj.height
+                );
+                this.physics.world.enable(zona);
+                zona.body.setAllowGravity(false);
+                zona.body.moves = false;
+
+                this.physics.add.overlap(this.personagem, zona, () => {
+                    this.scene.start(obj.type); // obj.type = "Cidade"
+                });
+            });
     }
 
     update() {
-        // Zera velocidade todo frame
         this.personagem.setVelocity(0);
 
         const vel = 200;
         let isMoving = false;
 
-        // Prioridade: horizontal > vertical (evita conflito de animação)
         if (this.cursor.left.isDown) {
             this.personagem.setVelocityX(-vel);
             this.personagem.setFlipX(true);
@@ -95,7 +129,6 @@ class MainScene extends Phaser.Scene {
             isMoving = true;
         }
 
-        // Para a animação quando parado
         if (!isMoving) {
             this.personagem.anims.stop();
         }

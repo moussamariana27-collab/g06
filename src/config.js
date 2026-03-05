@@ -31,7 +31,7 @@ var config = {
     },
 
     // Lista de cenas — a primeira da lista é carregada automaticamente
-    scene: [TelaInicial, MainScene, GameScene]
+    scene: [TelaInicial, MainScene, CidadeScene, Farmacia, LojaDeRoupa, Padaria, SalaoDeBeleza]
 };
 
 // Inicia o jogo
