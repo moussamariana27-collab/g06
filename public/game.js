@@ -35,7 +35,7 @@ class CidadeScene extends Phaser.Scene {
         const spawnY     = spawnObj.y + spawnObj.height / 2;
 
         // ---- PERSONAGEM ----
-        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetFrente').setScale(2);
+        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetFrente').setScale(1);
         this.personagem.setCollideWorldBounds(true);
         this.personagem.body.setSize(22, 20);
         this.personagem.body.setOffset(17, 40);
