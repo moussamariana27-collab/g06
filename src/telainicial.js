@@ -1,51 +1,32 @@
 class TelaInicial extends Phaser.Scene {
     constructor() {
-        // Define a chave de identificação da cena (usada para troca de cenas)
         super({ key: 'telaInicial' });
     }
 
     preload() {
-        // Carregamento dos recursos visuais da tela inicial
-        this.load.image('fundo', 'assets/fundo.png');
-        this.load.image('button', 'assets/button.png');
+        this.load.image('fundo', 'assets/telainicial.jpeg');
+        this.load.image('button', 'assets/btnJogar.png');
+        this.load.image('nome', 'assets/nomeTela.png');
     }
 
     create() {
-        //  Configuração do Cenário 
-        this.add.image(400, 320, 'fundo'); 
-        
-        //  Criação do Botão de Iniciar 
-        let btnIniciar = this.add.image(400, 525, 'button').setScale(0.5);
-        
-        // Habilita a interatividade do botão
+        let centroX = this.cameras.main.width / 2;
+        let centroY = this.cameras.main.height / 2;
+
+        this.add.image(centroX, centroY, 'fundo');
+        this.add.image(centroX, centroY - 100, 'nome').setScale(3);
+
+        let btnIniciar = this.add.image(centroX, centroY + 150, 'button').setScale(1.3);
         btnIniciar.setInteractive({ cursor: 'pointer' });
 
-        //  Eventos de Mouse do Botão 
-
-        // Quando o mouse passa por cima aumenta levemente o botão
-        btnIniciar.on('pointerover', () => {
-            btnIniciar.setScale(0.6); 
-        });
-
-        // Quando o mouse sai de cima: volta ao tamanho original
-        btnIniciar.on('pointerout', () => {
-            btnIniciar.setScale(0.5);
-        });
-
-        // Quando o botão é pressionado diminui para dar efeito de clique
-        btnIniciar.on('pointerdown', () => {
-            btnIniciar.setScale(0.45); 
-        });
-
-        // Quando o clique é solto restaura tamanho e inicia o jogo
-        btnIniciar.on('pointerup', () => {
-            btnIniciar.setScale(0.5); 
-            // Troca para a cena principal do jogo (MainScene)
-            this.scene.start('mainScene'); 
+        btnIniciar.on('pointerover',  () => btnIniciar.setScale(1.5));
+        btnIniciar.on('pointerout',   () => btnIniciar.setScale(1.3));
+        btnIniciar.on('pointerdown',  () => btnIniciar.setScale(1.0));
+        btnIniciar.on('pointerup',    () => {
+            btnIniciar.setScale(1.3);
+            this.scene.start('CharacterSelectScene');
         });
     }
 
-    update() {
-        // Loop de atualização (vazio pois a tela inicial é estática)
-    }
+    update() {}
 }

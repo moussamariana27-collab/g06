@@ -10,9 +10,9 @@ class CidadeScene extends Phaser.Scene {
         this.load.tilemapTiledJSON('mapaCidade', 'assets/cidade_cielo.json');
         this.load.image('cidade', 'assets/cidade_tileset.png');
 
-        this.load.spritesheet('sheetFrente', 'assets/frente.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetCostas', 'assets/costas.png', { frameWidth: 48, frameHeight: 64 });
-        this.load.spritesheet('sheetLado',   'assets/lado.png',   { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetFrente', 'assets/spritepersonagem1.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetCostas', 'assets/spritepersonagem1.png', { frameWidth: 48, frameHeight: 64 });
+        this.load.spritesheet('sheetLado',   'assets/spritepersonagem1.png',   { frameWidth: 48, frameHeight: 64 });
     }
 
     create() {
@@ -35,14 +35,14 @@ class CidadeScene extends Phaser.Scene {
         const spawnY     = spawnObj.y + spawnObj.height / 2;
 
         // ---- PERSONAGEM ----
-        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetFrente').setScale(2);
+        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetFrente').setScale(1);
         this.personagem.setCollideWorldBounds(true);
         this.personagem.body.setSize(22, 20);
         this.personagem.body.setOffset(17, 40);
 
         // ---- CÂMERA ----
         this.cameras.main.startFollow(this.personagem);
-        this.cameras.main.setZoom(1.0);
+        this.cameras.main.setZoom(2.5);
 
         // ---- CONTROLES (setas) ----
         this.cursor = this.input.keyboard.createCursorKeys();
@@ -88,7 +88,7 @@ class CidadeScene extends Phaser.Scene {
         // ---- ZONAS DE TRANSIÇÃO ----
         // Cenas disponíveis: mainScene, LojaDeRoupa, Farmacia, Padaria, Posto, SalaoDeBeleza
         // Hotel: sem cena ainda — exibe mensagem temporária
-        const cemasDisponiveis = ['mainScene', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
+        const cemasDisponiveis = ['MainScene', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
 
         map.getObjectLayer('zonas').objects
             .filter(obj => obj.width > 0 && obj.height > 0 && obj.type !== '')

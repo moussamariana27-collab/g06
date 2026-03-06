@@ -8,20 +8,29 @@
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
     <script>
     window.addEventListener('load', () => {
-    console.log('Phaser carregado?', typeof Phaser !== 'undefined');
-    console.log('TelaInicial:', typeof TelaInicial);
-    console.log('MainScene:', typeof MainScene);
-    console.log('CidadeScene:', typeof CidadeScene);
-    console.log('Farmacia:', typeof Farmacia);
-    console.log('LojaDeRoupa:', typeof LojaDeRoupa);
-    console.log('Padaria:', typeof Padaria);
-    console.log('SalaoDeBeleza:', typeof SalaoDeBeleza);
+        console.log('Phaser carregado?', typeof Phaser !== 'undefined');
+        console.log('TelaInicial:', typeof TelaInicial);
+        console.log('CharacterSelectScene:', typeof CharacterSelectScene);
+        console.log('CharacterInfoScene:', typeof CharacterInfoScene);
+        console.log('CharacterInfoScene2:', typeof CharacterInfoScene2);
+        console.log('CharacterInfoScene3:', typeof CharacterInfoScene3);
+        console.log('CharacterInfoScene4:', typeof CharacterInfoScene4);
+        console.log('CidadeScene:', typeof CidadeScene);
+        console.log('Farmacia:', typeof Farmacia);
+        console.log('LojaDeRoupa:', typeof LojaDeRoupa);
+        console.log('Padaria:', typeof Padaria);
+        console.log('SalaoDeBeleza:', typeof SalaoDeBeleza);
     });
     </script>
     <style>
-        
         /* Estilos globais da página */
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
             margin: 0;
             padding: 0;
             background-color: #000000; /* Fundo escuro */
@@ -33,9 +42,18 @@
             overflow: hidden; /* Evita que a tela crie barras de rolagem */
         }
 
+        #game-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         /* Estilo aplicado diretamente à tela do jogo */
         canvas {
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.15); /* Efeito de sombra leve */
+            display: block;
         }
     </style>
 </head>
@@ -43,13 +61,25 @@
 
     <div id="game-container"></div>
 
-<script src="telainicial.js"></script>
-<script src="main.js"></script>
-<script src="game.js"></script>
-<script src="Farmacia.js"></script>
-<script src="LojaDeRoupa.js"></script>
-<script src="Padaria.js"></script>
-<script src="SalaoDeBeleza.js"></script>
-<script src="config.js"></script>
+    <!-- Tela Inicial -->
+    <script src="src/telainicial.js"></script>
+
+    <!-- Seleção e Info de Personagens -->
+    <script src="src/personagens.js"></script>
+    <script src="src/infopersonagens.js"></script>
+
+    <!-- Cenas de Jogo -->
+    <script src="src/main.js"></script>
+    <script src="src/game.js"></script>
+
+    <!-- Cenas Internas das Lojas -->
+    <script src="src/Farmacia.js"></script>
+    <script src="src/LojaDeRoupa.js"></script>
+    <script src="src/Padaria.js"></script>
+    <script src="src/SalaoDeBeleza.js"></script>
+
+    <!-- Config — deve ser o último script carregado -->
+    <script src="src/config.js"></script>
+
 </body>
 </html>
