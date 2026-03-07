@@ -6,10 +6,10 @@ class CharacterSelectScene extends Phaser.Scene {
 
     preload() {
         this.load.image('botao', 'assets/btnJogar.png');
-        this.load.image('JOSÉ', 'assets/jose.png');
+        this.load.image('JOSÉ', 'assets/jose1.png');
         this.load.image('PAULA', 'assets/paula2.png');
         this.load.image('MARIA', 'assets/maria2.png');
-        this.load.image('JOÃO', 'assets/joao.png');
+        this.load.image('JOÃO', 'assets/joao1.png');
         this.load.image('fundo2', 'assets/fundo2.png');
     }
 
@@ -29,13 +29,6 @@ class CharacterSelectScene extends Phaser.Scene {
             fill: "#000000",
             align: "center",
             wordWrap: { width: 900 }
-        }).setOrigin(0.5);
-
-        this.selectedCharacter = null;
-
-        this.confirmText = this.add.text(centerX, 500, "", {
-            fontSize: "40px",
-            fill: "#000000"
         }).setOrigin(0.5);
 
         let personagens = ['JOSÉ', 'PAULA', 'MARIA', 'JOÃO'];
@@ -63,10 +56,9 @@ class CharacterSelectScene extends Phaser.Scene {
         character.setInteractive({ cursor: 'pointer' });
 
         character.on('pointerdown', () => {
-            if (key === 'JOSÉ')  this.scene.start("CharacterInfoScene",  { character: key });
-            if (key === 'MARIA') this.scene.start("CharacterInfoScene2", { character: key });
-            if (key === 'JOÃO')  this.scene.start("CharacterInfoScene3", { character: key });
-            if (key === 'PAULA') this.scene.start("CharacterInfoScene4", { character: key });
+            // Todos os personagens vão para a mesma cena,
+            // passando o nome do personagem como parâmetro
+            this.scene.start('CharacterInfoScene', { character: key });
         });
     }
 }

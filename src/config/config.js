@@ -1,13 +1,12 @@
 var config = {
     type: Phaser.AUTO,
 
-    // Usa as dimensões reais da janela do navegador
     width: window.innerWidth,
     height: window.innerHeight,
 
     parent: 'game-container',
     scale: {
-        mode: Phaser.Scale.RESIZE,        // Redimensiona dinamicamente com a janela
+        mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
 
@@ -24,10 +23,7 @@ var config = {
     scene: [
         TelaInicial,
         CharacterSelectScene,
-        CharacterInfoScene,
-        CharacterInfoScene2,
-        CharacterInfoScene3,
-        CharacterInfoScene4,
+        CharacterInfoScene,   // ← agora é só uma, serve pra todos os personagens
         MainScene,
         CidadeScene,
         Farmacia,
