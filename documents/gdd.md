@@ -229,46 +229,45 @@ Diversidade, responsabilidade social, linguagem simples e acessível, reconhecim
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
-
+Nesta seção, iremos apresentar os requisitos funcionais e não funcionais que fazem parte da estruturação do jogo "Mestre de vendas". Requisitos funcionais referem-se aos comportamentos que o sistema deve executar para garantir suporte às necessidades do usuário, como por exemplo, a possibilidade de movimentação do personagem com o uso de teclas específicas. Por outro lado, os requisitos não funcionais descrevem como o sistema deve agir para efetivamente funcionar e oferecer uma boa experiência ao usuário. Por exemplo: O sistema deve funcionar em navegadores.
 
 \# | Requisitos funcionais  
 --- | ---
-RF01 |  O jogo deve fornecer um sistema para o controle da movimentação do personagem principal para o jogador.
-RF02 |  O jogo deve ser mundo aberto.
-RF03 |  O jogo deve possuir múltiplos estabelecimentos no mapa.
-RF04 |  O jogador deve poder entrar nos estabelecimentos.
-RF05 |  O jogo deve possuir sistema de captura em turnos.
-RF06 |  O jogador deve escolher entre diferentes opções durante o turno.
-RF07 |  Cada captura deve simular uma situação real com clientes.
-RF08 |  O turno deve possuir sistema de reputação do vendedor.
-RF09 |  Os personagens dos estabelecimentos devem possuir um sistema de satisfação.
-RF10 |  O jogo deve ter uma tela inicial.
-RF11 |  A tela inicial deve conter um botão de jogar.
-RF12 |  Ao clicar no botão de jogar, o usuário deve ser direcionado para a tela de escolha do personagem jogável.
-RF13 |  O jogo deve fornecer mais de um personagem jogável.
-RF14 |  O jogador deve escolher seu personagem jogável dentro da opções disponíveis.
-RF15 |  O jogo deve ter um botão continuar na tela de escolha.
-RF16 |  Ao clicar no botão continuar o jogador deve ser direcionado a tel de tutorial.
-RF17 |  O jogo deve possuir um tutorial interativo. 
-RF18 |  O jogador deve interagir com o tutorial para avançar.
-RF19 |  O tutorial deve apresentar informações sobre a empresa.
-RF20 |  O tutorial deve apresentar informações sobre os produtos.
-RF21 |  O jogo deve aumentar a dificuldade a cada cena vencida pelo jogador.
-RF22 |  O jogo dever dar dicas e revisões conforme o progresso do jogo.
-RF23 |  Cada turno é vencido quando o nível de satisfação atingir o máximo.
-RF24 |  Cada turno é perdido quando o nível de satisfação atingir o mínimo.
-
-
+RF01 | O jogo deve ter uma tela inicial.
+RF02 | A tela inicial deve conter um botão de jogar.
+RF03 | Ao clicar no botão de jogar, o usuário deve ser direcionado para a tela de escolha do personagem jogável.
+RF04 | O jogo deve fornecer mais de um personagem jogável.
+RF05 | O jogador deve escolher seu personagem jogável dentro das opções disponíveis.
+RF06 | O jogo deve ter um botão continuar na tela de escolha.
+RF07 | Ao clicar no botão continuar o jogador deve ser direcionado à tela de tutorial.
+RF08 | O jogo deve possuir um tutorial interativo.
+RF09 | O jogador deve interagir com o tutorial para avançar.
+RF10 | O tutorial deve apresentar informações sobre a empresa.
+RF11 | O tutorial deve apresentar informações sobre os produtos.
+RF12 | O jogo deve fornecer um sistema para o controle da movimentação do personagem principal para o jogador.
+RF13 | O jogo deve ser mundo aberto.
+RF14 | O jogo deve possuir múltiplos estabelecimentos no mapa.
+RF15 | O jogador deve poder entrar nos estabelecimentos.
+RF16 | O jogo deve possuir sistema de captura em turnos.
+RF17 | O jogador deve escolher entre diferentes opções durante o turno.
+RF18 | Cada captura deve simular uma situação real com clientes.
+RF19 | Os personagens dos estabelecimentos devem possuir um sistema de satisfação.
+RF20 | O turno deve possuir sistema de reputação do vendedor.
+RF21 | Os sistemas de satisfação e reputação devem diminuir a cada resposta errada.
+RF22 | Os sistemas de satisfação e reputação devem aumentar a cada resposta correta.
+RF23 | Cada turno é vencido quando o nível de satisfação atingir o máximo.
+RF24 | Cada turno é perdido quando o nível de satisfação atingir o mínimo.
+RF25 | O jogo deve aumentar a dificuldade a cada cena vencida pelo jogador.
+RF26 | O jogo deve dar dicas e revisões conforme o progresso do jogo.
 
 \# | Requisitos não funcionais
 --- | ---
 RNF01 | O jogo deve possuir um design interativo
-RNF02 | Deve funcionar em sistemas Windows 10 ou superior.
-RNF03 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
-RNF04 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
-RNF05 | O jogo deve apresentar compatibilidade com teclado e mouse.
-RNF06 | O código do sistema deve seguir boas práticas de organização e modularização.
-RNF07 | O jogo deve ser visualmente confortável.
+RNF02 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
+RNF03 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
+RNF04 | O jogo deve apresentar compatibilidade com teclado e mouse.
+RNF05 | O código do sistema deve seguir boas práticas de organização e modularização.
+RNF06 | O jogo deve ser visualmente confortável.
 
 
 
@@ -283,7 +282,7 @@ Além disso, o treinamento deve ser direcionado especialmente para a capacitaç�
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-Para concluir o jogo, o jogador deve atingir a meta de captação de potenciais clientes da Cielo. No contexto da narrativa, o jogador assumirá o papel de Gerente de Negócios (GN), profissional responsável pela prospecção e negociação porta a porta junto a estabelecimentos comerciais.
+O objetivo do jogo é atingir a meta de captação de potenciais clientes da Cielo. No contexto da narrativa, o jogador assumirá o papel de Gerente de Negócios (GN), profissional responsável pela prospecção e negociação porta a porta junto a estabelecimentos comerciais.
 A missão consiste em visitar diferentes tipos de empreendimentos, como padarias, postos de gasolina, restaurantes, entre outros, com o objetivo de apresentar os benefícios das soluções de pagamento oferecidas pela empresa e persuadir os proprietários ou responsáveis comerciais a adotarem a maquininha da Cielo. Cada estabelecimento será um desafio para o jogador.
 Durante as interações, os personagens que representam os comerciantes apresentarão objeções comuns ao processo de venda, tais como a alegação de que concorrentes oferecem taxas mais baixas ou a preferência por marcas já conhecidas e consolidadas. Nesse cenário, caberá ao jogador analisar cada situação e selecionar os argumentos mais adequados para contornar as objeções apresentadas, demonstrando conhecimento técnico, capacidade de negociação e domínio das vantagens competitivas da empresa.
 O objetivo final é ampliar a base de clientes da Cielo dentro do ambiente do jogo,  deixando o mundo azul. 
