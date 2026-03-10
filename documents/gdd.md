@@ -1,9 +1,7 @@
-<img src="/src/assets/inteli.png">
+<img src="/assets/inteli.png">
 
 
 # GDD - Game Design Document - Módulo 1 - Inteli
-
-**_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final_**
 
 ## Nome do Grupo
 
@@ -337,7 +335,7 @@ Nesses momentos de aprendizado, a pessoa GN retorna ao Espaço Cielo para realiz
 
 O jogo possui quatro personagens controláveis, sendo dois homens e duas mulheres, que podem ser escolhidos no início da partida. Os homens são João (um homem negro) e José (um homem branco), e as mulheres são Maria (uma mulher parda) e Paula (uma mulher branca). Esses personagens representam os Gerentes de Negócios da Cielo e têm como objetivo conquistar determinados vendedores e transformá-los em clientes da empresa. Eles não possuem habilidades específicas, ou seja, a escolha do personagem não altera a experiência do usuário.
 
-![joão](../src/assets/joao.jpg)
+![joão](/assets/joao.png)
 
 Figura 3.2.1.1 - Sprite do João
 
@@ -345,7 +343,7 @@ Figura 3.2.1.1 - Sprite do João
 
 Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
 
-![José](../src/assets/jose.jpg)
+![José](/assets/jose.png)
 
 Figura 3.2.1.2 - Sprite do José
 
@@ -356,13 +354,13 @@ Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
 
 
 
-![Maria](../src/assets/Maria.png)
+![Maria](/assets/Maria.png)
 
 Figura 3.2.1.3 - Sprite da Maria
 
 Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
 
-![Maria](../src/assets/paula.png)
+![Maria](/assets/paula.png)
 
 Figura 3.2.1.4 - Sprite da Paula
 
@@ -374,30 +372,30 @@ O jogo conta com os chamados Non-Playable Characters, que são, de forma literal
 O processo de criação dos NPCs ocorreu em duas etapas principais: primeiro, o desenho feito à mão, detalhando características específicas alinhadas aos valores da equipe; em seguida, o aprimoramento com o apoio de ferramentas de inteligência artificial, a fim de garantir melhor visualização e refinamento dos personagens.
 Para a próxima sprint, o objetivo é realizar o desenho manual das sprites desses personagens, que serão utilizadas no desenvolvimento das animações e farão parte da dinâmica do jogo.
 
-![joão](../src/assets/padeiro.jpg)
+![joão](/assets/padeiro.jpg)
 Figura 3.2.2.1 - Esboço e digitalização do Tião, o dono da padaria.
 
 Fonte: Material produzido pelos autores, 2026.
 
-![pedro](../src/assets/homem.jpg)
+![pedro](/assets/homem.jpg)
 
 Figura 3.2.2.2 - Esboço e digitalização do Pedro, o dono da loja de roupas.
 
 Fonte: Material produzido pelos autores, 2026.
 
-![marcia](../src/assets/mulher.jpg)
+![marcia](/assets/mulher.jpg)
 
 Figura 3.2.2.3 - Esboço e digitalização da Márcia, a dona de farmácia.
 
 Fonte: Material produzido pelos autores, 2026.
 
-![Leila](../src/assets/cabeleleira.jpg)
+![Leila](/assets/cabeleleira.jpg)
 
 Figura 3.2.2.4 - Esboço e digitalização da Leila, a dona de salão de beleza.
 
 Fonte: Material produzido pelos autores, 2026.
 
-![estadual](../src/assets/estadual.png)
+![estadual](/assets/estadual.png)
 
 Figura 3.2.2.5 - Digitalização do estadual (Mestre de vendaa Cielo)
 
@@ -443,20 +441,20 @@ Interação (Batalha): Ao se aproximar do balcão e interagir com o NPC (lojista
 
 Abaixo estão os estudos iniciais de level design e a identidade visual do jogo em pixel art.
 
-![Figura 3.3.4.1](../src/assets/cidade1.png)
+![Figura 3.3.4.1](/assets/cidade_tileset.png)
 
 Figura 3.3.4.1 - Estudo de interface visual e estilo de arte (Pixel Art). A imagem ilustra a visão top-down, o sprite do personagem principal (Gerente de Negócios) e a fachada de estabelecimentos comuns (Padaria e Farmácia).
 
 Fonte: Material produzido pelos autores, 2026.
 
-![Figura 3.3.4.2](../src/assets/concept1.png)
+![Figura 3.3.4.2](/assets/concept1.png)
 
 Figura 3.3.4.2 - Esboço preliminar (Side-scroller) ilustrando a escala dos edifícios. Destaque para o escritório da Cielo como ponto de partida (nascimento do sprite) e os estabelecimentos vizinhos que servirão como as primeiras missões.
 
 
 Fonte: Material produzido pelos autores, 2026.
 
-![Figura 3.3.4.3](../src/assets/concept2.png)
+![Figura 3.3.4.3](/assets/concept2.png)
 
 Figura 3.3.4.3 - Esboço do Mapa Geral (Top-down). Demonstra a centralidade do prédio da Cielo no level design, facilitando o acesso radial aos diferentes perfis de clientes ao redor (Shopping Center, Hotel, Salão, Farmácia e Padaria).
 
@@ -502,7 +500,7 @@ Fonte: Material produzido pelos autores, 2026.
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-![diagrama](../src/assets/diagrama.png)
+![diagrama](/assets/diagrama.png)
 
 
 Abaixo segue o link para o Diagrama de cenas
@@ -511,25 +509,31 @@ https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=shari
 
 ## 3.6. Regras do jogo (sprint 3)
 
-- O jogador não pode avançar para um estabelecimento sem passar para o tutorial;
+- O jogador não pode avançar para um estabelecimento sem passar pelo tutorial do início com o Estadual;
+- O jogador deve interagir com os estabelecimentos seguindo as missões dadas pelo Estadual, afim de garantir a ordem dos níveis;
 - O jogador não pode avançar para um estabelecimento sem antes cumprir o anterior;
-- O jogador não pode ir para o próximo estabelecimento sem passar pelo espaço Cielo;
+- O jogador não pode ir para o próximo estabelecimento sem passar pelo Espaço Cielo;
+- O jogador não pode acessar estabelecimentos sem fazer repique dos anteriores;
 - O jogador deve ir em todos os estabelecimentos;
-- O jogador não pode acessar estabelecimentos sem fazer repique;
 - A cada rodada o jogador deve convencer um comerciante a virar um cliente Cielo;
+- O jogador deve manter o humor do comerciante acima de 60% para ganhar a fase;
 - O jogador deve convencer todos os comerciantes da cidade a virarem clientes Cielo;
 - O jogador deve responder a todos os chamados do analista estadual;
-- A cada resposta errada o nível de humor do comerciante da rodada cai;
-- A cada resposta certa o nível de humor do comerciante da rodada sobe;
 - O jogador deve responder conforme o padrão ensinado no onboarding da Cielo.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
-*Descreva aqui as formas de controle e interação que o jogador tem sobre o jogo: quais os comandos disponíveis, quais combinações de comandos, e quais as ações consequentes desses comandos. Utilize listas ou tabelas para organizar esta seção.*
-
-*Ex. Em um jogo de plataforma 2D para desktop, o jogador pode usar as teclas WASD para mecânicas de andar, mirar para cima, agachar, e as teclas JKL para atacar, correr, arremesar etc.*
-
-*Ex. Em um jogo de puzzle para celular, o jogador pode tocar e arrastar sobre uma peça para movê-la sobre o tabuleiro, ou fazer um toque simples para rotacioná-la*
+\# | Mecânicas                      
+-|----------------------------
+1| Os movimentos do player no mapa e no Espaço Cielo são determinados pelas teclas de seta do teclado (left, right, up, down).
+2| O jogador entra em cada fase quando a sprite colide com a representação de um dos comércios no mapa.
+3| Para sair das fases (comércios) o jogador pressiona a tecla espaço do teclado
+4| Dentro da fase o jogador permanece na visão de primeira pessoa
+5| Durante as fases o jogador utiliza o mouse (tecla esquerda) para clicar em uma das duas opções de diálogo.
+6| Uma variável numérica rastreia o nível de satisfação dos comerciantes em cada fase.
+7| O valor da variável é alterado de acordo com as opções de diálogo escolhidas pelo jogador (+33,3% se for um acerto, -33,3% se for um erro)
+8| O sistema barra o acesso aos estabelecimentos se o jogador não passar pelo tutorial.
+9| O sistema convoca o jogador para o Espaço Cielo ao término de cada fase
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
