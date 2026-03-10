@@ -586,7 +586,7 @@ O desenvolvimento da versão básica do jogo nesta segunda sprint teve como foco
 Implementação do Mapa e Delimitação de Escopo O cenário do jogo foi construído utilizando a ferramenta externa Tiled Map Editor. O ambiente foi desenhado através de tilesets e dividido em camadas lógicas (piso, paredes e obstáculos). Para garantir a qualidade da entrega dentro do prazo estipulado, a equipe realizou uma delimitação de escopo, priorizando a construção e o polimento de três áreas principais: o Escritório da Cielo e dois estabelecimentos comerciais (uma Padaria e uma Loja de Roupas).
 No código, o sistema de física Arcade do framework Phaser foi ativado para habilitar as colisões mecânicas. As propriedades de colisão foram mapeadas nas camadas de obstáculos do mapa gerado no Tiled, garantindo que o personagem principal interaja corretamente com os limites físicos dos ambientes (como paredes e balcões), solidificando as bases da exploração espacial.
 
-![Figura 3.3.4.1](../src/assets/cidade2.png)
+![Figura 3.3.4.1](../assets/cidade2.png)
 
 Figura 3.3.4.1 - parte do concept do mapa do jogo
 
@@ -595,7 +595,7 @@ Fonte: Material produzido pelos autores, 2026.
 Dificuldades Encontradas O maior desafio técnico enfrentado pela equipe esteve diretamente ligado à curva de aprendizado do Tiled e sua integração com o motor do jogo. O processo de criação do mapa demandou estudo desde os conceitos iniciais da ferramenta até a descoberta das bibliotecas corretas.
 A alta complexidade em manipular múltiplas ferramentas de design e programação simultaneamente motivou a decisão de reduzir o escopo geográfico do jogo nesta sprint. Além disso, a transição entre o mapa exportado e a sua renderização tornou-se um grande obstáculo. Compreender como a arquitetura de dados era alocada no arquivo JSON gerado pelo Tiled e conectar essas referências internas com os assets de imagem carregados no código exigiu muitas revisões para que o cenário fosse reproduzido fielmente e sem falhas de textura.
 
-![Figura 3.3.4.1](../src/assets/cidade3.png)
+![Figura 3.3.4.1](../assets/cidade3.png)
 Figura 3.3.4.1 - parte do concept do mapa do jogo
 Fonte: Material produzido pelos autores, 2026.
 
