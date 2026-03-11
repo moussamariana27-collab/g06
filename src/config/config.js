@@ -25,6 +25,7 @@ var config = {
         CharacterSelectScene,
         CharacterInfoScene,   // ← agora é só uma, serve pra todos os personagens
         MainScene,
+        Tutorial,
         CidadeScene,
         Farmacia,
         LojaDeRoupa,

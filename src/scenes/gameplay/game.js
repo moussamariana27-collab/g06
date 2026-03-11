@@ -38,7 +38,7 @@ class CidadeScene extends Phaser.Scene {
         this.personagem.body.setOffset(17, 40);
 
         this.cameras.main.startFollow(this.personagem);
-        this.cameras.main.setZoom(2.5);
+        this.cameras.main.setZoom(1.5);
         this.cursor = this.input.keyboard.createCursorKeys();
 
         const grupoColisoes = this.physics.add.staticGroup();

@@ -1,7 +1,9 @@
 class MainScene extends Phaser.Scene {
     constructor() { super({ key: 'MainScene' }); }
 
-    init(data) { this.characterEscolhido = data.character; }
+    init(data) {
+        this.characterEscolhido = data.character;
+    }
 
     preload() {
         this.load.tilemapTiledJSON('mapaEscritorio', 'assets/escritorio.json');
@@ -45,21 +47,23 @@ class MainScene extends Phaser.Scene {
         this.cameras.main.setZoom(1.0);
         this.cursor = this.input.keyboard.createCursorKeys();
 
+        // --- Colisões do mapa ---
         const grupoColisoes = this.physics.add.staticGroup();
         const colisaoLayer = map.getObjectLayer('colisoes');
         if (colisaoLayer) {
             colisaoLayer.objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
-                const b = this.add.rectangle(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
+                const b = this.add.rectangle(o.x + o.width / 2, o.y + o.height / 2, o.width, o.height);
                 this.physics.add.existing(b, true);
                 grupoColisoes.add(b);
             });
             this.physics.add.collider(this.personagem, grupoColisoes);
         }
 
+        // --- Porta para a Cidade ---
         const portaLayer = map.getObjectLayer('porta');
         if (portaLayer) {
             portaLayer.objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
-                const zona = this.add.zone(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
+                const zona = this.add.zone(o.x + o.width / 2, o.y + o.height / 2, o.width, o.height);
                 this.physics.world.enable(zona);
                 zona.body.setAllowGravity(false);
                 zona.body.moves = false;
@@ -68,6 +72,41 @@ class MainScene extends Phaser.Scene {
                 });
             });
         }
+
+        // --- Zona invisível do professor ---
+        const professorLayer = map.getObjectLayer('professor');
+        if (professorLayer?.objects.length > 0) {
+            const obj = professorLayer.objects[0];
+            const profX = obj.x + obj.width / 2;
+            const profY = obj.y + obj.height / 2;
+
+            this.zonaProfessor = this.add.zone(profX, profY, obj.width, obj.height);
+            this.physics.world.enable(this.zonaProfessor);
+            this.zonaProfessor.body.setAllowGravity(false);
+            this.zonaProfessor.body.moves = false;
+
+            this.physics.add.overlap(this.personagem, this.zonaProfessor, () => {
+                // ✅ só dispara se a zona estiver ativa
+                if (!this.zonaProfessor.active) return;
+
+                // ✅ desativa a zona imediatamente para não repetir
+                this.zonaProfessor.setActive(false);
+                this.zonaProfessor.body.enable = false;
+
+                this.scene.pause();
+                this.scene.launch('tutorial', { cenaOrigem: 'MainScene', character: this.characterEscolhido });
+            });
+        }
+
+        // ✅ Ao voltar do tutorial: reativa a zona após 1s (tempo de o jogador sair)
+        this.events.on('resume', () => {
+            this.time.delayedCall(1000, () => {
+                if (this.zonaProfessor) {
+                    this.zonaProfessor.setActive(true);
+                    this.zonaProfessor.body.enable = true;
+                }
+            });
+        });
     }
 
     update() {
