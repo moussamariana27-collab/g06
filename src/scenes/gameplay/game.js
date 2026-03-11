@@ -1,12 +1,17 @@
 class CidadeScene extends Phaser.Scene {
     constructor() { super({ key: 'Cidade' }); }
 
+    // Recebe o personagem escolhido na cena anterior
     init(data) { this.characterEscolhido = data.character; }
 
     preload() {
+        // Carrega o mapa exportado do Tiled no formato JSON
         this.load.tilemapTiledJSON('mapaCidade', 'assets/cidade_cielo.json');
+
+        // Carrega a imagem do tileset utilizado no mapa
         this.load.image('cidade', 'assets/cidade_tileset.png');
 
+        // Objeto que define qual spritesheet usar para cada personagem
         const sprites = {
             'JOSÉ':  { file: 'assets/jose.png',  frameWidth: 267, frameHeight: 346 },
             'MARIA': { file: 'assets/Maria.png', frameWidth: 244, frameHeight: 360 },
@@ -14,58 +19,126 @@ class CidadeScene extends Phaser.Scene {
             'PAULA': { file: 'assets/paula.png', frameWidth: 244, frameHeight: 349 },
         };
 
+        // Seleciona o personagem escolhido pelo jogador
         const skin = sprites[this.characterEscolhido];
+
+        // Carrega o spritesheet correspondente ao personagem escolhido
         this.load.spritesheet('sheetPersonagem', skin.file, {
             frameWidth: skin.frameWidth, frameHeight: skin.frameHeight
         });
     }
 
     create() {
+        // Cria o mapa baseado no JSON carregado
         const map = this.make.tilemap({ key: 'mapaCidade' });
+
+        // Associa o tileset carregado ao mapa
         const tiles = map.addTilesetImage('cidade', 'cidade');
+
+        // Cria a camada visual chamada "Fundo"
         map.createLayer('Fundo', tiles, 0, 0);
 
+        // Define limites da física do jogo e impede o personagem de sair do mapa
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+        // Impede que a câmera saia dos limites do mapa
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
+        // Busca o objeto de spawn criado no Tiled
         const spawnObj = map.getObjectLayer('spawn').objects[0];
+
+        // Calcula a posição central do spawn
         const spawnX = spawnObj.x + spawnObj.width / 2;
         const spawnY = spawnObj.y + spawnObj.height / 2;
 
+        // Cria o personagem com física na posição de spawn
         this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(0.2);
+
+        // Ativa colisão do personagem com as bordas do mundo
         this.personagem.setCollideWorldBounds(true);
+
+        // Define o tamanho da hitbox de colisão do personagem
         this.personagem.body.setSize(22, 20);
+
+        // Ajusta o deslocamento da hitbox dentro do sprite
         this.personagem.body.setOffset(17, 40);
 
+        // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);
         this.cameras.main.setZoom(1.5);
+
+        // Aumenta o zoom da câmera
+        this.cameras.main.setZoom(2.5);
+
+        // Captura as teclas direcionais do teclado
         this.cursor = this.input.keyboard.createCursorKeys();
 
+        // Cria um grupo de objetos sólidos usados para colisões
         const grupoColisoes = this.physics.add.staticGroup();
+
+        // Percorre os objetos da layer "colisoes" definidos no Tiled
         map.getObjectLayer('colisoes').objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
+
+            // Cria um retângulo invisível representando a área de colisão
             const b = this.add.rectangle(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
+
+            // Adiciona física estática ao objeto
             this.physics.add.existing(b, true);
+
+            // Adiciona o objeto ao grupo de colisões
             grupoColisoes.add(b);
         });
+
+        // Ativa colisão entre o personagem e os objetos do grupo
         this.physics.add.collider(this.personagem, grupoColisoes);
 
-        const cemasDisponiveis = ['MainScene', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
+        // Lista de cenas para onde o jogador pode ir
+        const cenasDisponiveis = ['MainScene', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
+
+        // Percorre as zonas de interação definidas no Tiled
         map.getObjectLayer('zonas').objects.filter(o => o.width > 0 && o.height > 0 && o.type !== '').forEach(o => {
+
+            // Cria uma zona invisível de interação
             const zona = this.add.zone(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
+
+            // Ativa física na zona
             this.physics.world.enable(zona);
+
+            // Desativa gravidade na zona
             zona.body.setAllowGravity(false);
+
+            // Impede movimentação da zona
             zona.body.moves = false;
+
+            // Detecta quando o personagem entra na zona
             this.physics.add.overlap(this.personagem, zona, () => {
+
+                // Caso a zona seja o Hotel (ainda não implementado)
                 if (o.type === 'Hotel') {
+
+                    // Evita criar múltiplos avisos ao mesmo tempo
                     if (!this.avisoHotel) {
+
+                        // Exibe um aviso temporário na tela
                         this.avisoHotel = this.add.text(
                             this.cameras.main.scrollX + 512, this.cameras.main.scrollY + 80,
                             '🏨 Hotel — Em breve!',
                             { fontSize: '28px', fill: '#ffffff', backgroundColor: '#000000', padding: { x: 12, y: 8 } }
                         ).setOrigin(0.5).setDepth(10);
-                        this.time.delayedCall(2000, () => { if (this.avisoHotel) { this.avisoHotel.destroy(); this.avisoHotel = null; } });
+
+                        // Remove o aviso após alguns segundos
+                        this.time.delayedCall(2000, () => { 
+                            if (this.avisoHotel) { 
+                                this.avisoHotel.destroy(); 
+                                this.avisoHotel = null; 
+                            } 
+                        });
                     }
-                } else if (cemasDisponiveis.includes(o.type)) {
+
+                // Caso a zona leve para outra cena disponível
+                } else if (cenasDisponiveis.includes(o.type)) {
+
+                    // Troca para a cena correspondente
                     this.scene.start(o.type, { character: this.characterEscolhido });
                 }
             });
@@ -73,20 +146,30 @@ class CidadeScene extends Phaser.Scene {
     }
 
     update() {
+        // Define a velocidade inicial do personagem como zero
         this.personagem.setVelocity(0);
+
+        // Cria uma variável que guarda o valor da velocidade de movimento
         const vel = 200;
 
+        // Movimento para esquerda
         if (this.cursor.left.isDown) {
             this.personagem.setVelocityX(-vel);
             this.personagem.setFlipX(true);
             this.personagem.setFrame(0);
+
+        // Movimento para direita
         } else if (this.cursor.right.isDown) {
             this.personagem.setVelocityX(vel);
             this.personagem.setFlipX(false);
             this.personagem.setFrame(0);
+
+        // Movimento para cima
         } else if (this.cursor.up.isDown) {
             this.personagem.setVelocityY(-vel);
             this.personagem.setFrame(1);
+
+        // Movimento para baixo
         } else if (this.cursor.down.isDown) {
             this.personagem.setVelocityY(vel);
             this.personagem.setFrame(3);

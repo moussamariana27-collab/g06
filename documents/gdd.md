@@ -1,9 +1,7 @@
-<img src="/src/assets/inteli.png">
+<img src="/assets/inteli.png">
 
 
 # GDD - Game Design Document - Módulo 1 - Inteli
-
-**_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final_**
 
 ## Nome do Grupo
 
@@ -40,25 +38,21 @@
 
 Cenário de Mercado e Estratégia da Cielo S.A.
 
-No contexto das Cinco Forças de Porter, o mercado brasileiro de pagamentos  apresenta uma divisão clara entre a adquirência tradicional, liderada por empresas como Cielo e Rede, e o avanço das fintechs focadas em pequenas e médias empresas (SMBs), como Stone e PagSeguro, que integram gestão e contas digitais ao seu portfólio (Biz, 2024). Além desses modelos, o setor é complementado por estruturas de Adquirência as a Service e subadquirente, que aumentam a complexidade competitiva (Silva Lopes Advogados, 2024).
-A Cielo tem respondido à ameaça de produtos substitutos — especialmente o Pix e as carteiras digitais — por meio de uma reorientação estratégica que prioriza a digitalização e a oferta de serviços financeiros integrados. Segundo a Cielo (2024), a companhia deixou de focar exclusivamente no aluguel de terminais físicos (hardware) para se tornar uma plataforma de dados e serviços (software), buscando reduzir a dependência das taxas de intercâmbio tradicionais. Após o fechamento de seu capital em 2024 para fins de reestruturação (InfoMoney, 2024), a empresa intensificou sua migração para o modelo de Banking as a Service (BaaS), superando a simples disputa por taxas de transação.
-Uma das principais frentes estratégicas é a interoperabilidade. Para neutralizar o avanço do Pix como substituto direto do cartão de débito, a Cielo integrou o pagamento via QR Code em todos os seus terminais, permitindo que o lojista aceite o pagamento instantâneo centralizando a conciliação financeira (Valor Econômico, 2023). Essa tática visa manter a empresa indispensável na rotina do varejista, mesmo que o meio de pagamento mude. Conforme aponta o portal Suno Notícias (2024), a estratégia de defesa inclui ainda o investimento no "Cielo Gestão", antecipação de recebíveis e inteligência de mercado. Ao agregar análise de dados à transação, a Cielo busca elevar os custos de mudança (switching costs) para o cliente, dificultando a migração para serviços gratuitos.
-Para o biênio 2025-2026, as tendências estratégicas focam na desmaterialização do terminal físico, através do Tap to Phone, na implementação do Pix Automático e no uso intensivo de Inteligência Artificial para recuperar margens operacionais e enfrentar a concorrência direta da Rede (InvestNews, 2025; Mobile Time, 2025)
+O mercado brasileiro de pagamentos apresenta forte concorrência entre adquirentes tradicionais, como Cielo e Rede, e fintechs voltadas a PMEs, como Stone e PagSeguro, que integram contas digitais e ferramentas de gestão (Biz, 2024). Nesse contexto, a Cielo passou por reestruturação após o fechamento de capital em 2024 e iniciou uma transição de um modelo centrado em terminais físicos para uma plataforma de dados e serviços financeiros (InfoMoney, 2024; Cielo, 2024).
+Para enfrentar substitutos como o Pix, a empresa investe em interoperabilidade, incluindo pagamentos via QR Code integrados aos terminais e soluções de gestão e análise de dados para aumentar a fidelização dos lojistas (Valor Econômico, 2023; Suno Notícias, 2024). Para 2025–2026, a estratégia inclui Tap to Phone, Pix Automático e maior uso de inteligência artificial para recuperar margens e manter competitividade (InvestNews, 2025; Mobile Time, 2025).
 
 ### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
 
 As Forças de Porter são um modelo de análise criado por Michael Porter que tem como objetivo avaliar o nível de competitividade de um setor. O modelo identifica cinco forças que influenciam o mercado: a rivalidade entre concorrentes, o poder de barganha dos clientes, o poder de barganha dos fornecedores, a ameaça de novos entrantes e a ameaça de produtos substitutos. A partir dessa análise, as empresas conseguem compreender melhor o ambiente competitivo e desenvolver estratégias para se posicionar de forma mais eficiente e obter vantagem competitiva.
 
-#### Análise da ameaça de produtos ou serviços substitutos
-
-No cenário brasileiro, o setor de adquirência é consolidado por empresas como Mercado Pago, PagSeguro (PagBank), Stone, Ton, InfinitePay, Cielo, Getnet, SumUp e C6 Pay. Segundo o portal Consumidor Moderno (2018), essas organizações são as principais precursoras de inovações tecnológicas no mercado nacional, introduzindo métodos como pagamentos por aproximação (Near Field Communication - NFC), biometria, leitura de QR Codes e integração com carteiras digitais.
-Entretanto, a principal ameaça de substituição não provém apenas de novas tecnologias de hardware, mas de mudanças estruturais no sistema de pagamentos. O surgimento e a rápida adoção do Pix representa um desafio direto ao modelo de negócios das maquininhas. Conforme aponta a análise do InfoMoney (2023), as transferências instantâneas têm apresentado um crescimento exponencial, oferecendo custos menores para os lojistas e conveniência para os consumidores, o que posiciona o sistema de pagamentos instantâneos como o principal substituto das transações tradicionais feitas por maquininhas.
-
-
-
-
-
-
+####  Ameaça de Novos Entrantes no Mercado Brasileiro de Maquininhas
+O mercado brasileiro de adquirência — popularmente conhecido como mercado de “maquininhas” — passou por mudanças estruturais significativas nas últimas duas décadas. Antes concentrado em poucos agentes, como a Cielo e a Rede, o setor tornou-se mais competitivo após alterações regulatórias e avanços tecnológicos (Banco Central do Brasil [BCB], 2010). Nesse contexto, a análise da ameaça de novos entrantes, proposta no modelo das Cinco Forças de Porter (2004), torna-se fundamental para compreender a dinâmica competitiva atual.
+Segundo Porter (2004), a ameaça de novos entrantes depende da existência de barreiras estruturais que dificultam o ingresso no setor. No mercado de maquininhas, destacam-se três principais barreiras: investimento inicial, regulação e economias de escala.
+Primeiramente, o ingresso exige elevado investimento em tecnologia de processamento de pagamentos, sistemas antifraude, segurança da informação e estrutura operacional. Além disso, as empresas precisam cumprir exigências regulatórias estabelecidas pelo Banco Central, incluindo autorização para funcionamento como instituição de pagamento e adequação às normas de prevenção à lavagem de dinheiro (BCB, 2013).
+Outro fator relevante é a economia de escala. Empresas consolidadas como Stone, PagSeguro e Getnet operam com grande volume transacionado, o que reduz o custo médio por operação e fortalece seu poder de negociação com bandeiras e instituições financeiras (ABECS, 2023). Essa escala representa uma barreira significativa para novos competidores que pretendem disputar mercado apenas por preço.
+Apesar das barreiras estruturais, alguns fatores recentes reduziram a dificuldade de ingresso no setor. O avanço tecnológico e a digitalização dos serviços financeiros permitiram o surgimento de fintechs com modelos operacionais mais enxutos e digitais (ABECS, 2023).
+Adicionalmente, a implementação do sistema de pagamentos instantâneos PIX pelo Banco Central ampliou a concorrência no mercado de pagamentos eletrônicos, incentivando inovação e reduzindo dependências tradicionais do cartão (BCB, 2020). Esse ambiente regulatório mais aberto estimulou a entrada de novos participantes e aumentou a contestabilidade do setor.
+A ameaça de novos entrantes no mercado brasileiro de maquininhas pode ser classificada como moderada. Embora existam barreiras relevantes relacionadas a capital, regulação e escala, avanços tecnológicos e mudanças regulatórias reduziram obstáculos históricos. Conforme o modelo das Cinco Forças de Porter (2004), esse cenário contribui para intensificar a rivalidade e pressionar margens, tornando o setor cada vez mais dinâmico e competitivo.
 
 #### Poder de Barganha dos Fornecedores na Indústria de Meios de Pagamento
 Identificação dos principais fornecedores da indústria
@@ -103,42 +97,22 @@ O Índice Cielo do Varejo Ampliado (ICVA) acompanha mensalmente a evolução do 
 ##### Considerações finais
 O poder de barganha dos clientes na indústria de adquirência varia conforme o porte e o perfil do cliente. Micro e pequenas empresas apresentam baixo poder individual, grandes contas exercem influência significativa sobre preços e condições comerciais e o segmento de e-commerce intensifica a competitividade devido às baixas barreiras de troca entre fornecedores.
 
+#### Análise da ameaça de produtos ou serviços substitutos
+
+No cenário brasileiro, o setor de adquirência é consolidado por empresas como Mercado Pago, PagSeguro (PagBank), Stone, Ton, InfinitePay, Cielo, Getnet, SumUp e C6 Pay. Segundo o portal Consumidor Moderno (2018), essas organizações são as principais precursoras de inovações tecnológicas no mercado nacional, introduzindo métodos como pagamentos por aproximação (Near Field Communication - NFC), biometria, leitura de QR Codes e integração com carteiras digitais.
+Entretanto, a principal ameaça de substituição não provém apenas de novas tecnologias de hardware, mas de mudanças estruturais no sistema de pagamentos. O surgimento e a rápida adoção do Pix representa um desafio direto ao modelo de negócios das maquininhas. Conforme aponta a análise do InfoMoney (2023), as transferências instantâneas têm apresentado um crescimento exponencial, oferecendo custos menores para os lojistas e conveniência para os consumidores, o que posiciona o sistema de pagamentos instantâneos como o principal substituto das transações tradicionais feitas por maquininhas.
+
 #### Análise Geral da Rivalidade entre os Concorrentes Existentes
-O mercado brasileiro de maquininhas de cartão apresenta alto nível de rivalidade competitiva, impulsionado pela presença de grandes players consolidados e pela entrada contínua de fintechs com propostas inovadoras. Em 2024, o ranking dos principais participantes do setor indicava o PagBank como líder de mercado, seguido por Cielo, Stone e Redecard (Exame, 2024). Essa configuração evidencia um ambiente competitivo no qual empresas disputam participação de mercado principalmente por meio de taxas mais atrativas, tecnologia embarcada e integração de serviços financeiros.
-O PagBank se destaca nesse cenário ao oferecer as melhores taxas do mercado, estruturadas em planos flexíveis que variam de acordo com o faturamento do empreendedor, o que intensifica a rivalidade ao pressionar concorrentes a ajustarem suas condições comerciais. Paralelamente, o setor tem avançado em direção à integração total entre conta digital, maquininha e ferramentas de gestão de vendas, elevando o nível de complexidade competitiva e exigindo maior capacidade tecnológica das empresas atuantes (Exame, 2024).
-Fintechs como PagBank, Mercado Pago e SumUp vêm investindo de forma consistente em inteligência artificial, análise de dados e segurança digital, com o objetivo de simplificar a gestão financeira e melhorar a experiência do usuário. Além disso, observa-se o crescimento do uso da tecnologia Tap to Pay, que permite transformar smartphones em maquininhas de pagamento, tendência que deve ganhar ainda mais relevância nos próximos anos e aumentar a pressão competitiva sobre modelos tradicionais (Pininfarina Brasil, 2025).
-Em 2025, as maquininhas que dominam o mercado brasileiro são aquelas capazes de combinar baixas taxas, tecnologia avançada e simplicidade operacional. Nesse contexto, PagBank, Ton, Mercado Pago e SumUp figuram como referências absolutas segundo diferentes rankings especializados (Educando Seu Bolso, 2025; iDinheiro, 2025). Em contraste, uma análise comparativa realizada a partir de três dos principais sites especializados indica que as maquininhas ofertadas pela Cielo não figuraram entre as dez melhores opções em nenhum dos rankings avaliados, sugerindo uma perda relativa de competitividade frente aos novos entrantes e fintechs digitais (Educando Seu Bolso, 2025; iDinheiro, 2025).
-Entretanto, é importante destacar que, em um dos levantamentos analisados, a Cielo aparece entre as sete principais fornecedoras de maquininhas, embora esse ranking considere as empresas como um todo e não a performance individual de seus dispositivos (iDinheiro, 2025). Esse dado demonstra que, apesar da forte rivalidade e da pressão competitiva exercida por fintechs, a Cielo ainda mantém relevância institucional no setor, ainda que enfrente desafios significativos para reposicionar seus produtos frente às alternativas mais modernas e competitivas.
-De forma geral, o elevado grau de rivalidade existente no setor de maquininhas de cartão impacta diretamente a competitividade da indústria, promovendo inovação constante, redução de taxas e diversificação de serviços, ao mesmo tempo em que dificulta a sustentação de vantagens competitivas duradouras para empresas que não acompanham a evolução tecnológica do mercado.
-Rivalidade entre os Concorrentes da Cielo no Mercado Brasileiro de Meios de Pagamento
-A expressão “guerra das maquininhas” refere-se à disputa competitiva entre empresas que oferecem soluções de aceitação de cartões e meios de pagamento. Antes dominado por um pequeno número de credenciadoras, principalmente a Cielo e a Rede, o setor passou a registrar a entrada de diversas fintechs, como a PagSeguro, a Stone e a Getnet. Essas empresas passaram a disputar clientes por meio de taxas menores, maquininhas mais acessíveis, antecipação de recebíveis mais rápida e inovação em produtos digitais (Concil, 2019; Bloomberg Línea, 2022).
-Estudos e relatórios indicam que a intensificação da concorrência provocou mudanças relevantes na participação de mercado das adquirentes brasileiras. Em determinados períodos, a Cielo mantinha cerca de 38% do volume de pagamentos por cartão, seguida pela Rede (25%) e pela GetNet (12%), enquanto Stone e PagSeguro apresentavam participações menores, porém em crescimento expressivo (Concil, 2019).
-Segundo dados de 2022 da Associação Brasileira das Empresas de Cartões de Crédito e Serviços (conforme citado por Bloomberg Línea, 2022), no segundo trimestre daquele ano a participação aproximada era de 26% para a Cielo, 21,4% para a Rede e 13,9% para a GetNet. Esses números demonstram que, embora ainda líder, a Cielo viu sua liderança relativa diminuir com o aumento da concorrência. Fintechs voltadas para micro e pequenos empreendedores, como PagSeguro e Stone, ganharam espaço ao oferecer produtos mais simples e taxas agressivas, atraindo segmentos anteriormente pouco explorados.
-A rivalidade entre as empresas incluiu diversos movimentos estratégicos relevantes. Entre eles, destaca-se a redução de taxas e a oferta de antecipação gratuita de recebíveis. Grandes players, como a Rede, zeraram taxas de antecipação para atrair lojistas (Exame, 2019).
-Além disso, a PagSeguro passou a oferecer pagamentos ao lojista em prazos mais curtos, e outras empresas ajustaram suas ofertas para intensificar a captação de clientes (Seu Dinheiro, 2019). Outro movimento importante foi o investimento em soluções digitais integradas. As empresas ampliaram seus serviços para além das maquininhas físicas, incluindo conta digital, crédito, integração com ferramentas de gestão e opções de pagamento via QR Code ou dispositivos móveis. Essa estratégia visa consolidar clientes em ecossistemas mais amplos e reduzir a taxa de cancelamento.
-A rivalidade entre os concorrentes da Cielo no Brasil, caracterizada como a “guerra das maquininhas”, representa uma competição intensa e em constante transformação no setor de meios de pagamento. A abertura do mercado possibilitou a entrada de novos players, obrigando a Cielo e seus concorrentes a inovar e reajustar suas estratégias em um ambiente de margens mais estreitas. Estratégias voltadas à redução de custos, ampliação de serviços e incorporação tecnológica tornaram-se fundamentais para manter ou ampliar a participação em um mercado cada vez mais dinâmico e disputado.
-
-
-####  Ameaça de Novos Entrantes no Mercado Brasileiro de Maquininhas
-O mercado brasileiro de adquirência — popularmente conhecido como mercado de “maquininhas” — passou por mudanças estruturais significativas nas últimas duas décadas. Antes concentrado em poucos agentes, como a Cielo e a Rede, o setor tornou-se mais competitivo após alterações regulatórias e avanços tecnológicos (Banco Central do Brasil [BCB], 2010). Nesse contexto, a análise da ameaça de novos entrantes, proposta no modelo das Cinco Forças de Porter (2004), torna-se fundamental para compreender a dinâmica competitiva atual.
-Segundo Porter (2004), a ameaça de novos entrantes depende da existência de barreiras estruturais que dificultam o ingresso no setor. No mercado de maquininhas, destacam-se três principais barreiras: investimento inicial, regulação e economias de escala.
-Primeiramente, o ingresso exige elevado investimento em tecnologia de processamento de pagamentos, sistemas antifraude, segurança da informação e estrutura operacional. Além disso, as empresas precisam cumprir exigências regulatórias estabelecidas pelo Banco Central, incluindo autorização para funcionamento como instituição de pagamento e adequação às normas de prevenção à lavagem de dinheiro (BCB, 2013).
-Outro fator relevante é a economia de escala. Empresas consolidadas como Stone, PagSeguro e Getnet operam com grande volume transacionado, o que reduz o custo médio por operação e fortalece seu poder de negociação com bandeiras e instituições financeiras (ABECS, 2023). Essa escala representa uma barreira significativa para novos competidores que pretendem disputar mercado apenas por preço.
-Apesar das barreiras estruturais, alguns fatores recentes reduziram a dificuldade de ingresso no setor. O avanço tecnológico e a digitalização dos serviços financeiros permitiram o surgimento de fintechs com modelos operacionais mais enxutos e digitais (ABECS, 2023).
-Adicionalmente, a implementação do sistema de pagamentos instantâneos PIX pelo Banco Central ampliou a concorrência no mercado de pagamentos eletrônicos, incentivando inovação e reduzindo dependências tradicionais do cartão (BCB, 2020). Esse ambiente regulatório mais aberto estimulou a entrada de novos participantes e aumentou a contestabilidade do setor.
-A ameaça de novos entrantes no mercado brasileiro de maquininhas pode ser classificada como moderada. Embora existam barreiras relevantes relacionadas a capital, regulação e escala, avanços tecnológicos e mudanças regulatórias reduziram obstáculos históricos. Conforme o modelo das Cinco Forças de Porter (2004), esse cenário contribui para intensificar a rivalidade e pressionar margens, tornando o setor cada vez mais dinâmico e competitivo.
-
+O mercado brasileiro de maquininhas de cartão apresenta alto nível de rivalidade competitiva, impulsionado pela presença de grandes empresas consolidadas e pela entrada contínua de fintechs com propostas inovadoras. Em 2024, o ranking dos principais participantes do setor indicava o PagBank como líder de mercado, seguido por Cielo, Stone e Rede, evidenciando um ambiente competitivo marcado pela disputa por taxas mais atrativas, tecnologia e integração de serviços financeiros (Exame, 2024).
+Fintechs como PagBank, Mercado Pago e SumUp vêm ampliando sua presença ao investir em inteligência artificial, análise de dados e segurança digital, além de oferecer ecossistemas integrados que incluem conta digital, ferramentas de gestão e soluções de pagamento. Esse movimento aumenta a complexidade competitiva do setor e exige maior capacidade tecnológica das empresas. Paralelamente, cresce a adoção da tecnologia Tap to Pay, que permite transformar smartphones em maquininhas de pagamento, tendência que tende a ampliar ainda mais a pressão competitiva sobre os modelos tradicionais (Pininfarina Brasil, 2025).
+Rankings especializados indicam que as maquininhas mais competitivas atualmente combinam baixas taxas, tecnologia avançada e simplicidade operacional. Nesse contexto, PagBank, Ton, Mercado Pago e SumUp figuram entre as principais referências do mercado (Educando Seu Bolso, 2025; iDinheiro, 2025). Em contraste, análises comparativas mostram que as maquininhas da Cielo não aparecem entre as dez melhores opções nesses rankings, sugerindo uma perda relativa de competitividade frente às fintechs digitais (Educando Seu Bolso, 2025; iDinheiro, 2025). Ainda assim, alguns levantamentos indicam a Cielo entre as sete principais empresas do setor, demonstrando que a companhia mantém relevância institucional apesar da pressão competitiva (iDinheiro, 2025).
+A chamada “guerra das maquininhas” descreve a intensificação dessa disputa entre credenciadoras. Historicamente dominado por Cielo e Rede, o setor passou a registrar a entrada de fintechs como PagSeguro, Stone e Getnet, que atraíram clientes por meio de taxas menores, antecipação de recebíveis mais rápida e inovação em produtos digitais (Concil, 2019; Bloomberg Línea, 2022).
+Dados históricos evidenciam a evolução dessa rivalidade. Em determinados períodos, a Cielo possuía cerca de 38% do mercado, seguida por Rede (25%) e GetNet (12%), enquanto Stone e PagSeguro apresentavam crescimento expressivo (Concil, 2019). Segundo dados da Associação Brasileira das Empresas de Cartões de Crédito e Serviços (ABECS), citados pela Bloomberg Línea, no segundo trimestre de 2022 a participação aproximada era de 26% para Cielo, 21,4% para Rede e 13,9% para GetNet, indicando redução da liderança da Cielo diante do avanço das fintechs (Bloomberg Línea, 2022).
+A rivalidade também se manifesta em movimentos estratégicos agressivos, como a redução de taxas e a antecipação gratuita de recebíveis. Um exemplo foi a decisão da Rede de zerar taxas de antecipação para atrair lojistas (Exame, 2019), enquanto empresas como PagSeguro passaram a oferecer prazos de pagamento mais curtos, intensificando a disputa por clientes (Seu Dinheiro, 2019). De forma geral, a elevada rivalidade no setor impulsiona inovação e redução de custos, mas também dificulta a manutenção de vantagens competitivas duradouras.
 
 ### 1.1.2. Análise SWOT (sprint 2)
 
 A matriz SWOT, ou FOFA, é uma abreviação para forças, oportunidades, fraquezas e ameaças. Ela é dividida em fatores internos e externos, sendo forças e fraquezas classificadas como internos, e oportunidades e ameaças como externos. Essa matriz ajuda a apoiar decisões estratégicas e o planejamento, além de organizar e entender alguns fatores da empresa, como quais oportunidades aproveitar, onde precisa melhorar e quais riscos precisa evitar. 
-
-
-
-
-
-
-
 
 
 ![swot](../src/assets/swot.png)
@@ -229,46 +203,45 @@ Diversidade, responsabilidade social, linguagem simples e acessível, reconhecim
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
-
+Nesta seção, iremos apresentar os requisitos funcionais e não funcionais que fazem parte da estruturação do jogo "Mestre de vendas". Requisitos funcionais referem-se aos comportamentos que o sistema deve executar para garantir suporte às necessidades do usuário, como por exemplo, a possibilidade de movimentação do personagem com o uso de teclas específicas. Por outro lado, os requisitos não funcionais descrevem como o sistema deve agir para efetivamente funcionar e oferecer uma boa experiência ao usuário. Por exemplo: O sistema deve funcionar em navegadores.
 
 \# | Requisitos funcionais  
 --- | ---
-RF01 |  O jogo deve fornecer um sistema para o controle da movimentação do personagem principal para o jogador.
-RF02 |  O jogo deve ser mundo aberto.
-RF03 |  O jogo deve possuir múltiplos estabelecimentos no mapa.
-RF04 |  O jogador deve poder entrar nos estabelecimentos.
-RF05 |  O jogo deve possuir sistema de captura em turnos.
-RF06 |  O jogador deve escolher entre diferentes opções durante o turno.
-RF07 |  Cada captura deve simular uma situação real com clientes.
-RF08 |  O turno deve possuir sistema de reputação do vendedor.
-RF09 |  Os personagens dos estabelecimentos devem possuir um sistema de satisfação.
-RF10 |  O jogo deve ter uma tela inicial.
-RF11 |  A tela inicial deve conter um botão de jogar.
-RF12 |  Ao clicar no botão de jogar, o usuário deve ser direcionado para a tela de escolha do personagem jogável.
-RF13 |  O jogo deve fornecer mais de um personagem jogável.
-RF14 |  O jogador deve escolher seu personagem jogável dentro da opções disponíveis.
-RF15 |  O jogo deve ter um botão continuar na tela de escolha.
-RF16 |  Ao clicar no botão continuar o jogador deve ser direcionado a tel de tutorial.
-RF17 |  O jogo deve possuir um tutorial interativo. 
-RF18 |  O jogador deve interagir com o tutorial para avançar.
-RF19 |  O tutorial deve apresentar informações sobre a empresa.
-RF20 |  O tutorial deve apresentar informações sobre os produtos.
-RF21 |  O jogo deve aumentar a dificuldade a cada cena vencida pelo jogador.
-RF22 |  O jogo dever dar dicas e revisões conforme o progresso do jogo.
-RF23 |  Cada turno é vencido quando o nível de satisfação atingir o máximo.
-RF24 |  Cada turno é perdido quando o nível de satisfação atingir o mínimo.
-
-
+RF01 | O jogo deve ter uma tela inicial.
+RF02 | A tela inicial deve conter um botão de jogar.
+RF03 | Ao clicar no botão de jogar, o usuário deve ser direcionado para a tela de escolha do personagem jogável.
+RF04 | O jogo deve fornecer mais de um personagem jogável.
+RF05 | O jogador deve escolher seu personagem jogável dentro das opções disponíveis.
+RF06 | O jogo deve ter um botão continuar na tela de escolha.
+RF07 | Ao clicar no botão continuar o jogador deve ser direcionado à tela de tutorial.
+RF08 | O jogo deve possuir um tutorial interativo.
+RF09 | O jogador deve interagir com o tutorial para avançar.
+RF10 | O tutorial deve apresentar informações sobre a empresa.
+RF11 | O tutorial deve apresentar informações sobre os produtos.
+RF12 | O jogo deve fornecer um sistema para o controle da movimentação do personagem principal para o jogador.
+RF13 | O jogo deve ser mundo aberto.
+RF14 | O jogo deve possuir múltiplos estabelecimentos no mapa.
+RF15 | O jogador deve poder entrar nos estabelecimentos.
+RF16 | O jogo deve possuir sistema de captura em turnos.
+RF17 | O jogador deve escolher entre diferentes opções durante o turno.
+RF18 | Cada captura deve simular uma situação real com clientes.
+RF19 | Os personagens dos estabelecimentos devem possuir um sistema de satisfação.
+RF20 | O turno deve possuir sistema de reputação do vendedor.
+RF21 | Os sistemas de satisfação e reputação devem diminuir a cada resposta errada.
+RF22 | Os sistemas de satisfação e reputação devem aumentar a cada resposta correta.
+RF23 | Cada turno é vencido quando o nível de satisfação atingir o máximo.
+RF24 | Cada turno é perdido quando o nível de satisfação atingir o mínimo.
+RF25 | O jogo deve aumentar a dificuldade a cada cena vencida pelo jogador.
+RF26 | O jogo deve dar dicas e revisões conforme o progresso do jogo.
 
 \# | Requisitos não funcionais
 --- | ---
 RNF01 | O jogo deve possuir um design interativo
-RNF02 | Deve funcionar em sistemas Windows 10 ou superior.
-RNF03 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
-RNF04 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
-RNF05 | O jogo deve apresentar compatibilidade com teclado e mouse.
-RNF06 | O código do sistema deve seguir boas práticas de organização e modularização.
-RNF07 | O jogo deve ser visualmente confortável.
+RNF02 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
+RNF03 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
+RNF04 | O jogo deve apresentar compatibilidade com teclado e mouse.
+RNF05 | O código do sistema deve seguir boas práticas de organização e modularização.
+RNF06 | O jogo deve ser visualmente confortável.
 
 
 
@@ -283,7 +256,7 @@ Além disso, o treinamento deve ser direcionado especialmente para a capacitaç�
 
 ## 2.1. Objetivos do Jogo (sprint 2)
 
-Para concluir o jogo, o jogador deve atingir a meta de captação de potenciais clientes da Cielo. No contexto da narrativa, o jogador assumirá o papel de Gerente de Negócios (GN), profissional responsável pela prospecção e negociação porta a porta junto a estabelecimentos comerciais.
+O objetivo do jogo é atingir a meta de captação de potenciais clientes da Cielo. No contexto da narrativa, o jogador assumirá o papel de Gerente de Negócios (GN), profissional responsável pela prospecção e negociação porta a porta junto a estabelecimentos comerciais.
 A missão consiste em visitar diferentes tipos de empreendimentos, como padarias, postos de gasolina, restaurantes, entre outros, com o objetivo de apresentar os benefícios das soluções de pagamento oferecidas pela empresa e persuadir os proprietários ou responsáveis comerciais a adotarem a maquininha da Cielo. Cada estabelecimento será um desafio para o jogador.
 Durante as interações, os personagens que representam os comerciantes apresentarão objeções comuns ao processo de venda, tais como a alegação de que concorrentes oferecem taxas mais baixas ou a preferência por marcas já conhecidas e consolidadas. Nesse cenário, caberá ao jogador analisar cada situação e selecionar os argumentos mais adequados para contornar as objeções apresentadas, demonstrando conhecimento técnico, capacidade de negociação e domínio das vantagens competitivas da empresa.
 O objetivo final é ampliar a base de clientes da Cielo dentro do ambiente do jogo,  deixando o mundo azul. 
@@ -338,7 +311,7 @@ Nesses momentos de aprendizado, a pessoa GN retorna ao Espaço Cielo para realiz
 
 O jogo possui quatro personagens controláveis, sendo dois homens e duas mulheres, que podem ser escolhidos no início da partida. Os homens são João (um homem negro) e José (um homem branco), e as mulheres são Maria (uma mulher parda) e Paula (uma mulher branca). Esses personagens representam os Gerentes de Negócios da Cielo e têm como objetivo conquistar determinados vendedores e transformá-los em clientes da empresa. Eles não possuem habilidades específicas, ou seja, a escolha do personagem não altera a experiência do usuário.
 
-![joão](../src/assets/joao.jpg)
+![joão](/assets/joao.png)
 
 Figura 3.2.1.1 - Sprite do João
 
@@ -346,7 +319,7 @@ Figura 3.2.1.1 - Sprite do João
 
 Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
 
-![José](../src/assets/jose.jpg)
+![José](/assets/jose.png)
 
 Figura 3.2.1.2 - Sprite do José
 
@@ -357,13 +330,13 @@ Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
 
 
 
-![Maria](../src/assets/Maria.png)
+![Maria](/assets/Maria.png)
 
 Figura 3.2.1.3 - Sprite da Maria
 
 Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
 
-![Maria](../src/assets/paula.png)
+![Maria](/assets/paula.png)
 
 Figura 3.2.1.4 - Sprite da Paula
 
@@ -375,30 +348,30 @@ O jogo conta com os chamados Non-Playable Characters, que são, de forma literal
 O processo de criação dos NPCs ocorreu em duas etapas principais: primeiro, o desenho feito à mão, detalhando características específicas alinhadas aos valores da equipe; em seguida, o aprimoramento com o apoio de ferramentas de inteligência artificial, a fim de garantir melhor visualização e refinamento dos personagens.
 Para a próxima sprint, o objetivo é realizar o desenho manual das sprites desses personagens, que serão utilizadas no desenvolvimento das animações e farão parte da dinâmica do jogo.
 
-![joão](../src/assets/padeiro.jpg)
+![joão](/assets/padeiro.jpg)
 Figura 3.2.2.1 - Esboço e digitalização do Tião, o dono da padaria.
 
 Fonte: Material produzido pelos autores, 2026.
 
-![pedro](../src/assets/homem.jpg)
+![pedro](/assets/homem.jpg)
 
 Figura 3.2.2.2 - Esboço e digitalização do Pedro, o dono da loja de roupas.
 
 Fonte: Material produzido pelos autores, 2026.
 
-![marcia](../src/assets/mulher.jpg)
+![marcia](/assets/mulher.jpg)
 
 Figura 3.2.2.3 - Esboço e digitalização da Márcia, a dona de farmácia.
 
 Fonte: Material produzido pelos autores, 2026.
 
-![Leila](../src/assets/cabeleleira.jpg)
+![Leila](/assets/cabeleleira.jpg)
 
 Figura 3.2.2.4 - Esboço e digitalização da Leila, a dona de salão de beleza.
 
 Fonte: Material produzido pelos autores, 2026.
 
-![estadual](../src/assets/estadual.png)
+![estadual](/assets/estadual.png)
 
 Figura 3.2.2.5 - Digitalização do estadual (Mestre de vendaa Cielo)
 
@@ -444,20 +417,20 @@ Interação (Batalha): Ao se aproximar do balcão e interagir com o NPC (lojista
 
 Abaixo estão os estudos iniciais de level design e a identidade visual do jogo em pixel art.
 
-![Figura 3.3.4.1](../src/assets/cidade1.png)
+![Figura 3.3.4.1](/assets/cidade_tileset.png)
 
 Figura 3.3.4.1 - Estudo de interface visual e estilo de arte (Pixel Art). A imagem ilustra a visão top-down, o sprite do personagem principal (Gerente de Negócios) e a fachada de estabelecimentos comuns (Padaria e Farmácia).
 
 Fonte: Material produzido pelos autores, 2026.
 
-![Figura 3.3.4.2](../src/assets/concept1.png)
+![Figura 3.3.4.2](/assets/concept1.png)
 
 Figura 3.3.4.2 - Esboço preliminar (Side-scroller) ilustrando a escala dos edifícios. Destaque para o escritório da Cielo como ponto de partida (nascimento do sprite) e os estabelecimentos vizinhos que servirão como as primeiras missões.
 
 
 Fonte: Material produzido pelos autores, 2026.
 
-![Figura 3.3.4.3](../src/assets/concept2.png)
+![Figura 3.3.4.3](/assets/concept2.png)
 
 Figura 3.3.4.3 - Esboço do Mapa Geral (Top-down). Demonstra a centralidade do prédio da Cielo no level design, facilitando o acesso radial aos diferentes perfis de clientes ao redor (Shopping Center, Hotel, Salão, Farmácia e Padaria).
 
@@ -503,7 +476,7 @@ Fonte: Material produzido pelos autores, 2026.
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-![diagrama](../src/assets/diagrama.png)
+![diagrama](/assets/diagrama.png)
 
 
 Abaixo segue o link para o Diagrama de cenas
@@ -512,25 +485,31 @@ https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=shari
 
 ## 3.6. Regras do jogo (sprint 3)
 
-- O jogador não pode avançar para um estabelecimento sem passar para o tutorial;
+- O jogador não pode avançar para um estabelecimento sem passar pelo tutorial do início com o Estadual;
+- O jogador deve interagir com os estabelecimentos seguindo as missões dadas pelo Estadual, afim de garantir a ordem dos níveis;
 - O jogador não pode avançar para um estabelecimento sem antes cumprir o anterior;
-- O jogador não pode ir para o próximo estabelecimento sem passar pelo espaço Cielo;
+- O jogador não pode ir para o próximo estabelecimento sem passar pelo Espaço Cielo;
+- O jogador não pode acessar estabelecimentos sem fazer repique dos anteriores;
 - O jogador deve ir em todos os estabelecimentos;
-- O jogador não pode acessar estabelecimentos sem fazer repique;
 - A cada rodada o jogador deve convencer um comerciante a virar um cliente Cielo;
+- O jogador deve manter o humor do comerciante acima de 60% para ganhar a fase;
 - O jogador deve convencer todos os comerciantes da cidade a virarem clientes Cielo;
 - O jogador deve responder a todos os chamados do analista estadual;
-- A cada resposta errada o nível de humor do comerciante da rodada cai;
-- A cada resposta certa o nível de humor do comerciante da rodada sobe;
 - O jogador deve responder conforme o padrão ensinado no onboarding da Cielo.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
-*Descreva aqui as formas de controle e interação que o jogador tem sobre o jogo: quais os comandos disponíveis, quais combinações de comandos, e quais as ações consequentes desses comandos. Utilize listas ou tabelas para organizar esta seção.*
-
-*Ex. Em um jogo de plataforma 2D para desktop, o jogador pode usar as teclas WASD para mecânicas de andar, mirar para cima, agachar, e as teclas JKL para atacar, correr, arremesar etc.*
-
-*Ex. Em um jogo de puzzle para celular, o jogador pode tocar e arrastar sobre uma peça para movê-la sobre o tabuleiro, ou fazer um toque simples para rotacioná-la*
+\# | Mecânicas                      
+-|----------------------------
+1| Os movimentos do player no mapa e no Espaço Cielo são determinados pelas teclas de seta do teclado (left, right, up, down).
+2| O jogador entra em cada fase quando a sprite colide com a representação de um dos comércios no mapa.
+3| Para sair das fases (comércios) o jogador pressiona a tecla espaço do teclado
+4| Dentro da fase o jogador permanece na visão de primeira pessoa
+5| Durante as fases o jogador utiliza o mouse (tecla esquerda) para clicar em uma das duas opções de diálogo.
+6| Uma variável numérica rastreia o nível de satisfação dos comerciantes em cada fase.
+7| O valor da variável é alterado de acordo com as opções de diálogo escolhidas pelo jogador (+33,3% se for um acerto, -33,3% se for um erro)
+8| O sistema barra o acesso aos estabelecimentos se o jogador não passar pelo tutorial.
+9| O sistema convoca o jogador para o Espaço Cielo ao término de cada fase
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -583,7 +562,7 @@ O desenvolvimento da versão básica do jogo nesta segunda sprint teve como foco
 Implementação do Mapa e Delimitação de Escopo O cenário do jogo foi construído utilizando a ferramenta externa Tiled Map Editor. O ambiente foi desenhado através de tilesets e dividido em camadas lógicas (piso, paredes e obstáculos). Para garantir a qualidade da entrega dentro do prazo estipulado, a equipe realizou uma delimitação de escopo, priorizando a construção e o polimento de três áreas principais: o Escritório da Cielo e dois estabelecimentos comerciais (uma Padaria e uma Loja de Roupas).
 No código, o sistema de física Arcade do framework Phaser foi ativado para habilitar as colisões mecânicas. As propriedades de colisão foram mapeadas nas camadas de obstáculos do mapa gerado no Tiled, garantindo que o personagem principal interaja corretamente com os limites físicos dos ambientes (como paredes e balcões), solidificando as bases da exploração espacial.
 
-![Figura 3.3.4.1](../src/assets/cidade2.png)
+![Figura 3.3.4.1](../assets/cidade2.png)
 
 Figura 3.3.4.1 - parte do concept do mapa do jogo
 
@@ -592,7 +571,7 @@ Fonte: Material produzido pelos autores, 2026.
 Dificuldades Encontradas O maior desafio técnico enfrentado pela equipe esteve diretamente ligado à curva de aprendizado do Tiled e sua integração com o motor do jogo. O processo de criação do mapa demandou estudo desde os conceitos iniciais da ferramenta até a descoberta das bibliotecas corretas.
 A alta complexidade em manipular múltiplas ferramentas de design e programação simultaneamente motivou a decisão de reduzir o escopo geográfico do jogo nesta sprint. Além disso, a transição entre o mapa exportado e a sua renderização tornou-se um grande obstáculo. Compreender como a arquitetura de dados era alocada no arquivo JSON gerado pelo Tiled e conectar essas referências internas com os assets de imagem carregados no código exigiu muitas revisões para que o cenário fosse reproduzido fielmente e sem falhas de textura.
 
-![Figura 3.3.4.1](../src/assets/cidade3.png)
+![Figura 3.3.4.1](../assets/cidade3.png)
 Figura 3.3.4.1 - parte do concept do mapa do jogo
 Fonte: Material produzido pelos autores, 2026.
 
