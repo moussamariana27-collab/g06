@@ -39,6 +39,7 @@
 Cenário de Mercado e Estratégia da Cielo S.A.
 
 O mercado brasileiro de pagamentos apresenta forte concorrência entre adquirentes tradicionais, como Cielo e Rede, e fintechs voltadas a PMEs, como Stone e PagSeguro, que integram contas digitais e ferramentas de gestão (Biz, 2024). Nesse contexto, a Cielo passou por reestruturação após o fechamento de capital em 2024 e iniciou uma transição de um modelo centrado em terminais físicos para uma plataforma de dados e serviços financeiros (InfoMoney, 2024; Cielo, 2024).
+
 Para enfrentar substitutos como o Pix, a empresa investe em interoperabilidade, incluindo pagamentos via QR Code integrados aos terminais e soluções de gestão e análise de dados para aumentar a fidelização dos lojistas (Valor Econômico, 2023; Suno Notícias, 2024). Para 2025–2026, a estratégia inclui Tap to Phone, Pix Automático e maior uso de inteligência artificial para recuperar margens e manter competitividade (InvestNews, 2025; Mobile Time, 2025).
 
 ### 1.1.1.1. Modelo de 5 Forças de Porter (sprint 2)
@@ -47,11 +48,17 @@ As Forças de Porter são um modelo de análise criado por Michael Porter que te
 
 ####  Ameaça de Novos Entrantes no Mercado Brasileiro de Maquininhas
 O mercado brasileiro de adquirência — popularmente conhecido como mercado de “maquininhas” — passou por mudanças estruturais significativas nas últimas duas décadas. Antes concentrado em poucos agentes, como a Cielo e a Rede, o setor tornou-se mais competitivo após alterações regulatórias e avanços tecnológicos (Banco Central do Brasil [BCB], 2010). Nesse contexto, a análise da ameaça de novos entrantes, proposta no modelo das Cinco Forças de Porter (2004), torna-se fundamental para compreender a dinâmica competitiva atual.
+
 Segundo Porter (2004), a ameaça de novos entrantes depende da existência de barreiras estruturais que dificultam o ingresso no setor. No mercado de maquininhas, destacam-se três principais barreiras: investimento inicial, regulação e economias de escala.
+
 Primeiramente, o ingresso exige elevado investimento em tecnologia de processamento de pagamentos, sistemas antifraude, segurança da informação e estrutura operacional. Além disso, as empresas precisam cumprir exigências regulatórias estabelecidas pelo Banco Central, incluindo autorização para funcionamento como instituição de pagamento e adequação às normas de prevenção à lavagem de dinheiro (BCB, 2013).
+
 Outro fator relevante é a economia de escala. Empresas consolidadas como Stone, PagSeguro e Getnet operam com grande volume transacionado, o que reduz o custo médio por operação e fortalece seu poder de negociação com bandeiras e instituições financeiras (ABECS, 2023). Essa escala representa uma barreira significativa para novos competidores que pretendem disputar mercado apenas por preço.
+
 Apesar das barreiras estruturais, alguns fatores recentes reduziram a dificuldade de ingresso no setor. O avanço tecnológico e a digitalização dos serviços financeiros permitiram o surgimento de fintechs com modelos operacionais mais enxutos e digitais (ABECS, 2023).
+
 Adicionalmente, a implementação do sistema de pagamentos instantâneos PIX pelo Banco Central ampliou a concorrência no mercado de pagamentos eletrônicos, incentivando inovação e reduzindo dependências tradicionais do cartão (BCB, 2020). Esse ambiente regulatório mais aberto estimulou a entrada de novos participantes e aumentou a contestabilidade do setor.
+
 A ameaça de novos entrantes no mercado brasileiro de maquininhas pode ser classificada como moderada. Embora existam barreiras relevantes relacionadas a capital, regulação e escala, avanços tecnológicos e mudanças regulatórias reduziram obstáculos históricos. Conforme o modelo das Cinco Forças de Porter (2004), esse cenário contribui para intensificar a rivalidade e pressionar margens, tornando o setor cada vez mais dinâmico e competitivo.
 
 #### Poder de Barganha dos Fornecedores na Indústria de Meios de Pagamento
@@ -59,19 +66,19 @@ Identificação dos principais fornecedores da indústria
 A Cielo atua no setor de adquirência e tecnologia para meios de pagamento, dependendo de fornecedores estratégicos em três categorias principais: bandeiras de cartão, infraestrutura tecnológica (computação em nuvem) e fornecedores de hardware (maquininhas). A análise desses fornecedores permite compreender o grau de poder de barganha exercido sobre a empresa e sobre a indústria como um todo.
 ##### Bandeiras de cartão
 De acordo com dados recentes sobre participação de mercado no Brasil, as principais bandeiras são Mastercard (51%), Visa (31%) e Elo (14%), enquanto outras bandeiras somam aproximadamente 3% (YourPay, 2024). Observa-se que Mastercard e Visa concentram juntas mais de 80% do mercado, o que evidencia elevada concentração e reduzido número de fornecedores relevantes nesse segmento.
+
 Essa concentração aumenta significativamente o poder de barganha das bandeiras, uma vez que as adquirentes dependem da autorização e do credenciamento dessas empresas para processar pagamentos. A substituição dessas bandeiras não é viável, dado o nível de aceitação e preferência dos consumidores.
 ##### Parceiros tecnológicos (infraestrutura de nuvem)
 No segmento de infraestrutura de nuvem, o mercado é liderado por três grandes empresas: Amazon Web Services (AWS), Microsoft Azure e Google Cloud Platform, que juntas concentram aproximadamente 65% do mercado global (Megaport, 2024). A Microsoft, inclusive, mantém parceria estratégica com a Cielo para fornecimento de infraestrutura tecnológica (Microsoft, 2023).
+
 A elevada concentração do setor, aliada aos altos custos de migração entre provedores de nuvem (switching costs), fortalece o poder de barganha desses fornecedores. A troca de fornecedor envolve custos financeiros, riscos operacionais e necessidade de reestruturação tecnológica, o que limita a capacidade de negociação das adquirentes.
 ##### Fornecedores de hardware
 No fornecimento de maquininhas de cartão (POS), destacam-se empresas como Verifone e Ingenico no cenário internacional, além da Pax Technologies, líder no Brasil. A produção de equipamentos para o mercado nacional também envolve a Transire, maior fabricante de maquininhas fora da China (InfoMoney, 2023).
+
 Assim como nos demais segmentos, há dependência tecnológica e custos elevados de substituição de fornecedores, o que reforça o poder de barganha dessas empresas. A padronização tecnológica e a necessidade de certificações específicas dificultam a entrada de novos fabricantes.
 #### Análise do poder de barganha dos fornecedores e impacto na indústria
-Com base na análise das três categorias, verifica-se que os principais fornecedores da Cielo são grandes empresas globais com forte concentração de mercado. Essa característica estrutural eleva o poder de barganha dos fornecedores, pois:
-Há baixa quantidade de alternativas relevantes.
-Os custos de troca são elevados.
-Os fornecedores detêm tecnologias essenciais ao funcionamento do negócio.
-A dependência é estrutural e comum a todas as adquirentes do setor.
+Com base na análise das três categorias, verifica-se que os principais fornecedores da Cielo são grandes empresas globais com forte concentração de mercado. Essa característica estrutural eleva o poder de barganha dos fornecedores, pois: Há baixa quantidade de alternativas relevantes, os custos de troca são elevados, os fornecedores detêm tecnologias essenciais ao funcionamento do negócio e a dependência é estrutural e comum a todas as adquirentes do setor.
+
 Dessa forma, o setor de adquirência apresenta forte influência dos fornecedores estratégicos, especialmente das bandeiras e dos provedores de nuvem. Esse cenário impacta diretamente as margens das empresas, reduz sua capacidade de negociação e contribui para a intensificação da rivalidade competitiva na indústria.
 #### Poder de Barganha dos Clientes na Indústria de Meios de Pagamento
 
@@ -83,12 +90,14 @@ Microempreendedores Individuais (MEI)
 O grupo dos microempreendedores individuais é constituído por pequenas operações com baixo volume de vendas, como autônomos e pequenos negócios. Apesar da importância numérica desse segmento, o poder de barganha individual desses clientes é limitado, uma vez que nenhum representa uma fatia significativa do faturamento total da empresa (CNN, 2022). No entanto, coletivamente, esse segmento pode exercer influência caso ocorram migrações em massa para serviços concorrentes.
 ##### Microempresas, Pequenas e Médias Empresas (PMEs)
 As PMEs constituem parte fundamental da base de clientes da Cielo, representando um grande número de usuários que buscam soluções de pagamento adaptadas a negócios menores. A empresa oferece variadas soluções tecnológicas que atendem desde o pequeno varejo até empresas de porte médio, reforçando sua estratégia de atuação ampla em vários segmentos do mercado.
+
 Individualmente, esses clientes possuem baixo poder de barganha no mercado devido ao grande número de empresas desse tipo. Entretanto, coletivamente, podem exercer um poder maior frente à concorrência, especialmente se houver opções alternativas de adquirência disponíveis.
 ##### Grandes Contas
 Grandes contas são empresas com alto volume de transações e representatividade no faturamento total de pagamentos processados (Moody’s, 2024). A Cielo possui soluções customizadas para esse segmento, incluindo atendimento dedicado e soluções que levam em conta as necessidades específicas desses grandes clientes (Cielo, 2023).
 Clientes desse porte tendem a possuir alto poder de barganha, pois representam uma parcela significativa das receitas da Cielo e, portanto, podem negociar condições comerciais mais favoráveis.
 ##### E-commerce ( Qualquer porte )
 O segmento de e-commerce engloba lojas virtuais, marketplaces e vendedores online que utilizam soluções digitais de pagamento. A Cielo oferece plataformas de integração para e-commerce, como APIs e links de pagamento, ajudando empreendedores a vender online com segurança e eficiência (Cielo, 2025).
+
 Devido à facilidade de troca entre uma plataforma de pagamento e outra no ambiente digital, esses clientes possuem um poder de barganha moderado — maior do que pequenos negócios isolados, mas menor do que grandes contas físicas — uma vez que mudanças de fornecedor podem ocorrer com custo relativamente baixo.
 
 ##### Segmentação por setor
@@ -100,14 +109,20 @@ O poder de barganha dos clientes na indústria de adquirência varia conforme o 
 #### Análise da ameaça de produtos ou serviços substitutos
 
 No cenário brasileiro, o setor de adquirência é consolidado por empresas como Mercado Pago, PagSeguro (PagBank), Stone, Ton, InfinitePay, Cielo, Getnet, SumUp e C6 Pay. Segundo o portal Consumidor Moderno (2018), essas organizações são as principais precursoras de inovações tecnológicas no mercado nacional, introduzindo métodos como pagamentos por aproximação (Near Field Communication - NFC), biometria, leitura de QR Codes e integração com carteiras digitais.
+
 Entretanto, a principal ameaça de substituição não provém apenas de novas tecnologias de hardware, mas de mudanças estruturais no sistema de pagamentos. O surgimento e a rápida adoção do Pix representa um desafio direto ao modelo de negócios das maquininhas. Conforme aponta a análise do InfoMoney (2023), as transferências instantâneas têm apresentado um crescimento exponencial, oferecendo custos menores para os lojistas e conveniência para os consumidores, o que posiciona o sistema de pagamentos instantâneos como o principal substituto das transações tradicionais feitas por maquininhas.
 
 #### Análise Geral da Rivalidade entre os Concorrentes Existentes
 O mercado brasileiro de maquininhas de cartão apresenta alto nível de rivalidade competitiva, impulsionado pela presença de grandes empresas consolidadas e pela entrada contínua de fintechs com propostas inovadoras. Em 2024, o ranking dos principais participantes do setor indicava o PagBank como líder de mercado, seguido por Cielo, Stone e Rede, evidenciando um ambiente competitivo marcado pela disputa por taxas mais atrativas, tecnologia e integração de serviços financeiros (Exame, 2024).
+
 Fintechs como PagBank, Mercado Pago e SumUp vêm ampliando sua presença ao investir em inteligência artificial, análise de dados e segurança digital, além de oferecer ecossistemas integrados que incluem conta digital, ferramentas de gestão e soluções de pagamento. Esse movimento aumenta a complexidade competitiva do setor e exige maior capacidade tecnológica das empresas. Paralelamente, cresce a adoção da tecnologia Tap to Pay, que permite transformar smartphones em maquininhas de pagamento, tendência que tende a ampliar ainda mais a pressão competitiva sobre os modelos tradicionais (Pininfarina Brasil, 2025).
+
 Rankings especializados indicam que as maquininhas mais competitivas atualmente combinam baixas taxas, tecnologia avançada e simplicidade operacional. Nesse contexto, PagBank, Ton, Mercado Pago e SumUp figuram entre as principais referências do mercado (Educando Seu Bolso, 2025; iDinheiro, 2025). Em contraste, análises comparativas mostram que as maquininhas da Cielo não aparecem entre as dez melhores opções nesses rankings, sugerindo uma perda relativa de competitividade frente às fintechs digitais (Educando Seu Bolso, 2025; iDinheiro, 2025). Ainda assim, alguns levantamentos indicam a Cielo entre as sete principais empresas do setor, demonstrando que a companhia mantém relevância institucional apesar da pressão competitiva (iDinheiro, 2025).
+
 A chamada “guerra das maquininhas” descreve a intensificação dessa disputa entre credenciadoras. Historicamente dominado por Cielo e Rede, o setor passou a registrar a entrada de fintechs como PagSeguro, Stone e Getnet, que atraíram clientes por meio de taxas menores, antecipação de recebíveis mais rápida e inovação em produtos digitais (Concil, 2019; Bloomberg Línea, 2022).
+
 Dados históricos evidenciam a evolução dessa rivalidade. Em determinados períodos, a Cielo possuía cerca de 38% do mercado, seguida por Rede (25%) e GetNet (12%), enquanto Stone e PagSeguro apresentavam crescimento expressivo (Concil, 2019). Segundo dados da Associação Brasileira das Empresas de Cartões de Crédito e Serviços (ABECS), citados pela Bloomberg Línea, no segundo trimestre de 2022 a participação aproximada era de 26% para Cielo, 21,4% para Rede e 13,9% para GetNet, indicando redução da liderança da Cielo diante do avanço das fintechs (Bloomberg Línea, 2022).
+
 A rivalidade também se manifesta em movimentos estratégicos agressivos, como a redução de taxas e a antecipação gratuita de recebíveis. Um exemplo foi a decisão da Rede de zerar taxas de antecipação para atrair lojistas (Exame, 2019), enquanto empresas como PagSeguro passaram a oferecer prazos de pagamento mais curtos, intensificando a disputa por clientes (Seu Dinheiro, 2019). De forma geral, a elevada rivalidade no setor impulsiona inovação e redução de custos, mas também dificulta a manutenção de vantagens competitivas duradouras.
 
 ### 1.1.2. Análise SWOT (sprint 2)
@@ -115,11 +130,13 @@ A rivalidade também se manifesta em movimentos estratégicos agressivos, como a
 A matriz SWOT, ou FOFA, é uma abreviação para forças, oportunidades, fraquezas e ameaças. Ela é dividida em fatores internos e externos, sendo forças e fraquezas classificadas como internos, e oportunidades e ameaças como externos. Essa matriz ajuda a apoiar decisões estratégicas e o planejamento, além de organizar e entender alguns fatores da empresa, como quais oportunidades aproveitar, onde precisa melhorar e quais riscos precisa evitar. 
 
 
-![swot](../src/assets/swot.png)
 
-Figura 1.1.2.1 - Análise SWOT
+<div align="center">
+  <sub>Figura 1.1.2.1 - Análise SWOT</sub><br>
+  <img src="/assets/swot.png" width="100%" alt="Descrição breve"><br>
+  <sup>Material produzido pelos autores, 2026<sup>
+</div>
 
-Fonte: Material produzido pelos autores, 2026.
 
 #### Forças
 
@@ -147,8 +164,6 @@ A estrutura societária da Cielo está fortemente vinculada a grandes instituiç
 
 ##### Erosão do Market Share
 Nos últimos anos, a Cielo tem enfrentado perda gradual de participação de mercado diante da ascensão de novas adquirentes e fintechs (InvestingNews, 2021). Empresas como PagSeguro e Stone adotaram modelos mais agressivos de precificação e atendimento. Esse cenário intensificou a competição e reduziu a vantagem histórica da Cielo no setor. A erosão do market share evidencia desafios na manutenção da liderança em um ambiente de alta rivalidade competitiva.
-
-
 
 #### Oportunidades
 
@@ -236,12 +251,11 @@ RF26 | O jogo deve dar dicas e revisões conforme o progresso do jogo.
 
 \# | Requisitos não funcionais
 --- | ---
-RNF01 | O jogo deve possuir um design interativo
-RNF02 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
-RNF03 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
-RNF04 | O jogo deve apresentar compatibilidade com teclado e mouse.
-RNF05 | O código do sistema deve seguir boas práticas de organização e modularização.
-RNF06 | O jogo deve ser visualmente confortável.
+RNF01 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
+RNF02 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
+RNF03 | O jogo deve apresentar compatibilidade com teclado e mouse.
+RNF04 | O código do sistema deve seguir boas práticas de organização e modularização.
+RNF05 | O jogo deve ser visualmente confortável.
 
 
 
@@ -311,36 +325,35 @@ Nesses momentos de aprendizado, a pessoa GN retorna ao Espaço Cielo para realiz
 
 O jogo possui quatro personagens controláveis, sendo dois homens e duas mulheres, que podem ser escolhidos no início da partida. Os homens são João (um homem negro) e José (um homem branco), e as mulheres são Maria (uma mulher parda) e Paula (uma mulher branca). Esses personagens representam os Gerentes de Negócios da Cielo e têm como objetivo conquistar determinados vendedores e transformá-los em clientes da empresa. Eles não possuem habilidades específicas, ou seja, a escolha do personagem não altera a experiência do usuário.
 
-![joão](/assets/joao.png)
+<div align="center">
+  <sub>Figura 3.2.1.1 - Sprite do João</sub><br>
+  <img src="/assets/joao.png" width="100%" alt="Sprite João"><br>
+  <sup>[LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.</sup>
+</div>
 
-Figura 3.2.1.1 - Sprite do João
+### 
 
+<div align="center">
+  <sub>Figura 3.2.1.2 - Sprite do José</sub><br>
+  <img src="/assets/jose.png" width="100%" alt="Sprite José"><br>
+  <sup>Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.</sup>
+</div>
 
+### 
 
-Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
+<div align="center">
+  <sub>Figura 3.2.1.3 - Sprite da Maria</sub><br>
+  <img src="/assets/maria.png" width="100%" alt="Sprite Maria"><br>
+  <sup>Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.</sup>
+</div>
 
-![José](/assets/jose.png)
+### 
 
-Figura 3.2.1.2 - Sprite do José
-
-
-
-Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
-
-
-
-
-![Maria](/assets/Maria.png)
-
-Figura 3.2.1.3 - Sprite da Maria
-
-Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.
-
-![Maria](/assets/paula.png)
-
-Figura 3.2.1.4 - Sprite da Paula
-
-Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026
+<div align="center">
+  <sub>Figura 3.2.1.4 - Sprite da Paula</sub><br>
+  <img src="/assets/paula.png" width="100%" alt="Sprite Paula"><br>
+  <sup>Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.</sup>
+</div>
 
 ### 3.2.2. Non-Playable Characters (NPC)
 
@@ -348,41 +361,53 @@ O jogo conta com os chamados Non-Playable Characters, que são, de forma literal
 O processo de criação dos NPCs ocorreu em duas etapas principais: primeiro, o desenho feito à mão, detalhando características específicas alinhadas aos valores da equipe; em seguida, o aprimoramento com o apoio de ferramentas de inteligência artificial, a fim de garantir melhor visualização e refinamento dos personagens.
 Para a próxima sprint, o objetivo é realizar o desenho manual das sprites desses personagens, que serão utilizadas no desenvolvimento das animações e farão parte da dinâmica do jogo.
 
-![joão](/assets/padeiro.jpg)
-Figura 3.2.2.1 - Esboço e digitalização do Tião, o dono da padaria.
+<div align="center">
+  <sub>Figura 3.2.2.1 - Esboço e digitalização do Tião, o dono da padaria.</sub><br>
+  <img src="/assets/padeiro.jpg" width="100%" alt="Esboço Tião"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
-Fonte: Material produzido pelos autores, 2026.
+###
 
-![pedro](/assets/homem.jpg)
+<div align="center">
+  <sub>Figura 3.2.2.2 - Esboço e digitalização do Pedro, o dono da loja de roupas.</sub><br>
+  <img src="/assets/homem.jpg" width="100%" alt="Esboço Dono da loja de roupa"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
-Figura 3.2.2.2 - Esboço e digitalização do Pedro, o dono da loja de roupas.
+###
 
-Fonte: Material produzido pelos autores, 2026.
+<div align="center">
+  <sub>Figura 3.2.2.3 - Esboço e digitalização da Márcia, a dona de farmácia.</sub><br>
+  <img src="/assets/mulher.jpg" width="100%" alt="Esboço Dona da ???"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
-![marcia](/assets/mulher.jpg)
+###
 
-Figura 3.2.2.3 - Esboço e digitalização da Márcia, a dona de farmácia.
+<div align="center">
+  <sub>Figura 3.2.2.4 - Esboço e digitalização da Leila, a dona de salão de beleza.</sub><br>
+  <img src="/assets/cabeleleira.jpg" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
-Fonte: Material produzido pelos autores, 2026.
+###
 
-![Leila](/assets/cabeleleira.jpg)
-
-Figura 3.2.2.4 - Esboço e digitalização da Leila, a dona de salão de beleza.
-
-Fonte: Material produzido pelos autores, 2026.
-
-![estadual](/assets/estadual.png)
-
-Figura 3.2.2.5 - Digitalização do estadual (Mestre de vendaa Cielo)
-
-Fonte: Material produzido pelos autores, 2026.
-
+<div align="center">
+  <sub>Figura 3.2.2.5 - Digitalização do estadual (Mestre de vendas da Cielo)</sub><br>
+  <img src="/assets/estadual.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
 ### 3.2.3. Diversidade e Representatividade dos Personagens
 
 Tendo em vista o fato de a Cielo ser uma empresa nacional, presente em diversas regiões de um país com território de dimensões continentais e marcado por ampla diversidade cultural, social e étnica, torna-se fundamental que o jogo esteja alinhado aos valores institucionais da organização. Nesse contexto, a promoção da inclusão e da representatividade não se configura apenas como uma escolha estética ou narrativa, mas como um posicionamento coerente com a identidade e a atuação da empresa no mercado brasileiro.
+
 Os personagens foram desenvolvidos com foco na representatividade e na inclusão. Por essa razão, optou-se pela criação de quatro personagens jogáveis, sendo duas mulheres e dois homens. Entre eles, há uma mulher e um homem negros, bem como uma mulher e um homem brancos, buscando contemplar diferentes perfis e promover maior diversidade dentro do jogo. Essa escolha impacta diretamente a experiência dos jogadores, pois amplia as possibilidades de identificação e pertencimento, permitindo que diferentes públicos se vejam representados na narrativa. Ao reconhecer traços de sua própria realidade nos personagens, o jogador tende a estabelecer maior conexão emocional com o jogo, fortalecendo o engajamento e a sensação de valorização.
-Além disso, o desenvolvimento de NPCs que também refletiram essa proposta inclusiva, ampliando a pluralidade de identidades, origens e vivências presentes na narrativa. A equipe permanece aberta à incorporação de novos personagens diversos, de modo a fortalecer continuamente o compromisso com a representatividade e assegurar que o jogo dialogue de forma sensível e respeitosa com a realidade multicultural do Brasil. Dessa forma, a inclusão deixa de ser apenas um elemento conceitual e passa a constituir um fator estruturante da experiência do usuário, contribuindo para a construção de um ambiente virtual mais equitativo, acolhedor e alinhado aos valores institucionais da empresa. 
+
+Além disso, o desenvolvimento de NPCs que também refletiram essa proposta inclusiva, ampliando a pluralidade de identidades, origens e vivências presentes na narrativa. A equipe permanece aberta à incorporação de novos personagens diversos, de modo a fortalecer continuamente o compromisso com a representatividade e assegurar que o jogo dialogue de forma sensível e respeitosa com a realidade multicultural do Brasil. 
+
+Dessa forma, a inclusão deixa de ser apenas um elemento conceitual e passa a constituir um fator estruturante da experiência do usuário, contribuindo para a construção de um ambiente virtual mais equitativo, acolhedor e alinhado aos valores institucionais da empresa. 
 
 
 ## 3.3. Mundo do jogo (sprints 2 e 3)
