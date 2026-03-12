@@ -38,7 +38,7 @@ class MainScene extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
         // Define onde o personagem começa
-        let spawnX = 100, spawnY = 200;
+        let spawnX = 550, spawnY = 300;
         // Tenta encontrar a posição de spawn no mapa
         const spawnLayer = map.getObjectLayer('spawn');
         if (spawnLayer?.objects.length > 0) {
@@ -51,10 +51,14 @@ class MainScene extends Phaser.Scene {
         this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(0.3);
         // Faz o personagem não sair dos limites do mapa
         this.personagem.setCollideWorldBounds(true);
-        // Define o tamanho do corpo de colisão do personagem
-        this.personagem.body.setSize(22, 20);
-        // Define o deslocamento do corpo de colisão
-        this.personagem.body.setOffset(17, 40);
+       // Ajusta automaticamente a hitbox para o tamanho do sprite
+        this.personagem.body.setSize(
+        this.personagem.width,
+        this.personagem.height
+        );
+
+// Centraliza a hitbox no sprite
+this.personagem.body.setOffset(0, 0);
 
         // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);

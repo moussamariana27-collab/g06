@@ -21,11 +21,12 @@ class Tutorial extends Phaser.Scene {
 
     // Carrega as duas imagens do professor:
     // estadual1 = boca fechada | estadual2 = boca aberta (animação de fala)
-    preload() {
-        this.load.image('estadual1', 'assets/estadual1.png');
-        this.load.image('estadual2', 'assets/estadual2.png');
-    }
+   preload() {
+    this.load.image('estadual1', 'assets/estadual1.png');
+    this.load.image('estadual2', 'assets/estadual2.png');
 
+    ;
+}
     create() {
         const W = this.scale.width;
         const H = this.scale.height;
@@ -77,8 +78,8 @@ class Tutorial extends Phaser.Scene {
 
         // Texto do diálogo — começa vazio pois é preenchido pelo efeito de digitação
         this.txtDialogo = this.add.text(caixaX + 28, caixaY + 24, '', {
-            fontFamily: 'Press Start 2P', // fonte pixel art (Google Fonts)
-            fontSize: '20px',
+            
+            fontSize: '30px',
             color: '#000000',
             wordWrap: { width: caixaW - 56 } // quebra de linha automática dentro da caixa
         }).setDepth(5);

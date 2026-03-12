@@ -52,16 +52,19 @@ class CidadeScene extends Phaser.Scene {
         const spawnY = spawnObj.y + spawnObj.height / 2;
 
         // Cria o personagem com física na posição de spawn
-        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(0.2);
+        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(0.1);
 
         // Ativa colisão do personagem com as bordas do mundo
         this.personagem.setCollideWorldBounds(true);
 
-        // Define o tamanho da hitbox de colisão do personagem
-        this.personagem.body.setSize(22, 20);
+        // Ajusta automaticamente a hitbox para o tamanho do sprite
+        this.personagem.body.setSize(
+        this.personagem.width,
+        this.personagem.height
+        );
 
-        // Ajusta o deslocamento da hitbox dentro do sprite
-        this.personagem.body.setOffset(17, 40);
+// Centraliza a hitbox no sprite
+this.personagem.body.setOffset(0, 0);
 
         // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);
@@ -150,7 +153,7 @@ class CidadeScene extends Phaser.Scene {
         this.personagem.setVelocity(0);
 
         // Cria uma variável que guarda o valor da velocidade de movimento
-        const vel = 200;
+        const vel = 150;
 
         // Movimento para esquerda
         if (this.cursor.left.isDown) {
