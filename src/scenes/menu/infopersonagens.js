@@ -7,9 +7,9 @@ class CharacterInfoScene extends Phaser.Scene {
         this.load.image('botaoJogar', 'assets/btnJogar.png');
 
         // Carrega a imagem de info de cada personagem
-        this.load.image('infoJOSE',  'assets/info_jose.png');
+        this.load.image('infoJOSÉ',  'assets/info_jose.png');
         this.load.image('infoMARIA', 'assets/info_maria.png');
-        this.load.image('infoJOAO',  'assets/info_joao.png');
+        this.load.image('infoJOÃO',  'assets/info_joao.png');
         this.load.image('infoPAULA', 'assets/info_paula.png');
     }
 

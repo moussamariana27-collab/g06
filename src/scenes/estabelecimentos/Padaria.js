@@ -48,9 +48,9 @@ class Padaria extends Phaser.Scene {
                 resposta: true
             },
             {
-                pergunta: "SEU JOAO\n",
-                certo: "sim",
-                errado: "nao",
+                pergunta: "SEU JOÃO:\nBeleza, mas me responde uma coisa: às\nvezes eu vendo parcelado e o dinheiro\ndemora pra cair. O meu fornecedor de\nfarinha não espera... A Cielo resolve isso?",
+                certo: "A Cielo tem a antecipação de recebíveis!\nVocê recebe adiantado pagando uma pequena taxa.",
+                errado: "Infelizmente não tem jeito Seu João. Tem\nque esperar as parcelas caírem.",
                 resposta: true
             },
             {
@@ -67,8 +67,8 @@ class Padaria extends Phaser.Scene {
             },
             {
                 pergunta: "teste teste teste 5",
-                certo: "la ele",
-                errado: "nao la ele",
+                certo: "nao",
+                errado: "nao 2",
                 resposta: true
             },
         ];
