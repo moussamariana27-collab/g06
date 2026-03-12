@@ -328,7 +328,7 @@ O jogo possui quatro personagens controláveis, sendo dois homens e duas mulhere
 <div align="center">
   <sub>Figura 3.2.1.1 - Sprite do João</sub><br>
   <img src="/assets/joao.png" width="100%" alt="Sprite João"><br>
-  <sup>[LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.</sup>
+  <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
 ### 
@@ -336,7 +336,7 @@ O jogo possui quatro personagens controláveis, sendo dois homens e duas mulhere
 <div align="center">
   <sub>Figura 3.2.1.2 - Sprite do José</sub><br>
   <img src="/assets/jose.png" width="100%" alt="Sprite José"><br>
-  <sup>Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.</sup>
+  <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
 ### 
@@ -344,7 +344,7 @@ O jogo possui quatro personagens controláveis, sendo dois homens e duas mulhere
 <div align="center">
   <sub>Figura 3.2.1.3 - Sprite da Maria</sub><br>
   <img src="/assets/maria.png" width="100%" alt="Sprite Maria"><br>
-  <sup>Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.</sup>
+  <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
 ### 
@@ -352,7 +352,7 @@ O jogo possui quatro personagens controláveis, sendo dois homens e duas mulhere
 <div align="center">
   <sub>Figura 3.2.1.4 - Sprite da Paula</sub><br>
   <img src="/assets/paula.png" width="100%" alt="Sprite Paula"><br>
-  <sup>Fonte: [LimeZu](http://limezu.itch.io/), 2025 e editado pelos autores, 2026.</sup>
+  <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
 ### 3.2.2. Non-Playable Characters (NPC)
@@ -367,10 +367,16 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
+<div align="center">
+  <sub>Figura 3.2.2.2 - Sprite do padeiro feita a mão</sub><br>
+  <img src="/assets/spritePadeiro.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.2 - Esboço e digitalização do Pedro, o dono da loja de roupas.</sub><br>
+  <sub>Figura 3.2.2.3 - Esboço e digitalização do Pedro, o dono da loja de roupas.</sub><br>
   <img src="/assets/homem.jpg" width="100%" alt="Esboço Dono da loja de roupa"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -378,7 +384,7 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.3 - Esboço e digitalização da Márcia, a dona de farmácia.</sub><br>
+  <sub>Figura 3.2.2.4 - Esboço e digitalização da Márcia, a dona de farmácia.</sub><br>
   <img src="/assets/mulher.jpg" width="100%" alt="Esboço Dona da ???"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -386,16 +392,24 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.4 - Esboço e digitalização da Leila, a dona de salão de beleza.</sub><br>
+  <sub>Figura 3.2.2.5 - Esboço e digitalização da Leila, a dona de salão de beleza.</sub><br>
   <img src="/assets/cabeleleira.jpg" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+#####
+
+<div align="center">
+  <sub>Figura 3.2.2.6 - Sprite da Leila feita a mão</sub><br>
+  <img src="/assets/spriteLeila.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.5 - Digitalização do estadual (Mestre de vendas da Cielo)</sub><br>
-  <img src="/assets/estadual.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.7 - Sprite do estadual (Mestre de vendas da Cielo)</sub><br>
+  <img src="/assets/spriteEstadual.png" width="70%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -428,41 +442,51 @@ Dessa forma, a inclusão deixa de ser apenas um elemento conceitual e passa a co
 ### 3.3.2. Navegação pelo mundo (sprints 2 e 3)
 
 A navegação do personagem ocorre de maneira livre pelo mapa 2D, utilizando uma visão top-down clássica de jogos de RPG.
+
 Controles de Movimento: O jogador utiliza as teclas UP, DOWN, LEFT e RIGHT para caminhar pelas ruas e interagir com o ambiente.
+
 Transições de Tela: Ao encostar na porta de um comércio (ex: Padaria, Farmácia), o jogador é teleportado para o interior da loja.
+
 Interação (Batalha): Ao se aproximar do balcão e interagir com o NPC (lojista) através de uma tecla de ação (ex: barra de espaço ou 'E'), o jogo transita da tela de exploração para a interface de "Batalha de Vendas", onde o jogador escolhe seus argumentos em um menu de escolhas.
 
 ### 3.3.3. Condições climáticas e temporais (sprints 2 e 3)
 
-*\<opcional\> Descreva diferentes condições de clima que podem afetar o mundo e as fases, se aplicável*
-
-*Caso seja relevante, descreva como o tempo passa, se ele é um fator limitante ao jogo (ex. contagem de tempo para terminar uma fase)*
+*Não se aplica.*
 
 ### 3.3.4. Concept Art (sprint 2)
 
 Abaixo estão os estudos iniciais de level design e a identidade visual do jogo em pixel art.
 
-![Figura 3.3.4.1](/assets/cidade_tileset.png)
+<div align="center">
+  <sub>Figura 3.3.4.1 - Estudo de interface visual e estilo de arte (Pixel Art)</sub><br>
+  <img src="/assets/cidade_tileset.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
-Figura 3.3.4.1 - Estudo de interface visual e estilo de arte (Pixel Art). A imagem ilustra a visão top-down, o sprite do personagem principal (Gerente de Negócios) e a fachada de estabelecimentos comuns (Padaria e Farmácia).
+A imagem ilustra a visão top-down, o sprite do personagem principal (Gerente de Negócios) e a fachada de estabelecimentos comuns (Padaria e Farmácia).
 
-Fonte: Material produzido pelos autores, 2026.
+Os objetos do Tiled Map foram projetados por [LimeZu](http://limezu.itch.io/).
 
-![Figura 3.3.4.2](/assets/concept1.png)
+ ###
 
-Figura 3.3.4.2 - Esboço preliminar (Side-scroller) ilustrando a escala dos edifícios. Destaque para o escritório da Cielo como ponto de partida (nascimento do sprite) e os estabelecimentos vizinhos que servirão como as primeiras missões.
+<div align="center">
+  <sub>Figura 3.3.4.2 - Esboço preliminar (Side-scroller) ilustrando a escala dos edifícios.</sub><br>
+  <img src="/assets/concept1.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
+Destaque para o escritório da Cielo como ponto de partida (nascimento do sprite) e os estabelecimentos vizinhos que servirão como as primeiras missões.
+ ###
 
-Fonte: Material produzido pelos autores, 2026.
+<div align="center">
+  <sub>Figura 3.3.4.3 - Esboço do Mapa Geral (Top-down)</sub><br>
+  <img src="/assets/concept2.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
-![Figura 3.3.4.3](/assets/concept2.png)
+Demonstra a centralidade do prédio da Cielo no level design, facilitando o acesso radial aos diferentes perfis de clientes ao redor (Shopping Center, Hotel, Salão, Farmácia e Padaria).
 
-Figura 3.3.4.3 - Esboço do Mapa Geral (Top-down). Demonstra a centralidade do prédio da Cielo no level design, facilitando o acesso radial aos diferentes perfis de clientes ao redor (Shopping Center, Hotel, Salão, Farmácia e Padaria).
-
-
-Fonte: Material produzido pelos autores, 2026.
-
-
+ 
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
@@ -477,36 +501,19 @@ Fonte: Material produzido pelos autores, 2026.
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
-### 3.4.1. Inventário
-
-*\<opcional\> Caso seu jogo utilize itens ou poderes para os personagens obterem, descreva-os aqui, indicando títulos, imagens, meios de obtenção e funções no jogo. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.* 
-
-*Exemplo de tabela*
-\# | item |  | como obter | função | efeito sonoro
---- | --- | --- | --- | --- | ---
-1 | moeda | <img src="../assets/coin.png"> | há muitas espalhadas em todas as fases | acumula dinheiro para comprar outros itens | som de moeda
-2 | madeira | <img src="../assets/wood.png"> | há muitas espalhadas em todas as fases | acumula madeira para construir casas | som de madeiras
-3 | ... 
-
-### 3.4.2. Bestiário
-
-*\<opcional\> Caso seu jogo tenha inimigos, descreva-os aqui, indicando nomes, imagens, momentos de aparição, funções e impactos no jogo. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.* 
-
-*Exemplo de tabela*
-\# | inimigo |  | ocorrências | função | impacto | efeito sonoro
---- | --- | --- | --- | --- | --- | ---
-1 | robô terrestre | <img src="../assets/inimigo2.PNG"> |  a partir da fase 1 | ataca o personagem vindo pelo chão em sua direção, com velocidade constante, atirando parafusos | se encostar no inimigo ou no parafuso arremessado, o personagem perde 1 ponto de vida | sons de tiros e engrenagens girando
-2 | robô voador | <img src="../assets/inimigo1.PNG"> | a partir da fase 2 | ataca o personagem vindo pelo ar, fazendo movimento em 'V' quando se aproxima | se encostar, o personagem perde 3 pontos de vida | som de hélice
-3 | ... 
+*Não se aplica.*
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
-![diagrama](/assets/diagrama.png)
+<div align="center">
+  <sub>Figura 3.5.1 - Diagrama de cenas</sub><br>
+  <img src="/assets/diagrama.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
+### 
 
-Abaixo segue o link para o Diagrama de cenas
-https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=sharing
-
+[Link direto para o diagrama.](https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=sharing)
 
 ## 3.6. Regras do jogo (sprint 3)
 
@@ -553,10 +560,13 @@ Como primeiro requisito funcional, foi identificada a necessidade de uma tela de
 
 Na parte superior, foi inserido o título "Cielo: Mestre de Vendas" e, na inferior, o botão "Jogar". Em termos de codificação com o framework Phaser, este botão foi definido como um elemento interativo através do método setInteractive. Para garantir feedback visual ao usuário, foram programados eventos de pointerover e pointerout que alteram a escala do botão (setScale), criando um efeito dinâmico ao passar o mouse. O clique no botão dispara o evento scene.start, responsável pela transição para a cena do jogo.
 
-![foto da tela inicial](image-1.png)
-Figura 4.1.1 - tela inicial do jogo
 
-Fonte: Material produzido pelos autores, 2026.
+<div align="center">
+  <sub>Figura 4.1.1 - tela inicial do jogo</sub><br>
+  <img src="/assets/image-1.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
 
 Implementação do Cenário (Escritório)
 
@@ -573,32 +583,38 @@ Implementação da Mecânica de Vendas: Adicionar NPCs (clientes) e criar o sist
 HUD e Pontuação: Criar a interface que mostra o saldo e metas de vendas na tela.
 Colisões: Refinar as áreas de colisão do escritório para impedir que o personagem atravesse paredes ou móveis utilizando o sistema de física Arcade do Phaser.
 
-![foto do escritorio com o personagem](image-2.png)
-Figura 4.1.2 - concept art do escritório Cielo
-
-Fonte: Material produzido pelos autores, 2026.
-
-
+<div align="center">
+  <sub>Figura 4.1.2 - concept art do escritório Cielo</sub><br>
+  <img src="/assets/image-2.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
 ## 4.2. Desenvolvimento básico do jogo (sprint 2)
 
 4.2. Desenvolvimento da Versão Básica (Sprint 2)
 O desenvolvimento da versão básica do jogo nesta segunda sprint teve como foco a materialização do ambiente de jogo e a implementação do sistema de física. O objetivo principal foi entregar a renderização do mapa, a integração da sprite do personagem principal e o funcionamento adequado das colisões.
+
 Implementação do Mapa e Delimitação de Escopo O cenário do jogo foi construído utilizando a ferramenta externa Tiled Map Editor. O ambiente foi desenhado através de tilesets e dividido em camadas lógicas (piso, paredes e obstáculos). Para garantir a qualidade da entrega dentro do prazo estipulado, a equipe realizou uma delimitação de escopo, priorizando a construção e o polimento de três áreas principais: o Escritório da Cielo e dois estabelecimentos comerciais (uma Padaria e uma Loja de Roupas).
+
 No código, o sistema de física Arcade do framework Phaser foi ativado para habilitar as colisões mecânicas. As propriedades de colisão foram mapeadas nas camadas de obstáculos do mapa gerado no Tiled, garantindo que o personagem principal interaja corretamente com os limites físicos dos ambientes (como paredes e balcões), solidificando as bases da exploração espacial.
 
-![Figura 3.3.4.1](../assets/cidade2.png)
+<div align="center">
+  <sub>Figura 3.3.4.1 - parte do concept do mapa do jogo</sub><br>
+  <img src="/assets/cidade2.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
-Figura 3.3.4.1 - parte do concept do mapa do jogo
-
-Fonte: Material produzido pelos autores, 2026.
+### 
 
 Dificuldades Encontradas O maior desafio técnico enfrentado pela equipe esteve diretamente ligado à curva de aprendizado do Tiled e sua integração com o motor do jogo. O processo de criação do mapa demandou estudo desde os conceitos iniciais da ferramenta até a descoberta das bibliotecas corretas.
+
 A alta complexidade em manipular múltiplas ferramentas de design e programação simultaneamente motivou a decisão de reduzir o escopo geográfico do jogo nesta sprint. Além disso, a transição entre o mapa exportado e a sua renderização tornou-se um grande obstáculo. Compreender como a arquitetura de dados era alocada no arquivo JSON gerado pelo Tiled e conectar essas referências internas com os assets de imagem carregados no código exigiu muitas revisões para que o cenário fosse reproduzido fielmente e sem falhas de textura.
 
-![Figura 3.3.4.1](../assets/cidade3.png)
-Figura 3.3.4.1 - parte do concept do mapa do jogo
-Fonte: Material produzido pelos autores, 2026.
+<div align="center">
+  <sub>Figura 3.3.4.1 - parte do concept do mapa do jogo</sub><br>
+  <img src="/assets/cidade3.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
 
 Próximos Passos (Sprint 3)
 Expansão e Detalhamento do Cenário: Adicionar novos detalhes visuais aos estabelecimentos atuais e planejar a expansão do mapa para incluir novos comércios.
@@ -621,14 +637,17 @@ Mecânicas de Interação: Implementar áreas de sobreposição (overlaps) para 
 
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
-*Descreva nesta seção os casos de teste comuns que podem ser executados a qualquer momento para testar o funcionamento e integração das partes do jogo. Utilize tabelas para facilitar a organização.*
 
-*Exemplo de tabela*
+
 \# | pré-condição | descrição do teste | pós-condição 
 --- | --- | --- | --- 
-1 | posicionar o jogo na tela de abertura | iniciar o jogo desde seu início | o jogo deve iniciar da fase 1
-2 | posicionar o personagem em local seguro de inimigos | aguardar o tempo passar até o final da contagem | o personagem deve perder uma vida e reiniciar a fase
-3 | ...
+1 | Posicionar o botão no centro da tela inicial | Começar o jogo desde a tela inicial | o jogo deve levar da tela inicial até a tela do Espaço Cielo
+2| Ter a Sprite do estadual posicionada no Espaço Cielo e a colisão entre o jogador e a sprite |Iniciar o tutorial ao interagir com o Estadual| A tela de tutorial deve aparecer com os diálogos com o Estadual
+3| Ter uma colisão que gere o evento de transição de cenas|Transição do Espaço Cielo para o mapa | O jogador é direcionado ao mapa do jogo
+4| Ter uma representação da padaria no mapa com uma colisão que gere o evento de transição de cenas| Iniciar a cena da padaria | O jogador é direcionado para a cena da padaria com os diálogos
+5| Ter o turno montado com duas opções interativas de diálogo que alterem a barra de satisfação | Escolher uma opção de diálogo do turno da padaria | Alteração na barra de satisfação do NPC, alteração das espressões da sprite e uma resposta de diálogo, tais ações variam de acordo com a escolha (certa ou errada)
+6| Ter a mecânica da tecla espaço programada para finalizar a cena da padaria | Sair da padaria pressionando a tecla espaço | Sair da cena da padaria e voltar para o mapa
+7| Ter uma representação da loja de roupas no mapa com uma colisão que gere o evento de transição de cenas| Iniciar a cena da loja de roupas | O jogador é direcionado para a cena da loja de roupas com os diálogos
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
