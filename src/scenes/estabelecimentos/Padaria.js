@@ -11,6 +11,11 @@ class Padaria extends Phaser.Scene {
         super({ key: 'Padaria' });
     }
 
+    // Recebe o personagem escolhido da cena anterior
+    init(data) {
+        this.characterEscolhido = data?.character || null;
+    }
+
     // PRELOAD — roda antes de tudo
     // Carrega os assets que a cena vai usar.
     // Se qualquer um desses falhar, a cena quebra.
@@ -82,8 +87,8 @@ class Padaria extends Phaser.Scene {
 
         // Atalhos de teclado pra voltar pra cidade (ESPAÇO ou ENTER)
         // O .once() garante que só dispara uma vez, evitando bug de múltiplos fires
-        this.input.keyboard.once('keydown-SPACE', () => this.scene.start('Cidade'));
-        this.input.keyboard.once('keydown-ENTER', () => this.scene.start('Cidade'));
+        this.input.keyboard.once('keydown-SPACE', () => this.scene.start('Cidade', { character: this.characterEscolhido }));
+        this.input.keyboard.once('keydown-ENTER', () => this.scene.start('Cidade', { character: this.characterEscolhido }));
 
         // Satisfação começa em 34 — já dá uma largada pra não começar zerado
         // Com 3 acertos consecutivos (33 cada) chega em 100 e vence
@@ -322,7 +327,7 @@ class Padaria extends Phaser.Scene {
 
         // Aguarda 4 segundos e manda pro mapa da cidade
         this.time.delayedCall(4000, () => {
-            this.scene.start('Cidade');
+            this.scene.start('Cidade', { character: this.characterEscolhido });
         });
 
     }

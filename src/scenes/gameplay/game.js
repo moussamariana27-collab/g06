@@ -2,7 +2,7 @@ class CidadeScene extends Phaser.Scene {
     constructor() { super({ key: 'Cidade' }); }
 
     // Recebe o personagem escolhido na cena anterior
-    init(data) { this.characterEscolhido = data.character; }
+    init(data) { this.characterEscolhido = data?.character || null; }
 
     preload() {
         // Carrega o mapa exportado do Tiled no formato JSON
@@ -109,51 +109,51 @@ class CidadeScene extends Phaser.Scene {
         if (layerZonas) {
             layerZonas.objects.filter(o => o.width > 0 && o.height > 0 && o.type !== '').forEach(o => {
 
-            // Cria uma zona invisível de interação
-            const zona = this.add.zone(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
+                // Cria uma zona invisível de interação
+                const zona = this.add.zone(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
 
-            // Ativa física na zona
-            this.physics.world.enable(zona);
+                // Ativa física na zona
+                this.physics.world.enable(zona);
 
-            // Desativa gravidade na zona
-            zona.body.setAllowGravity(false);
+                // Desativa gravidade na zona
+                zona.body.setAllowGravity(false);
 
-            // Impede movimentação da zona
-            zona.body.moves = false;
+                // Impede movimentação da zona
+                zona.body.moves = false;
 
-            // Detecta quando o personagem entra na zona
-            this.physics.add.overlap(this.personagem, zona, () => {
+                // Detecta quando o personagem entra na zona
+                this.physics.add.overlap(this.personagem, zona, () => {
 
-                // Caso a zona seja o Hotel (ainda não implementado)
-                if (o.type === 'Hotel') {
+                    // Caso a zona seja o Hotel (ainda não implementado)
+                    if (o.type === 'Hotel') {
 
-                    // Evita criar múltiplos avisos ao mesmo tempo
-                    if (!this.avisoHotel) {
+                        // Evita criar múltiplos avisos ao mesmo tempo
+                        if (!this.avisoHotel) {
 
-                        // Exibe um aviso temporário na tela
-                        this.avisoHotel = this.add.text(
-                            this.cameras.main.scrollX + 512, this.cameras.main.scrollY + 80,
-                            '🏨 Hotel — Em breve!',
-                            { fontSize: '28px', fill: '#ffffff', backgroundColor: '#000000', padding: { x: 12, y: 8 } }
-                        ).setOrigin(0.5).setDepth(10);
+                            // Exibe um aviso temporário na tela
+                            this.avisoHotel = this.add.text(
+                                this.cameras.main.scrollX + 512, this.cameras.main.scrollY + 80,
+                                '🏨 Hotel — Em breve!',
+                                { fontSize: '28px', fill: '#ffffff', backgroundColor: '#000000', padding: { x: 12, y: 8 } }
+                            ).setOrigin(0.5).setDepth(10);
 
-                        // Remove o aviso após alguns segundos
-                        this.time.delayedCall(2000, () => { 
-                            if (this.avisoHotel) { 
-                                this.avisoHotel.destroy(); 
-                                this.avisoHotel = null; 
-                            } 
-                        });
+                            // Remove o aviso após alguns segundos
+                            this.time.delayedCall(2000, () => { 
+                                if (this.avisoHotel) { 
+                                    this.avisoHotel.destroy(); 
+                                    this.avisoHotel = null; 
+                                } 
+                            });
+                        }
+
+                    // Caso a zona leve para outra cena disponível
+                    } else if (cenasDisponiveis.includes(o.type)) {
+
+                        // Troca para a cena correspondente
+                        this.scene.start(o.type, { character: this.characterEscolhido });
                     }
-
-                // Caso a zona leve para outra cena disponível
-                } else if (cenasDisponiveis.includes(o.type)) {
-
-                    // Troca para a cena correspondente
-                    this.scene.start(o.type, { character: this.characterEscolhido });
-                }
+                });
             });
-        });
         }
     }
 

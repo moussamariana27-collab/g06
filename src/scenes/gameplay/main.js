@@ -20,6 +20,8 @@ class MainScene extends Phaser.Scene {
 
         // Obtém os dados do personagem escolhido
         const dadosSprite = sprites[this.characterEscolhido];
+        // Verifica se o personagem é válido antes de carregar
+        if (!dadosSprite) { console.error('Personagem inválido:', this.characterEscolhido); return; }
         // Carrega a spritesheet do personagem escolhido
         this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
             frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
