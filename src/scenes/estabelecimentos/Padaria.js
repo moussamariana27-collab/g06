@@ -78,8 +78,8 @@ class Padaria extends Phaser.Scene {
             },
 
             { pergunta: "teste teste teste 3", certo: "cielo", errado: "pix", resposta: true },
-            { pergunta: "etset etset etset 4", certo: "receba", errado: "bora bil", resposta: true },
-            { pergunta: "teste teste teste 5", certo: "nao", errado: "nao 2", resposta: true }
+            { pergunta: "etset etset etset 4", certo: "resolverei o seu problema, seu Joao!", errado: "senhor,mas!!!...", resposta: true },
+            { pergunta: "teste teste teste 5", certo: "certoo", errado: "errado", resposta: true }
 
         ];
 
