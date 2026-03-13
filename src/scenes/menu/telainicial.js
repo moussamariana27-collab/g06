@@ -6,7 +6,7 @@ class TelaInicial extends Phaser.Scene {
     // Carrega os arquivos que serão utilizados nesta cena
     preload() {
         this.load.image('fundo', 'assets/telainicial.jpeg');
-        this.load.image('button', 'assets/btnJogar.png');
+        this.load.image('imagemBotao', 'assets/btnJogar.png');
         this.load.image('nome', 'assets/nomeTela.png');
     }
 
@@ -24,7 +24,7 @@ class TelaInicial extends Phaser.Scene {
         this.add.image(centroX, centroY - 100, 'nome').setScale(3);
 
         // Adiciona a imagem do botão, posiciona nas coordenadas indicadas e aumenta seu tamanho em 30%
-        let btnIniciar = this.add.image(centroX, centroY + 150, 'button').setScale(1.3);
+        let btnIniciar = this.add.image(centroX, centroY + 150, 'imagemBotao').setScale(1.3);
 
         // Torna o botão interativo e altera o cursor do mouse ao passar sobre ele
         btnIniciar.setInteractive({ cursor: 'pointer' });
@@ -47,5 +47,4 @@ class TelaInicial extends Phaser.Scene {
         });
     }
 
-    update() {}
 }

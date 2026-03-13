@@ -4,6 +4,10 @@ class SalaoDeBeleza extends Phaser.Scene {
         super({ key: 'SalaoDeBeleza' });
     }
 
+    init(data) {
+        this.characterEscolhido = data?.character || null;
+    }
+
     preload() {
         this.load.image('bgSalaoDeBeleza', 'assets/salaodebeleza_interior.png');
     }
@@ -20,8 +24,8 @@ class SalaoDeBeleza extends Phaser.Scene {
             padding: { x: 10, y: 6 }
         }).setOrigin(0.5);
         // Adiciona uma função que sempre que o jogador apertar a tecla SPACE ele retorna para a cidade
-        this.input.keyboard.once('keydown-SPACE', () => this.scene.start('Cidade'));
+        this.input.keyboard.once('keydown-SPACE', () => this.scene.start('Cidade', { character: this.characterEscolhido }));
         // Adiciona uma função que sempre que o jogador apertar a tecla ENTER ele retorna para a cidade
-        this.input.keyboard.once('keydown-ENTER', () => this.scene.start('Cidade'));
+        this.input.keyboard.once('keydown-ENTER', () => this.scene.start('Cidade', { character: this.characterEscolhido }));
     }
 }

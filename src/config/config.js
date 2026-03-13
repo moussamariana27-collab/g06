@@ -23,7 +23,7 @@ var config = {
     scene: [
         TelaInicial,
         CharacterSelectScene,
-        CharacterInfoScene,   // ← agora é só uma, serve pra todos os personagens
+        CharacterInfoScene,   // cria uma função que serve pra todos os personagens
         MainScene,
         Tutorial,
         CidadeScene,

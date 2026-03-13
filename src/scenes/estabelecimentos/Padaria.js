@@ -244,8 +244,9 @@ class Padaria extends Phaser.Scene {
         this.barraSatisfacao();
 
         // Bateu 100? Vitória imediata, nem precisa terminar as perguntas
-        if (this.satisfacao === 100) {
+        if (this.satisfacao >= 100) {
             this.vitoria();
+            return;
         }
 
         // Ficou negativo? Derrota e volta pro início
@@ -333,8 +334,7 @@ class Padaria extends Phaser.Scene {
         this.add.text(
             (this.scale.width / 2) - 870,
             (this.scale.height / 2) - 200,
-            "VOCÊ NÃO FOI CAPAZ DE CONSQUISTAR O CLIENTE",
-            // typo: "CONSQUISTAR" — lembrar de corrigir depois
+            "VOCÊ NÃO FOI CAPAZ DE CONQUISTAR O CLIENTE",
             {
                 color: '#000',
                 backgroundColor: '#ffffff',

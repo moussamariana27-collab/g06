@@ -2,7 +2,7 @@ class MainScene extends Phaser.Scene {
     constructor() { super({ key: 'MainScene' }); }
 
     init(data) {
-        this.characterEscolhido = data.character;
+        this.characterEscolhido = data?.character || null;
     }
 
     // Carrega as imagens
@@ -19,10 +19,10 @@ class MainScene extends Phaser.Scene {
         };
 
         // Obtém os dados do personagem escolhido
-        const skin = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.characterEscolhido];
         // Carrega a spritesheet do personagem escolhido
-        this.load.spritesheet('sheetPersonagem', skin.file, {
-            frameWidth: skin.frameWidth, frameHeight: skin.frameHeight
+        this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
+            frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
         });
     }
 
@@ -42,9 +42,9 @@ class MainScene extends Phaser.Scene {
         // Tenta encontrar a posição de spawn no mapa
         const spawnLayer = map.getObjectLayer('spawn');
         if (spawnLayer?.objects.length > 0) {
-            const s = spawnLayer.objects[0];
-            spawnX = s.x + s.width / 2;
-            spawnY = s.y + s.height / 2;
+            const objetoSpawn = spawnLayer.objects[0];
+            spawnX = objetoSpawn.x + objetoSpawn.width / 2;
+            spawnY = objetoSpawn.y + objetoSpawn.height / 2;
         }
 
         // Cria o sprite do personagem na posição de spawn
@@ -53,12 +53,12 @@ class MainScene extends Phaser.Scene {
         this.personagem.setCollideWorldBounds(true);
        // Ajusta automaticamente a hitbox para o tamanho do sprite
         this.personagem.body.setSize(
-        this.personagem.width,
-        this.personagem.height
+            this.personagem.width,
+            this.personagem.height
         );
 
-// Centraliza a hitbox no sprite
-this.personagem.body.setOffset(0, 0);
+        // Centraliza a hitbox no sprite
+        this.personagem.body.setOffset(0, 0);
 
         // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);
@@ -105,7 +105,7 @@ this.personagem.body.setOffset(0, 0);
             });
         }
 
-        // Obtém a camada do do dialogo com o professor do mapa
+        // Obtém a camada do diálogo com o professor do mapa
         const professorLayer = map.getObjectLayer('professor');
         if (professorLayer?.objects.length > 0) {
             const obj = professorLayer.objects[0];

@@ -21,15 +21,13 @@ class Tutorial extends Phaser.Scene {
 
     // Carrega as duas imagens do professor:
     // estadual1 = boca fechada | estadual2 = boca aberta (animação de fala)
-   preload() {
-    this.load.image('estadual1', 'assets/estadual1.png');
-    this.load.image('estadual2', 'assets/estadual2.png');
-
-    ;
-}
+    preload() {
+        this.load.image('estadual1', 'assets/estadual1.png');
+        this.load.image('estadual2', 'assets/estadual2.png');
+    }
     create() {
-        const W = this.scale.width;
-        const H = this.scale.height;
+        const larguraTela = this.scale.width;
+        const alturaTela = this.scale.height;
 
         // ---------------------------------------------------------
         // ROTEIRO — array com todas as falas do tutorial.
@@ -49,25 +47,25 @@ class Tutorial extends Phaser.Scene {
 
         // Garante que a câmera do tutorial ocupa a tela inteira
         // e não herda o scroll do mapa do MainScene
-        this.cameras.main.setViewport(0, 0, W, H);
+        this.cameras.main.setViewport(0, 0, larguraTela, alturaTela);
         this.cameras.main.setScroll(0, 0);
 
         // ---------------------------------------------------------
         // OVERLAY escuro semitransparente sobre o mapa
-        // Usa W*2 e H*2 para cobrir a tela independente do scroll
+        // Usa larguraTela*2 e alturaTela*2 para cobrir a tela independente do scroll
         // setScrollFactor(0) fixa o overlay na câmera
         // ---------------------------------------------------------
-        this.add.rectangle(0, 0, W * 2, H * 2, 0x000000, 0.72)
+        this.add.rectangle(0, 0, larguraTela * 2, alturaTela * 2, 0x000000, 0.72)
             .setOrigin(0, 0).setDepth(0).setScrollFactor(0);
 
         // ---------------------------------------------------------
         // CAIXA DE DIÁLOGO — três retângulos sobrepostos criam
         // o efeito de borda colorida + fundo claro
         // ---------------------------------------------------------
-        const caixaW = W * 0.75;  // largura: 75% da tela
+        const caixaW = larguraTela * 0.75;  // largura: 75% da tela
         const caixaH = 200;       // altura fixa — aumentar se o texto vazar
-        const caixaX = W / 2 - caixaW / 2; // centralizado horizontalmente
-        const caixaY = H * 0.62;  // posição vertical: 62% da tela
+        const caixaX = larguraTela / 2 - caixaW / 2; // centralizado horizontalmente
+        const caixaY = alturaTela * 0.62;  // posição vertical: 62% da tela
 
         // Camada 1: borda azul escura
         this.add.graphics().setDepth(2).fillStyle(0x5078D8, 1).fillRoundedRect(caixaX, caixaY, caixaW, caixaH, 20);
@@ -88,23 +86,23 @@ class Tutorial extends Phaser.Scene {
         // PROFESSOR — imagem centralizada acima da caixa de texto
         // setOrigin(0.5, 1.0) ancora o sprite pelo centro inferior
         // ---------------------------------------------------------
-        const profX = W / 2;
+        const profX = larguraTela / 2;
         const profY = caixaY - 20;
         this.imgProfessor = this.add.image(profX, profY, 'estadual1')
             .setOrigin(0.5, 1.0).setScale(0.5).setDepth(6);
 
         // Timer que alterna entre estadual1/estadual2 a cada 500ms
         // simulando a animação de boca do professor.
-        // Só anima enquanto this._digitando === true
-        this._professorFalando = false;
+        // Só anima enquanto this.digitando === true
+        this.professorFalando = false;
         this.timerFala = this.time.addEvent({
             delay: 500,
             loop: true,
             callback: () => {
-                this._professorFalando = !this._professorFalando;
+                this.professorFalando = !this.professorFalando;
                 this.imgProfessor.setTexture(
-                    this._digitando
-                        ? (this._professorFalando ? 'estadual2' : 'estadual1')
+                    this.digitando
+                        ? (this.professorFalando ? 'estadual2' : 'estadual1')
                         : 'estadual1' // boca fechada quando termina de digitar
                 );
             }
@@ -118,14 +116,14 @@ class Tutorial extends Phaser.Scene {
         const btnH = 44;
 
         // Fundo dos botões
-        this.add.graphics().setDepth(6).fillStyle(0x5078D8, 1).fillRoundedRect(W / 2 - 220, btnY, btnW, btnH, 10);
-        this.add.graphics().setDepth(6).fillStyle(0x5078D8, 1).fillRoundedRect(W / 2 + 90,  btnY, btnW, btnH, 10);
+        this.add.graphics().setDepth(6).fillStyle(0x5078D8, 1).fillRoundedRect(larguraTela / 2 - 220, btnY, btnW, btnH, 10);
+        this.add.graphics().setDepth(6).fillStyle(0x5078D8, 1).fillRoundedRect(larguraTela / 2 + 90,  btnY, btnW, btnH, 10);
 
-        const botaoAnterior = this.add.text(W / 2 - 155, btnY + btnH / 2, 'Anterior', {
+        const botaoAnterior = this.add.text(larguraTela / 2 - 155, btnY + btnH / 2, 'Anterior', {
             fontFamily: 'Press Start 2P', fontSize: '20px', fill: '#ffffff'
         }).setDepth(7).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
-        this.botaoProximo = this.add.text(W / 2 + 155, btnY + btnH / 2, 'Próximo', {
+        this.botaoProximo = this.add.text(larguraTela / 2 + 155, btnY + btnH / 2, 'Próximo', {
             fontFamily: 'Press Start 2P', fontSize: '20px', fill: '#ffffff'
         }).setDepth(7).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
@@ -135,8 +133,8 @@ class Tutorial extends Phaser.Scene {
         // ---------------------------------------------------------
         const voltarW = 200;
         const voltarH = 40;
-        this.add.graphics().setDepth(10).fillStyle(0x444444, 1).fillRoundedRect(W - voltarW - 20, 20, voltarW, voltarH, 10);
-        const botaoVoltar = this.add.text(W - voltarW / 2 - 20, 40, '← Voltar ao Escritório', {
+        this.add.graphics().setDepth(10).fillStyle(0x444444, 1).fillRoundedRect(larguraTela - voltarW - 20, 20, voltarW, voltarH, 10);
+        const botaoVoltar = this.add.text(larguraTela - voltarW / 2 - 20, 40, '← Voltar ao Escritório', {
             fontFamily: 'Press Start 2P', fontSize: '20px', fill: '#ffffff'
         }).setDepth(11).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
@@ -152,7 +150,7 @@ class Tutorial extends Phaser.Scene {
         // - Se já terminou e não é a última fala → avança para a próxima
         // - Se é a última fala → encerra o tutorial e vai para a Cidade
         this.botaoProximo.on('pointerdown', () => {
-            if (this._digitando) {
+            if (this.digitando) {
                 this._pararDigitacao();
                 this.txtDialogo.setText(this.dialogos[this.indiceFala]);
                 return;
@@ -200,21 +198,21 @@ class Tutorial extends Phaser.Scene {
     // _digitarTexto(texto)
     // Efeito máquina de escrever: revela o texto caractere por caractere.
     // - delay: velocidade em ms entre cada caractere (menor = mais rápido)
-    // - Enquanto digita, this._digitando = true (usado pelo timerFala e pelo botão Próximo)
+    // - Enquanto digita, this.digitando = true (usado pelo timerFala e pelo botão Próximo)
     // ---------------------------------------------------------
     _digitarTexto(texto) {
-        this._digitando = true;
+        this.digitando = true;
         this.txtDialogo.setText('');
         let i = 0;
 
-        this._timerDigitacao = this.time.addEvent({
+        this.timerDigitacao = this.time.addEvent({
             delay: 30,
             repeat: texto.length - 1,
             callback: () => {
                 this.txtDialogo.setText(texto.substring(0, i + 1));
                 i++;
                 if (i >= texto.length) {
-                    this._digitando = false;
+                    this.digitando = false;
                     this.imgProfessor.setTexture('estadual1'); // fecha a boca ao terminar
                 }
             }
@@ -228,11 +226,11 @@ class Tutorial extends Phaser.Scene {
     // ou ao fechar o tutorial.
     // ---------------------------------------------------------
     _pararDigitacao() {
-        if (this._timerDigitacao) {
-            this._timerDigitacao.remove();
-            this._timerDigitacao = null;
+        if (this.timerDigitacao) {
+            this.timerDigitacao.remove();
+            this.timerDigitacao = null;
         }
-        this._digitando = false;
+        this.digitando = false;
         this.imgProfessor.setTexture('estadual1');
     }
 }

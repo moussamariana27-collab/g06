@@ -20,11 +20,14 @@ class CidadeScene extends Phaser.Scene {
         };
 
         // Seleciona o personagem escolhido pelo jogador
-        const skin = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.characterEscolhido];
+
+        // Verifica se o personagem é válido antes de carregar
+        if (!dadosSprite) { console.error('Personagem inválido:', this.characterEscolhido); return; }
 
         // Carrega o spritesheet correspondente ao personagem escolhido
-        this.load.spritesheet('sheetPersonagem', skin.file, {
-            frameWidth: skin.frameWidth, frameHeight: skin.frameHeight
+        this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
+            frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
         });
     }
 
@@ -59,16 +62,16 @@ class CidadeScene extends Phaser.Scene {
 
         // Ajusta automaticamente a hitbox para o tamanho do sprite
         this.personagem.body.setSize(
-        this.personagem.width,
-        this.personagem.height
+            this.personagem.width,
+            this.personagem.height
         );
 
-// Centraliza a hitbox no sprite
-this.personagem.body.setOffset(0, 0);
+        // Centraliza a hitbox no sprite
+        this.personagem.body.setOffset(0, 0);
 
         // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);
-        this.cameras.main.setZoom(1.5);
+        
 
         // Aumenta o zoom da câmera
         this.cameras.main.setZoom(2.5);
@@ -80,26 +83,31 @@ this.personagem.body.setOffset(0, 0);
         const grupoColisoes = this.physics.add.staticGroup();
 
         // Percorre os objetos da layer "colisoes" definidos no Tiled
-        map.getObjectLayer('colisoes').objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
+        const layerColisoes = map.getObjectLayer('colisoes');
+        if (layerColisoes) {
+            layerColisoes.objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
 
-            // Cria um retângulo invisível representando a área de colisão
-            const b = this.add.rectangle(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
+                // Cria um retângulo invisível representando a área de colisão
+                const b = this.add.rectangle(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
 
-            // Adiciona física estática ao objeto
-            this.physics.add.existing(b, true);
+                // Adiciona física estática ao objeto
+                this.physics.add.existing(b, true);
 
-            // Adiciona o objeto ao grupo de colisões
-            grupoColisoes.add(b);
-        });
+                // Adiciona o objeto ao grupo de colisões
+                grupoColisoes.add(b);
+            });
 
-        // Ativa colisão entre o personagem e os objetos do grupo
-        this.physics.add.collider(this.personagem, grupoColisoes);
+            // Ativa colisão entre o personagem e os objetos do grupo
+            this.physics.add.collider(this.personagem, grupoColisoes);
+        }
 
         // Lista de cenas para onde o jogador pode ir
         const cenasDisponiveis = ['MainScene', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
 
         // Percorre as zonas de interação definidas no Tiled
-        map.getObjectLayer('zonas').objects.filter(o => o.width > 0 && o.height > 0 && o.type !== '').forEach(o => {
+        const layerZonas = map.getObjectLayer('zonas');
+        if (layerZonas) {
+            layerZonas.objects.filter(o => o.width > 0 && o.height > 0 && o.type !== '').forEach(o => {
 
             // Cria uma zona invisível de interação
             const zona = this.add.zone(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
@@ -146,6 +154,7 @@ this.personagem.body.setOffset(0, 0);
                 }
             });
         });
+        }
     }
 
     update() {
