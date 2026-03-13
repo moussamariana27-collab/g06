@@ -625,7 +625,91 @@ Mecânicas de Interação: Implementar áreas de sobreposição (overlaps) para 
 
 ## 4.3. Desenvolvimento intermediário do jogo (sprint 3)
 
-*Descreva e ilustre aqui o desenvolvimento da versão intermediária do jogo, explicando brevemente o que foi entregue em termos de código e jogo. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e próximos passos.*
+O desenvolvimento da versão intermediária do jogo nesta terceira sprint teve como foco a expansão das cenas jogáveis e a implementação das primeiras mecânicas centrais da experiência. As entregas abrangeram quatro frentes principais: a cena de seleção e apresentação de personagens, o desenvolvimento do Espaço Cielo no Tilied Map e o sistema de tutorial integrado ao mapa e o protótipo funcional do sistema de combate por perguntas e respostas.
+
+### Seleção e Informações de Personagens — personagens.js
+
+Nesta sprint foi implementada a cena de seleção de personagens, permitindo que o GN escolha com qual avatar deseja jogar. A cena exibe os quatro personagens disponíveis — José, Paula, Maria e João — de forma interativa na tela. O código utiliza um array `let personagens = ['JOSÉ', 'PAULA', 'MARIA', 'JOÃO']` para armazenar os nomes jogáveis, e cada sprite é adicionado com `this.add.image(x, y, key).setScale(escala)` e tornado clicável via `character.setInteractive({ cursor: 'pointer' })`. Ao clicar em um personagem, o jogo navega para a cena de informações por meio de `this.scene.start('CharacterInfoScene', { character: key })`, passando o nome do personagem selecionado como parâmetro.
+
+<div align="center">
+  <sub>Figura 4.3.1 - Tela de seleção de personagens</sub><br>
+  <img src="/assets/selecao_personagens.png" width="100%" alt="Tela de seleção de personagens"><br>
+
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+A cena seguinte exibe as características e a ficha do personagem escolhido. Para isso, o sistema recupera o personagem via `this.characterEscolhido = data.character` e carrega dinamicamente a imagem de informações correspondente com `const infoKey = 'info' + data.character`, o que permite que uma única lógica sirva para todos os personagens. A tela conta com botões de "Voltar" e "Jogar", que redirecionam o jogador de volta à seleção ou para o início da partida.
+
+<div align="center">
+  <sub>Figura 4.3.2 - Tela de informações de um dos personagens</sub><br>
+  <img src="/assets/info_personagem.png" width="100%" alt="Tela de informações do personagem"><br>
+  
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Cena do Escritório — main.js
+
+A cena principal do Espaço Cielo foi construída com o editor de mapas Tiled e carregada pelo Phaser 3. O mapa utiliza camadas de objetos para definir comportamentos específicos de cada área: a layer `spawn` define o ponto inicial do personagem ao entrar na cena; a layer `colisoes` bloqueia a movimentação em paredes, móveis e objetos; a layer `porta` configura a zona de saída que aciona a transição para o mapa da cidade (`CidadeScene`); e a layer `professor` delimita a zona invisível que dispara o tutorial ao ser tocada pelo personagem. O personagem é controlado com as setas do teclado e a câmera acompanha o movimento com zoom fixo.
+
+<div align="center">
+  <sub>Figura 4.3.3 - Personagem posicionado no ponto de spawn ao iniciar o Espaço Cielo</sub><br>
+  <img src="/assets/spawn_escritorio.png" width="100%" alt="Spawn do personagem no escritório"><br>
+
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+<div align="center">
+  <sub>Figura 4.3.4 - Visão geral do escritório com debug ativado, indicando as layers de colisão, professor e porta</sub><br>
+  <img src="/assets/debug_escritorio.png" width="100%" alt="Debug do escritório com layers visíveis"><br>
+  
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Sistema de Tutorial — tutorial.js
+
+O tutorial foi implementado como uma cena overlay do Phaser, lançada sobre a `MainScene` sem reiniciá-la. Ao colidir com a zona invisível do professor, o jogo é pausado e o tutorial é exibido por cima do mapa com um overlay escuro semitransparente. O conteúdo abrange os quatro principais produtos Cielo apresentados ao novo GNS — Flash, LIO On, Smart e Vendeu, Tá na Conta — distribuídos em 8 falas sequenciais.
+
+As principais funcionalidades implementadas foram: efeito de máquina de escrever, revelando o texto caractere por caractere (30ms por caractere) com animação de boca do professor acompanhando a digitação; clique para pular, que exibe a fala completa imediatamente ao clicar em "Próximo" antes do texto terminar; navegação entre falas com botões "Anterior" e "Próximo" para revisitar os diálogos; e botão "Voltar ao Escritório", que fecha o tutorial e retoma a cena pausada a qualquer momento. Ao concluir a última fala, o jogador é direcionado automaticamente ao mapa da cidade, com o personagem selecionado sendo passado como parâmetro para manter a consistência visual entre as cenas.
+
+<div align="center">
+  <sub>Figura 4.3.5 - Tutorial ativo sobre o escritório, exibindo a primeira fala do instrutor com efeito de digitação</sub><br>
+  <img src="/assets/tutorial4.png" width="100%" alt="Tutorial em execução sobre o mapa do escritório"><br>
+  
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Sistema de Combate — Perguntas e Respostas
+
+O protótipo funcional do combate foi implementado com base em um sistema de perguntas e respostas entre o NPC e o jogador. O NPC apresenta uma pergunta no canto inferior direito da tela, e o jogador escolhe uma entre duas opções exibidas no canto inferior esquerdo. Cada resposta incrementa ou decrementa a barra de satisfação do cliente em 33 pontos. Se a barra atingir 100, o jogador vence; se chegar a 0 ou se nenhum dos extremos for alcançado após 5 perguntas, o jogador perde.
+
+Tecnicamente, o sistema é sustentado por um array de objetos que armazena as perguntas e suas respectivas respostas corretas e incorretas. Textos interativos foram implementados para associar funções de clique às opções de resposta, conectando essas interações à lógica da barra de satisfação e ao sistema de troca de cenas. Ao atingir um dos extremos da barra, a cena é encerrada e o resultado — vitória ou derrota — é exibido ao jogador.
+
+<div align="center">
+  <sub>Figura 4.3.6 - Telas do sistema de combate durante uma interação com o NPC</sub><br>
+  <img src="/assets/combate_perguntas.png" width="100%" alt="Sistema de perguntas e respostas com o NPC"><br>
+  
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+<div align="center">
+  <sub>Figura 4.3.7 - Tela de vitória exibida ao convencer o cliente</sub><br>
+  <img src="/assets/tela_vitoria.png" width="100%" alt="Tela de vitória com mensagem 'Você convenceu o cliente'"><br>
+  
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Dificuldades Encontradas
+
+Os desafios técnicos desta sprint foram variados e distribuídos entre as frentes de desenvolvimento. Na cena do escritório e tutorial, o overlay do Phaser cobria apenas metade da tela inicialmente, problema resolvido com `setViewport` combinado a um retângulo de dimensões `W*2 x H*2` e `setScrollFactor(0)`. O tutorial disparava em loop ao retornar à cena, o que foi corrigido desabilitando o corpo físico da zona após o primeiro contato e reativando-o com delay de 1000ms. O personagem também aparecia travado ao iniciar a cena por conta de flags de bloqueio no `update()`, removidas para permitir movimentação desde o primeiro frame. O posicionamento preciso da zona do professor exigiu o uso do debug de mouse no próprio jogo para mapear as coordenadas corretas no arquivo `escritorio.json`.
+
+Na cena de personagens, as principais dificuldades foram a ligação dinâmica entre o personagem selecionado e sua tela de informações, o redirecionamento correto dos botões "Voltar" e "Jogar", e o ajuste do tamanho padrão das sprites para que todos os personagens aparecessem com proporções uniformes na tela de seleção.
+
+### Próximos Passos (Sprint 4)
+
+Expansão do Mapa da Cidade: Adicionar novos estabelecimentos comerciais navegáveis e polir os cenários existentes com mais detalhes visuais.
+Integração entre Cenas: Conectar o fluxo completo da seleção de personagem até o combate nos diferentes estabelecimentos, garantindo consistência dos dados entre as cenas.
+Aprimoramento do Sistema de Combate: Expandir o banco de perguntas, ajustar a progressão da dificuldade e refinar o feedback visual da barra de satisfação.
+Inserção de Novos NPCs: Adicionar sprites e diálogos para os clientes dos demais estabelecimentos (loja de roupas e outros comércios).
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
