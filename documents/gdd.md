@@ -509,7 +509,7 @@ Demonstra a centralidade do prédio da Cielo no level design, facilitando o aces
 
 <div align="center">
   <sub>Figura 3.5.1 - Diagrama de cenas</sub><br>
-  <img src="/assets/DiagramaVersaoFinal.png" width="100%" alt="Sprite João"><br>
+  <img src="/assets/DiagramaOficial.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
