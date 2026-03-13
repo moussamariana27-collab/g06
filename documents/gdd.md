@@ -515,7 +515,7 @@ Demonstra a centralidade do prédio da Cielo no level design, facilitando o aces
 
 ### 
 
-Para melhor visualização acesse o nosso [ diagrama](https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=sharing) online.
+Para melhor visualização acesse o nosso [Diagrama de cenas](https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=sharing) online.
 
 ## 3.6. Regras do jogo (sprint 3)
 
