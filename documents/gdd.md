@@ -509,13 +509,13 @@ Demonstra a centralidade do prédio da Cielo no level design, facilitando o aces
 
 <div align="center">
   <sub>Figura 3.5.1 - Diagrama de cenas</sub><br>
-  <img src="/assets/diagrama.png" width="100%" alt="Sprite João"><br>
+  <img src="/assets/DiagramaVersaoFinal.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ### 
 
-[Link direto para o diagrama.](https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=sharing)
+Para melhor visualização acesse o nosso [ diagrama](https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=sharing) online.
 
 ## 3.6. Regras do jogo (sprint 3)
 
