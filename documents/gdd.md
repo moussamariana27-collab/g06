@@ -331,28 +331,49 @@ O jogo possui quatro personagens controláveis, sendo dois homens e duas mulhere
   <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
-### 
+<div align="center">
+  <sub>Figura 3.2.1.2 - Sprite do João dentro do comércio</sub><br>
+  <img src="/assets/joaoCorpo.png" width="50%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
 
 <div align="center">
-  <sub>Figura 3.2.1.2 - Sprite do José</sub><br>
+  <sub>Figura 3.2.1.3 - Sprite do José</sub><br>
   <img src="/assets/jose.png" width="100%" alt="Sprite José"><br>
   <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
-### 
+<div align="center">
+  <sub>Figura 3.2.1.4 - Sprite do José dentro do comércio</sub><br>
+  <img src="/assets/joseCorpo.png" width="50%" alt="Sprite José"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
 
 <div align="center">
-  <sub>Figura 3.2.1.3 - Sprite da Maria</sub><br>
-  <img src="/assets/maria.png" width="100%" alt="Sprite Maria"><br>
+  <sub>Figura 3.2.1.5 - Sprite da Maria</sub><br>
+  <img src="/assets/mariaGdd.png" width="100%" alt="Sprite Maria"><br>
   <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
-### 
+<div align="center">
+  <sub>Figura 3.2.1.6 - Sprite da Maria dentro do comércio</sub><br>
+  <img src="/assets/mariaCorpo.png" width="50%" alt="Sprite Maria"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
 
 <div align="center">
-  <sub>Figura 3.2.1.4 - Sprite da Paula</sub><br>
-  <img src="/assets/paula.png" width="100%" alt="Sprite Paula"><br>
+  <sub>Figura 3.2.1.7 - Sprite da Paula</sub><br>
+  <img src="/assets/paulaGdd.png" width="100%" alt="Sprite Paula"><br>
   <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
+</div>
+
+<div align="center">
+  <sub>Figura 3.2.1.8 - Sprite da Paula dentro do comércio</sub><br>
+  <img src="/assets/paulaCorpo.png" width="50%" alt="Sprite Paula"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ### 3.2.2. Non-Playable Characters (NPC)
