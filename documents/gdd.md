@@ -861,87 +861,85 @@ O que poderia melhorar no jogo? | A responsividade do personagem aos controles, 
 
 # <a name="c7"></a>7. Referências (sprint 5)
 
-Dock Tech (2025). Pix: sistema de pagamentos instantâneos do Banco Central completa cinco anos.
-https://dock.tech/fluid/blog/financeiro/pix-sistema-pagamentos-instantaneos-banco-central/
+Aqui estão os links organizados em ordem alfabética pela fonte/autor:
 
-Exame (2024). 3 anos de Open Finance no Brasil: os benefícios, desafios e perspectivas futuras.
-https://exame.com/future-of-money/3-anos-de-open-finance-no-brasil-os-beneficios-desafios-e-perspectivas-futuras/?utm_source=copiaecola&utm_medium=compartilhamento
+1. Associação Brasileira das Empresas de Cartões de Crédito e Serviços. (2023). Relatório anual do setor de meios eletrônicos de pagamento. https://www.abecs.org.br
 
-Edrone (2026). Os dados do e-commerce no Brasil são animadores e colocam o país entre os maiores players deste mercado para os próximos anos.
-https://edrone.me/pt/blog/dados-ecommerce-brasil
+2. Banco Central do Brasil. (2010). Relatório sobre a indústria de cartões de pagamento. https://www.bcb.gov.br
 
+3. Banco Central do Brasil. (2013). Lei nº 12.865, de 9 de outubro de 2013. https://www.bcb.gov.br
 
-BP Money (2024). Mercado Pago lidera lucros e ultrapassa Stone e PagBank.
-https://bpmoney.com.br/economia/mercado-pago-lidera-lucros/
+4. Banco Central do Brasil. (2020). PIX: O novo meio de pagamento instantâneo brasileiro. https://www.bcb.gov.br
 
+5. Biz. (2024). O mercado de adquirência no Brasil: Tradicionais vs. Fintechs. https://biz.com.br/artigos/mercado-adquirencia
 
-InfoMoney (2026). PagSeguro e Stone: mudanças na gestão podem marcar um ponto de inflexão.
-https://www.infomoney.com.br/mercados/pagseguro-e-stone-mudancas-na-gestao-podem-marcar-um-ponto-de-inflexao/
+6. Bloomberg Línea. (2022). Na guerra das maquininhas, PagSeguro apostou em banco e agora acelera os planos. https://www.bloomberglinea.com.br/2022/09/12/na-guerra-das-maquininhas-pagseguro-apostou-em-banco-e-agora-acelera-os-planos/
 
+7. BP Money. (2024). Mercado Pago lidera lucros e ultrapassa Stone e PagBank. https://bpmoney.com.br/economia/mercado-pago-lidera-lucros/
 
-Finsiders Brasil (2023). Nubank e Inter são "vencedores claros" na corrida dos bancos digitais, diz Itaú BBA.
-https://finsidersbrasil.com.br/negocios-em-fintechs/nubank-e-inter-sao-vencedores-claros-na-corrida-dos-bancos-digitais-diz-itau-bba/
+8. BTG Pactual. (2024). Cielo (CIEL3): Análise de Ativo e Research. https://content.btgpactual.com/research/ativo/CIEL3
 
-Inovadesk (2026). Por que o aumento de preços de componentes está impactando computadores em 2026 e como as empresas podem se preparar.
-https://blog.inovadesk.com.br/aumento-precos-componentes-impacto-computadores-2026/
+9. Cielo. (2026). Maquininhas e tipos de soluções. https://www.cielo.com.br/
 
+10. Cielo. (2024). Relatório de resultados 4T23 e projeções estratégicas. https://ri.cielo.com.br/
 
+11. Cielo. Cielo 30 anos: linha do tempo da empresa se confunde com a própria história dos meios de pagamentos no Brasil. https://blog.cielo.com.br/institucional/linha-do-tempo-cielo/
 
+12. CNN Brasil. (2020). A "guerra das maquininhas" acabou? Entenda para onde vai o mercado de pagamentos. https://www.cnnbrasil.com.br/tecnologia/a-guerra-das-maquininhas-acabou-entenda-para-onde-vai-o-mercado-de-pagamentos/
 
+13. Concil. (2019). Guerra das maquininhas: O que todo varejista precisa saber. https://www.concil.com.br/guerra-das-maquininhas-o-que-todo-varejista-precisa-saber/
 
+14. Consumidor Moderno. (2018). A história da maquininha de cartão e sua evolução no Brasil. https://consumidormoderno.com.br/historia-maquininha-de-cartao/
 
-			
+15. Dock Tech. (2025). Pix: sistema de pagamentos instantâneos do Banco Central completa cinco anos. https://dock.tech/fluid/blog/financeiro/pix-sistema-pagamentos-instantaneos-banco-central/
 
+16. Edrone. (2026). Os dados do e-commerce no Brasil. https://edrone.me/pt/blog/dados-ecommerce-brasil
 
- 
+17. Educando Seu Bolso. (2025). Ranking de máquinas de cartão. https://educandoseubolso.blog.br/rankings/ranking-de-maquinas-de-cartao/
 
+18. Exame. (2019). Uma pedra no sapato da turma das maquininhas. https://exame.com/revista-exame/uma-pedra-no-sapato/
 
-Cielo 30 anos: linha do tempo da empresa se confunde com a própria história dos meios de pagamentos no Brasil
-https://blog.cielo.com.br/institucional/linha-do-tempo-cielo/
+19. Exame. (2024). 3 anos de Open Finance no Brasil: os benefícios, desafios e perspectivas futuras. https://exame.com/future-of-money/3-anos-de-open-finance-no-brasil-os-beneficios-desafios-e-perspectivas-futuras/
 
-Cielo (2026). Maquininhas e tipos de soluções 
-https://www.cielo.com.br/?utm_source=googleads&utm_medium=cpa&utm_campaign=alp_cl_cpa_produtos-link-de-pagamen_cov_googleads_google-ads_conv_Finance_na&utm_content=search_search-responsivo_multiple_NU_nu_Finance_kew_ciel00127al&utm_term=ciel00127al&gclsrc=aw.ds&gad_source=1&gad_campaignid=21772459388&gbraid=0AAAAADmNSE-IueEtnhhh9nLL-MQhc0Zw0&gclid=Cj0KCQiAtfXMBhDzARIsAJ0jp3ABjNE7ezdom_SI5NikZR4HekoNZFBDD5PCIU0ToFUkSGUy8kF45Y8aAuu9EALw_wcB
+20. Exame. (2024). Além das maquininhas. https://exame.com/revista-exame/alem-das-maquininhas/
 
-Dinheiro(2026). Melhor maquininha de cartão (fevereiro de 2026)
-https://www.idinheiro.com.br/negocios/maquininha-de-cartao-de-credito/
+21. Finsiders Brasil. (2023). Nubank e Inter são "vencedores claros" na corrida dos bancos digitais, diz Itaú BBA. https://finsidersbrasil.com.br/negocios-em-fintechs/nubank-e-inter-sao-vencedores-claros-na-corrida-dos-bancos-digitais-diz-itau-bba/
 
-Investing(2026).Os acionistas controladores fizeram uma oferta de US$ 1,2 bilhão para fechar o capital da empresa brasileira de pagamentos Cielo.
-https://www.investing.com/news/stock-market-news/controlling-shareholders-bid-to-take-brazil-payments-firm-cielo-private-for-12-billion-3293319?utm_source=chatgpt.com
+22. Forbes Brasil. (2024). Cielo foca em eficiência operacional e novos serviços para combater avanço do Pix. https://forbes.com.br/forbes-money/2024/02/cielo-tem-lucro-liquido-de-r-490-milhoes-no-4o-trimestre/
 
-InvestingNews(2021).Por que a Cielo vale menos se é líder de mercado?
-https://investnews.com.br/colunistas/por-que-a-cielo-vale-menos-se-e-lider-de-mercado/?utm_source=chatgpt.com
+23. iDinheiro. (2025). Maquininha de cartão de crédito. https://www.idinheiro.com.br/negocios/maquininha-de-cartao-de-credito/
 
-ITAÚ BBA. Cielo (CIEL3): Previsão de resultados do 3T23. São Paulo: Itaú BBA, 1 nov. 2023. Disponível em: https://mindassets.cloud.itau.com.br/attachments/688d93a7-c65d-4db5-a436-1934a1c38220/DAP_CIEL_20231101.pdf. Acesso em: 23 fev. 2026.
+24. iDinheiro. (2026). Melhor maquininha de cartão (fevereiro de 2026). https://www.idinheiro.com.br/negocios/maquininha-de-cartao-de-credito/
 
-BTG PACTUAL. Cielo (CIEL3): Análise de Ativo e Research. São Paulo: BTG Pactual, 2024. Disponível em: https://content.btgpactual.com/research/ativo/CIEL3. Acesso em: 23 fev. 2026.
+25. InfoMoney. (2023). Como o Pix virou uma ameaça para o mercado das maquininhas de cartão. https://www.infomoney.com.br/mercados/como-o-pix-virou-uma-ameaca-para-o-mercado-das-maquininhas-de-cartao/
 
-Cielo. (2024). Relatório de resultados 4T23 e projeções estratégicas. Relações com Investidores Cielo. https://ri.cielo.com.br/
-Forbes Brasil. (2024, 5 de fevereiro). Cielo foca em eficiência operacional e novos serviços para combater avanço do Pix. https://forbes.com.br/forbes-money/2024/02/cielo-tem-lucro-liquido-de-r-490-milhoes-no-4o-trimestre/
-InfoMoney. (2024, 14 de agosto). Cielo sai da bolsa: O que muda para a empresa e para o setor. https://www.infomoney.com.br/mercados/cielo-fechamento-de-capital-reestruturacao/
+26. InfoMoney. (2024). Cielo sai da bolsa: O que muda para a empresa e para o setor. https://www.infomoney.com.br/mercados/cielo-fechamento-de-capital-reestruturacao/
 
-Biz. (2024). O mercado de adquirência no Brasil: Tradicionais vs. Fintechs. https://biz.com.br/artigos/mercado-adquirencia
-InvestNews. (2025, 10 de janeiro). As estratégias das adquirentes para recuperar margens com IA e novos produtos. https://investnews.com.br/financas/estrategias-adquirentes-2025/
-Mobile Time. (2025, 22 de janeiro). Tap to Phone e a desmaterialização das maquininhas no Brasil. https://www.mobiletime.com.br/noticias/22/01/2025/tap-to-phone-brasil/
-Silva Lopes Advogados. (2024). Modelos de negócio no setor de pagamentos: Adquirentes e subadquirentes. https://silvalopes.adv.br/modelos-pagamentos/
-Suno Notícias. (2024). Cielo e o desafio do setor de maquininhas: Como a empresa se reinventa. https://www.suno.com.br/noticias/cielo-ciel3-desafios-setor-adquirencia/
-Valor Econômico. (2023, 20 de outubro). A estratégia das adquirentes para não perder espaço para o pagamento instantâneo. https://valor.globo.com/financas/noticia/2023/10/20/maquininhas-se-adaptam-ao-pix.ghtml
-Consumidor Moderno. (2018, 11 de maio). A história da maquininha de cartão e sua evolução no Brasil. https://consumidormoderno.com.br/historia-maquininha-de-cartao/
-InfoMoney. (2023, 15 de maio). Como o Pix virou uma ameaça para o mercado das maquininhas de cartão. https://www.infomoney.com.br/mercados/como-o-pix-virou-uma-ameaca-para-o-mercado-das-maquininhas-de-cartao/
-Exame. (2024). Além das maquininhas. https://exame.com/revista-exame/alem-das-maquininhas/
-Pininfarina Brasil. (2025). Maquininha de cartão: as que dominam o mercado em 2025. https://www.pininfarina.com.br/maquininha-de-cart%C3%A3o-as-que-dominam-o-mercado-em-2025
-Educando Seu Bolso. (2025). Ranking de máquinas de cartão. https://educandoseubolso.blog.br/rankings/ranking-de-maquinas-de-cartao/
-iDinheiro. (2025). Maquininha de cartão de crédito. https://www.idinheiro.com.br/negocios/maquininha-de-cartao-de-credito/
-CNN Brasil. (2020). A “guerra das maquininhas” acabou? Entenda para onde vai o mercado de pagamentos. https://www.cnnbrasil.com.br/tecnologia/a-guerra-das-maquininhas-acabou-entenda-para-onde-vai-o-mercado-de-pagamentos/
-Concil. (2019). Guerra das maquininhas: O que todo varejista precisa saber. https://www.concil.com.br/guerra-das-maquininhas-o-que-todo-varejista-precisa-saber/
-Exame. (2019). Uma pedra no sapato da turma das maquininhas. https://exame.com/revista-exame/uma-pedra-no-sapato/
-Seu Dinheiro. (2019). PagSeguro apresenta suas armas na guerra das maquininhas de cartão. https://www.seudinheiro.com/2019/economia/pagseguro-apresenta-suas-armas-na-guerra-das-maquininhas-de-cartao/
-https://www.bloomberglinea.com.br/2022/09/12/na-guerra-das-maquininhas-pagseguro-apostou-em-banco-e-agora-acelera-os-planos/
-Associação Brasileira das Empresas de Cartões de Crédito e Serviços. (2023). Relatório anual do setor de meios eletrônicos de pagamento. https://www.abecs.org.br
-Banco Central do Brasil. (2010). Relatório sobre a indústria de cartões de pagamento. https://www.bcb.gov.br
-Banco Central do Brasil. (2013). Lei nº 12.865, de 9 de outubro de 2013. https://www.bcb.gov.br
-Banco Central do Brasil. (2020). PIX: O novo meio de pagamento instantâneo brasileiro. https://www.bcb.gov.br
-Porter, M. E. (2004). Estratégia competitiva: Técnicas para análise de indústrias e da concorrência. Elsevier.
+27. InfoMoney. (2026). PagSeguro e Stone: mudanças na gestão podem marcar um ponto de inflexão. https://www.infomoney.com.br/mercados/pagseguro-e-stone-mudancas-na-gestao-podem-marcar-um-ponto-de-inflexao/
 
+28. Inovadesk. (2026). Por que o aumento de preços de componentes está impactando computadores em 2026. https://blog.inovadesk.com.br/aumento-precos-componentes-impacto-computadores-2026/
+
+29. InvestNews. (2021). Por que a Cielo vale menos se é líder de mercado? https://investnews.com.br/colunistas/por-que-a-cielo-vale-menos-se-e-lider-de-mercado/
+
+30. InvestNews. (2025). As estratégias das adquirentes para recuperar margens com IA e novos produtos. https://investnews.com.br/financas/estrategias-adquirentes-2025/
+
+31. Investing. (2026). Os acionistas controladores fizeram uma oferta de US$ 1,2 bilhão para fechar o capital da Cielo. https://www.investing.com/news/stock-market-news/controlling-shareholders-bid-to-take-brazil-payments-firm-cielo-private-for-12-billion-3293319
+
+32. Itaú BBA. (2023). Cielo (CIEL3): Previsão de resultados do 3T23. https://mindassets.cloud.itau.com.br/attachments/688d93a7-c65d-4db5-a436-1934a1c38220/DAP_CIEL_20231101.pdf
+
+33. Mobile Time. (2025). Tap to Phone e a desmaterialização das maquininhas no Brasil. https://www.mobiletime.com.br/noticias/22/01/2025/tap-to-phone-brasil/
+
+34. Pininfarina Brasil. (2025). Maquininha de cartão: as que dominam o mercado em 2025. https://www.pininfarina.com.br/maquininha-de-cartao-as-que-dominam-o-mercado-em-2025
+
+35. Porter, M. E. (2004). Estratégia competitiva: Técnicas para análise de indústrias e da concorrência. Elsevier.
+
+36. Seu Dinheiro. (2019). PagSeguro apresenta suas armas na guerra das maquininhas de cartão. https://www.seudinheiro.com/2019/economia/pagseguro-apresenta-suas-armas-na-guerra-das-maquininhas-de-cartao/
+
+37. Silva Lopes Advogados. (2024). Modelos de negócio no setor de pagamentos: Adquirentes e subadquirentes. https://silvalopes.adv.br/modelos-pagamentos/
+
+38. Suno Notícias. (2024). Cielo e o desafio do setor de maquininhas: Como a empresa se reinventa. https://www.suno.com.br/noticias/cielo-ciel3-desafios-setor-adquirencia/
+
+39. Valor Econômico. (2023). A estratégia das adquirentes para não perder espaço para o pagamento instantâneo. https://valor.globo.com/financas/noticia/2023/10/20/maquininhas-se-adaptam-ao-pix.ghtml
 
 
 
