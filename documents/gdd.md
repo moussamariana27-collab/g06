@@ -861,8 +861,6 @@ O que poderia melhorar no jogo? | A responsividade do personagem aos controles, 
 
 # <a name="c7"></a>7. Referências (sprint 5)
 
-Aqui estão os links organizados em ordem alfabética pela fonte/autor:
-
 1. Associação Brasileira das Empresas de Cartões de Crédito e Serviços. (2023). Relatório anual do setor de meios eletrônicos de pagamento. https://www.abecs.org.br
 
 2. Banco Central do Brasil. (2010). Relatório sobre a indústria de cartões de pagamento. https://www.bcb.gov.br
