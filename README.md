@@ -35,8 +35,8 @@ Um jogo de turnos em que o jogador, no caso o gerente de vendas da Cielo deve en
 
 Inclua o link para o jogo aqui
 
-Acesse esse link para entrar no jogo [mestre de vendas](https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g06/)
-obs: caso haja falha reinicie a página, na troca do escritório da cielo para a cidade pressiona-se SPACE.
+Acesse esse link para entrar no jogo [Mestre de Vendas](https://graduacao.pages.git.inteli.edu.br/2026-1a/t28/g06/)
+
 ## 📁 Estrutura de pastas
 
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
