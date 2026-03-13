@@ -431,9 +431,11 @@ Dessa forma, a inclusão deixa de ser apenas um elemento conceitual e passa a co
 | Local                         | Descrição Narrativa                                                                 | Função no Jogo                                                                 |
 |--------------------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | Agência Cielo (Centro)        | O "QG" do jogador. Prédio corporativo localizado estrategicamente no centro do mapa. | Ponto de partida (Hub), local de nascimento do sprite (personagem) e área de tutoriais. |
-| Padaria & Farmácia             | Estabelecimentos menores de comércio rápido e essencial.                            | Locais das "primeiras missões" e batalhas de vendas introdutórias com objeções mais simples. |
-| Loja de Roupas & Salão         | Comércios focados em serviços e bens de consumo.                                    | Clientes intermediários, exigindo argumentos diferentes focados em parcelamento e taxas. |
-| Hotel & Shopping Center        | Grandes estabelecimentos localizados nas extremidades do mapa.                      | Clientes de alta complexidade ("Chefões"), exigindo o domínio completo do portfólio da Cielo. |
+| Padaria | Estabelecimento menor realiza cerca de 30 mil reais em transações | Local da primeira missão e batalha de venda introdutória com objeções mais simples, nível de dificuldade fácil. |
+| Loja de vestuário | Estabelecimento menor realiza cerca de 15 mil reais em transações | Local da segunda missão e batalha de venda que ainda se mantém no nível fácil, mas que ainda tem uma dificuldade levemente maior que a padaria. |
+| Salão beleza       | Comércio focado em serviços voltados para o bem estar que faz cerca de 20 mil reias em transações por mês| Fase com nível de dificuldade intermediário, exigindo argumentos diferentes focados em parcelamento e taxas. |
+| Loja de materiais de construção | Comércio focado em produtos comprados em grande quantidade que faz cerca de 80 mil reias em transações mensais| Fase com nível de dificuldade intermediário um pouco mais elevado que o salão, exigindo argumentos diferentes e mais elaborados. |
+| Supermercado e Posto de gasolina     | Grandes estabelecimentos localizados nas extremidades do mapa, atendem centenas de clientes todos os dias realizando cerca de 300 á 750 mil reais em transações por mês                     | Clientes de alta complexidade ("Chefões"), exigindo alto domínio do portfólio da Cielo e das técnicas de venda
 
 
 
@@ -637,17 +639,109 @@ Mecânicas de Interação: Implementar áreas de sobreposição (overlaps) para 
 
 ## 5.1. Casos de Teste (sprints 2 a 4)
 
+#### 5.1.1. CT-01 — Transição da tela inicial para Seleção de Personagens
+##### Objetivo
+Verificar se o botão **Iniciar** na tela de inicial direciona o usuário para a tela de Escolha de Personagens.
+##### Pré-condições
+- A cena da **Tela Inicial** deve estar implementada e funcionando.
+- A cena da **Escolha dos Personagens** deve existir e ser acessível.
+- O jogo deve estar em execução.
+- O jogador deve conseguir navegar até a **Tela de Escolha dos Personagens**.
+- O recurso visual do botão (asset de imagem ou sprite) deve estar devidamente carregado no método preload.
+- O objeto do botão deve estar definido como interativo via setInteractive().
+##### Passos para a execução
+- Iniciar o jogo e aguardar o carregamento da tela Inicial.
+- Localizar o botão identificado como **JOGAR**.
+- Posicionar o cursor do mouse (ou toque) sobre o botão.
+- Clicar (ou pressionar) o botão uma única vez.
+##### Pós-condições
+A tela de Escolha de Personagens deve ser exibida com todos os seus elementos (sprites dos personagens jogáveis, nomes, etc.) carregados e prontos para a escolha.
+
+#### 5.1.2. CT-02 — Transição da Tela de Escolha dos personagens para o Espaço Cielo
+##### Objetivo 
+  Verificar se, ao clicar no botão **CONTINUAR** na tela de escolha dos personagens, o jogador é corretamente direcionado para a cena do **Espaço Cielo**.
+##### Pré-condições
+- A cena da **Tela Inicial** deve estar implementada e funcionando.
+- A cena da **Escolha dos Personagens** deve existir e ser acessível.
+- A cena do **Espaço Cielo** deve estar implementada.
+- O jogo deve estar em execução.
+- O jogador deve conseguir navegar até a **Tela de Escolha dos Personagens**.
+##### Passos para Execução
+1. Iniciar o jogo.
+2. Acessar a **Tela de Escolha dos Personagens**.
+3. Localizar o botão **CONTINUAR** na interface.
+4. Clicar no botão **CONTINUAR**.
+
+##### Pós-condições
+- O jogo deve realizar a transição da **Tela de Escolha dos Personagens** para a cena do **Espaço Cielo**.
+- O mapa ou ambiente do **Espaço Cielo** deve ser carregado corretamente.
+- O personagem selecionado pelo jogador deve aparecer no mapa.
+- O jogador deve conseguir movimentar o personagem normalmente após a transição.
 
 
-\# | pré-condição | descrição do teste | pós-condição 
---- | --- | --- | --- 
-1 | Posicionar o botão no centro da tela inicial | Começar o jogo desde a tela inicial | o jogo deve levar da tela inicial até a tela do Espaço Cielo
-2| Ter a Sprite do estadual posicionada no Espaço Cielo e a colisão entre o jogador e a sprite |Iniciar o tutorial ao interagir com o Estadual| A tela de tutorial deve aparecer com os diálogos com o Estadual
-3| Ter uma colisão que gere o evento de transição de cenas|Transição do Espaço Cielo para o mapa | O jogador é direcionado ao mapa do jogo
-4| Ter uma representação da padaria no mapa com uma colisão que gere o evento de transição de cenas| Iniciar a cena da padaria | O jogador é direcionado para a cena da padaria com os diálogos
-5| Ter o turno montado com duas opções interativas de diálogo que alterem a barra de satisfação | Escolher uma opção de diálogo do turno da padaria | Alteração na barra de satisfação do NPC, alteração das espressões da sprite e uma resposta de diálogo, tais ações variam de acordo com a escolha (certa ou errada)
-6| Ter a mecânica da tecla espaço programada para finalizar a cena da padaria | Sair da padaria pressionando a tecla espaço | Sair da cena da padaria e voltar para o mapa
-7| Ter uma representação da loja de roupas no mapa com uma colisão que gere o evento de transição de cenas| Iniciar a cena da loja de roupas | O jogador é direcionado para a cena da loja de roupas com os diálogos
+#### 5.1.3. CT-03 — Início do Tutorial ao Colidir com o Estadual
+##### Objetivo
+Verificar se o **tutorial é iniciado corretamente** quando o jogador colide com a área de colisão associada ao **Estadual** no mapa do Espaço Cielo.
+##### Pré-condições
+- A cena do **Espaço Cielo** deve estar implementada e funcionando.
+- Deve existir uma **área de colisão configurada** para o Estadual.
+- O **sistema de tutorial** deve estar implementado e funcional.
+- O personagem do jogador deve estar carregado e capaz de se movimentar no mapa.
+##### Passos para Execução
+1. Iniciar o jogo.
+2. Acessar a cena do **Espaço Cielo**.
+3. Utilizar as teclas **UP, DOWN, LEFT e RIGHT** para movimentar o personagem.
+4. Conduzir o personagem até a **área de colisão do Estadual**.
+5. Colidir com essa área.
+##### Pós-condições
+- Ao colidir com a área de colisão do **Estadual**, o tutorial deve iniciar automaticamente.
+- A interface do tutorial (mensagens, instruções ou elementos visuais) devem aparecer na tela.
+- O tutorial deve ser exibido sem erros ou travamentos.
+
+#### 5.1.4. CT-04 — Transição de cena do Espaço Cielo para o mapa da cidade
+##### Objetivo 
+  Verificar se a colisão do jogador com a zona de porta do **Espaço Cielo** (layer 'porta') aciona o evento de transição e direciona o jogador ao mapa da cidade **CidadeScene**.
+##### Pré-condições
+- Jogo iniciado. 
+- Personagem selecionado na tela de seleção. 
+- Jogador posicionado no Espaço Cielo **MainScene**. 
+- Tutorial concluído ou dispensado via botão **Voltar ao Escritório**.
+##### Passos para Execução
+1. Iniciar o jogo e selecionar um personagem na tela de seleção.
+2. Aguardar o carregamento do Espaço Cielo **MainScene**.
+3. Mover o personagem em direção ao **Estadual** para acionar o tutorial.
+4. Avançar todos os diálogos do tutorial até a última fala e clicar em **Próximo**, ou clicar em **Voltar ao Escritório**.
+5. Mover o personagem em direção à saída do escritório até sobrepor a zona de colisão da layer 'porta'.
+6. Verificar se o evento de transição de cena é disparado automaticamente.
+7. Verificar se a cena **CidadeScene** é carregada com o personagem correto.
+
+##### Pós-condições
+O sistema inicia a **CidadeScene** passando o personagem selecionado via data. O mapa da cidade é exibido sem erros no console.
+
+#### 5.1.5. CT-05 — Validar transição de cena ao colidir com a padaria no mapa
+
+##### Objetivo 
+Verificar se a representação da padaria no mapa da cidade possui colisão funcional que dispara a transição para a cena **Padaria** e exibe os diálogos corretamente.
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado. 
+- Jogador posicionado no mapa da cidade **CidadeScene**. 
+- Cena **Padaria** registrada no array de cenas do game.js.
+
+##### Passos para Execução
+1. Concluir a transição do Espaço Cielo para o mapa da cidade (CT-04).
+2. Localizar a representação da padaria no mapa da **CidadeScene**.
+3. Mover o personagem em direção à entrada da padaria.
+4. Posicionar o personagem sobre o objeto de colisão da padaria no mapa.
+5. Verificar se o evento de transição é disparado automaticamente.
+6. Verificar se a cena **Padaria** é carregada com o personagem correto.
+7. Verificar se os diálogos da cena da **padaria** são exibidos na tela.
+
+##### Pós-condições
+O sistema inicia a cena **Padaria**, exibe o ambiente e o personagem selecionado, e apresenta os diálogos da padaria sem erros no console.
+
+
 
 ## 5.2. Testes de jogabilidade (playtests) (sprint 5)
 
