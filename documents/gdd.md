@@ -507,6 +507,7 @@ Demonstra a centralidade do prédio da Cielo no level design, facilitando o aces
 
 ## 3.5. Gameflow (Diagrama de cenas) (sprint 2)
 
+O diagrama de cenas (gameflow) é uma ferramenta essencial no desenvolvimento de jogos. Ele dita a lógica de transição e o ciclo de vida entre diferentes cenas do jogo, assim a equipe de desenvolvimento dos jogos consegue visualisar e seguir a mesma lógica. A implementação dos diagramas UML, servem para indicar as classes do jogo (cenas), os atributos, que são todas as características que cada cena deve ter e os métodos, as ações que cada cena deve fazer.
 <div align="center">
   <sub>Figura 3.5.1 - Diagrama de cenas</sub><br>
   <img src="/assets/DiagramaOficial.png" width="100%" alt="Sprite João"><br>
@@ -515,9 +516,9 @@ Demonstra a centralidade do prédio da Cielo no level design, facilitando o aces
 
 ### 
 
-Para melhor visualização acesse o nosso [Diagrama de cenas](https://drive.google.com/file/d/1GeqHsMznrFn84V90vxuoyxyVOwySS4b-/view?usp=sharing) online.
-
 ## 3.6. Regras do jogo (sprint 3)
+
+
 
 - O jogador não pode avançar para um estabelecimento sem passar pelo tutorial do início com o Estadual;
 - O jogador deve interagir com os estabelecimentos seguindo as missões dadas pelo Estadual, afim de garantir a ordem dos níveis;
@@ -532,6 +533,8 @@ Para melhor visualização acesse o nosso [Diagrama de cenas](https://drive.goog
 - O jogador deve responder conforme o padrão ensinado no onboarding da Cielo.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
+
+
 
 \# | Mecânicas                      
 -|----------------------------
