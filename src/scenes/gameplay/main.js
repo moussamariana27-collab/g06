@@ -7,15 +7,16 @@ class MainScene extends Phaser.Scene {
 
     // Carrega as imagens
     preload() {
+        console.log('Personagem escolhido:', this.characterEscolhido);
         this.load.tilemapTiledJSON('mapaEscritorio', 'assets/escritorio.json');
         this.load.image('escritoriTileset', 'assets/escritorio_tileset.png');
 
         // Define os sprites de cada personagem disponível com suas dimensões
         const sprites = {
-            'JOSÉ':  { file: 'assets/jose.png',  frameWidth: 267, frameHeight: 346 },
-            'MARIA': { file: 'assets/Maria.png', frameWidth: 244, frameHeight: 360 },
-            'JOÃO':  { file: 'assets/joao.png',  frameWidth: 398, frameHeight: 506 },
-            'PAULA': { file: 'assets/paula.png', frameWidth: 244, frameHeight: 349 },
+            'JOSÉ':  { file: 'assets/josePronto.png',  frameWidth: 16, frameHeight: 32 },
+            'MARIA': { file: 'assets/mariaPronto.png', frameWidth: 16, frameHeight: 32 },
+            'JOÃO':  { file: 'assets/joao.png',  frameWidth: 16, frameHeight: 32 },
+            'PAULA': { file: 'assets/paulaPronto.png', frameWidth: 16, frameHeight: 32 },
         };
 
         // Obtém os dados do personagem escolhido
@@ -50,7 +51,7 @@ class MainScene extends Phaser.Scene {
         }
 
         // Cria o sprite do personagem na posição de spawn
-        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(0.3);
+        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(3.0);
         // Faz o personagem não sair dos limites do mapa
         this.personagem.setCollideWorldBounds(true);
        // Ajusta automaticamente a hitbox para o tamanho do sprite
@@ -149,6 +150,35 @@ class MainScene extends Phaser.Scene {
                 }
             });
         });
+
+        this.anims.create({
+            key: "up",
+            frameRate: 12,
+            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 54, end: 59 }),
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: "down",
+            frameRate: 12,
+            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 66, end: 71 }),
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: "left",
+            frameRate: 12,
+            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 60, end: 65 }),
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: "right",
+            frameRate: 12,
+            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 48, end: 53 }),
+            repeat: -1
+        });
+
     }
 
     // Atualiza o estado do jogo a cada frame
@@ -158,37 +188,29 @@ class MainScene extends Phaser.Scene {
         // Velocidade de movimento do personagem
         const vel = 200;
 
-        // Se a seta esquerda está pressionada
+        const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up')   && this.anims.exists('down');
+
+        // Movimento para esquerd
         if (this.cursor.left.isDown) {
-            // Move para a esquerda
             this.personagem.setVelocityX(-vel);
-            // Inverte a imagem (virado para esquerda)
-            this.personagem.setFlipX(true);
-            // Define o frame (imagem) do personagem parado
-            this.personagem.setFrame(0);
-        } 
-        // Se a seta direita está pressionada
-        else if (this.cursor.right.isDown) {
-            // Move para a direita
+            if (animsOk) this.personagem.play('left', true);
+
+        // Movimento para direita
+        } else if (this.cursor.right.isDown) {
             this.personagem.setVelocityX(vel);
-            // Define a imagem normal (virado para direita)
-            this.personagem.setFlipX(false);
-            // Define o frame (imagem) do personagem parado
-            this.personagem.setFrame(0);
-        } 
-        // Se a seta para cima está pressionada
-        else if (this.cursor.up.isDown) {
-            // Move para cima
+            if (animsOk) this.personagem.play('right', true);
+
+        // Movimento para cima
+        } else if (this.cursor.up.isDown) {
             this.personagem.setVelocityY(-vel);
-            // Define o frame (imagem) para o personagem de costas
-            this.personagem.setFrame(1);
-        } 
-        // Se a seta para baixo está pressionada
-        else if (this.cursor.down.isDown) {
-            // Move para baixo
+            if (animsOk) this.personagem.play('up', true);
+
+        // Movimento para baixo
+        } else if (this.cursor.down.isDown) {
             this.personagem.setVelocityY(vel);
-            // Define o frame (imagem) para o personagem de frente
-            this.personagem.setFrame(3);
+            if (animsOk) this.personagem.play('down', true);
+        } else {
+            this.personagem.stop();
         }
     }
 }

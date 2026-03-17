@@ -5,6 +5,9 @@ class CidadeScene extends Phaser.Scene {
     init(data) { this.characterEscolhido = data?.character || null; }
 
     preload() {
+
+        console.log('Personagem escolhido:', this.characterEscolhido);
+
         // Carrega o mapa exportado do Tiled no formato JSON
         this.load.tilemapTiledJSON('mapaCidade', 'assets/cidade_cielo.json');
 
@@ -16,7 +19,7 @@ class CidadeScene extends Phaser.Scene {
             'JOSÉ':  { file: 'assets/jose.png',  frameWidth: 267, frameHeight: 346 },
             'MARIA': { file: 'assets/Maria.png', frameWidth: 244, frameHeight: 360 },
             'JOÃO':  { file: 'assets/joao.png',  frameWidth: 398, frameHeight: 506 },
-            'PAULA': { file: 'assets/paula.png', frameWidth: 244, frameHeight: 349 },
+            'PAULA': { file: 'assets/paulaPronto.png', frameWidth: 16, frameHeight: 16 },
         };
 
         // Seleciona o personagem escolhido pelo jogador
@@ -29,6 +32,7 @@ class CidadeScene extends Phaser.Scene {
         this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
             frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
         });
+
     }
 
     create() {
@@ -55,7 +59,7 @@ class CidadeScene extends Phaser.Scene {
         const spawnY = spawnObj.y + spawnObj.height / 2;
 
         // Cria o personagem com física na posição de spawn
-        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(0.1);
+        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(1.0);
 
         // Ativa colisão do personagem com as bordas do mundo
         this.personagem.setCollideWorldBounds(true);
@@ -155,6 +159,35 @@ class CidadeScene extends Phaser.Scene {
                 });
             });
         }
+
+        this.anims.create({
+            key: "up",
+            frameRate: 12,
+            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 54, end: 59 }),
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: "down",
+            frameRate: 12,
+            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 66, end: 71 }),
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: "left",
+            frameRate: 12,
+            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 60, end: 65 }),
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: "right",
+            frameRate: 12,
+            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 48, end: 53 }),
+            repeat: -1
+        });
+
     }
 
     update() {
@@ -164,27 +197,29 @@ class CidadeScene extends Phaser.Scene {
         // Cria uma variável que guarda o valor da velocidade de movimento
         const vel = 150;
 
+        const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up')   && this.anims.exists('down');
+
         // Movimento para esquerda
         if (this.cursor.left.isDown) {
             this.personagem.setVelocityX(-vel);
-            this.personagem.setFlipX(true);
-            this.personagem.setFrame(0);
+            if (animsOk) this.personagem.play('left', true);
 
         // Movimento para direita
         } else if (this.cursor.right.isDown) {
             this.personagem.setVelocityX(vel);
-            this.personagem.setFlipX(false);
-            this.personagem.setFrame(0);
+            if (animsOk) this.personagem.play('right', true);
 
         // Movimento para cima
         } else if (this.cursor.up.isDown) {
             this.personagem.setVelocityY(-vel);
-            this.personagem.setFrame(1);
+            if (animsOk) this.personagem.play('up', true);
 
         // Movimento para baixo
         } else if (this.cursor.down.isDown) {
             this.personagem.setVelocityY(vel);
-            this.personagem.setFrame(3);
+            if (animsOk) this.personagem.play('down', true);
+        } else {
+            this.personagem.stop();
         }
     }
 }
