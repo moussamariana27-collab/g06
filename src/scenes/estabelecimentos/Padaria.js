@@ -3,6 +3,7 @@
 // Aqui acontece toda a lógica do jogo dentro da padaria.
 // O jogador precisa responder perguntas do Seu João e
 // encher a barra de satisfação pra fechar a venda.
+var padeiro
 
 class Padaria extends Phaser.Scene {
 
@@ -67,7 +68,7 @@ class Padaria extends Phaser.Scene {
         // Posiciona o padeiro no lado direito da tela
         // O setFlip(true, false) espelha ele horizontalmente
         // pra ele ficar de frente pro jogador
-        this.add.sprite(
+        padeiro = this.add.sprite(
             (this.scale.width * 2 / 3) + 40,
             this.scale.height - 400,
             'padeiro'
@@ -75,6 +76,25 @@ class Padaria extends Phaser.Scene {
             .setDepth(2)          // na frente do fundo
             .setScale(0.55)       // reduz o tamanho (o sprite original é bem grande)
             .setFlip(true, false);
+
+        this.anims.create({
+            key: "bravo",
+            frames: this.anims.generateFrameNumbers('padeiro', {start:0, end:0}),
+            frameRate: 1,
+            repeat: -1
+        });
+        this.anims.create({
+            key: "estavel",
+            frames: this.anims.generateFrameNumbers('padeiro', {start:1, end:1}),
+            frameRate: 1,
+            repeat: -1
+        });
+        this.anims.create({
+            key: "feliz",
+            frames: this.anims.generateFrameNumbers('padeiro', {start:2, end:2}),
+            frameRate: 1,
+            repeat: -1
+        });
 
         // Posiciona o jogador no lado esquerdo
         this.add.image(
@@ -127,6 +147,7 @@ class Padaria extends Phaser.Scene {
         this.createUI();
         this.mostrarQuestao();
         this.barraSatisfacao();
+        this.facePadeiro();
 
     }
 
@@ -278,7 +299,7 @@ class Padaria extends Phaser.Scene {
         }
 
         this.mostrarQuestao();
-
+        this.facePadeiro();
     }
 
 
@@ -301,6 +322,24 @@ class Padaria extends Phaser.Scene {
 
     }
 
+    facePadeiro() {
+        if (this.satisfacao === 34) {
+            padeiro.play('estavel', true);
+            return;
+        }
+        if (this.satisfacao === 1) {
+            padeiro.play('bravo', true)
+            return;
+        } 
+        if (this.satisfacao === 67) {
+            padeiro.play('feliz', true)
+            return;
+        } 
+        if (this.satisfacao<0 || this.satisfacao === 100){
+            padeiro.play('estavel',true)
+            return;
+        }
+    }
 
     // vitoria — exibe mensagem de sucesso e vai pra Cidade
     // Esconde a UI do minigame pra não ficar sobrepondo o texto
