@@ -120,14 +120,14 @@ class Padaria extends Phaser.Scene {
         this.questoes = [
 
             {
-                pergunta: "SEU JOÃO:\nOlha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.",
+                pergunta: "Olha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.",
                 certo: "No dia seguinte seu João! O débito cai em D+1.",
                 errado: "Demora um pouco seu João, o débito cai em um mês",
                 resposta: true
             },
 
             {
-                pergunta: "SEU JOÃO:\nBeleza, mas me responde uma coisa: às\nvezes eu vendo parcelado e o dinheiro\ndemora pra cair. O meu fornecedor de\nfarinha não espera... A Cielo resolve isso?",
+                pergunta: "Beleza, mas me responde uma coisa: às\nvezes eu vendo parcelado e o dinheiro\ndemora pra cair. O meu fornecedor de\nfarinha não espera... A Cielo resolve isso?",
                 certo: "A Cielo tem a antecipação de recebíveis!\nVocê recebe adiantado pagando uma pequena taxa.",
                 errado: "Infelizmente não tem jeito Seu João. Tem\nque esperar as parcelas caírem.",
                 resposta: true
@@ -158,47 +158,92 @@ class Padaria extends Phaser.Scene {
 
     createUI() {
 
-        // Caixa de texto onde a pergunta do Seu João aparece
+        // Array para armazenar todos os graphics da UI — usado pra ocultá-los em vitoria/derrota
+        this.graficosUI = [];
+
+        // ---------------------------------------------------------
+        // CAIXA DE PERGUNTA — design em 3 camadas (estilo Tutorial.js)
+        // ---------------------------------------------------------
+        const perguntaX = 550;
+        const perguntaY = 420;
+        const perguntaW = 700;
+        const perguntaH = 180;
+
+        // Camada 1: borda azul escura
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x5078D8, 1).fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 20));
+        // Camada 2: borda azul clara (inset de 8px)
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(perguntaX + 8, perguntaY + 8, perguntaW - 16, perguntaH - 16, 16));
+        // Camada 3: fundo claro (inset de 16px) — área do texto
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xE8F0FF, 1).fillRoundedRect(perguntaX + 16, perguntaY + 16, perguntaW - 32, perguntaH - 32, 12));
+
+        // Texto da pergunta do Seu João
         this.lugarQuestao = this.add.text(
-            900,
-            500,
+            perguntaX + 24,
+            perguntaY + 24,
             "",   // começa vazio, é preenchido em mostrarQuestao()
             {
-                fontSize: "32px",
-                color: "#000",
-                backgroundColor: "#ffffff",
-                padding: 32,
+                fontSize: "28px",
+                color: "#000000",
+                wordWrap: { width: perguntaW - 56 },
                 fontFamily: "Pixelify Sans"
             }
-        ).setDepth(3);
+        ).setDepth(5);
+
+        // ---------------------------------------------------------
+        // OPÇÃO A — canto esquerdo inferior (design em 3 camadas)
+        // ---------------------------------------------------------
+        const opcA_X = 50;
+        const opcA_Y = 600;
+        const opcA_W = 420;
+        const opcA_H = 90;
+
+        // Camada 1: borda azul escura
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x5078D8, 1).fillRoundedRect(opcA_X, opcA_Y, opcA_W, opcA_H, 15));
+        // Camada 2: borda azul clara (inset de 6px)
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(opcA_X + 6, opcA_Y + 6, opcA_W - 12, opcA_H - 12, 12));
+        // Camada 3: fundo claro (inset de 12px)
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xE8F0FF, 1).fillRoundedRect(opcA_X + 12, opcA_Y + 12, opcA_W - 24, opcA_H - 24, 9));
 
         // Opção A — fica no canto esquerdo inferior
         this.opcaoUm = this.add.text(
-            100,
-            550,
+            opcA_X + 18,
+            opcA_Y + 18,
             "",
             {
-                backgroundColor: '#ffffff',
-                color: "#000",
-                padding: 24,
-                fontSize: "24px",
+                color: "#000000",
+                fontSize: "22px",
+                wordWrap: { width: opcA_W - 36 },
                 fontFamily: "Pixelify Sans"
             }
-        ).setInteractive().setDepth(3); // setInteractive() é obrigatório pra receber cliques
+        ).setInteractive().setDepth(5); // setInteractive() é obrigatório pra receber cliques
+
+        // ---------------------------------------------------------
+        // OPÇÃO B — logo abaixo da opção A (design em 3 camadas)
+        // ---------------------------------------------------------
+        const opcB_X = 50;
+        const opcB_Y = 720;
+        const opcB_W = 420;
+        const opcB_H = 90;
+
+        // Camada 1: borda azul escura
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x5078D8, 1).fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 15));
+        // Camada 2: borda azul clara (inset de 6px)
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(opcB_X + 6, opcB_Y + 6, opcB_W - 12, opcB_H - 12, 12));
+        // Camada 3: fundo claro (inset de 12px)
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xE8F0FF, 1).fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 9));
 
         // Opção B — logo abaixo da opção A
         this.opcaoDois = this.add.text(
-            100,
-            660,
+            opcB_X + 18,
+            opcB_Y + 18,
             "",
             {
-                backgroundColor: '#ffffff',
-                color: "#000",
-                padding: 24,
-                fontSize: "24px",
+                color: "#000000",
+                fontSize: "22px",
+                wordWrap: { width: opcB_W - 36 },
                 fontFamily: "Pixelify Sans"
             }
-        ).setInteractive().setDepth(3);
+        ).setInteractive().setDepth(5);
 
         // Quando clicar em qualquer opção, passa o valor dela pra função resposta()
         // O .valor é uma propriedade customizada que a gente seta em mostrarQuestao()
@@ -346,23 +391,35 @@ class Padaria extends Phaser.Scene {
 
     vitoria() {
 
+        const textoX = (this.scale.width / 2) - 600;
+        const textoY = (this.scale.height / 2) - 200;
+        const textoW = 1200;
+        const textoH = 300;
+
+        // Camada 1: borda azul escura
+        this.add.graphics().setDepth(3).fillStyle(0x5078D8, 1).fillRoundedRect(textoX, textoY, textoW, textoH, 20);
+        // Camada 2: borda azul clara (inset de 8px)
+        this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(textoX + 8, textoY + 8, textoW - 16, textoH - 16, 16);
+        // Camada 3: fundo claro (inset de 16px)
+        this.add.graphics().setDepth(3).fillStyle(0xE8F0FF, 1).fillRoundedRect(textoX + 16, textoY + 16, textoW - 32, textoH - 32, 12);
+
         this.add.text(
-            (this.scale.width / 2) - 600,
-            (this.scale.height / 2) - 200,
+            textoX + textoW / 2,
+            textoY + textoH / 2,
             "VOCÊ CONVENCEU O CLIENTE",
             {
-                color: '#000',
-                backgroundColor: '#ffffff',
+                color: '#000000',
                 fontSize: 64,
-                padding: 128
+                fontFamily: "Pixelify Sans"             
             }
-        ).setDepth(4);
+        ).setDepth(4).setOrigin(0.5);
 
         // Esconde tudo da UI pra tela ficar limpa
         this.barra.setVisible(false);
         this.opcaoUm.setVisible(false);
         this.opcaoDois.setVisible(false);
         this.lugarQuestao.setVisible(false);
+        this.graficosUI.forEach(g => g.setVisible(false));
 
         // Aguarda 4 segundos e manda pro mapa da cidade
         this.time.delayedCall(4000, () => {
@@ -375,22 +432,35 @@ class Padaria extends Phaser.Scene {
 
     derrota() {
 
+        const textoX = (this.scale.width / 2) - 650;
+        const textoY = (this.scale.height / 2) - 200;
+        const textoW = 1300;
+        const textoH = 300;
+
+        // Camada 1: borda azul escura
+        this.add.graphics().setDepth(3).fillStyle(0x5078D8, 1).fillRoundedRect(textoX, textoY, textoW, textoH, 20);
+        // Camada 2: borda azul clara (inset de 8px)
+        this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(textoX + 8, textoY + 8, textoW - 16, textoH - 16, 16);
+        // Camada 3: fundo claro (inset de 16px)
+        this.add.graphics().setDepth(3).fillStyle(0xE8F0FF, 1).fillRoundedRect(textoX + 16, textoY + 16, textoW - 32, textoH - 32, 12);
+
         this.add.text(
-            (this.scale.width / 2) - 870,
-            (this.scale.height / 2) - 200,
+            textoX + textoW / 2,
+            textoY + textoH / 2,
             "VOCÊ NÃO FOI CAPAZ DE CONQUISTAR O CLIENTE",
             {
-                color: '#000',
-                backgroundColor: '#ffffff',
+                color: '#000000',
                 fontSize: 58,
-                padding: 120
+                wordWrap: { width: textoW - 64 },
+                fontFamily: "Pixelify Sans"
             }
-        ).setDepth(4);
+        ).setDepth(4).setOrigin(0.5);
 
         this.barra.setVisible(false);
         this.opcaoUm.setVisible(false);
         this.opcaoDois.setVisible(false);
         this.lugarQuestao.setVisible(false);
+        this.graficosUI.forEach(g => g.setVisible(false));
 
         // Volta pro MainScene (tela inicial/menu) após 4s
         this.time.delayedCall(4000, () => {
@@ -406,22 +476,34 @@ class Padaria extends Phaser.Scene {
 
     fimDasPerguntas() {
 
+        const textoX = (this.scale.width / 2) - 600;
+        const textoY = (this.scale.height / 2) - 200;
+        const textoW = 1200;
+        const textoH = 300;
+
+        // Camada 1: borda azul escura
+        this.add.graphics().setDepth(3).fillStyle(0x5078D8, 1).fillRoundedRect(textoX, textoY, textoW, textoH, 20);
+        // Camada 2: borda azul clara (inset de 8px)
+        this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(textoX + 8, textoY + 8, textoW - 16, textoH - 16, 16);
+        // Camada 3: fundo claro (inset de 16px)
+        this.add.graphics().setDepth(3).fillStyle(0xE8F0FF, 1).fillRoundedRect(textoX + 16, textoY + 16, textoW - 32, textoH - 32, 12);
+
         this.add.text(
-            (this.scale.width / 2) - 600,
-            (this.scale.height / 2) - 200,
+            textoX + textoW / 2,
+            textoY + textoH / 2,
             "O CLIENTE TE MANDOU EMBORA",
             {
-                color: '#000',
-                backgroundColor: '#ffffff',
+                color: '#000000',
                 fontSize: 64,
-                padding: 128
+                fontFamily: "Pixelify Sans"
             }
-        ).setDepth(4);
+        ).setDepth(4).setOrigin(0.5);
 
         this.barra.setVisible(false);
         this.opcaoUm.setVisible(false);
         this.opcaoDois.setVisible(false);
         this.lugarQuestao.setVisible(false);
+        this.graficosUI.forEach(g => g.setVisible(false));
 
         // Também volta pro menu principal após 4s
         this.time.delayedCall(4000, () => {
