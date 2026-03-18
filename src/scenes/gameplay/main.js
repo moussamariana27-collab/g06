@@ -15,7 +15,7 @@ class MainScene extends Phaser.Scene {
         const sprites = {
             'JOSÉ':  { file: 'assets/josePronto.png',  frameWidth: 16, frameHeight: 32 },
             'MARIA': { file: 'assets/mariaPronto.png', frameWidth: 16, frameHeight: 32 },
-            'JOÃO':  { file: 'assets/joao.png',  frameWidth: 16, frameHeight: 32 },
+            'JOÃO':  { file: 'assets/joaoPronto.png',  frameWidth: 16, frameHeight: 32 },
             'PAULA': { file: 'assets/paulaPronto.png', frameWidth: 16, frameHeight: 32 },
         };
 
