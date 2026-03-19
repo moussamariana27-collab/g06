@@ -40,8 +40,8 @@ class Tutorial extends Phaser.Scene {
             "A Flash também já vem com chip de dados incluso, então o cliente não precisa de Wi-Fi para vender. E a reposição de bobina é automática — sem preocupação!",
             "Agora vamos falar da Cielo LIO On — nosso terminal inteligente. Ela vai além dos pagamentos: controla estoque, emite Nota Fiscal e tem acesso à Cielo Store com mais de 50 apps de gestão.",
             "E a novidade da linha inteligente é a Cielo Smart! Ela evoluiu da LIO On com Android mais atual, aprovação de pagamentos mais rápida e compatibilidade com diferentes modelos de terminais.",
-            "Também temos o Vendeu, Tá na Conta — um produto que os clientes adoram! Com ele, o lojista recebe o valor das vendas no débito, crédito à vista ou parcelado no mesmo dia, até nos feriados!",
-            "Para funcionar, o domicílio bancário do cliente precisa aceitar transferência via Pix. Vendas feitas até as 18h59 caem no mesmo dia — após esse horário, no dia seguinte.",
+            "Também temos o 'Vendeu, Tá na Conta', um produto que os clientes adoram! Com ele, na modalidade D0, o lojista recebe o valor das vendas no débito, crédito à vista ou parcelado no mesmo dia, até nos feriados! Já na modalidade D1, recebe o pagamento no dia seguinte.",
+            "Para funcionar, o domicílio bancário do cliente precisa aceitar transferência via Pix. Vendas feitas até as 20h59 caem no mesmo dia, após esse horário, no dia seguinte.",
             "Cada loja que você visitar vai ter um desafio diferente. Use o que aprendeu aqui para identificar qual produto se encaixa melhor na necessidade de cada cliente. Bora começar!",
         ];
 
