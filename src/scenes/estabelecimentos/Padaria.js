@@ -33,8 +33,19 @@ class Padaria extends Phaser.Scene {
             frameHeight: 768
         });
 
-        // Imagem do jogador (personagem do vendedor)
-        this.load.image('player', 'assets/gn-negra-comercio.png');
+        // Imagens dos personagens jogaveis
+        const sprites = {
+            'JOSÉ':  { file: 'assets/joseCorpo.png'},
+            'MARIA': { file: 'assets/mariaCorpo.png'},
+            'JOÃO':  { file: 'assets/joaoCorpo.png' },
+            'PAULA': { file: 'assets/paulaCorpo.png'}
+        };
+        // Dados do personagem atual
+        const dadosSprite = sprites[this.characterEscolhido];
+        // Verifica se o personagem é válido antes de carregar
+        if (!dadosSprite) { console.error('Personagem inválido:', this.characterEscolhido); return; }
+        // Carrega a spritesheet do personagem escolhido
+        this.load.image('personagemPadaria', dadosSprite.file );
 
     }
 
@@ -159,12 +170,12 @@ class Padaria extends Phaser.Scene {
         // Começa pela primeira pergunta (índice 0)
         this.questaoAtual = 0;
 
-        // Inicializa a interface, exibe a primeira pergunta e desenha a barra
+        // Inicializa a interface, exibe a primeira pergunta, desenha a barra e cria o personagem
         this.createUI();
         this.mostrarQuestao();
         this.barraSatisfacao();
         this.facePadeiro();
-
+        this.createPersonagem()
     }
 
  
@@ -302,6 +313,25 @@ class Padaria extends Phaser.Scene {
 
     this.barra = this.add.graphics();
 }
+
+    createPersonagem() {
+
+        let escala = 1;
+        let posicaoX = (this.scale.width * 1 / 3) - 100;
+        let posicaoY = this.scale.height - 270;
+
+        if (this.characterEscolhido === 'JOSÉ' || this.characterEscolhido === 'JOÃO') {
+                escala = 0.5;
+                posicaoX = (this.scale.width * 1 / 3) - 80;
+                posicaoY = this.scale.height - 330;
+        } else {escala = 1;
+                posicaoX = (this.scale.width * 1 / 3) - 100;
+                posicaoY = this.scale.height - 270;
+        }
+
+
+        this.personagem = this.physics.add.sprite(posicaoX, posicaoY, 'personagemPadaria', 0).setDepth(1).setScale(escala);
+    };
 
 
     // mostrarQuestao — atualiza a tela com a pergunta atual
