@@ -12,10 +12,10 @@ class Farmacia extends Phaser.Scene {
         this.load.image('bgFarmacia', 'assets/farmacia_interior.png');
 
         const sprites = {
-            'JOSÉ':  { file: 'assets/josePronto.png'},
+            'JOSÉ':  { file: 'assets/joseCorpo.png'},
             'MARIA': { file: 'assets/mariaCorpo.png'},
-            'JOÃO':  { file: 'assets/joaoPronto.png' },
-            'PAULA': { file: 'assets/paulaPronto.png'}
+            'JOÃO':  { file: 'assets/joaoCorpo.png' },
+            'PAULA': { file: 'assets/paulaCorpo.png'}
         };
 
          // Obtém os dados do personagem escolhido
@@ -23,9 +23,7 @@ class Farmacia extends Phaser.Scene {
         // Verifica se o personagem é válido antes de carregar
         if (!dadosSprite) { console.error('Personagem inválido:', this.characterEscolhido); return; }
         // Carrega a spritesheet do personagem escolhido
-        this.load.spritesheet('sheetPersonagem', dadosSprite.file
-        );
-
+        this.load.image('personagemFarmacia', dadosSprite.file );
     }
 
     create() {
@@ -44,8 +42,25 @@ class Farmacia extends Phaser.Scene {
         // Adiciona uma função que sempre que o jogador apertar a tecla ENTER ele retorna para a cidade
         this.input.keyboard.once('keydown-ENTER', () => this.scene.start('Cidade', { character: this.characterEscolhido }));
 
-        this.personagem = this.physics.add.sprite((this.scale.width * 1 / 3) - 100, this.scale.height - 270, 'sheetPersonagem', 0).setDepth(1).setScale(10.0);
-        
+        this.createPersonagem()
+    }
 
+    createPersonagem() {
+
+        let escala = 1;
+        let posicaoX = (this.scale.width * 1 / 3) - 100;
+        let posicaoY = this.scale.height - 270;
+
+        if (this.characterEscolhido === 'JOSÉ' || this.characterEscolhido === 'JOÃO') {
+                escala = 0.5;
+                posicaoX = (this.scale.width * 1 / 3) - 80;
+                posicaoY = this.scale.height - 330;
+        } else {escala = 1;
+                posicaoX = (this.scale.width * 1 / 3) - 100;
+                posicaoY = this.scale.height - 270;
+        }
+
+
+        this.personagem = this.physics.add.sprite(posicaoX, posicaoY, 'personagemFarmacia', 0).setDepth(1).setScale(escala);
     }
 }

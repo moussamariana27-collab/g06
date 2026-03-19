@@ -47,7 +47,7 @@ class CharacterInfoScene extends Phaser.Scene {
         btnJogar.on('pointerup',    () => {
             btnJogar.setScale(1.3);
             // Repassa o personagem escolhido para a próxima cena
-            this.scene.start('MainScene', { character: this.characterEscolhido });
+            this.scene.start('MainScene', { character: this.characterEscolhido});
         });
     }
 }
