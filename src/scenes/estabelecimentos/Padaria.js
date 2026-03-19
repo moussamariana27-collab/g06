@@ -120,16 +120,28 @@ class Padaria extends Phaser.Scene {
         this.questoes = [
 
             {
+<<<<<<< HEAD
                 pergunta:"SEU TIÃO:O problema é que oque eu também vendo no fim de semana, até no domingo. Tem hora que eu preciso do dinheiro rápido numa emergência. E aí eu preciso vender no dinheiro, não tem jeito!",
                 certo: "Tem jeito sim SR. João! A CIELO tem um serviço chamado'Vendeu, Tá na Conta', com ele todas as vendas que o senhor fez até 18:59 o valor cai na sua conta no mesmo dia, inclusive nos finais de semana e feriados! O dinheiro cai na conta em poucas horas.",
                 errado: "Infelizmente nós não trabalhalhamos fim de semana, Seu João. Se o senhor quiser o dinheiro no mesmo dia vai ter que vender no físico.",
+=======
+                pergunta: "Olha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.",
+                certo: "No dia seguinte seu João! O débito cai em D+1.",
+                errado: "Demora um pouco seu João, o débito cai em um mês",
+>>>>>>> a6ebd62238d156fd89b1af25e80563283fa659c0
                 resposta: true
             },
 
             {
+<<<<<<< HEAD
                 pergunta: "SEU TOÃO:Outra coisa, eu já fico perdido com os documentos de venda e nota fiscal, trocar de empresa daria muita dor de cabeça. Como eu vou controlar meu estoque de pão e fechar o caixa sem me enrolar?",
                 certo: "Mas nós também pensamos nisso! A Cielo Smart controle de estoque digital e o senhor fecha o caixa com um clique, tudo direto na máquina, sem papelada.",
                 errado: "Mas seu João a documentação é pouca eu te ajudo a resolver! Te garanto que o investimento vale a pena!",
+=======
+                pergunta: "Beleza, mas me responde uma coisa: às\nvezes eu vendo parcelado e o dinheiro\ndemora pra cair. O meu fornecedor de\nfarinha não espera... A Cielo resolve isso?",
+                certo: "A Cielo tem a antecipação de recebíveis!\nVocê recebe adiantado pagando uma pequena taxa.",
+                errado: "Infelizmente não tem jeito Seu João. Tem\nque esperar as parcelas caírem.",
+>>>>>>> a6ebd62238d156fd89b1af25e80563283fa659c0
                 resposta: true
             },
 
@@ -174,6 +186,7 @@ class Padaria extends Phaser.Scene {
 
     createUI() {
 
+<<<<<<< HEAD
     this.graficosUI = [];
 
     // ─── CAIXA DE PERGUNTA ────────────────────────────────────────
@@ -206,6 +219,94 @@ class Padaria extends Phaser.Scene {
             .fillStyle(0xf5f9ff, 1)
             .fillRoundedRect(perguntaX + 14, perguntaY + 14, perguntaW - 28, perguntaH - 28, 6)
     );
+=======
+        // Array para armazenar todos os graphics da UI — usado pra ocultá-los em vitoria/derrota
+        this.graficosUI = [];
+
+        // ---------------------------------------------------------
+        // CAIXA DE PERGUNTA — design em 3 camadas (estilo Tutorial.js)
+        // ---------------------------------------------------------
+        const perguntaX = 550;
+        const perguntaY = 420;
+        const perguntaW = 700;
+        const perguntaH = 180;
+
+        // Camada 1: borda azul escura
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x5078D8, 1).fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 20));
+        // Camada 2: borda azul clara (inset de 8px)
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(perguntaX + 8, perguntaY + 8, perguntaW - 16, perguntaH - 16, 16));
+        // Camada 3: fundo claro (inset de 16px) — área do texto
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xE8F0FF, 1).fillRoundedRect(perguntaX + 16, perguntaY + 16, perguntaW - 32, perguntaH - 32, 12));
+
+        // Texto da pergunta do Seu João
+        this.lugarQuestao = this.add.text(
+            perguntaX + 24,
+            perguntaY + 24,
+            "",   // começa vazio, é preenchido em mostrarQuestao()
+            {
+                fontSize: "28px",
+                color: "#000000",
+                wordWrap: { width: perguntaW - 56 },
+                fontFamily: "Pixelify Sans"
+            }
+        ).setDepth(5);
+
+        // ---------------------------------------------------------
+        // OPÇÃO A — canto esquerdo inferior (design em 3 camadas)
+        // ---------------------------------------------------------
+        const opcA_X = 50;
+        const opcA_Y = 600;
+        const opcA_W = 420;
+        const opcA_H = 90;
+
+        // Camada 1: borda azul escura
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x5078D8, 1).fillRoundedRect(opcA_X, opcA_Y, opcA_W, opcA_H, 15));
+        // Camada 2: borda azul clara (inset de 6px)
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(opcA_X + 6, opcA_Y + 6, opcA_W - 12, opcA_H - 12, 12));
+        // Camada 3: fundo claro (inset de 12px)
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xE8F0FF, 1).fillRoundedRect(opcA_X + 12, opcA_Y + 12, opcA_W - 24, opcA_H - 24, 9));
+
+        // Opção A — fica no canto esquerdo inferior
+        this.opcaoUm = this.add.text(
+            opcA_X + 18,
+            opcA_Y + 18,
+            "",
+            {
+                color: "#000000",
+                fontSize: "22px",
+                wordWrap: { width: opcA_W - 36 },
+                fontFamily: "Pixelify Sans"
+            }
+        ).setInteractive().setDepth(5); // setInteractive() é obrigatório pra receber cliques
+
+        // ---------------------------------------------------------
+        // OPÇÃO B — logo abaixo da opção A (design em 3 camadas)
+        // ---------------------------------------------------------
+        const opcB_X = 50;
+        const opcB_Y = 720;
+        const opcB_W = 420;
+        const opcB_H = 90;
+
+        // Camada 1: borda azul escura
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x5078D8, 1).fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 15));
+        // Camada 2: borda azul clara (inset de 6px)
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(opcB_X + 6, opcB_Y + 6, opcB_W - 12, opcB_H - 12, 12));
+        // Camada 3: fundo claro (inset de 12px)
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xE8F0FF, 1).fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 9));
+
+        // Opção B — logo abaixo da opção A
+        this.opcaoDois = this.add.text(
+            opcB_X + 18,
+            opcB_Y + 18,
+            "",
+            {
+                color: "#000000",
+                fontSize: "22px",
+                wordWrap: { width: opcB_W - 36 },
+                fontFamily: "Pixelify Sans"
+            }
+        ).setInteractive().setDepth(5);
+>>>>>>> a6ebd62238d156fd89b1af25e80563283fa659c0
 
     this.lugarQuestao = this.add.text(
         perguntaX + 22,

@@ -16,9 +16,9 @@ class CidadeScene extends Phaser.Scene {
 
         // Objeto que define qual spritesheet usar para cada personagem
         const sprites = {
-            'JOSÉ':  { file: 'assets/jose.png',  frameWidth: 267, frameHeight: 346 },
-            'MARIA': { file: 'assets/Maria.png', frameWidth: 244, frameHeight: 360 },
-            'JOÃO':  { file: 'assets/joao.png',  frameWidth: 398, frameHeight: 506 },
+            'JOSÉ':  { file: 'assets/jose.png',  frameWidth: 16, frameHeight: 32 },
+            'MARIA': { file: 'assets/Maria.png', frameWidth: 16, frameHeight: 32 },
+            'JOÃO':  { file: 'assets/joao.png',  frameWidth: 16, frameHeight: 32 },
             'PAULA': { file: 'assets/paulaPronto.png', frameWidth: 16, frameHeight: 16 },
         };
 
