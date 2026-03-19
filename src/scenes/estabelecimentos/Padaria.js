@@ -78,19 +78,19 @@ class Padaria extends Phaser.Scene {
             .setFlip(true, false);
 
         this.anims.create({
-            key: "bravo",
+            key: "bravoPadeiro",
             frames: this.anims.generateFrameNumbers('padeiro', {start:0, end:0}),
             frameRate: 1,
             repeat: -1
         });
         this.anims.create({
-            key: "estavel",
+            key: "estavelPadeiro",
             frames: this.anims.generateFrameNumbers('padeiro', {start:1, end:1}),
             frameRate: 1,
             repeat: -1
         });
         this.anims.create({
-            key: "feliz",
+            key: "felizPadeiro",
             frames: this.anims.generateFrameNumbers('padeiro', {start:2, end:2}),
             frameRate: 1,
             repeat: -1
@@ -120,23 +120,39 @@ class Padaria extends Phaser.Scene {
         this.questoes = [
 
             {
-                pergunta: "SEU JOÃO:\nOlha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.",
-                certo: "No dia seguinte seu João! O débito cai em D+1.",
-                errado: "Demora um pouco seu João, o débito cai em um mês",
+                pergunta:"SEU TIÃO:O problema é que oque eu também vendo no fim de semana, até no domingo. Tem hora que eu preciso do dinheiro rápido numa emergência. E aí eu preciso vender no dinheiro, não tem jeito!",
+                certo: "Tem jeito sim SR. João! A CIELO tem um serviço chamado'Vendeu, Tá na Conta', com ele todas as vendas que o senhor fez até 18:59 o valor cai na sua conta no mesmo dia, inclusive nos finais de semana e feriados! O dinheiro cai na conta em poucas horas.",
+                errado: "Infelizmente nós não trabalhalhamos fim de semana, Seu João. Se o senhor quiser o dinheiro no mesmo dia vai ter que vender no físico.",
                 resposta: true
             },
 
             {
-                pergunta: "SEU JOÃO:\nBeleza, mas me responde uma coisa: às\nvezes eu vendo parcelado e o dinheiro\ndemora pra cair. O meu fornecedor de\nfarinha não espera... A Cielo resolve isso?",
-                certo: "A Cielo tem a antecipação de recebíveis!\nVocê recebe adiantado pagando uma pequena taxa.",
-                errado: "Infelizmente não tem jeito Seu João. Tem\nque esperar as parcelas caírem.",
+                pergunta: "SEU TOÃO:Outra coisa, eu já fico perdido com os documentos de venda e nota fiscal, trocar de empresa daria muita dor de cabeça. Como eu vou controlar meu estoque de pão e fechar o caixa sem me enrolar?",
+                certo: "Mas nós também pensamos nisso! A Cielo Smart controle de estoque digital e o senhor fecha o caixa com um clique, tudo direto na máquina, sem papelada.",
+                errado: "Mas seu João a documentação é pouca eu te ajudo a resolver! Te garanto que o investimento vale a pena!",
                 resposta: true
             },
 
-            // TODO: essas três abaixo ainda são placeholder — precisam de conteúdo real
-            { pergunta: "teste teste teste 3", certo: "cielo", errado: "pix", resposta: true },
-            { pergunta: "etset etset etset 4", certo: "resolverei o seu problema, seu Joao!", errado: "senhor,mas!!!...", resposta: true },
-            { pergunta: "teste teste teste 5", certo: "certoo", errado: "errado", resposta: true }
+            { 
+                pergunta: "SEU TIÃO:Essas maquininhas novas são de tela, meus dedos são grossos e calejados da padaria, eu tenho dificuldade de mexer nisso. Não tem um jeito mais fácil não?",
+                certo: "Pode ficar tranquilo, Seu João! Nossas máquinas têm teclado físico e/ou película de silicone para facilitar o toque, então o senhor não precisa usar só a tela.", 
+                errado: "É questão de costume, Seu João. Hoje em dia tudo é touch, o senhor vai ter que se adaptar de um jeito ou de outro.", 
+                resposta: true 
+            },
+            
+            {
+                 pergunta: "SEU TIÃO:Olha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.", 
+                 certo: "No dia seguinte seu João! O débito cai em D+1.",
+                 errado: "Demora um pouco seu João, o débito cai em um mês", 
+                 resposta: true 
+            },
+            
+            { 
+                pergunta: "SEU TIÃO:Beleza, mas me responde uma coisa: às\nvezes eu vendo parcelado e o dinheiro\ndemora pra cair. O meu fornecedor de\nfarinha não espera... A Cielo resolve isso?", 
+                certo:  "A Cielo tem a antecipação de recebíveis!\nVocê recebe adiantado pagando uma pequena taxa.",
+                errado: "Infelizmente não tem jeito Seu João. Tem\nque esperar as parcelas caírem.",
+                resposta: true 
+            }
 
         ];
 
@@ -158,63 +174,134 @@ class Padaria extends Phaser.Scene {
 
     createUI() {
 
-        // Caixa de texto onde a pergunta do Seu João aparece
-        this.lugarQuestao = this.add.text(
-            900,
-            500,
-            "",   // começa vazio, é preenchido em mostrarQuestao()
-            {
-                fontSize: "32px",
-                color: "#000",
-                backgroundColor: "#ffffff",
-                padding: 32,
-                fontFamily: "Pixelify Sans"
-            }
-        ).setDepth(3);
+    this.graficosUI = [];
 
-        // Opção A — fica no canto esquerdo inferior
-        this.opcaoUm = this.add.text(
-            100,
-            550,
-            "",
-            {
-                backgroundColor: '#ffffff',
-                color: "#000",
-                padding: 24,
-                fontSize: "24px",
-                fontFamily: "Pixelify Sans"
-            }
-        ).setInteractive().setDepth(3); // setInteractive() é obrigatório pra receber cliques
+    // ─── CAIXA DE PERGUNTA ────────────────────────────────────────
+    const perguntaX = 900;
+    const perguntaY = 600;
+    const perguntaW = 500;
+    const perguntaH = 200;
 
-        // Opção B — logo abaixo da opção A
-        this.opcaoDois = this.add.text(
-            100,
-            660,
-            "",
-            {
-                backgroundColor: '#ffffff',
-                color: "#000",
-                padding: 24,
-                fontSize: "24px",
-                fontFamily: "Pixelify Sans"
-            }
-        ).setInteractive().setDepth(3);
+    // Borda preta externa
+    this.graficosUI.push(
+        this.add.graphics().setDepth(2)
+            .fillStyle(0x111111, 1)
+            .fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 16)
+    );
+    // Moldura azul claro
+    this.graficosUI.push(
+        this.add.graphics().setDepth(3)
+            .fillStyle(0xb8d4f0, 1)
+            .fillRoundedRect(perguntaX + 6, perguntaY + 6, perguntaW - 12, perguntaH - 12, 12)
+    );
+    // Aro azul mais claro
+    this.graficosUI.push(
+        this.add.graphics().setDepth(4)
+            .fillStyle(0xddeeff, 1)
+            .fillRoundedRect(perguntaX + 10, perguntaY + 10, perguntaW - 20, perguntaH - 20, 8)
+    );
+    // Fundo escuro (área do texto)
+    this.graficosUI.push(
+        this.add.graphics().setDepth(5)
+            .fillStyle(0xf5f9ff, 1)
+            .fillRoundedRect(perguntaX + 14, perguntaY + 14, perguntaW - 28, perguntaH - 28, 6)
+    );
 
-        // Quando clicar em qualquer opção, passa o valor dela pra função resposta()
-        // O .valor é uma propriedade customizada que a gente seta em mostrarQuestao()
-        this.opcaoUm.on("pointerdown", () => {
-            this.resposta(this.opcaoUm.valor);
-        });
+    this.lugarQuestao = this.add.text(
+        perguntaX + 22,
+        perguntaY + 24,
+        "",
+        {
+            fontSize: "26px",
+            color: "#000000",
+            wordWrap: { width: perguntaW - 48 },
+            fontFamily: "Pixelify Sans"
+        }
+    ).setDepth(6);
 
-        this.opcaoDois.on("pointerdown", () => {
-            this.resposta(this.opcaoDois.valor);
-        });
+    // ─── OPÇÃO A ──────────────────────────────────────────────────
+    const opcA_X = 110;
+    const opcA_Y = 580;
+    const opcA_W = 620;
+    const opcA_H = 110;
 
-        // Objeto de gráficos pra desenhar a barra de satisfação
-        // É reutilizado — a cada update chama .clear() antes de redesenhar
-        this.barra = this.add.graphics();
+    this.graficosUI.push(
+        this.add.graphics().setDepth(2)
+            .fillStyle(0x111111, 1)
+            .fillRoundedRect(opcA_X, opcA_Y, opcA_W, opcA_H, 12)
+    );
+    this.graficosUI.push(
+        this.add.graphics().setDepth(3)
+            .fillStyle(0xb8d4f0, 1)
+            .fillRoundedRect(opcA_X + 4, opcA_Y + 4, opcA_W - 8, opcA_H - 8, 9)
+    );
+    this.graficosUI.push(
+        this.add.graphics().setDepth(4)
+            .fillStyle(0xddeeff, 1)
+            .fillRoundedRect(opcA_X + 8, opcA_Y + 8, opcA_W - 16, opcA_H - 16, 6)
+    );
+    this.graficosUI.push(
+        this.add.graphics().setDepth(5)
+            .fillStyle(0xf5f9ff, 1)
+            .fillRoundedRect(opcA_X + 12, opcA_Y + 12, opcA_W - 24, opcA_H - 24, 4)
+    );
 
-    }
+    this.opcaoUm = this.add.text(
+        opcA_X + 18,
+        opcA_Y + 18,
+        "",
+        {
+            color: "#1a1a2e",
+            fontSize: "20px",
+            wordWrap: { width: opcA_W - 36 },
+            fontFamily: "Pixelify Sans"
+        }
+    ).setInteractive().setDepth(6);
+
+    // ─── OPÇÃO B ──────────────────────────────────────────────────
+    const opcB_X = 110;
+    const opcB_Y = 720;
+    const opcB_W = 620;
+    const opcB_H = 110;
+
+    this.graficosUI.push(
+        this.add.graphics().setDepth(2)
+            .fillStyle(0x111111, 1)
+            .fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 12)
+    );
+    this.graficosUI.push(
+        this.add.graphics().setDepth(3)
+            .fillStyle(0xb8d4f0, 1)
+            .fillRoundedRect(opcB_X + 4, opcB_Y + 4, opcB_W - 8, opcB_H - 8, 9)
+    );
+    this.graficosUI.push(
+        this.add.graphics().setDepth(4)
+            .fillStyle(0xddeeff, 1)
+            .fillRoundedRect(opcB_X + 8, opcB_Y + 8, opcB_W - 16, opcB_H - 16, 6)
+    );
+    this.graficosUI.push(
+        this.add.graphics().setDepth(5)
+            .fillStyle(0xf5f9ff, 1)
+            .fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 4)
+    );
+
+    this.opcaoDois = this.add.text(
+        opcB_X + 18,
+        opcB_Y + 18,
+        "",
+        {
+            color: "#1a1a2e",
+            fontSize: "20px",
+            wordWrap: { width: opcB_W - 36 },
+            fontFamily: "Pixelify Sans"
+        }
+    ).setInteractive().setDepth(6);
+
+    this.opcaoUm.on("pointerdown",  () => this.resposta(this.opcaoUm.valor));
+    this.opcaoDois.on("pointerdown", () => this.resposta(this.opcaoDois.valor));
+
+    this.barra = this.add.graphics();
+}
 
 
     // mostrarQuestao — atualiza a tela com a pergunta atual
@@ -324,19 +411,19 @@ class Padaria extends Phaser.Scene {
 
     facePadeiro() {
         if (this.satisfacao === 34) {
-            padeiro.play('estavel', true);
+            padeiro.play('estavelPadeiro', true);
             return;
         }
         if (this.satisfacao === 1) {
-            padeiro.play('bravo', true)
+            padeiro.play('bravoPadeiro', true)
             return;
         } 
         if (this.satisfacao === 67) {
-            padeiro.play('feliz', true)
+            padeiro.play('felizPadeiro', true)
             return;
         } 
         if (this.satisfacao<0 || this.satisfacao === 100){
-            padeiro.play('estavel',true)
+            padeiro.play('estavelPadeiro',true)
             return;
         }
     }
@@ -346,23 +433,35 @@ class Padaria extends Phaser.Scene {
 
     vitoria() {
 
+        const textoX = (this.scale.width / 2) - 600;
+        const textoY = (this.scale.height / 2) - 200;
+        const textoW = 1200;
+        const textoH = 300;
+
+        // Camada 1: borda azul escura
+        this.add.graphics().setDepth(3).fillStyle(0x5078D8, 1).fillRoundedRect(textoX, textoY, textoW, textoH, 20);
+        // Camada 2: borda azul clara (inset de 8px)
+        this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(textoX + 8, textoY + 8, textoW - 16, textoH - 16, 16);
+        // Camada 3: fundo claro (inset de 16px)
+        this.add.graphics().setDepth(3).fillStyle(0xE8F0FF, 1).fillRoundedRect(textoX + 16, textoY + 16, textoW - 32, textoH - 32, 12);
+
         this.add.text(
-            (this.scale.width / 2) - 600,
-            (this.scale.height / 2) - 200,
+            textoX + textoW / 2,
+            textoY + textoH / 2,
             "VOCÊ CONVENCEU O CLIENTE",
             {
-                color: '#000',
-                backgroundColor: '#ffffff',
+                color: '#000000',
                 fontSize: 64,
-                padding: 128
+                fontFamily: "Pixelify Sans"             
             }
-        ).setDepth(4);
+        ).setDepth(4).setOrigin(0.5);
 
         // Esconde tudo da UI pra tela ficar limpa
         this.barra.setVisible(false);
         this.opcaoUm.setVisible(false);
         this.opcaoDois.setVisible(false);
         this.lugarQuestao.setVisible(false);
+        this.graficosUI.forEach(g => g.setVisible(false));
 
         // Aguarda 4 segundos e manda pro mapa da cidade
         this.time.delayedCall(4000, () => {
@@ -375,22 +474,35 @@ class Padaria extends Phaser.Scene {
 
     derrota() {
 
+        const textoX = (this.scale.width / 2) - 650;
+        const textoY = (this.scale.height / 2) - 200;
+        const textoW = 1300;
+        const textoH = 300;
+
+        // Camada 1: borda azul escura
+        this.add.graphics().setDepth(3).fillStyle(0x5078D8, 1).fillRoundedRect(textoX, textoY, textoW, textoH, 20);
+        // Camada 2: borda azul clara (inset de 8px)
+        this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(textoX + 8, textoY + 8, textoW - 16, textoH - 16, 16);
+        // Camada 3: fundo claro (inset de 16px)
+        this.add.graphics().setDepth(3).fillStyle(0xE8F0FF, 1).fillRoundedRect(textoX + 16, textoY + 16, textoW - 32, textoH - 32, 12);
+
         this.add.text(
-            (this.scale.width / 2) - 870,
-            (this.scale.height / 2) - 200,
+            textoX + textoW / 2,
+            textoY + textoH / 2,
             "VOCÊ NÃO FOI CAPAZ DE CONQUISTAR O CLIENTE",
             {
-                color: '#000',
-                backgroundColor: '#ffffff',
+                color: '#000000',
                 fontSize: 58,
-                padding: 120
+                wordWrap: { width: textoW - 64 },
+                fontFamily: "Pixelify Sans"
             }
-        ).setDepth(4);
+        ).setDepth(4).setOrigin(0.5);
 
         this.barra.setVisible(false);
         this.opcaoUm.setVisible(false);
         this.opcaoDois.setVisible(false);
         this.lugarQuestao.setVisible(false);
+        this.graficosUI.forEach(g => g.setVisible(false));
 
         // Volta pro MainScene (tela inicial/menu) após 4s
         this.time.delayedCall(4000, () => {
@@ -406,22 +518,34 @@ class Padaria extends Phaser.Scene {
 
     fimDasPerguntas() {
 
+        const textoX = (this.scale.width / 2) - 600;
+        const textoY = (this.scale.height / 2) - 200;
+        const textoW = 1200;
+        const textoH = 300;
+
+        // Camada 1: borda azul escura
+        this.add.graphics().setDepth(3).fillStyle(0x5078D8, 1).fillRoundedRect(textoX, textoY, textoW, textoH, 20);
+        // Camada 2: borda azul clara (inset de 8px)
+        this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(textoX + 8, textoY + 8, textoW - 16, textoH - 16, 16);
+        // Camada 3: fundo claro (inset de 16px)
+        this.add.graphics().setDepth(3).fillStyle(0xE8F0FF, 1).fillRoundedRect(textoX + 16, textoY + 16, textoW - 32, textoH - 32, 12);
+
         this.add.text(
-            (this.scale.width / 2) - 600,
-            (this.scale.height / 2) - 200,
+            textoX + textoW / 2,
+            textoY + textoH / 2,
             "O CLIENTE TE MANDOU EMBORA",
             {
-                color: '#000',
-                backgroundColor: '#ffffff',
+                color: '#000000',
                 fontSize: 64,
-                padding: 128
+                fontFamily: "Pixelify Sans"
             }
-        ).setDepth(4);
+        ).setDepth(4).setOrigin(0.5);
 
         this.barra.setVisible(false);
         this.opcaoUm.setVisible(false);
         this.opcaoDois.setVisible(false);
         this.lugarQuestao.setVisible(false);
+        this.graficosUI.forEach(g => g.setVisible(false));
 
         // Também volta pro menu principal após 4s
         this.time.delayedCall(4000, () => {
