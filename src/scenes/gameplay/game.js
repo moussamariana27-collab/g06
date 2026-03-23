@@ -160,6 +160,9 @@ class CidadeScene extends Phaser.Scene {
             });
         }
 
+        // AQUI TEMOS AS ANIMAÇÕES DAS SPRITESHEETS DOS PERSONAGENS JOGÁVEIS
+        // TODOS OS ARQUIVOS ESTÃO PADRONIZADOS, POR ISSO OS VALORES PARA OS FRAMES SÃO IGUAIS PARA QUALQUER QUE SEJA O PERSONAGEM
+
         this.anims.create({
             key: "up",
             frameRate: 12,
