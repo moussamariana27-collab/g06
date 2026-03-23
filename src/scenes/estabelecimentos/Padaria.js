@@ -17,16 +17,16 @@ class Padaria extends Combate {
 
     preload() {
 
-        // 🔹 Fundo
+        // Fundo
         this.load.image('bgPadaria', 'assets/padaria_interior.png');
 
-        // 🔹 NPC (padeiro)
+        // NPC (padeiro)
         this.load.spritesheet('padeiro', 'assets/padeiroDeVerdade.png', {
             frameWidth: 459,
             frameHeight: 768
         });
 
-        // 🔹 Personagem do jogador
+        // Personagem do jogador
         const sprites = {
             'JOSÉ':  { file: 'assets/joseCorpo.png' },
             'MARIA': { file: 'assets/mariaCorpo.png' },
@@ -194,7 +194,7 @@ class Padaria extends Combate {
         }
 
         if (this.satisfacao < 0 || this.satisfacao === 100) {
-            this.padeiro.play('estavelPadeiro', true);
+            this.padeiro.play('felizPadeiro', true);
         }
     }
 }
