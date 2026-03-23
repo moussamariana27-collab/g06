@@ -206,7 +206,11 @@ Diversidade, responsabilidade social, linguagem simples e acessível, reconhecim
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
-*Descreva brevemente a solução desenvolvida para o parceiro de negócios. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera. Observe a seção 2 e verifique que ali é possível trazer mais detalhes, portanto seja objetivo aqui. Atualize esta descrição até a entrega final, conforme desenvolvimento.*
+A solução consiste em um jogo digital single-player que simula a atuação de um Gerente de Negócios (GN) da Cielo em processos de prospecção e conversão de clientes. A dinâmica é baseada em decisões em turnos, nas quais o jogador seleciona abordagens comerciais diante de diferentes cenários de negociação.
+
+Por meio de gamificação, o sistema transforma práticas reais em experiências interativas de aprendizagem, permitindo o desenvolvimento de competências como argumentação, negociação e tratamento de objeções, com feedback imediato.
+
+A solução incorpora processos reais da operação, como o repique, garantindo aderência ao contexto de atuação e promovendo a padronização de abordagens e o desenvolvimento de performance. Como resultado, atua como uma ferramenta escalável de capacitação, alinhada aos objetivos do parceiro de negócios.
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
 
