@@ -25,195 +25,209 @@ class Combate extends Phaser.Scene {
 
     createUI() {
 
-    this.graficosUI = [];
+        this.graficosUI = [];
 
-    const largura = this.scale.width;
-    const altura = this.scale.height;
+        const largura = this.scale.width;
+        const altura = this.scale.height;
 
-    // ─── CAIXA DE PERGUNTA ────────────────────────────────────────
-    
-    const perguntaX = largura * 0.6;
-    const perguntaY = altura * 0.7;
-    const perguntaW = largura*0.35;
-    const perguntaH = altura*0.3;
+        // ─── CAIXA DE PERGUNTA ────────────────────────────────────────
+        
+        const perguntaX = largura * 0.6;
+        const perguntaY = altura * 0.7;
+        const perguntaW = largura*0.35;
+        const perguntaH = altura*0.3;
 
-    // Borda preta externa
-    this.graficosUI.push(
-        this.add.graphics().setDepth(2)
-            .fillStyle(0x111111, 1)
-            .fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 16)
-    );
-    // Moldura azul claro
-    this.graficosUI.push(
-        this.add.graphics().setDepth(3)
-            .fillStyle(0xb8d4f0, 1)
-            .fillRoundedRect(perguntaX + 6, perguntaY + 6, perguntaW - 12, perguntaH - 12, 12)
-    );
-    // Aro azul mais claro
-    this.graficosUI.push(
-        this.add.graphics().setDepth(4)
-            .fillStyle(0xddeeff, 1)
-            .fillRoundedRect(perguntaX + 10, perguntaY + 10, perguntaW - 20, perguntaH - 20, 8)
-    );
-    // Fundo escuro (área do texto)
-    this.graficosUI.push(
-        this.add.graphics().setDepth(5)
-            .fillStyle(0xf5f9ff, 1)
-            .fillRoundedRect(perguntaX + 14, perguntaY + 14, perguntaW - 28, perguntaH - 28, 6)
-    );
+        // Borda preta externa
+        this.graficosUI.push(
+            this.add.graphics().setDepth(2)
+                .fillStyle(0x111111, 1)
+                .fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 16)
+        );
+        // Moldura azul claro
+        this.graficosUI.push(
+            this.add.graphics().setDepth(3)
+                .fillStyle(0xb8d4f0, 1)
+                .fillRoundedRect(perguntaX + 6, perguntaY + 6, perguntaW - 12, perguntaH - 12, 12)
+        );
+        // Aro azul mais claro
+        this.graficosUI.push(
+            this.add.graphics().setDepth(4)
+                .fillStyle(0xddeeff, 1)
+                .fillRoundedRect(perguntaX + 10, perguntaY + 10, perguntaW - 20, perguntaH - 20, 8)
+        );
+        // Fundo escuro (área do texto)
+        this.graficosUI.push(
+            this.add.graphics().setDepth(5)
+                .fillStyle(0xf5f9ff, 1)
+                .fillRoundedRect(perguntaX + 14, perguntaY + 14, perguntaW - 28, perguntaH - 28, 6)
+        );
 
-    this.lugarQuestao = this.add.text(
-        perguntaX + 22,
-        perguntaY + 24,
-        "",
-        {
-            fontSize: "26px",
-            color: "#000000",
-            wordWrap: { width: perguntaW - 48 },
-            fontFamily: "Pixelify Sans"
-        }
-    ).setDepth(6);
+        this.lugarQuestao = this.add.text(
+            perguntaX + 22,
+            perguntaY + 24,
+            "",
+            {
+                fontSize: "26px",
+                color: "#000000",
+                wordWrap: { width: perguntaW - 48 },
+                fontFamily: "Pixelify Sans"
+            }
+        ).setDepth(6);
 
-    // ─── OPÇÃO A ──────────────────────────────────────────────────
-    const opcA_X = 110;
-    const opcA_Y = 580;
-    const opcA_W = 620;
-    const opcA_H = 110;
+        // ─── OPÇÃO A ──────────────────────────────────────────────────
+        const opcA_X = largura*0.1;
+        const opcA_Y = altura*0.68
+        const opcA_W = 620;
+        const opcA_H = 110;
 
-    this.graficosUI.push(
-        this.add.graphics().setDepth(2)
-            .fillStyle(0x111111, 1)
-            .fillRoundedRect(opcA_X, opcA_Y, opcA_W, opcA_H, 12)
-    );
-    this.graficosUI.push(
-        this.add.graphics().setDepth(3)
-            .fillStyle(0xb8d4f0, 1)
-            .fillRoundedRect(opcA_X + 4, opcA_Y + 4, opcA_W - 8, opcA_H - 8, 9)
-    );
-    this.graficosUI.push(
-        this.add.graphics().setDepth(4)
-            .fillStyle(0xddeeff, 1)
-            .fillRoundedRect(opcA_X + 8, opcA_Y + 8, opcA_W - 16, opcA_H - 16, 6)
-    );
-    this.graficosUI.push(
-        this.add.graphics().setDepth(5)
-            .fillStyle(0xf5f9ff, 1)
-            .fillRoundedRect(opcA_X + 12, opcA_Y + 12, opcA_W - 24, opcA_H - 24, 4)
-    );
+        this.graficosUI.push(
+            this.add.graphics().setDepth(2)
+                .fillStyle(0x111111, 1)
+                .fillRoundedRect(opcA_X, opcA_Y, opcA_W, opcA_H, 12)
+        );
+        this.graficosUI.push(
+            this.add.graphics().setDepth(3)
+                .fillStyle(0xb8d4f0, 1)
+                .fillRoundedRect(opcA_X + 4, opcA_Y + 4, opcA_W - 8, opcA_H - 8, 9)
+        );
+        this.graficosUI.push(
+            this.add.graphics().setDepth(4)
+                .fillStyle(0xddeeff, 1)
+                .fillRoundedRect(opcA_X + 8, opcA_Y + 8, opcA_W - 16, opcA_H - 16, 6)
+        );
+        this.graficosUI.push(
+            this.add.graphics().setDepth(5)
+                .fillStyle(0xf5f9ff, 1)
+                .fillRoundedRect(opcA_X + 12, opcA_Y + 12, opcA_W - 24, opcA_H - 24, 4)
+        );
 
-    this.opcaoUm = this.add.text(
-        opcA_X + 18,
-        opcA_Y + 18,
-        "",
-        {
-            color: "#1a1a2e",
-            fontSize: "20px",
-            wordWrap: { width: opcA_W - 36 },
-            fontFamily: "Pixelify Sans"
-        }
-    ).setInteractive().setDepth(6);
+        this.opcaoUm = this.add.text(
+            opcA_X + 18,
+            opcA_Y + 18,
+            "",
+            {
+                color: "#1a1a2e",
+                fontSize: "20px",
+                wordWrap: { width: opcA_W - 36 },
+                fontFamily: "Pixelify Sans"
+            }
+        ).setInteractive().setDepth(6);
 
-    // ─── OPÇÃO B ──────────────────────────────────────────────────
-    const opcB_X = 110;
-    const opcB_Y = 720;
-    const opcB_W = 620;
-    const opcB_H = 110;
+        // ─── OPÇÃO B ──────────────────────────────────────────────────
+        const opcB_X = largura*0.1;
+        const opcB_Y = altura*0.85;
+        const opcB_W = 620;
+        const opcB_H = 110;
 
-    this.graficosUI.push(
-        this.add.graphics().setDepth(2)
-            .fillStyle(0x111111, 1)
-            .fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 12)
-    );
-    this.graficosUI.push(
-        this.add.graphics().setDepth(3)
-            .fillStyle(0xb8d4f0, 1)
-            .fillRoundedRect(opcB_X + 4, opcB_Y + 4, opcB_W - 8, opcB_H - 8, 9)
-    );
-    this.graficosUI.push(
-        this.add.graphics().setDepth(4)
-            .fillStyle(0xddeeff, 1)
-            .fillRoundedRect(opcB_X + 8, opcB_Y + 8, opcB_W - 16, opcB_H - 16, 6)
-    );
-    this.graficosUI.push(
-        this.add.graphics().setDepth(5)
-            .fillStyle(0xf5f9ff, 1)
-            .fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 4)
-    );
+        this.graficosUI.push(
+            this.add.graphics().setDepth(2)
+                .fillStyle(0x111111, 1)
+                .fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 12)
+        );
+        this.graficosUI.push(
+            this.add.graphics().setDepth(3)
+                .fillStyle(0xb8d4f0, 1)
+                .fillRoundedRect(opcB_X + 4, opcB_Y + 4, opcB_W - 8, opcB_H - 8, 9)
+        );
+        this.graficosUI.push(
+            this.add.graphics().setDepth(4)
+                .fillStyle(0xddeeff, 1)
+                .fillRoundedRect(opcB_X + 8, opcB_Y + 8, opcB_W - 16, opcB_H - 16, 6)
+        );
+        this.graficosUI.push(
+            this.add.graphics().setDepth(5)
+                .fillStyle(0xf5f9ff, 1)
+                .fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 4)
+        );
 
-    this.opcaoDois = this.add.text(
-        opcB_X + 18,
-        opcB_Y + 18,
-        "",
-        {
-            color: "#1a1a2e",
-            fontSize: "20px",
-            wordWrap: { width: opcB_W - 36 },
-            fontFamily: "Pixelify Sans"
-        }
-    ).setInteractive().setDepth(6);
+        this.opcaoDois = this.add.text(
+            opcB_X + 18,
+            opcB_Y + 18,
+            "",
+            {
+                color: "#1a1a2e",
+                fontSize: "20px",
+                wordWrap: { width: opcB_W - 36 },
+                fontFamily: "Pixelify Sans"
+            }
+        ).setInteractive().setDepth(6);
 
-    this.opcaoUm.on("pointerdown",  () => this.resposta(this.opcaoUm.valor));
-    this.opcaoDois.on("pointerdown", () => this.resposta(this.opcaoDois.valor));
+        this.opcaoUm.on("pointerdown",  () => this.resposta(this.opcaoUm.valor));
+        this.opcaoDois.on("pointerdown", () => this.resposta(this.opcaoDois.valor));
 
-    this.barra = this.add.graphics();
+        this.barra = this.add.graphics();
 
-    this.scale.on('resize', this.reposicionarUI, this);
+        this.scale.on('resize', this.reposicionarUI, this);
 
-}
-    
-    reposicionarUI(gameSize) {
-
+    }
+        
+reposicionarUI(gameSize) {
     const { width, height } = gameSize;
 
-    // recalcula
+    // Destrói os gráficos antigos
+    this.graficosUI.forEach(g => g.destroy());
+    this.graficosUI = [];
+
+    // Recria as caixas com as novas dimensões
     const perguntaX = width * 0.6;
     const perguntaY = height * 0.7;
     const perguntaW = width * 0.35;
     const perguntaH = height * 0.3;
 
-    // reposiciona TEXTO corretamente dentro da caixa
-    this.lugarQuestao.setPosition(
-        perguntaX + 22,
-        perguntaY + 24
-    );
+    this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 16));
+    this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(perguntaX+6, perguntaY+6, perguntaW-12, perguntaH-12, 12));
+    this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(perguntaX+10, perguntaY+10, perguntaW-20, perguntaH-20, 8));
+    this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(perguntaX+14, perguntaY+14, perguntaW-28, perguntaH-28, 6));
 
-    // opções
-    this.opcaoUm.setPosition(width * 0.1 + 18, height * 0.7 + 18);
-    this.opcaoDois.setPosition(width * 0.1 + 18, height * 0.8 + 18);
+    const opcA_X = width * 0.1, opcA_Y = height * 0.68, opcA_W = width * 0.45, opcA_H = 110;
+    this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(opcA_X, opcA_Y, opcA_W, opcA_H, 12));
+    this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(opcA_X+4, opcA_Y+4, opcA_W-8, opcA_H-8, 9));
+    this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(opcA_X+8, opcA_Y+8, opcA_W-16, opcA_H-16, 6));
+    this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(opcA_X+12, opcA_Y+12, opcA_W-24, opcA_H-24, 4));
 
-    // atualiza barra também
+    const opcB_X = width * 0.1, opcB_Y = height * 0.85, opcB_W = width * 0.45, opcB_H = 110;
+    this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 12));
+    this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(opcB_X+4, opcB_Y+4, opcB_W-8, opcB_H-8, 9));
+    this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(opcB_X+8, opcB_Y+8, opcB_W-16, opcB_H-16, 6));
+    this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(opcB_X+12, opcB_Y+12, opcB_W-24, opcB_H-24, 4));
+
+    // Reposiciona os textos
+    this.lugarQuestao.setPosition(perguntaX + 22, perguntaY + 24);
+    this.opcaoUm.setPosition(opcA_X + 18, opcA_Y + 18);
+    this.opcaoDois.setPosition(opcB_X + 18, opcB_Y + 18);
+
+    // Atualiza barra
     this.barraSatisfacao();
-    
-    }
-
-    animarBarra(novoValor) {
-
-    this.tweens.add({
-        targets: this,
-        satisfacaoAnimada: Phaser.Math.Clamp(novoValor, 0, 100),
-        duration: 500,
-        ease: 'Power2',
-        onUpdate: () => {
-            this.barraSatisfacao();
-        }
-    });
 }
 
-    tremerBarra() {
+        animarBarra(novoValor) {
 
-    this.tweens.add({
-        targets: this.barra,
-        x: '+=6',
-        y: '+=3',
-        duration: 40,
-        yoyo: true,
-        repeat: 5,
-        ease: 'Sine.easeInOut',
-        onComplete: () => {
-            this.barra.x = 0;
-            this.barra.y = 0;
-        }
-    });
+        this.tweens.add({
+            targets: this,
+            satisfacaoAnimada: Phaser.Math.Clamp(novoValor, 0, 100),
+            duration: 500,
+            ease: 'Power2',
+            onUpdate: () => {
+                this.barraSatisfacao();
+            }
+        });
+    }
+
+        tremerBarra() {
+
+        this.tweens.add({
+            targets: this.barra,
+            x: '+=6',
+            y: '+=3',
+            duration: 40,
+            yoyo: true,
+            repeat: 5,
+            ease: 'Sine.easeInOut',
+            onComplete: () => {
+                this.barra.x = 0;
+                this.barra.y = 0;
+            }
+        });
 }
     
     mostrarQuestao() {

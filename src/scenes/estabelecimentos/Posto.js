@@ -1,9 +1,3 @@
-// CENA DA PADARIA - Minigame de vendas
-
-// Aqui acontece toda a lógica do jogo dentro da padaria.
-// O jogador precisa responder perguntas do Seu João e
-// encher a barra de satisfação pra fechar a venda.
-
 class Posto extends Combate {
 
     constructor() {
