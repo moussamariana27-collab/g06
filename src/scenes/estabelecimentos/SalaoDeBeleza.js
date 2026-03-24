@@ -28,10 +28,10 @@ class SalaoDeBeleza extends Combate {
             'PAULA': { file: 'assets/paulaCorpo.png' }
         };
 
-        const dadosSprite = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.personagemEscolhido];
 
         if (!dadosSprite) {
-            console.error('Personagem inválido:', this.characterEscolhido);
+            console.error('Personagem inválido:', this.personagemEscolhido);
             return;
         }
 
@@ -112,13 +112,13 @@ class SalaoDeBeleza extends Combate {
         this.input.keyboard.once('keydown-SPACE', () => {
             // Para a música de batalha antes de voltar
             this.musica.stop();
-            this.scene.start('Cidade', { character: this.characterEscolhido });
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
         });
 
         this.input.keyboard.once('keydown-ENTER', () => {
             // Para a música de batalha antes de voltar
             this.musica.stop();
-            this.scene.start('Cidade', { character: this.characterEscolhido });
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
         });
     }
 
@@ -164,7 +164,7 @@ class SalaoDeBeleza extends Combate {
         let posX = (this.scale.width * 1 / 3) - 100;
         let posY = this.scale.height - 270;
 
-        if (this.characterEscolhido === 'JOSÉ' || this.characterEscolhido === 'JOÃO') {
+        if (this.personagemEscolhido === 'JOSÉ' || this.personagemEscolhido === 'JOÃO') {
             escala = 0.5;
             posX -= 20;
             posY -= 60;

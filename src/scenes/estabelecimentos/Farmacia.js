@@ -5,7 +5,7 @@ class Farmacia extends Phaser.Scene {
     }
 
     init(data) {
-        this.characterEscolhido = data?.character || null;
+        this.personagemEscolhido = data?.character || null;
     }
 
     preload() {
@@ -24,10 +24,10 @@ class Farmacia extends Phaser.Scene {
         };
 
         // Obtém os dados do personagem escolhido
-        const dadosSprite = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.personagemEscolhido];
         // Verifica se o personagem é válido antes de carregar
         if (!dadosSprite) { 
-            console.error('Personagem inválido:', this.characterEscolhido); 
+            console.error('Personagem inválido:', this.personagemEscolhido);
             return; 
         }
         // Carrega a spritesheet do personagem escolhido
@@ -55,11 +55,11 @@ class Farmacia extends Phaser.Scene {
         // Input: retorna para a cidade
         this.input.keyboard.once('keydown-SPACE', () => {
             this.musica.stop();
-            this.scene.start('Cidade', { character: this.characterEscolhido });
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
         });
         this.input.keyboard.once('keydown-ENTER', () => {
             this.musica.stop();
-            this.scene.start('Cidade', { character: this.characterEscolhido });
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
         });
 
         // Cria o sprite do personagem
@@ -73,7 +73,7 @@ class Farmacia extends Phaser.Scene {
         let posicaoY = this.scale.height - 270;
 
         // Reduz a escala para JOSÉ e JOÃO (personagens mais altos)
-        if (this.characterEscolhido === 'JOSÉ' || this.characterEscolhido === 'JOÃO') {
+        if (this.personagemEscolhido === 'JOSÉ' || this.personagemEscolhido === 'JOÃO') {
             escala = 0.5;
             posicaoX = (this.scale.width * 1 / 3) - 80;
             posicaoY = this.scale.height - 330;

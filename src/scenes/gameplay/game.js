@@ -2,7 +2,7 @@ class Cidade extends Phaser.Scene {
     constructor() { super({ key: 'Cidade' }); }
 
     // Recebe o personagem escolhido na cena anterior
-    init(data) { this.characterEscolhido = data?.character || null; }
+    init(data) { this.personagemEscolhido = data?.character || null; }
 
     preload() {
         this.load.audio('musicacidade', 'assets/mapa.mp3')
@@ -22,10 +22,10 @@ class Cidade extends Phaser.Scene {
         };
 
         // Seleciona o personagem escolhido pelo jogador
-        const dadosSprite = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.personagemEscolhido];
 
         // Verifica se o personagem é válido antes de carregar
-        if (!dadosSprite) { console.error('Personagem inválido:', this.characterEscolhido); return; }
+        if (!dadosSprite) { console.error('Personagem inválido:', this.personagemEscolhido); return; }
 
         // Carrega o spritesheet correspondente ao personagem escolhido
         this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
@@ -168,7 +168,7 @@ class Cidade extends Phaser.Scene {
                         this.musica.stop();
 
                         // Troca para a cena correspondente
-                        this.scene.start(zona.type, { character: this.characterEscolhido });
+                        this.scene.start(zona.type, { character: this.personagemEscolhido });
                     }
                 });
             });

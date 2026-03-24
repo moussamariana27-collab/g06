@@ -17,7 +17,7 @@ class InfoPersonagem extends Phaser.Scene {
         const { centerX, centerY } = this.cameras.main;
 
         // Armazena o personagem escolhido para usar nos botões de navegação
-        this.characterEscolhido = data.character;
+        this.personagemEscolhido = data.character;
 
         // Carrega a imagem de fundo responsiva
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'fundoInfo')
@@ -53,7 +53,7 @@ class InfoPersonagem extends Phaser.Scene {
             if (musica) musica.stop();
 
             // Inicia o jogo passando o personagem escolhido
-            this.scene.start('Escritorio', { character: this.characterEscolhido});
+            this.scene.start('Escritorio', { character: this.personagemEscolhido});
         
         });
     }

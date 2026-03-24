@@ -5,7 +5,7 @@ class LojaDeRoupa extends Phaser.Scene {
     }
 
     init(data) {
-        this.characterEscolhido = data?.character || null;
+        this.personagemEscolhido = data?.character || null;
     }
 
     preload() {
@@ -20,10 +20,10 @@ class LojaDeRoupa extends Phaser.Scene {
             'PAULA': { file: 'assets/paulaCorpo.png' }
         };
 
-        const dadosSprite = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.personagemEscolhido];
 
         if (!dadosSprite) {
-            console.error('Personagem inválido:', this.characterEscolhido);
+            console.error('Personagem inválido:', this.personagemEscolhido);
             return;
         }
 
@@ -72,11 +72,11 @@ class LojaDeRoupa extends Phaser.Scene {
         // Voltar pra cidade
         this.input.keyboard.once('keydown-SPACE', () => {
             this.musica.stop();
-            this.scene.start('Cidade', { character: this.characterEscolhido });
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
         });
         this.input.keyboard.once('keydown-ENTER', () => {
             this.musica.stop();
-            this.scene.start('Cidade', { character: this.characterEscolhido });
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
         });
     }
 
@@ -85,7 +85,7 @@ class LojaDeRoupa extends Phaser.Scene {
         let posicaoX = (this.scale.width * 1 / 3) - 100;
         let posicaoY = this.scale.height - 270;
 
-        if (this.characterEscolhido === 'JOSÉ' || this.characterEscolhido === 'JOÃO') {
+        if (this.personagemEscolhido === 'JOSÉ' || this.personagemEscolhido === 'JOÃO') {
             escala = 0.5;
             posicaoX = (this.scale.width * 1 / 3) - 80;
             posicaoY = this.scale.height - 330;

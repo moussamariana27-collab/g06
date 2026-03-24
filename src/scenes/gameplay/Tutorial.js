@@ -161,6 +161,8 @@ class Tutorial extends Phaser.Scene {
             } else {
                 // Última fala: para os timers, encerra as cenas e inicia a Cidade
                 this.timerFala.remove();
+                // Para toda música que está tocando (Escritório) antes de trocar de cena
+                this.sound.stopAll();
                 this.scene.stop(this.cenaOrigem);
                 this.scene.stop('Tutorial');
                 this.scene.start('Cidade', { character: this.character });

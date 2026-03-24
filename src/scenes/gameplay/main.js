@@ -2,7 +2,7 @@ class Escritorio extends Phaser.Scene {
     constructor() { super({ key: 'Escritorio' }); }
 
     init(data) {
-        this.characterEscolhido = data?.character || null;
+        this.personagemEscolhido = data?.character || null;
     }
 
     // Carrega as imagens
@@ -20,9 +20,9 @@ class Escritorio extends Phaser.Scene {
         };
 
         // Obtém os dados do personagem escolhido
-        const dadosSprite = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.personagemEscolhido];
         // Verifica se o personagem é válido antes de carregar
-        if (!dadosSprite) { console.error('Personagem inválido:', this.characterEscolhido); return; }
+        if (!dadosSprite) { console.error('Personagem inválido:', this.personagemEscolhido); return; }
         // Carrega a spritesheet do personagem escolhido
         this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
             frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
@@ -73,7 +73,7 @@ class Escritorio extends Phaser.Scene {
         this.input.keyboard.once('keydown-SPACE', () => {
             // Para a música do escritório antes de trocar de cena
             this.musica.stop();
-            this.scene.start('Cidade', { character: this.characterEscolhido });
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
         });
         
         // Centraliza a hitbox no sprite
@@ -121,7 +121,7 @@ class Escritorio extends Phaser.Scene {
                 this.physics.add.overlap(this.personagem, zona, () => {
                     // Para a música do escritório antes de voltar para a cidade
                     this.musica.stop();
-                    this.scene.start('Cidade', { character: this.characterEscolhido });
+                    this.scene.start('Cidade', { character: this.personagemEscolhido });
                 });
             });
         }
@@ -155,7 +155,7 @@ class Escritorio extends Phaser.Scene {
                 // Pausa a cena atual
                 this.scene.pause();
                 // Inicia a cena do tutorial
-                this.scene.launch('Tutorial', { cenaOrigem: 'Escritorio', character: this.characterEscolhido });
+                this.scene.launch('Tutorial', { cenaOrigem: 'Escritorio', character: this.personagemEscolhido });
             });
         }
 

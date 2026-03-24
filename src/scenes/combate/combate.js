@@ -5,7 +5,7 @@ class Combate extends Phaser.Scene {
     }
 
     init(data) {
-        this.characterEscolhido = data?.character || null;
+        this.personagemEscolhido = data?.character || null;
     }
 
     preload() {
@@ -400,7 +400,9 @@ reposicionarUI(gameSize) {
 
     // Delay antes de sair
     this.time.delayedCall(4000, () => {
-        this.scene.start(voltarPara, { character: this.characterEscolhido });
+        // Para a música de combate antes de trocar de cena
+        this.musica.stop();
+        this.scene.start(voltarPara, { character: this.personagemEscolhido });
     });
 }
 }
