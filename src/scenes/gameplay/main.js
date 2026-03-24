@@ -10,6 +10,7 @@ class MainScene extends Phaser.Scene {
         console.log('Personagem escolhido:', this.characterEscolhido);
         this.load.tilemapTiledJSON('mapaEscritorio', 'assets/escritorio.json');
         this.load.image('escritoriTileset', 'assets/escritorio_tileset.png');
+        this.load.audio('escritorio', 'assets/escritorio.mp3')
 
         // Define os sprites de cada personagem disponível com suas dimensões
         const sprites = {
@@ -35,6 +36,13 @@ class MainScene extends Phaser.Scene {
         const tiles = map.addTilesetImage('escritorio', 'escritoriTileset');
         map.createLayer('Fundo', tiles, 0, 0);
 
+        // add música 
+        this.musica = this.sound.add('escritorio', {
+            loop: true,
+            volume: 0.40
+        });
+        this.musica.play();
+        
         // Define o limite do mundo físico
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         // Define os limites da câmera 
@@ -54,7 +62,7 @@ class MainScene extends Phaser.Scene {
         this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(3.0);
         // Faz o personagem não sair dos limites do mapa
         this.personagem.setCollideWorldBounds(true);
-       // Ajusta automaticamente a hitbox para o tamanho do sprite
+        // Ajusta automaticamente a hitbox para o tamanho do sprite
         this.personagem.body.setSize(
             this.personagem.width,
             this.personagem.height
@@ -101,8 +109,9 @@ class MainScene extends Phaser.Scene {
                 zona.body.setAllowGravity(false);
                 // A zona não se move
                 zona.body.moves = false;
-                // Se o personagem tocar a zona, muda para a cena da cidade
+                // Se o personagem tocar a zona, para a música e muda para a cena da cidade
                 this.physics.add.overlap(this.personagem, zona, () => {
+                    this.musica.stop(); // 
                     this.scene.start('Cidade', { character: this.characterEscolhido });
                 });
             });
@@ -134,7 +143,7 @@ class MainScene extends Phaser.Scene {
                 this.zonaProfessor.setActive(false);
                 this.zonaProfessor.body.enable = false;
 
-                // Pausa a cena atual
+                // Pausa a cena atual (música continua tocando durante o tutorial)
                 this.scene.pause();
                 // Inicia a cena do tutorial
                 this.scene.launch('tutorial', { cenaOrigem: 'MainScene', character: this.characterEscolhido });
@@ -181,7 +190,6 @@ class MainScene extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 48, end: 53 }),
             repeat: -1
         });
-
     }
 
     // Atualiza o estado do jogo a cada frame
@@ -191,9 +199,9 @@ class MainScene extends Phaser.Scene {
         // Velocidade de movimento do personagem
         const vel = 200;
 
-        const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up')   && this.anims.exists('down');
+        const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up') && this.anims.exists('down');
 
-        // Movimento para esquerd
+        // Movimento para esquerda
         if (this.cursor.left.isDown) {
             this.personagem.setVelocityX(-vel);
             if (animsOk) this.personagem.play('left', true);

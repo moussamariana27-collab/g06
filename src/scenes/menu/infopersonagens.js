@@ -46,8 +46,14 @@ class CharacterInfoScene extends Phaser.Scene {
         btnJogar.on('pointerdown',  () => btnJogar.setScale(1.2));
         btnJogar.on('pointerup',    () => {
             btnJogar.setScale(1.3);
+             
+            // Busca a música pelo nome e para ela se estiver tocando
+            const musica = this.sound.get('musicamenu');
+            if (musica) musica.stop();
+
             // Repassa o personagem escolhido para a próxima cena
             this.scene.start('MainScene', { character: this.characterEscolhido});
+        
         });
     }
 }

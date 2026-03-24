@@ -17,6 +17,8 @@ class Padaria extends Combate {
 
     preload() {
 
+        super.preload(); 
+
         // Fundo
         this.load.image('bgPadaria', 'assets/padaria_interior.png');
 
@@ -62,8 +64,7 @@ class Padaria extends Combate {
         // Configura combate (usa classe base)
         this.initCombate({
             satisfacaoInicial: 34,
-            questoes: 
-                [
+            questoes: [
 
             {
                 pergunta:"SEU TIÃO:O problema é que oque eu também vendo no fim de semana, até no domingo. Tem hora que eu preciso do dinheiro rápido numa emergência. E aí eu preciso vender no dinheiro, não tem jeito!",
@@ -87,10 +88,10 @@ class Padaria extends Combate {
             },
             
             {
-                 pergunta: "SEU TIÃO:Olha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.", 
-                 certo: "No dia seguinte seu João! O débito cai em D+1.",
-                 errado: "Demora um pouco seu João, o débito cai em um mês", 
-                 resposta: true 
+                pergunta: "SEU TIÃO:Olha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.", 
+                certo: "No dia seguinte seu João! O débito cai em D+1.",
+                errado: "Demora um pouco seu João, o débito cai em um mês", 
+                resposta: true 
             },
             
             { 

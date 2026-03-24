@@ -8,6 +8,8 @@ class CidadeScene extends Phaser.Scene {
 
         console.log('Personagem escolhido:', this.characterEscolhido);
 
+        this.load.audio('musicacidade', 'assets/mapa.mp3')
+
         // Carrega o mapa exportado do Tiled no formato JSON
         this.load.tilemapTiledJSON('mapaCidade', 'assets/cidade_cielo.json');
 
@@ -45,6 +47,13 @@ class CidadeScene extends Phaser.Scene {
         // Cria a camada visual chamada "Fundo"
         map.createLayer('Fundo', tiles, 0, 0);
 
+        // add música
+        this.musica = this.sound.add('musicacidade', {
+            loop: true,
+            volume: 0.4
+        });
+        this.musica.play();
+
         // Define limites da física do jogo e impede o personagem de sair do mapa
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
@@ -75,7 +84,6 @@ class CidadeScene extends Phaser.Scene {
 
         // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);
-        
 
         // Aumenta o zoom da câmera
         this.cameras.main.setZoom(2.5);
@@ -153,6 +161,9 @@ class CidadeScene extends Phaser.Scene {
                     // Caso a zona leve para outra cena disponível
                     } else if (cenasDisponiveis.includes(o.type)) {
 
+                        // ✅ Para a música antes de trocar de cena
+                        this.musica.stop();
+
                         // Troca para a cena correspondente
                         this.scene.start(o.type, { character: this.characterEscolhido });
                     }
@@ -200,7 +211,7 @@ class CidadeScene extends Phaser.Scene {
         // Cria uma variável que guarda o valor da velocidade de movimento
         const vel = 150;
 
-        const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up')   && this.anims.exists('down');
+        const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up') && this.anims.exists('down');
 
         // Movimento para esquerda
         if (this.cursor.left.isDown) {

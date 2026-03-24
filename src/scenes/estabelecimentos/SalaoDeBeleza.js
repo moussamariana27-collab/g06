@@ -8,7 +8,9 @@ class SalaoDeBeleza extends Combate {
         super.init(data);
     }
 
-     preload() {
+    preload() {
+        super.preload(); // ✅ carrega a musicabatalha
+
         this.load.image('bgSalaoDeBeleza', 'assets/salaodebeleza_interior.png');
         this.load.spritesheet('cabelereira', 'assets/Leila.png', {
             frameWidth: 640,
@@ -51,9 +53,7 @@ class SalaoDeBeleza extends Combate {
         // Configura combate (usa classe base)
         this.initCombate({
             satisfacaoInicial: 34,
-            questoes: 
- 
-        [
+            questoes: [
 
             {
                 pergunta: "DONA LEILA: O que a sua maquininha tem que a minha não tem?",
@@ -70,8 +70,8 @@ class SalaoDeBeleza extends Combate {
             { pergunta: "teste teste teste 3", certo: "cielo", errado: "pix", resposta: true },
             { pergunta: "etset etset etset 4", certo: "resolverei o seu problema, seu Joao!", errado: "senhor,mas!!!...", resposta: true },
             { pergunta: "teste teste teste 5", certo: "certoo", errado: "errado", resposta: true }
-        ]
 
+        ]
         });
 
         // UI e lógica (HERDADO)
