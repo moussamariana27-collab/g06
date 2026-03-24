@@ -218,7 +218,15 @@ A solução incorpora processos reais da operação, como o repique, garantindo 
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
-*Definição de metas SMART (específicas, mensuráveis, alcançáveis, relevantes e temporais) para seu projeto, com indicadores claros para mensuração*
+# 📊 Matriz de Metas SMART — MVP (Sprints 4 e 5)
+
+| Objetivo | S (Específica) | M (Mensurável) | A (Atingível) | R (Relevante) | T (Temporal) | KPI (Indicador de Sucesso) |
+|----------|---------------|---------------|---------------|---------------|---------------|----------------------------|
+| Desenvolvimento Técnico (Mundo) | Implementar colisões e transições completas para os 4 estabelecimentos restantes (Salão, Materiais de Construção, Posto e Supermercado) no mapa principal | 100% dos estabelecimentos acessíveis com colisão funcional e transição fluida (sem travamentos) | Base já existente (Padaria/Loja) pode ser replicada e adaptada por meio de uma classe comum aos estabelecimentos | Essencial para completar o loop de exploração do jogo | Até o final da Sprint 4 | Taxa de acesso bem-sucedido ≥ 95% nos testes internos |
+| Qualidade Pedagógica (Combate) | Desenvolver banco de diálogos cobrindo objeções reais dos produtos Cielo (Flash, LIO, Smart, Vendeu Tá na Conta) com feedback imediato ao jogador | Mínimo de 5 objeções por estabelecimento implementadas com respostas e impacto na satisfação | Conteúdo estruturado em árvore de decisão reutilizável | Garante o valor educacional do jogo para treinamento de GNs | Até o final da Sprint 4 | ≥ 80% de respostas corretas aumentando satisfação nos testes |
+| Confiabilidade (QA) | Adicionar pelo menos mais 15 casos de teste | 100% dos testes passando sem erros ou warnings críticos | Escopo já parcialmente implementado e testável | Evita falhas críticas no MVP e aumenta a credibilidade | Até o final da Sprint 5 | 0 erros no console + 100% dos CTs aprovados |
+| Experiência do Usuário (UX/UI) | Adicionar efeitos sonoros e trilhas sonoras as cenas e aos combates | 90 % das interações com efeito sonoro ou música | Ajustes incrementais com base no sistema atual | Impacta diretamente o engajamento e imersão | Iterativo até o final da Sprint 5 | 100 % dos estabelecimentos com trilha sonora, mas sem áudios interativos |
+
 
 ## 1.2. Requisitos do Projeto (sprints 1 e 2)
 
