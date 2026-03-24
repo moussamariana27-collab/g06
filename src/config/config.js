@@ -1,8 +1,7 @@
 var config = {
     type: Phaser.AUTO,
 
-    width: window.innerWidth,
-    height: window.innerHeight,
+
 
     parent: 'game-container',
     scale: {

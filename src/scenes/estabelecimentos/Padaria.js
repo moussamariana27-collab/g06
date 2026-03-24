@@ -3,7 +3,6 @@
 // Aqui acontece toda a lógica do jogo dentro da padaria.
 // O jogador precisa responder perguntas do Seu João e
 // encher a barra de satisfação pra fechar a venda.
-var padeiro
 
 class Padaria extends Combate {
 
@@ -16,8 +15,6 @@ class Padaria extends Combate {
     }
 
     preload() {
-
-        super.preload(); 
 
         // Fundo
         this.load.image('bgPadaria', 'assets/padaria_interior.png');
@@ -49,11 +46,13 @@ class Padaria extends Combate {
     create() {
 
         // Fundo
-        const bg = this.add.image(0, 0, 'bgPadaria')
-            .setOrigin(0, 0)
-            .setDepth(0);
+        this.bg = this.add.image(0, 0, 'bgPadaria')
+            .setOrigin(0.5)
+            .setDepth(0)
+            .setPosition(this.scale.width / 2, this.scale.height / 2)
+            .setDisplaySize(this.scale.width, this.scale.height);
 
-        bg.setDisplaySize(this.scale.width, this.scale.height);
+        this.resizeBackground();
 
         // NPC
         this.criarPadeiro();
@@ -64,7 +63,8 @@ class Padaria extends Combate {
         // Configura combate (usa classe base)
         this.initCombate({
             satisfacaoInicial: 34,
-            questoes: [
+            questoes: 
+                [
 
             {
                 pergunta:"SEU TIÃO:O problema é que oque eu também vendo no fim de semana, até no domingo. Tem hora que eu preciso do dinheiro rápido numa emergência. E aí eu preciso vender no dinheiro, não tem jeito!",
@@ -88,10 +88,10 @@ class Padaria extends Combate {
             },
             
             {
-                pergunta: "SEU TIÃO:Olha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.", 
-                certo: "No dia seguinte seu João! O débito cai em D+1.",
-                errado: "Demora um pouco seu João, o débito cai em um mês", 
-                resposta: true 
+                 pergunta: "SEU TIÃO:Olha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.", 
+                 certo: "No dia seguinte seu João! O débito cai em D+1.",
+                 errado: "Demora um pouco seu João, o débito cai em um mês", 
+                 resposta: true 
             },
             
             { 
@@ -122,6 +122,15 @@ class Padaria extends Combate {
             this.scene.start('Cidade', { character: this.characterEscolhido })
         );
     }
+
+    resizeBackground() {
+
+        const largura = this.scale.width;
+        const altura = this.scale.height;
+
+        this.bg.setPosition(largura / 2, altura / 2);
+        this.bg.setDisplaySize(largura, altura);
+}
 
     // CRIA NPC
     criarPadeiro() {
