@@ -44,23 +44,25 @@ class Padaria extends Combate {
     }
 
     create() {
-
-        // Fundo
+        // Fundo da padaria — imagem responsiva que se adapta ao tamanho da tela
         this.bg = this.add.image(0, 0, 'bgPadaria')
             .setOrigin(0.5)
             .setDepth(0)
             .setPosition(this.scale.width / 2, this.scale.height / 2)
             .setDisplaySize(this.scale.width, this.scale.height);
 
+        // Adapta o fundo se a tela for redimensionada
         this.resizeBackground();
 
-        // NPC
+        // Cria o sprite do padeiro (NPC)
         this.criarPadeiro();
 
-        // Jogador
+        // Cria o sprite do jogador na cena
         this.criarPlayer();
 
-        // Configura combate (usa classe base)
+        // Inicializa o sistema de combate (satisfação, questões e lógica de vitória/derrota)
+        // A satisfação começa em 34 — já dá uma largada pra não começar zerado
+        // Com 3 acertos consecutivos (33 cada) chega em 100 e vence
         this.initCombate({
             satisfacaoInicial: 34,
             questoes: 
@@ -104,33 +106,41 @@ class Padaria extends Combate {
         ]
         });
 
-        // UI e lógica (HERDADO)
+        // Cria a interface de usuário (UI) herdada da classe Combate
         this.createUI();
+        
+        // Exibe a primeira questão na tela
         this.mostrarQuestao();
+        
+        // Mostra a barra visual de satisfação do NPC
         this.barraSatisfacao();
 
-        // Liga o NPC ao sistema base
+        // Conecta o método de expressão do NPC ao sistema de atualização da base
+        // Qualquer mudança em this.satisfacao acionará facePadeiro()
         this.updateNPC = this.facePadeiro;
         this.facePadeiro();
 
-        // Voltar pra cidade
-        this.input.keyboard.once('keydown-SPACE', () =>
-            this.scene.start('Cidade', { character: this.characterEscolhido })
-        );
+        // Input: retorna para a cidade ao pressionar ESPAÇO ou ENTER
+        this.input.keyboard.once('keydown-SPACE', () => {
+            // Para a música de batalha antes de voltar
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.characterEscolhido });
+        });
 
-        this.input.keyboard.once('keydown-ENTER', () =>
-            this.scene.start('Cidade', { character: this.characterEscolhido })
-        );
+        this.input.keyboard.once('keydown-ENTER', () => {
+            // Para a música de batalha antes de voltar
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.characterEscolhido });
+        });
     }
 
     resizeBackground() {
-
         const largura = this.scale.width;
         const altura = this.scale.height;
 
         this.bg.setPosition(largura / 2, altura / 2);
         this.bg.setDisplaySize(largura, altura);
-}
+    }
 
     // CRIA NPC
     criarPadeiro() {

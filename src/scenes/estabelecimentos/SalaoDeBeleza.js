@@ -9,15 +9,18 @@ class SalaoDeBeleza extends Combate {
     }
 
     preload() {
-        super.preload(); // carrega a musicabatalha
+        super.preload(); // Carrega a música de batalha do Combate
 
+        // Carrega a imagem de fundo do salão
         this.load.image('bgSalaoDeBeleza', 'assets/salaodebeleza_interior.png');
+        
+        // Carrega a spritesheet da cabelereira (NPC) Leila
         this.load.spritesheet('cabelereira', 'assets/Leila.png', {
             frameWidth: 640,
             frameHeight: 1080
         });  
 
-        // Personagem do jogador
+        // Carrega os sprites dos personagens do jogador
         const sprites = {
             'JOSÉ':  { file: 'assets/joseCorpo.png' },
             'MARIA': { file: 'assets/mariaCorpo.png' },
@@ -32,25 +35,27 @@ class SalaoDeBeleza extends Combate {
             return;
         }
 
+        // Carrega o sprite do personagem escolhido
         this.load.image('personagemSalaoDeBeleza', dadosSprite.file);
     }
 
     create() {
-
-        // Fundo
-        const bg = this.add.image(0, 0, 'bgSalaoDeBeleza')
+        // Fundo do salão — imagem responsiva que se adapta ao tamanho da tela
+        this.fundoCena = this.add.image(0, 0, 'bgSalaoDeBeleza')
             .setOrigin(0, 0)
             .setDepth(0);
 
-        bg.setDisplaySize(this.scale.width, this.scale.height);
+        this.fundoCena.setDisplaySize(this.scale.width, this.scale.height);
 
-        // NPC
+        // Cria o sprite da cabelereira (NPC Leila)
         this.criarCabelereira();
 
-        // Jogador
+        // Cria o sprite do jogador na cena
         this.criarPlayer();
 
-        // Configura combate (usa classe base)
+        // Inicializa o sistema de combate (satisfação, questões e lógica de vitória/derrota)
+        // A satisfação começa em 34 — já dá uma largada pra não começar zerado
+        // 50% de chance de trocar as opções de lugar pra evitar que o jogador decore a posição
         this.initCombate({
             satisfacaoInicial: 34,
             questoes: [
@@ -62,35 +67,59 @@ class SalaoDeBeleza extends Combate {
                 resposta: true
             },
             {
-                pergunta: "DONA LEILA:E se eu me arrepender?",
-                certo: "Você não vai! Experimente e verá os benefícios.",
-                errado: "Infelizmente não tem jeito Seu João. Tem\nque esperar as parcelas caírem.",
+                pergunta: "DONA LEILA: E se eu me arrepender?",
+                certo: "Você não vai! Experimente e verá os benefícios com suas clientes.",
+                errado: "Infelizmente não tem jeito. Tem que esperar os prazos.",
                 resposta: true
             },
-            { pergunta: "teste teste teste 3", certo: "cielo", errado: "pix", resposta: true },
-            { pergunta: "etset etset etset 4", certo: "resolverei o seu problema, seu Joao!", errado: "senhor,mas!!!...", resposta: true },
-            { pergunta: "teste teste teste 5", certo: "certoo", errado: "errado", resposta: true }
+            { 
+                pergunta: "DONA LEILA: Meu salão é pequeno. A CieloHub vai funcionar bem em um lugar assim?", 
+                certo: "Perfeito para negócios de qualquer tamanho! Desde salões pequenos até grandes redes.", 
+                errado: "Infelizmente a solução é só para grandes estabelecimentos.", 
+                resposta: true 
+            },
+            { 
+                pergunta: "DONA LEILA: Minhas clientes pagam muitas vezes com crédito parcelado. Como fica isso com a Cielo?", 
+                certo: "Você recebe o dinheiro integral no dia seguinte, sem esperar pelas parcelas.", 
+                errado: "Você precisa esperar cada parcela cair para começar a usar o dinheiro.", 
+                resposta: true 
+            },
+            { 
+                pergunta: "DONA LEILA: Eu me sinto mais segura trabalhando com o que conheço. Como funciona essa integração?", 
+                certo: "A máquina é intuitiva e o suporte técnico ajuda em todas as dúvidas!", 
+                errado: "Você vai ter que aprender sozinha, o sistema é complexo.", 
+                resposta: true 
+            }
 
         ]
         });
 
-        // UI e lógica (HERDADO)
+        // Cria a interface de usuário (UI) herdada da classe Combate
         this.createUI();
+        
+        // Exibe a primeira questão na tela
         this.mostrarQuestao();
+        
+        // Mostra a barra visual de satisfação do NPC
         this.barraSatisfacao();
 
-        // Liga o NPC ao sistema base
+        // Conecta o método de expressão do NPC ao sistema de atualização da base
+        // Qualquer mudança em this.satisfacao acionará faceCabelereira()
         this.updateNPC = this.faceCabelereira;
         this.faceCabelereira();
 
-        // Voltar pra cidade
-        this.input.keyboard.once('keydown-SPACE', () =>
-            this.scene.start('Cidade', { character: this.characterEscolhido })
-        );
+        // Input: retorna para a cidade ao pressionar ESPAÇO ou ENTER
+        this.input.keyboard.once('keydown-SPACE', () => {
+            // Para a música de batalha antes de voltar
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.characterEscolhido });
+        });
 
-        this.input.keyboard.once('keydown-ENTER', () =>
-            this.scene.start('Cidade', { character: this.characterEscolhido })
-        );
+        this.input.keyboard.once('keydown-ENTER', () => {
+            // Para a música de batalha antes de voltar
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.characterEscolhido });
+        });
     }
 
     // CRIA NPC

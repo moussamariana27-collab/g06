@@ -19,8 +19,8 @@ class Combate extends Phaser.Scene {
         this.satisfacaoAnimada = this.satisfacao;
 
         // Toca a música de batalha
-       /*   this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.5 });
-        this.musica.play(); */
+        this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.5 });
+        this.musica.play();
     }
 
     createUI() {

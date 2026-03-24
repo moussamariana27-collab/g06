@@ -14,18 +14,20 @@ class CharacterSelectScene extends Phaser.Scene {
     }
 
     create() {
-        // Obtém as coordenadas do centro da câmera principal
+        // Calcula os pontos centrais da câmera para centralizações
         const { centerX, centerY } = this.cameras.main;
 
+        // Carrega a imagem de fundo responsiva da tela de seleção
         this.add.image(this.scale.width / 2, this.scale.height / 2, "fundo2")
-            // Faz a imagem se adequar ao tamanho da tela em largura e altura
             .setDisplaySize(this.scale.width, this.scale.height);
-        // Adiciona o texto entre aspas e define estilo
+        
+        // Exibe o título da cena
         this.add.text(centerX, 80, "Conheça seu Personagem", {
             fontSize: "60px",
             fill: "#000000"
         }).setOrigin(0.5);
-        // Adiciona texto entre aspas e define estilo da letra
+        
+        // Exibe a instrução para o jogador
         this.add.text(centerX, 150, "Clique em cima do personagem desejado para saber mais informações sobre ele", {
             fontSize: "32px",
             fill: "#000000",
@@ -33,36 +35,44 @@ class CharacterSelectScene extends Phaser.Scene {
             wordWrap: { width: 900 }
         }).setOrigin(0.5);
 
-        // Cria uma variável que guarda uma lista com o nome dos personagens jogáveis 
+        // Define os personagens disponíveis no jogo
         let personagens = ['JOSÉ', 'PAULA', 'MARIA', 'JOÃO'];
-        // Define a distância horizontal entre os personagens 
+        
+        // Espaçamento horizontal entre os sprites dos personagens
         let espacamento = 200;
-        // Centraliza os personagens na tela
-        let startX = centerX - (espacamento * (personagens.length - 1)) / 2;
-        personagens.forEach((personagem, i) => {
-            this.createCharacter(startX + (i * espacamento), centerY + 50, personagem);
+        
+        // Calcula a posição X inicial para centralizar os personagens na tela
+        let posicaoX = centerX - (espacamento * (personagens.length - 1)) / 2;
+        
+        // Cria cada personagem com seu nome e interatividade
+        personagens.forEach((personagem, indice) => {
+            this.criarPersonagem(posicaoX + (indice * espacamento), centerY + 50, personagem);
         });
     }
-    // Define o tamanho do personagem se o personagem for JOSÉ ou JOÃO o tamanho da imagem diminui
-    createCharacter(x, y, key) {
+    
+    // Cria um personagem clickável com nome e escala apropriados
+    criarPersonagem(x, y, chave) {
+        // Define a escala padrão para personagens de corpo inteiro
         let escala = 0.5;
 
-        if (key === 'JOSÉ' || key === 'JOÃO') {
+        // Reduz a escala para JOSÉ e JOÃO (personagens mais altos)
+        if (chave === 'JOSÉ' || chave === 'JOÃO') {
             escala = 0.3;
         }
 
-        this.add.text(x, y - 120, key, {
+        // Exibe o nome do personagem acima de sua imagem
+        this.add.text(x, y - 120, chave, {
             fontSize: "40px",
             fill: "#000000"
         }).setOrigin(0.5);
-        // Permite a escolha do personagem jogável
-        let character = this.add.image(x, y, key).setScale(escala);
+        
+        // Cria a imagem do personagem e a torna interativa
+        let character = this.add.image(x, y, chave).setScale(escala);
         character.setInteractive({ cursor: 'pointer' });
 
+        // Ao clicar no personagem, passa para a cena de informações
         character.on('pointerdown', () => {
-            // Todos os personagens vão para a mesma cena,
-            // passando o nome do personagem como parâmetro
-            this.scene.start('CharacterInfoScene', { character: key });
+            this.scene.start('CharacterInfoScene', { character: chave });
         });
     }
 }

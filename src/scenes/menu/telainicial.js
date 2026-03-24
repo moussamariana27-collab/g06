@@ -12,43 +12,43 @@ class TelaInicial extends Phaser.Scene {
     }
 
    create() {
-    // add música 
+    // Toca a música do menu
     this.musica = this.sound.add('musicamenu', {
         loop: true,
         volume: 0.40
     });
     this.musica.play();
 
-    // Define centroX como metade da largura da tela
+    // Define o centro horizontal da tela
     let centroX = this.cameras.main.width / 2;
 
-    // Define centroY como metade da altura da tela
+    // Define o centro vertical da tela
     let centroY = this.cameras.main.height / 2;
 
-    // Adiciona a imagem de fundo nas coordenadas centroX e centroY
+    // Adiciona a imagem de fundo
     this.add.image(centroX, centroY, 'fundo');
 
-    // Adiciona a imagem do nome do jogo nas coordenadas indicadas e aumenta seu tamanho em 200%
+    // Adiciona o nome do jogo no topo da tela
     this.add.image(centroX, centroY - 100, 'nome').setScale(3);
 
-    // Adiciona a imagem do botão, posiciona nas coordenadas indicadas e aumenta seu tamanho em 30%
-    let btnIniciar = this.add.image(centroX, centroY + 150, 'imagemBotao').setScale(1.3);
+    // Cria o botão de início com efeito de escala
+    let botaoIniciar = this.add.image(centroX, centroY + 150, 'imagemBotao').setScale(1.3);
 
     // Torna o botão interativo e altera o cursor do mouse ao passar sobre ele
-    btnIniciar.setInteractive({ cursor: 'pointer' });
+    botaoIniciar.setInteractive({ cursor: 'pointer' });
 
-    // Define o comportamento do botão quando o mouse passa por cima
-    btnIniciar.on('pointerover',  () => btnIniciar.setScale(1.5));
+    // Aumenta a escala do botão quando o mouse passa sobre ele
+    botaoIniciar.on('pointerover',  () => botaoIniciar.setScale(1.5));
 
-    // Define o comportamento do botão quando o mouse sai de cima dele
-    btnIniciar.on('pointerout',   () => btnIniciar.setScale(1.3));
+    // Diminui a escala quando o mouse sai do botão
+    botaoIniciar.on('pointerout',   () => botaoIniciar.setScale(1.3));
 
-    // Define o comportamento do botão quando ele é pressionado
-    btnIniciar.on('pointerdown',  () => btnIniciar.setScale(1.0));
+    // Reduz a escala quando o botão é pressionado
+    botaoIniciar.on('pointerdown',  () => botaoIniciar.setScale(1.0));
 
-    // Define o comportamento quando o botão é solto
-    btnIniciar.on('pointerup', () => {
-        btnIniciar.setScale(1.3);
+    // Volta à escala original e inicia a cena de seleção de personagem
+    botaoIniciar.on('pointerup', () => {
+        botaoIniciar.setScale(1.3);
 
         // Inicia a cena de seleção de personagem
         this.scene.start('CharacterSelectScene');
