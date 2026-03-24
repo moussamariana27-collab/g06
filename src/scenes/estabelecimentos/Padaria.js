@@ -193,17 +193,17 @@ class Padaria extends Combate {
             return;
         }
 
-        if (this.satisfacao === 1) {
+        else if (this.satisfacao === 1) {
             this.padeiro.play('bravoPadeiro', true);
             return;
         }
 
-        if (this.satisfacao === 67) {
+        else if (this.satisfacao === 67) {
             this.padeiro.play('felizPadeiro', true);
             return;
         }
 
-        if (this.satisfacao < 0 || this.satisfacao === 100) {
+        else if (this.satisfacao < 0 || this.satisfacao === 100) {
             this.padeiro.play('felizPadeiro', true);
         }
     }

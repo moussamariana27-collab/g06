@@ -29,6 +29,7 @@ var config = {
         Farmacia,
         LojaDeRoupa,
         Padaria,
+        Posto,
         SalaoDeBeleza
     ]
 };
