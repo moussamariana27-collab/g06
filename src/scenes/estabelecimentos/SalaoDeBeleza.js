@@ -9,7 +9,7 @@ class SalaoDeBeleza extends Combate {
     }
 
     preload() {
-        super.preload(); // ✅ carrega a musicabatalha
+        super.preload(); // carrega a musicabatalha
 
         this.load.image('bgSalaoDeBeleza', 'assets/salaodebeleza_interior.png');
         this.load.spritesheet('cabelereira', 'assets/Leila.png', {
@@ -105,7 +105,7 @@ class SalaoDeBeleza extends Combate {
             .setScale(0.55)
             .setFlip(true, false);
 
-        // Animações
+        // Define as keys e os Frames em que o NPC está estável, feliz e bravo 
         this.anims.create({
             key: "bravoCabelereira",
             frames: this.anims.generateFrameNumbers('cabelereira', { start: 0, end: 0 }),
@@ -128,7 +128,7 @@ class SalaoDeBeleza extends Combate {
         });
     }
 
-    // CRIA PLAYER
+    // Cria player
     criarPlayer() {
 
         let escala = 1;
@@ -146,7 +146,7 @@ class SalaoDeBeleza extends Combate {
             .setScale(escala);
     }
 
-    // LÓGICA DO NPC (chamada pela classe base)
+    // Lógica do NPC, responsável por alterar expressão da cabeleleira de acordo com a barra de satistação 
     faceCabelereira() {
 
         if (this.satisfacao === 34) {
@@ -154,17 +154,17 @@ class SalaoDeBeleza extends Combate {
             return;
         }
 
-        if (this.satisfacao === 1) {
+        else if (this.satisfacao === 1) {
             this.cabelereira.play('bravoCabelereira', true);
             return;
         }
 
-        if (this.satisfacao === 67) {
+        else if (this.satisfacao === 67) {
             this.cabelereira.play('felizCabelereira', true);
             return;
         }
 
-        if (this.satisfacao < 0 || this.satisfacao === 100) {
+        else if (this.satisfacao < 0 || this.satisfacao === 100) {
             this.cabelereira.play('felizCabelereira', true);
         }
     }
