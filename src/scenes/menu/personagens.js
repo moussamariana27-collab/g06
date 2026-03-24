@@ -1,7 +1,7 @@
-class CharacterSelectScene extends Phaser.Scene {
+class SelecaoPersonagem extends Phaser.Scene {
     
     constructor() {
-        super("CharacterSelectScene");
+        super("SelecaoPersonagem");
     }
 
     preload() {
@@ -72,7 +72,7 @@ class CharacterSelectScene extends Phaser.Scene {
 
         // Ao clicar no personagem, passa para a cena de informações
         character.on('pointerdown', () => {
-            this.scene.start('CharacterInfoScene', { character: chave });
+                this.scene.start('InfoPersonagem', { character: chave });
         });
     }
 }

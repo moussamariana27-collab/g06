@@ -1,5 +1,5 @@
-class MainScene extends Phaser.Scene {
-    constructor() { super({ key: 'MainScene' }); }
+class Escritorio extends Phaser.Scene {
+    constructor() { super({ key: 'Escritorio' }); }
 
     init(data) {
         this.characterEscolhido = data?.character || null;
@@ -155,7 +155,7 @@ class MainScene extends Phaser.Scene {
                 // Pausa a cena atual
                 this.scene.pause();
                 // Inicia a cena do tutorial
-                this.scene.launch('tutorial', { cenaOrigem: 'MainScene', character: this.characterEscolhido });
+                this.scene.launch('Tutorial', { cenaOrigem: 'Escritorio', character: this.characterEscolhido });
             });
         }
 

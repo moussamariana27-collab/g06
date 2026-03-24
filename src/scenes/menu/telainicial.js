@@ -1,6 +1,6 @@
 class TelaInicial extends Phaser.Scene {
     constructor() {
-        super({ key: 'telaInicial' });
+        super({ key: 'TelaInicial' });
     }
 
     // Carrega os arquivos que serão utilizados nesta cena
@@ -51,7 +51,7 @@ class TelaInicial extends Phaser.Scene {
         botaoIniciar.setScale(1.3);
 
         // Inicia a cena de seleção de personagem
-        this.scene.start('CharacterSelectScene');
+        this.scene.start('SelecaoPersonagem');
     });
    }
 }

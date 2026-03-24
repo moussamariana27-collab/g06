@@ -1,4 +1,4 @@
-class CidadeScene extends Phaser.Scene {
+class Cidade extends Phaser.Scene {
     constructor() { super({ key: 'Cidade' }); }
 
     // Recebe o personagem escolhido na cena anterior
@@ -111,7 +111,7 @@ class CidadeScene extends Phaser.Scene {
         }
 
         // Lista de cenas para onde o jogador pode ir
-        const cenasDisponiveis = ['MainScene', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
+        const cenasDisponiveis = ['Escritorio', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
 
         // Percorre as zonas de interação definidas no Tiled
         const layerZonas = map.getObjectLayer('zonas');

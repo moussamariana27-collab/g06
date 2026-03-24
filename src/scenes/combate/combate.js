@@ -19,7 +19,7 @@ class Combate extends Phaser.Scene {
         this.satisfacaoAnimada = this.satisfacao;
 
         // Toca a música de batalha
-        this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.5 });
+        this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.3 });
         this.musica.play();
     }
 
@@ -354,7 +354,7 @@ reposicionarUI(gameSize) {
 
     this.mostrarTelaFinal({
         texto: "VOCÊ NÃO FOI CAPAZ DE CONQUISTAR O CLIENTE",
-        voltarPara: "MainScene",
+        voltarPara: "Escritorio",
         tamanhoFonte: 58
     });
 };
@@ -362,7 +362,7 @@ reposicionarUI(gameSize) {
     fimDasPerguntas() {
     this.mostrarTelaFinal({
         texto: "O CLIENTE TE MANDOU EMBORA",
-        voltarPara: "MainScene"
+        voltarPara: "Escritorio"
     });
 };
 

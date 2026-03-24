@@ -1,20 +1,20 @@
 // =============================================================
 // Tutorial.js
 // Cena de tutorial exibida ao colidir com o professor no escritório.
-// Funciona como um overlay sobre o MainScene: pausa o jogo,
+// Funciona como um overlay sobre o Escritorio: pausa o jogo,
 // exibe diálogos com efeito de digitação e redireciona ao fim.
 // =============================================================
 
 class Tutorial extends Phaser.Scene {
     constructor() {
-        super({ key: 'tutorial' });
+        super({ key: 'Tutorial' });
     }
 
-    // Recebe dados passados por quem lançou esta cena (MainScene)
+    // Recebe dados passados por quem lançou esta cena (Escritorio)
     // - cenaOrigem: nome da cena que abriu o tutorial (para retomar ao voltar)
     // - character: personagem escolhido (repassado à Cidade ao finalizar)
     init(data) {
-        this.cenaOrigem = data?.cenaOrigem || 'MainScene';
+        this.cenaOrigem = data?.cenaOrigem || 'Escritorio';
         this.character = data?.character || null;
         this.indiceFala = 0; // índice do diálogo atual
     }
@@ -46,7 +46,7 @@ class Tutorial extends Phaser.Scene {
         ];
 
         // Garante que a câmera do tutorial ocupa a tela inteira
-        // e não herda o scroll do mapa do MainScene
+        // e não herda o scroll do mapa do Escritorio
         this.cameras.main.setViewport(0, 0, larguraTela, alturaTela);
         this.cameras.main.setScroll(0, 0);
 
@@ -129,7 +129,7 @@ class Tutorial extends Phaser.Scene {
 
         // ---------------------------------------------------------
         // BOTÃO VOLTAR — canto superior direito
-        // Fecha o tutorial e retoma o MainScene sem reiniciá-lo
+        // Fecha o tutorial e retoma o Escritorio sem reiniciá-lo
         // ---------------------------------------------------------
         const voltarW = 200;
         const voltarH = 40;
@@ -162,7 +162,7 @@ class Tutorial extends Phaser.Scene {
                 // Última fala: para os timers, encerra as cenas e inicia a Cidade
                 this.timerFala.remove();
                 this.scene.stop(this.cenaOrigem);
-                this.scene.stop('tutorial');
+                this.scene.stop('Tutorial');
                 this.scene.start('Cidade', { character: this.character });
             }
         });
@@ -176,7 +176,7 @@ class Tutorial extends Phaser.Scene {
             }
         });
 
-        // Voltar ao Escritório: para o tutorial e retoma o MainScene pausado
+        // Voltar ao Escritório: para o tutorial e retoma o Escritorio pausado
         botaoVoltar.on('pointerdown', () => {
             this._pararDigitacao();
             this.timerFala.remove();

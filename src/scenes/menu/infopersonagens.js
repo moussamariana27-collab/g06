@@ -1,5 +1,5 @@
-class CharacterInfoScene extends Phaser.Scene {
-    constructor() { super("CharacterInfoScene"); }
+class InfoPersonagem extends Phaser.Scene {
+    constructor() { super("InfoPersonagem"); }
 
     preload() {
         this.load.image('fundoInfo', 'assets/fundo2.png');
@@ -36,7 +36,7 @@ class CharacterInfoScene extends Phaser.Scene {
         botaoVoltar.on('pointerup',    () => {
             botaoVoltar.setScale(1.3);
             // Volta para a cena de seleção de personagem
-            this.scene.start('CharacterSelectScene');
+            this.scene.start('SelecaoPersonagem');
         });
 
         // BOTÃO JOGAR — inicia o jogo com o personagem escolhido
@@ -53,7 +53,7 @@ class CharacterInfoScene extends Phaser.Scene {
             if (musica) musica.stop();
 
             // Inicia o jogo passando o personagem escolhido
-            this.scene.start('MainScene', { character: this.characterEscolhido});
+            this.scene.start('Escritorio', { character: this.characterEscolhido});
         
         });
     }
