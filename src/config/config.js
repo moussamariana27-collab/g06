@@ -32,6 +32,7 @@ var config = {
         Posto,
         SalaoDeBeleza,
         Mercado,
+        LojaDeConstrução,
         FeedbackDerrotaPadaria,
         FeedbackVitoriaPadaria,
         FeedbackDerrotaSalaoDeBeleza,

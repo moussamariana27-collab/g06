@@ -111,7 +111,29 @@ class Cidade extends Phaser.Scene {
             // Ativa colisão entre o personagem e os objetos do grupo
             this.physics.add.collider(this.personagem, grupoColisoes);
         }
+        // --- REDIRECIONAMENTO: SUPERMERCADO ---
+        // Posição: Centro X (380), Centro Y (879.5), Largura (200), Altura (45)
+        let zonaSupermercado = this.add.zone(380, 879.5, 200, 45);
+        this.physics.world.enable(zonaSupermercado);
+        zonaSupermercado.body.setAllowGravity(false);
+        zonaSupermercado.body.moves = false;
 
+        this.physics.add.overlap(this.personagem, zonaSupermercado, () => {
+            // Vai para a cena do Supermercado passando os dados do personagem
+            this.scene.start('Mercado', { character: this.personagemEscolhido });
+        });
+
+        // --- REDIRECIONAMENTO: LOJA DE CONSTRUÇÃO ---
+        // Posição: Centro X (710.5), Centro Y (930.5), Largura (117), Altura (33)
+        let zonaConstrucao = this.add.zone(710.5, 930.5, 117, 33);
+        this.physics.world.enable(zonaConstrucao);
+        zonaConstrucao.body.setAllowGravity(false);
+        zonaConstrucao.body.moves = false;
+
+        this.physics.add.overlap(this.personagem, zonaConstrucao, () => {
+            // Vai para a cena da Loja de Construção
+            this.scene.start('LojaDeConstrução', { character: this.personagemEscolhido });
+        });
         // Lista de cenas para onde o jogador pode ir
         const cenasDisponiveis = ['Escritorio', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
 
@@ -216,7 +238,7 @@ class Cidade extends Phaser.Scene {
         this.input.keyboard.once('keydown-SPACE', () => {
             console.log(`${this.personagem.x} e ${this.personagem.y}` )
         });
-
+        
 
     }
 
