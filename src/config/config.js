@@ -21,15 +21,26 @@ var config = {
 
     scene: [
         TelaInicial,
-        CharacterSelectScene,
-        CharacterInfoScene,   // cria uma função que serve pra todos os personagens
-        MainScene,
+        SelecaoPersonagem,
+        InfoPersonagem,
+        Escritorio,
         Tutorial,
-        CidadeScene,
+        Cidade,
         Farmacia,
         LojaDeRoupa,
         Padaria,
-        SalaoDeBeleza
+        Posto,
+        SalaoDeBeleza,
+        Mercado,
+        FeedbackDerrotaPadaria,
+        FeedbackVitoriaPadaria,
+        FeedbackDerrotaSalaoDeBeleza,
+        FeedbackVitoriaSalaoDeBeleza,
+        FeedbackDerrotaPosto,
+        FeedbackVitoriaPosto,
+        FeedbackDerrotaSupermercado,
+        FeedbackVitoriaSupermercado,
+        
     ]
 };
 

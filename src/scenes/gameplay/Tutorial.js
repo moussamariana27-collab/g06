@@ -1,22 +1,25 @@
 // =============================================================
 // Tutorial.js
 // Cena de tutorial exibida ao colidir com o professor no escritório.
-// Funciona como um overlay sobre o MainScene: pausa o jogo,
+// Funciona como um overlay sobre o Escritorio: pausa o jogo,
 // exibe diálogos com efeito de digitação e redireciona ao fim.
 // =============================================================
 
 class Tutorial extends Phaser.Scene {
-    constructor() {
-        super({ key: 'tutorial' });
+    constructor(key = 'Tutorial') { 
+        super({ key });
     }
 
-    // Recebe dados passados por quem lançou esta cena (MainScene)
+    // Recebe dados passados por quem lançou esta cena (Escritorio)
     // - cenaOrigem: nome da cena que abriu o tutorial (para retomar ao voltar)
     // - character: personagem escolhido (repassado à Cidade ao finalizar)
     init(data) {
-        this.cenaOrigem = data?.cenaOrigem || 'MainScene';
+        this.cenaOrigem = data?.cenaOrigem || 'Escritorio';
         this.character = data?.character || null;
         this.indiceFala = 0; // índice do diálogo atual
+        this.modoFeedbackDerrota = data?.modoFeedbackDerrota || false;
+        this.modoFeedbackVitoria = data?.modoFeedbackVitoria || false;
+        this.dialogos = data?.dialogos || null; 
     }
 
     // Carrega as duas imagens do professor:
@@ -34,7 +37,7 @@ class Tutorial extends Phaser.Scene {
         // Cada string é um diálogo exibido na caixa de texto.
         // Para editar o conteúdo, altere apenas este array.
         // ---------------------------------------------------------
-        this.dialogos = [
+        this.dialogos = this.dialogos?.length > 0 ? this.dialogos : [
             "Olá! Seja bem-vindo ao time Cielo! Eu sou o seu instrutor e vou te apresentar os principais produtos que você vai oferecer aos nossos clientes.",
             "Vamos começar pela Cielo Flash — a maquininha mais veloz da linha! Ela faz até 3 vendas por minuto, aceita débito, crédito, Pix, QR Code e mais de 80 bandeiras. Ideal para o varejo!",
             "A Flash também já vem com chip de dados incluso, então o cliente não precisa de Wi-Fi para vender. E a reposição de bobina é automática — sem preocupação!",
@@ -46,7 +49,7 @@ class Tutorial extends Phaser.Scene {
         ];
 
         // Garante que a câmera do tutorial ocupa a tela inteira
-        // e não herda o scroll do mapa do MainScene
+        // e não herda o scroll do mapa do Escritorio
         this.cameras.main.setViewport(0, 0, larguraTela, alturaTela);
         this.cameras.main.setScroll(0, 0);
 
@@ -129,14 +132,14 @@ class Tutorial extends Phaser.Scene {
 
         // ---------------------------------------------------------
         // BOTÃO VOLTAR — canto superior direito
-        // Fecha o tutorial e retoma o MainScene sem reiniciá-lo
+        // Fecha o tutorial e retoma o Escritorio sem reiniciá-lo
         // ---------------------------------------------------------
         const voltarW = 200;
         const voltarH = 40;
-        this.add.graphics().setDepth(10).fillStyle(0x444444, 1).fillRoundedRect(larguraTela - voltarW - 20, 20, voltarW, voltarH, 10);
+        this.add.graphics().setDepth(10).fillStyle(0x444444, 1).fillRoundedRect(larguraTela - voltarW - 20, 20, voltarW, voltarH, 10).setVisible(false);
         const botaoVoltar = this.add.text(larguraTela - voltarW / 2 - 20, 40, '← Voltar ao Escritório', {
             fontFamily: 'Press Start 2P', fontSize: '20px', fill: '#ffffff'
-        }).setDepth(11).setOrigin(0.5).setInteractive({ useHandCursor: true });
+        }).setDepth(11).setOrigin(0.5).setInteractive({ useHandCursor: true }).setVisible(false);
 
         // Inicia o efeito de digitação na primeira fala
         this._digitarTexto(this.dialogos[this.indiceFala]);
@@ -159,12 +162,29 @@ class Tutorial extends Phaser.Scene {
                 this.indiceFala++;
                 this._digitarTexto(this.dialogos[this.indiceFala]);
             } else {
-                // Última fala: para os timers, encerra as cenas e inicia a Cidade
+                // Última fala: para os timers, encerra as cenas e inicia a Cena de acordo com a cena atual
                 this.timerFala.remove();
-                this.scene.stop(this.cenaOrigem);
-                this.scene.stop('tutorial');
-                this.scene.start('Cidade', { character: this.character });
-            }
+                this.sound.stopAll();
+
+                if (this.modoFeedbackDerrota) {
+
+                    this.scene.stop(this.scene.key);
+                    this.scene.start(this.cenaOrigem, { character: this.character });
+
+                } else if (this.modoFeedbackDerrota === false && this.modoFeedbackVitoria === false) {
+                    
+                    this.scene.stop(this.cenaOrigem);
+                    this.scene.stop(this.scene.key);
+                    this.scene.start('Cidade', { character: this.character });
+
+                } else {
+
+                    this.scene.stop(this.scene.key);
+                    this.scene.start(this.cenaOrigem, { character: this.character });
+
+                }
+}
+            
         });
 
         // Anterior: volta uma fala e reinicia o efeito de digitação
@@ -176,7 +196,7 @@ class Tutorial extends Phaser.Scene {
             }
         });
 
-        // Voltar ao Escritório: para o tutorial e retoma o MainScene pausado
+        // Voltar ao Escritório: para o tutorial e retoma o Escritorio pausado
         botaoVoltar.on('pointerdown', () => {
             this._pararDigitacao();
             this.timerFala.remove();

@@ -1,13 +1,12 @@
-class MainScene extends Phaser.Scene {
-    constructor() { super({ key: 'MainScene' }); }
+class Escritorio extends Phaser.Scene {
+    constructor() { super({ key: 'Escritorio' }); }
 
     init(data) {
-        this.characterEscolhido = data?.character || null;
+        this.personagemEscolhido = data?.character || null;
     }
 
     // Carrega as imagens
     preload() {
-        console.log('Personagem escolhido:', this.characterEscolhido);
         this.load.tilemapTiledJSON('mapaEscritorio', 'assets/escritorio.json');
         this.load.image('escritoriTileset', 'assets/escritorio_tileset.png');
         this.load.image('estadualEmPe', 'assets/estadual_em_pe.png');
@@ -22,9 +21,9 @@ class MainScene extends Phaser.Scene {
         };
 
         // Obtém os dados do personagem escolhido
-        const dadosSprite = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.personagemEscolhido];
         // Verifica se o personagem é válido antes de carregar
-        if (!dadosSprite) { console.error('Personagem inválido:', this.characterEscolhido); return; }
+        if (!dadosSprite) { console.error('Personagem inválido:', this.personagemEscolhido); return; }
         // Carrega a spritesheet do personagem escolhido
         this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
             frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
@@ -71,9 +70,12 @@ class MainScene extends Phaser.Scene {
             
         );
 
-        //============================ TESTE PARA MUDAR RAPIDO DE CENA ========================================================
-        this.input.keyboard.once('keydown-SPACE', () => this.scene.start('Padaria', { character: this.characterEscolhido }));
-        //=======================================================================================================================
+        // Voltar pra cidade
+        this.input.keyboard.once('keydown-SPACE', () => {
+            // Para a música do escritório antes de trocar de cena
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
+        });
         
         // Centraliza a hitbox no sprite
         this.personagem.body.setOffset(0, 0);
@@ -91,13 +93,13 @@ class MainScene extends Phaser.Scene {
         const colisaoLayer = map.getObjectLayer('colisoes');
         // Se houver colisões, adiciona cada uma ao grupo
         if (colisaoLayer) {
-            colisaoLayer.objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
+            colisaoLayer.objects.filter(objetoColisao => objetoColisao.width > 0 && objetoColisao.height > 0).forEach(objetoColisao => {
                 // Cria um retângulo invisível para cada colisão
-                const b = this.add.rectangle(o.x + o.width / 2, o.y + o.height / 2, o.width, o.height);
+                const retanguloColisao = this.add.rectangle(objetoColisao.x + objetoColisao.width / 2, objetoColisao.y + objetoColisao.height / 2, objetoColisao.width, objetoColisao.height);
                 // Adiciona física ao retângulo
-                this.physics.add.existing(b, true);
+                this.physics.add.existing(retanguloColisao, true);
                 // Adiciona ao grupo de colisões
-                grupoColisoes.add(b);
+                grupoColisoes.add(retanguloColisao);
             });
             // Define colisão entre personagem e grupo de colisões
             this.physics.add.collider(this.personagem, grupoColisoes);
@@ -118,7 +120,9 @@ class MainScene extends Phaser.Scene {
                 zona.body.moves = false;
                 // Se o personagem tocar a zona, muda para a cena da cidade
                 this.physics.add.overlap(this.personagem, zona, () => {
-                    this.scene.start('Cidade', { character: this.characterEscolhido });
+                    // Para a música do escritório antes de voltar para a cidade
+                    this.musica.stop();
+                    this.scene.start('Cidade', { character: this.personagemEscolhido });
                 });
             });
         }
@@ -165,7 +169,7 @@ class MainScene extends Phaser.Scene {
                 // Pausa a cena atual
                 this.scene.pause();
                 // Inicia a cena do tutorial
-                this.scene.launch('tutorial', { cenaOrigem: 'MainScene', character: this.characterEscolhido });
+                this.scene.launch('Tutorial', { cenaOrigem: 'Escritorio', character: this.personagemEscolhido });
             });
         }
 
@@ -181,7 +185,9 @@ class MainScene extends Phaser.Scene {
 
         // AQUI TEMOS AS ANIMAÇÕES DAS SPRITESHEETS DOS PERSONAGENS JOGÁVEIS
         // TODOS OS ARQUIVOS ESTÃO PADRONIZADOS, POR ISSO OS VALORES PARA OS FRAMES SÃO IGUAIS PARA QUALQUER QUE SEJA O PERSONAGEM
+        // Spritesheet layout: frames 0-47 (idle), 48-53 (direita), 60-65 (esquerda), 66-71 (baixo), 54-59 (cima) em diversos padrões
 
+        // Movimento para CIMA (frames 54-59)
         this.anims.create({
             key: "up",
             frameRate: 12,
@@ -189,6 +195,7 @@ class MainScene extends Phaser.Scene {
             repeat: -1
         });
 
+        // Movimento para BAIXO (frames 66-71)
         this.anims.create({
             key: "down",
             frameRate: 12,
@@ -196,6 +203,7 @@ class MainScene extends Phaser.Scene {
             repeat: -1
         });
 
+        // Movimento para ESQUERDA (frames 60-65)
         this.anims.create({
             key: "left",
             frameRate: 12,
@@ -203,6 +211,7 @@ class MainScene extends Phaser.Scene {
             repeat: -1
         });
 
+        // Movimento para DIREITA (frames 48-53)
         this.anims.create({
             key: "right",
             frameRate: 12,

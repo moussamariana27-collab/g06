@@ -1,13 +1,10 @@
-class CidadeScene extends Phaser.Scene {
+class Cidade extends Phaser.Scene {
     constructor() { super({ key: 'Cidade' }); }
 
     // Recebe o personagem escolhido na cena anterior
-    init(data) { this.characterEscolhido = data?.character || null; }
+    init(data) { this.personagemEscolhido = data?.character || null; }
 
     preload() {
-
-        console.log('Personagem escolhido:', this.characterEscolhido);
-
         this.load.audio('musicacidade', 'assets/mapa.mp3')
 
         // Carrega o mapa exportado do Tiled no formato JSON
@@ -25,10 +22,10 @@ class CidadeScene extends Phaser.Scene {
         };
 
         // Seleciona o personagem escolhido pelo jogador
-        const dadosSprite = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.personagemEscolhido];
 
         // Verifica se o personagem é válido antes de carregar
-        if (!dadosSprite) { console.error('Personagem inválido:', this.characterEscolhido); return; }
+        if (!dadosSprite) { console.error('Personagem inválido:', this.personagemEscolhido); return; }
 
         // Carrega o spritesheet correspondente ao personagem escolhido
         this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
@@ -97,16 +94,16 @@ class CidadeScene extends Phaser.Scene {
         // Percorre os objetos da layer "colisoes" definidos no Tiled
         const layerColisoes = map.getObjectLayer('colisoes');
         if (layerColisoes) {
-            layerColisoes.objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
+            layerColisoes.objects.filter(objetoColisao => objetoColisao.width > 0 && objetoColisao.height > 0).forEach(objetoColisao => {
 
                 // Cria um retângulo invisível representando a área de colisão
-                const b = this.add.rectangle(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
+                const retanguloColisao = this.add.rectangle(objetoColisao.x + objetoColisao.width/2, objetoColisao.y + objetoColisao.height/2, objetoColisao.width, objetoColisao.height);
 
                 // Adiciona física estática ao objeto
-                this.physics.add.existing(b, true);
+                this.physics.add.existing(retanguloColisao, true);
 
                 // Adiciona o objeto ao grupo de colisões
-                grupoColisoes.add(b);
+                grupoColisoes.add(retanguloColisao);
             });
 
             // Ativa colisão entre o personagem e os objetos do grupo
@@ -114,43 +111,49 @@ class CidadeScene extends Phaser.Scene {
         }
 
         // Lista de cenas para onde o jogador pode ir
-        const cenasDisponiveis = ['MainScene', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
+        const cenasDisponiveis = ['Escritorio', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
 
         // Percorre as zonas de interação definidas no Tiled
         const layerZonas = map.getObjectLayer('zonas');
         if (layerZonas) {
-            layerZonas.objects.filter(o => o.width > 0 && o.height > 0 && o.type !== '').forEach(o => {
+            layerZonas.objects.filter(zona => zona.width > 0 && zona.height > 0 && zona.type !== '').forEach(zona => {
 
                 // Cria uma zona invisível de interação
-                const zona = this.add.zone(o.x + o.width/2, o.y + o.height/2, o.width, o.height);
+                const areaInteracao = this.add.zone(zona.x + zona.width/2, zona.y + zona.height/2, zona.width, zona.height);
 
                 // Ativa física na zona
-                this.physics.world.enable(zona);
+                this.physics.world.enable(areaInteracao);
 
                 // Desativa gravidade na zona
-                zona.body.setAllowGravity(false);
+                areaInteracao.body.setAllowGravity(false);
 
                 // Impede movimentação da zona
-                zona.body.moves = false;
+                areaInteracao.body.moves = false;
 
                 // Detecta quando o personagem entra na zona
-                this.physics.add.overlap(this.personagem, zona, () => {
+                this.physics.add.overlap(this.personagem, areaInteracao, () => {
 
                     // Caso a zona seja o Hotel (ainda não implementado)
-                    if (o.type === 'Hotel') {
+                    if (zona.type === 'Hotel') {
 
                         // Evita criar múltiplos avisos ao mesmo tempo
                         if (!this.avisoHotel) {
 
-                            // Exibe um aviso temporário na tela
+                            // Exibe um aviso temporário na tela com estilo consistente
                             this.avisoHotel = this.add.text(
                                 this.cameras.main.scrollX + 512, this.cameras.main.scrollY + 80,
-                                '🏨 Hotel — Em breve!',
-                                { fontSize: '28px', fill: '#ffffff', backgroundColor: '#000000', padding: { x: 12, y: 8 } }
+                                'Hotel — Funcionalidade em desenvolvimento',
+                                { 
+                                    fontSize: '24px', 
+                                    fill: '#ffffff', 
+                                    backgroundColor: '#333333', 
+                                    padding: { x: 16, y: 12 },
+                                    fontFamily: 'Pixelify Sans'
+                                }
                             ).setOrigin(0.5).setDepth(10);
 
                             // Remove o aviso após alguns segundos
-                            this.time.delayedCall(2000, () => { 
+                            this.time.delayedCall(2500, () => { 
                                 if (this.avisoHotel) { 
                                     this.avisoHotel.destroy(); 
                                     this.avisoHotel = null; 
@@ -159,13 +162,13 @@ class CidadeScene extends Phaser.Scene {
                         }
 
                     // Caso a zona leve para outra cena disponível
-                    } else if (cenasDisponiveis.includes(o.type)) {
+                    } else if (cenasDisponiveis.includes(zona.type)) {
 
                         // ✅ Para a música antes de trocar de cena
                         this.musica.stop();
 
                         // Troca para a cena correspondente
-                        this.scene.start(o.type, { character: this.characterEscolhido });
+                        this.scene.start(zona.type, { character: this.personagemEscolhido });
                     }
                 });
             });
@@ -173,7 +176,9 @@ class CidadeScene extends Phaser.Scene {
 
         // AQUI TEMOS AS ANIMAÇÕES DAS SPRITESHEETS DOS PERSONAGENS JOGÁVEIS
         // TODOS OS ARQUIVOS ESTÃO PADRONIZADOS, POR ISSO OS VALORES PARA OS FRAMES SÃO IGUAIS PARA QUALQUER QUE SEJA O PERSONAGEM
+        // Spritesheet layout: frames 0-47 (idle), 48-59 (direita), 60-65 (esquerda), 66-71 (baixo), 54-59 (cima) em diversos padrões
 
+        // Movimento para CIMA (frames 54-59)
         this.anims.create({
             key: "up",
             frameRate: 12,
@@ -181,6 +186,7 @@ class CidadeScene extends Phaser.Scene {
             repeat: -1
         });
 
+        // Movimento para BAIXO (frames 66-71)
         this.anims.create({
             key: "down",
             frameRate: 12,
@@ -188,6 +194,7 @@ class CidadeScene extends Phaser.Scene {
             repeat: -1
         });
 
+        // Movimento para ESQUERDA (frames 60-65)
         this.anims.create({
             key: "left",
             frameRate: 12,
@@ -195,6 +202,7 @@ class CidadeScene extends Phaser.Scene {
             repeat: -1
         });
 
+        // Movimento para DIREITA (frames 48-53)
         this.anims.create({
             key: "right",
             frameRate: 12,
@@ -208,29 +216,29 @@ class CidadeScene extends Phaser.Scene {
         // Define a velocidade inicial do personagem como zero
         this.personagem.setVelocity(0);
 
-        // Cria uma variável que guarda o valor da velocidade de movimento
-        const vel = 150;
+        // Constante de velocidade de movimento do personagem em pixels/segundo
+        const velocidade = 150;
 
         const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up') && this.anims.exists('down');
 
         // Movimento para esquerda
         if (this.cursor.left.isDown) {
-            this.personagem.setVelocityX(-vel);
+            this.personagem.setVelocityX(-velocidade);
             if (animsOk) this.personagem.play('left', true);
 
         // Movimento para direita
         } else if (this.cursor.right.isDown) {
-            this.personagem.setVelocityX(vel);
+            this.personagem.setVelocityX(velocidade);
             if (animsOk) this.personagem.play('right', true);
 
         // Movimento para cima
         } else if (this.cursor.up.isDown) {
-            this.personagem.setVelocityY(-vel);
+            this.personagem.setVelocityY(-velocidade);
             if (animsOk) this.personagem.play('up', true);
 
         // Movimento para baixo
         } else if (this.cursor.down.isDown) {
-            this.personagem.setVelocityY(vel);
+            this.personagem.setVelocityY(velocidade);
             if (animsOk) this.personagem.play('down', true);
         } else {
             this.personagem.stop();

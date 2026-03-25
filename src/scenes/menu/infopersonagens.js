@@ -1,5 +1,5 @@
-class CharacterInfoScene extends Phaser.Scene {
-    constructor() { super("CharacterInfoScene"); }
+class InfoPersonagem extends Phaser.Scene {
+    constructor() { super("InfoPersonagem"); }
 
     preload() {
         this.load.image('fundoInfo', 'assets/fundo2.png');
@@ -16,43 +16,44 @@ class CharacterInfoScene extends Phaser.Scene {
     create(data) {
         const { centerX, centerY } = this.cameras.main;
 
-        // Guarda o personagem escolhido para usar nos botões
-        this.characterEscolhido = data.character;
+        // Armazena o personagem escolhido para usar nos botões de navegação
+        this.personagemEscolhido = data.character;
 
-        // Fundo
+        // Carrega a imagem de fundo responsiva
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'fundoInfo')
             .setDisplaySize(this.scale.width, this.scale.height);
 
-        // Imagem de info do personagem escolhido
-        const infoKey = 'info' + data.character; // ex: 'infoJOSE'
-        this.add.image(centerX, centerY, infoKey).setScale(1);
+        // Exibe a imagem de informações do personagem selecionado
+        const chaveInfo = 'info' + data.character;
+        this.add.image(centerX, centerY, chaveInfo).setScale(1);
 
-        // BOTÃO VOLTAR
-        let btnVoltar = this.add.image(centerX - 400, 200, 'botaoVoltar').setScale(1.3);
-        btnVoltar.setInteractive({ cursor: 'pointer' });
-        btnVoltar.on('pointerover',  () => btnVoltar.setScale(1.5));
-        btnVoltar.on('pointerout',   () => btnVoltar.setScale(1.3));
-        btnVoltar.on('pointerdown',  () => btnVoltar.setScale(1.2));
-        btnVoltar.on('pointerup',    () => {
-            btnVoltar.setScale(1.3);
-            this.scene.start('CharacterSelectScene');
+        // BOTÃO VOLTAR — retorna para a seleção de personagem
+        let botaoVoltar = this.add.image(centerX - 400, 200, 'botaoVoltar').setScale(1.3);
+        botaoVoltar.setInteractive({ cursor: 'pointer' });
+        botaoVoltar.on('pointerover',  () => botaoVoltar.setScale(1.5));
+        botaoVoltar.on('pointerout',   () => botaoVoltar.setScale(1.3));
+        botaoVoltar.on('pointerdown',  () => botaoVoltar.setScale(1.2));
+        botaoVoltar.on('pointerup',    () => {
+            botaoVoltar.setScale(1.3);
+            // Volta para a cena de seleção de personagem
+            this.scene.start('SelecaoPersonagem');
         });
 
-        // BOTÃO JOGAR — repassa o personagem escolhido pra MainScene
-        let btnJogar = this.add.image(centerX + 400, 200, 'botaoJogar').setScale(1.3);
-        btnJogar.setInteractive({ cursor: 'pointer' });
-        btnJogar.on('pointerover',  () => btnJogar.setScale(1.5));
-        btnJogar.on('pointerout',   () => btnJogar.setScale(1.3));
-        btnJogar.on('pointerdown',  () => btnJogar.setScale(1.2));
-        btnJogar.on('pointerup',    () => {
-            btnJogar.setScale(1.3);
+        // BOTÃO JOGAR — inicia o jogo com o personagem escolhido
+        let botaoJogar = this.add.image(centerX + 400, 200, 'botaoJogar').setScale(1.3);
+        botaoJogar.setInteractive({ cursor: 'pointer' });
+        botaoJogar.on('pointerover',  () => botaoJogar.setScale(1.5));
+        botaoJogar.on('pointerout',   () => botaoJogar.setScale(1.3));
+        botaoJogar.on('pointerdown',  () => botaoJogar.setScale(1.2));
+        botaoJogar.on('pointerup',    () => {
+            botaoJogar.setScale(1.3);
              
-            // Busca a música pelo nome e para ela se estiver tocando
+            // Para a música do menu antes de iniciar o jogo
             const musica = this.sound.get('musicamenu');
             if (musica) musica.stop();
 
-            // Repassa o personagem escolhido para a próxima cena
-            this.scene.start('MainScene', { character: this.characterEscolhido});
+            // Inicia o jogo passando o personagem escolhido
+            this.scene.start('Escritorio', { character: this.personagemEscolhido});
         
         });
     }

@@ -9,15 +9,18 @@ class SalaoDeBeleza extends Combate {
     }
 
     preload() {
-        super.preload(); // carrega a musicabatalha
+        super.preload(); // Carrega a música de batalha do Combate
 
+        // Carrega a imagem de fundo do salão
         this.load.image('bgSalaoDeBeleza', 'assets/salaodebeleza_interior.png');
+        
+        // Carrega a spritesheet da cabelereira (NPC) Leila
         this.load.spritesheet('cabelereira', 'assets/Leila.png', {
             frameWidth: 640,
             frameHeight: 1080
         });  
 
-        // Personagem do jogador
+        // Carrega os sprites dos personagens do jogador
         const sprites = {
             'JOSÉ':  { file: 'assets/joseCorpo.png' },
             'MARIA': { file: 'assets/mariaCorpo.png' },
@@ -25,72 +28,103 @@ class SalaoDeBeleza extends Combate {
             'PAULA': { file: 'assets/paulaCorpo.png' }
         };
 
-        const dadosSprite = sprites[this.characterEscolhido];
+        const dadosSprite = sprites[this.personagemEscolhido];
 
         if (!dadosSprite) {
-            console.error('Personagem inválido:', this.characterEscolhido);
+            console.error('Personagem inválido:', this.personagemEscolhido);
             return;
         }
 
+        // Carrega o sprite do personagem escolhido
         this.load.image('personagemSalaoDeBeleza', dadosSprite.file);
     }
 
     create() {
-
-        // Fundo
-        const bg = this.add.image(0, 0, 'bgSalaoDeBeleza')
+        // Fundo do salão — imagem responsiva que se adapta ao tamanho da tela
+        this.fundoCena = this.add.image(0, 0, 'bgSalaoDeBeleza')
             .setOrigin(0, 0)
             .setDepth(0);
 
-        bg.setDisplaySize(this.scale.width, this.scale.height);
+        this.fundoCena.setDisplaySize(this.scale.width, this.scale.height);
 
-        // NPC
+        // Cria o sprite da cabelereira (NPC Leila)
         this.criarCabelereira();
 
-        // Jogador
+        // Cria o sprite do jogador na cena
         this.criarPlayer();
 
-        // Configura combate (usa classe base)
+        // Inicializa o sistema de combate (satisfação, questões e lógica de vitória/derrota)
+        // A satisfação começa em 34 — já dá uma largada pra não começar zerado
+        // 50% de chance de trocar as opções de lugar pra evitar que o jogador decore a posição
         this.initCombate({
             satisfacaoInicial: 34,
             questoes: [
 
             {
-                pergunta: "DONA LEILA: O que a sua maquininha tem que a minha não tem?",
-                certo: "Suporte 24 horas por dia, 7 dias da semana",
-                errado: "Suporte para pagamentos via criptomoeda por sistema desenvolvido pela Cielo",
+                // Dona Leila abre o jogo reclamando de taxas altas no crédito — gancho direto do script do analista
+                pergunta: "DONA LEILA: Quando a cliente paga no crédito, sinto que as taxas pesam demais. Como vocês conseguem me ajudar nisso?",
+                certo: "Conseguimos ajustar uma condição que faça sentido pro seu faturamento, com taxas equilibradas e sem perder o controle dos custos.",
+                errado: "As taxas são padrão e não mudam muito, independente do tipo de negócio.",
                 resposta: true
             },
             {
-                pergunta: "DONA LEILA:E se eu me arrepender?",
-                certo: "Você não vai! Experimente e verá os benefícios.",
-                errado: "Infelizmente não tem jeito Seu João. Tem\nque esperar as parcelas caírem.",
+                // Foco em ticket médio — jargão central do analista
+                pergunta: "DONA LEILA: Tenho medo de oferecer parcelamento e acabar perdendo dinheiro. Como fico de olho nisso?",
+                certo: "Com a Cielo você oferece parcelamento de forma estratégica, aumentando seu ticket médio sem perder o controle dos custos.",
+                errado: "Parcelamento sempre tem risco. O melhor é só aceitar pagamento à vista mesmo.",
                 resposta: true
             },
-            { pergunta: "teste teste teste 3", certo: "cielo", errado: "pix", resposta: true },
-            { pergunta: "etset etset etset 4", certo: "resolverei o seu problema, seu Joao!", errado: "senhor,mas!!!...", resposta: true },
-            { pergunta: "teste teste teste 5", certo: "certoo", errado: "errado", resposta: true }
+            { 
+                // Recebíveis e fluxo de caixa — antecipação como benefício concreto
+                pergunta: "DONA LEILA: Se eu aceitar crédito parcelado, quando esse dinheiro cai na minha conta?", 
+                certo: "Com a antecipação de recebíveis da Cielo, você recebe o valor integral no dia seguinte e mantém seu fluxo de caixa saudável.", 
+                errado: "Você precisa aguardar cada parcela cair separadamente — pode levar meses até receber tudo.", 
+                resposta: true 
+            },
+            { 
+                // Tamanho do negócio — acessibilidade para pequenos
+                pergunta: "DONA LEILA: Meu salão é pequeno. Faz sentido contratar a Cielo pra um negócio do meu tamanho?", 
+                certo: "Faz sim! A solução é ajustada ao seu faturamento — desde pequenos salões até grandes redes, a operação é simples e acessível.", 
+                errado: "Na verdade, o ideal é para negócios maiores com volume alto de transações.", 
+                resposta: true 
+            },
+            { 
+                // Simplicidade operacional — "operação fácil, rápida e sem complicação" do analista
+                pergunta: "DONA LEILA: Tenho medo de complicar minha rotina aqui no salão. Não quero depender de suporte o tempo todo.", 
+                certo: "A operação é fácil, rápida e sem complicação — e o suporte técnico está disponível 24h pra te ajudar sempre que precisar.", 
+                errado: "É um sistema completo, vai exigir um bom tempo de adaptação da sua equipe.", 
+                resposta: true 
+            }
 
         ]
         });
 
-        // UI e lógica (HERDADO)
+        // Cria a interface de usuário (UI) herdada da classe Combate
         this.createUI();
+        
+        // Exibe a primeira questão na tela
         this.mostrarQuestao();
+        
+        // Mostra a barra visual de satisfação do NPC
         this.barraSatisfacao();
 
-        // Liga o NPC ao sistema base
+        // Conecta o método de expressão do NPC ao sistema de atualização da base
+        // Qualquer mudança em this.satisfacao acionará faceCabelereira()
         this.updateNPC = this.faceCabelereira;
         this.faceCabelereira();
 
-        // Voltar pra cidade
-        this.input.keyboard.once('keydown-SPACE', () =>
-            this.scene.start('Cidade', { character: this.characterEscolhido })
-        );
+        // Input: retorna para a cidade ao pressionar ESPAÇO ou ENTER
+        this.input.keyboard.once('keydown-SPACE', () => {
+            // Para a música de batalha antes de voltar
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
+        });
 
-        this.input.keyboard.once('keydown-ENTER', () =>
-            this.scene.start('Cidade', { character: this.characterEscolhido })
-        );
+        this.input.keyboard.once('keydown-ENTER', () => {
+            // Para a música de batalha antes de voltar
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
+        });
     }
 
     // CRIA NPC
@@ -135,7 +169,7 @@ class SalaoDeBeleza extends Combate {
         let posX = (this.scale.width * 1 / 3) - 100;
         let posY = this.scale.height - 270;
 
-        if (this.characterEscolhido === 'JOSÉ' || this.characterEscolhido === 'JOÃO') {
+        if (this.personagemEscolhido === 'JOSÉ' || this.personagemEscolhido === 'JOÃO') {
             escala = 0.5;
             posX -= 20;
             posY -= 60;
