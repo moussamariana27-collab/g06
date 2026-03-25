@@ -5,14 +5,12 @@ class Escritorio extends Phaser.Scene {
         this.personagemEscolhido = data?.character || null;
     }
 
-    // Carrega as imagens
     preload() {
         this.load.tilemapTiledJSON('mapaEscritorio', 'assets/escritorio.json');
         this.load.image('escritoriTileset', 'assets/escritorio_tileset.png');
         this.load.image('estadualEmPe', 'assets/estadual_em_pe.png');
-        this.load.audio('escritorio', 'assets/escritorio.mp3')
+        this.load.audio('escritorio', 'assets/escritorio.mp3');
 
-        // Define os sprites de cada personagem disponível com suas dimensões
         const sprites = {
             'JOSÉ':  { file: 'assets/josePronto.png',  frameWidth: 16, frameHeight: 32 },
             'MARIA': { file: 'assets/mariaPronto.png', frameWidth: 16, frameHeight: 32 },
@@ -20,23 +18,19 @@ class Escritorio extends Phaser.Scene {
             'PAULA': { file: 'assets/paulaPronto.png', frameWidth: 16, frameHeight: 32 },
         };
 
-        // Obtém os dados do personagem escolhido
         const dadosSprite = sprites[this.personagemEscolhido];
-        // Verifica se o personagem é válido antes de carregar
         if (!dadosSprite) { console.error('Personagem inválido:', this.personagemEscolhido); return; }
-        // Carrega a spritesheet do personagem escolhido
         this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
             frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
         });
     }
 
-    // Cria todos os elementos da cena 
     create() {
         const map = this.make.tilemap({ key: 'mapaEscritorio' });
         const tiles = map.addTilesetImage('escritorio', 'escritoriTileset');
         map.createLayer('Fundo', tiles, 0, 0);
 
-        // adiciona música 
+        // Adiciona música
         this.musica = this.sound.add('escritorio', {
             loop: true,
             volume: 0.40
@@ -45,12 +39,11 @@ class Escritorio extends Phaser.Scene {
 
         // Define o limite do mundo físico
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        // Define os limites da câmera 
+        // Define os limites da câmera
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
         // Define onde o personagem começa
         let spawnX = 550, spawnY = 300;
-        // Tenta encontrar a posição de spawn no mapa
         const spawnLayer = map.getObjectLayer('spawn');
         if (spawnLayer?.objects.length > 0) {
             const objetoSpawn = spawnLayer.objects[0];
@@ -60,85 +53,66 @@ class Escritorio extends Phaser.Scene {
 
         // Cria o sprite do personagem na posição de spawn
         this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(3.0);
-        // Faz o personagem não sair dos limites do mapa
         this.personagem.setCollideWorldBounds(true);
-       // Ajusta automaticamente a hitbox para o tamanho do sprite
         this.personagem.body.setSize(
             this.personagem.width,
             this.personagem.height
-
-            
         );
 
-        // Voltar pra cidade
+        // Voltar pra cidade com SPACE
         this.input.keyboard.once('keydown-SPACE', () => {
-            // Para a música do escritório antes de trocar de cena
             this.musica.stop();
             this.scene.start('Cidade', { character: this.personagemEscolhido });
         });
-        
-        // Centraliza a hitbox no sprite
+
         this.personagem.body.setOffset(0, 0);
 
         // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);
-        // Define o zoom da câmera
         this.cameras.main.setZoom(1.0);
-        // Cria o controle das setas do teclado
         this.cursor = this.input.keyboard.createCursorKeys();
 
-        // Cria um grupo para as colisões do mapa
+        // Colisões do mapa
         const grupoColisoes = this.physics.add.staticGroup();
-        // Obtém a camada de colisões do mapa
         const colisaoLayer = map.getObjectLayer('colisoes');
-        // Se houver colisões, adiciona cada uma ao grupo
         if (colisaoLayer) {
             colisaoLayer.objects.filter(objetoColisao => objetoColisao.width > 0 && objetoColisao.height > 0).forEach(objetoColisao => {
-                // Cria um retângulo invisível para cada colisão
-                const retanguloColisao = this.add.rectangle(objetoColisao.x + objetoColisao.width / 2, objetoColisao.y + objetoColisao.height / 2, objetoColisao.width, objetoColisao.height);
-                // Adiciona física ao retângulo
+                const retanguloColisao = this.add.rectangle(
+                    objetoColisao.x + objetoColisao.width / 2,
+                    objetoColisao.y + objetoColisao.height / 2,
+                    objetoColisao.width,
+                    objetoColisao.height
+                );
                 this.physics.add.existing(retanguloColisao, true);
-                // Adiciona ao grupo de colisões
                 grupoColisoes.add(retanguloColisao);
             });
-            // Define colisão entre personagem e grupo de colisões
             this.physics.add.collider(this.personagem, grupoColisoes);
         }
 
-        // Obtém a camada da porta do mapa
+        // Porta de saída
         const portaLayer = map.getObjectLayer('porta');
         if (portaLayer) {
-            // Para cada porta encontrada
             portaLayer.objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
-                // Cria uma zona invisível na posição da porta
                 const zona = this.add.zone(o.x + o.width / 2, o.y + o.height / 2, o.width, o.height);
-                // Adiciona física à zona
                 this.physics.world.enable(zona);
-                // A zona não é afetada por gravidade
                 zona.body.setAllowGravity(false);
-                // A zona não se move
                 zona.body.moves = false;
-                // Se o personagem tocar a zona, muda para a cena da cidade
                 this.physics.add.overlap(this.personagem, zona, () => {
-                    // Para a música do escritório antes de voltar para a cidade
                     this.musica.stop();
                     this.scene.start('Cidade', { character: this.personagemEscolhido });
                 });
             });
         }
 
-        // Obtém a camada do diálogo com o professor do mapa
+        // Zona do professor
         const professorLayer = map.getObjectLayer('professor');
         if (professorLayer?.objects.length > 0) {
             const obj = professorLayer.objects[0];
-            // Calcula o centro da zona do dialogo
             const profX = obj.x + obj.width / 2;
             const profY = obj.y + obj.height / 2;
 
-            // Adiciona a imagem do estadual centralizada
             const estadual = this.add.image(profX, profY, 'estadualEmPe').setOrigin(0.5, 0.5).setScale(0.25);
-            
-            // Animação de pulo
+
             this.tweens.add({
                 targets: estadual,
                 y: profY - 15,
@@ -148,32 +122,23 @@ class Escritorio extends Phaser.Scene {
                 ease: 'Sine.inout'
             });
 
-            // Cria a zona do dialogo
             this.zonaProfessor = this.add.zone(profX, profY, obj.width, obj.height);
-            // Adiciona física à zona
             this.physics.world.enable(this.zonaProfessor);
-            // A zona não é afetada por gravidade
             this.zonaProfessor.body.setAllowGravity(false);
-            // A zona não se move
             this.zonaProfessor.body.moves = false;
 
-            // Se o personagem tocar a zona do dialogo
             this.physics.add.overlap(this.personagem, this.zonaProfessor, () => {
-                // Verifica se a zona está ativa
                 if (!this.zonaProfessor.active) return;
 
-                // Desativa a zona imediatamente para não repetir
                 this.zonaProfessor.setActive(false);
                 this.zonaProfessor.body.enable = false;
 
-                // Pausa a cena atual
                 this.scene.pause();
-                // Inicia a cena do tutorial
                 this.scene.launch('Tutorial', { cenaOrigem: 'Escritorio', character: this.personagemEscolhido });
             });
         }
 
-        // Quando a cena volta do tutorial, reativa a zona do professor após 1 segundo
+        // Reativa a zona do professor ao voltar do tutorial
         this.events.on('resume', () => {
             this.time.delayedCall(1000, () => {
                 if (this.zonaProfessor) {
@@ -183,72 +148,179 @@ class Escritorio extends Phaser.Scene {
             });
         });
 
-        // AQUI TEMOS AS ANIMAÇÕES DAS SPRITESHEETS DOS PERSONAGENS JOGÁVEIS
-        // TODOS OS ARQUIVOS ESTÃO PADRONIZADOS, POR ISSO OS VALORES PARA OS FRAMES SÃO IGUAIS PARA QUALQUER QUE SEJA O PERSONAGEM
-        // Spritesheet layout: frames 0-47 (idle), 48-53 (direita), 60-65 (esquerda), 66-71 (baixo), 54-59 (cima) em diversos padrões
-
-        // Movimento para CIMA (frames 54-59)
+        // Animações do personagem
         this.anims.create({
             key: "up",
             frameRate: 12,
-            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 54, end: 59 }),
+            frames: this.anims.generateFrameNumbers('sheetPersonagem', { start: 54, end: 59 }),
             repeat: -1
         });
 
-        // Movimento para BAIXO (frames 66-71)
         this.anims.create({
             key: "down",
             frameRate: 12,
-            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 66, end: 71 }),
+            frames: this.anims.generateFrameNumbers('sheetPersonagem', { start: 66, end: 71 }),
             repeat: -1
         });
 
-        // Movimento para ESQUERDA (frames 60-65)
         this.anims.create({
             key: "left",
             frameRate: 12,
-            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 60, end: 65 }),
+            frames: this.anims.generateFrameNumbers('sheetPersonagem', { start: 60, end: 65 }),
             repeat: -1
         });
 
-        // Movimento para DIREITA (frames 48-53)
         this.anims.create({
             key: "right",
             frameRate: 12,
-            frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 48, end: 53 }),
+            frames: this.anims.generateFrameNumbers('sheetPersonagem', { start: 48, end: 53 }),
             repeat: -1
         });
 
+        // Exibe o pop-up de tutorial ao entrar na cena
+        this.mostrarTutorial();
     }
 
-    // Atualiza o estado do jogo a cada frame
+    mostrarTutorial() {
+        // Bloqueia o movimento durante o tutorial
+        this.tutorialAtivo = true;
+
+        const { width, height } = this.cameras.main;
+        const cx = width / 2;
+        const cy = height / 2;
+
+        // Container pai — setScrollFactor(0) mantém tudo fixo na tela
+        const container = this.add.container(0, 0).setScrollFactor(0).setDepth(100);
+
+        // Fundo escuro semi-transparente
+        const overlay = this.add.rectangle(cx, cy, width, height, 0x000000, 0.65)
+            .setScrollFactor(0);
+        container.add(overlay);
+
+        // Painel central
+        const painelW = 420, painelH = 320;
+        const painel = this.add.rectangle(cx, cy, painelW, painelH, 0x1a1a2e, 1)
+            .setStrokeStyle(2, 0x4a9eff)
+            .setScrollFactor(0);
+        container.add(painel);
+
+        // Título
+        const titulo = this.add.text(cx, cy - 130, '📋  BEM-VINDO AO MESTRE DE VENDAS!', {
+            fontSize: '18px', fontFamily: 'Arial', color: '#4a9eff',
+            fontStyle: 'bold'
+        }).setOrigin(0.5, 0.5).setScrollFactor(0);
+        container.add(titulo);
+
+        // Descrição do jogo
+        const descricao = this.add.text(cx, cy - 90,
+            'Explore o escritório, converse com\no Professor e descubra os desafios!', {
+            fontSize: '13px', fontFamily: 'Arial', color: '#cccccc',
+            align: 'center', lineSpacing: 6
+        }).setOrigin(0.5, 0.5).setScrollFactor(0);
+        container.add(descricao);
+
+        // Separador
+        const sep = this.add.rectangle(cx, cy - 56, 360, 1, 0x4a9eff, 0.4)
+            .setScrollFactor(0);
+        container.add(sep);
+
+        // Label de controles
+        const labelControles = this.add.text(cx, cy - 40, '🕹️  CONTROLES', {
+            fontSize: '14px', fontFamily: 'Arial', color: '#4a9eff', fontStyle: 'bold'
+        }).setOrigin(0.5, 0.5).setScrollFactor(0);
+        container.add(labelControles);
+
+        // Teclas com descrição
+        const teclas = [
+            { icone: '⬆', label: 'Mover para cima',     offsetY: -10 },
+            { icone: '⬇', label: 'Mover para baixo',    offsetY:  14 },
+            { icone: '⬅', label: 'Mover para esquerda', offsetY:  38 },
+            { icone: '➡', label: 'Mover para direita',  offsetY:  62 },
+        ];
+
+        teclas.forEach(({ icone, label, offsetY }) => {
+            const baseY = cy - 5;
+
+            const teclaFundo = this.add.rectangle(cx - 120, baseY + offsetY, 32, 24, 0x2a2a4e, 1)
+                .setStrokeStyle(1, 0x666688)
+                .setScrollFactor(0);
+            container.add(teclaFundo);
+
+            const teclaTexto = this.add.text(cx - 120, baseY + offsetY, icone, {
+                fontSize: '14px', fontFamily: 'Arial', color: '#ffffff'
+            }).setOrigin(0.5, 0.5).setScrollFactor(0);
+            container.add(teclaTexto);
+
+            const descTexto = this.add.text(cx - 96, baseY + offsetY, label, {
+                fontSize: '12px', fontFamily: 'Arial', color: '#bbbbbb'
+            }).setOrigin(0, 0.5).setScrollFactor(0);
+            container.add(descTexto);
+        });
+
+        // Separador 2
+        const sep2 = this.add.rectangle(cx, cy + 82, 360, 1, 0x4a9eff, 0.4)
+            .setScrollFactor(0);
+        container.add(sep2);
+
+        // Dica de interação
+        const dicaInteracao = this.add.text(cx, cy + 100,
+            '💬  Para falar com o Professor,\n     chegue perto dele!', {
+            fontSize: '13px', fontFamily: 'Arial', color: '#cccccc',
+            lineSpacing: 6
+        }).setOrigin(0.5, 0.5).setScrollFactor(0);
+        container.add(dicaInteracao);
+
+        // Texto piscante para fechar
+        const fechar = this.add.text(cx, cy + 140, 'Pressione qualquer tecla para continuar', {
+            fontSize: '12px', fontFamily: 'Arial', color: '#888888', fontStyle: 'italic'
+        }).setOrigin(0.5, 0.5).setScrollFactor(0);
+        container.add(fechar);
+
+        // Animação de piscar
+        this.tweens.add({
+            targets: fechar, alpha: 0.2,
+            duration: 700, yoyo: true, repeat: -1, ease: 'Sine.easeInOut'
+        });
+
+        // Fecha o pop-up ao pressionar qualquer tecla ou clicar
+        const fecharTutorial = () => {
+            container.destroy();
+            this.tutorialAtivo = false;
+        };
+
+        this.input.keyboard.once('keydown', fecharTutorial);
+        this.input.once('pointerdown', fecharTutorial);
+    }
+
     update() {
-        // Define a velocidade do personagem como 0 
+        // Congela o personagem enquanto o tutorial estiver aberto
+        if (this.tutorialAtivo) {
+            this.personagem.setVelocity(0);
+            return;
+        }
+
         this.personagem.setVelocity(0);
-        // Velocidade de movimento do personagem
         const vel = 200;
 
-        const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up')   && this.anims.exists('down');
+        const animsOk = this.anims.exists('left') && this.anims.exists('right') &&
+                        this.anims.exists('up')   && this.anims.exists('down');
 
-        // Movimento para esquerd
         if (this.cursor.left.isDown) {
             this.personagem.setVelocityX(-vel);
             if (animsOk) this.personagem.play('left', true);
 
-        // Movimento para direita
         } else if (this.cursor.right.isDown) {
             this.personagem.setVelocityX(vel);
             if (animsOk) this.personagem.play('right', true);
 
-        // Movimento para cima
         } else if (this.cursor.up.isDown) {
             this.personagem.setVelocityY(-vel);
             if (animsOk) this.personagem.play('up', true);
 
-        // Movimento para baixo
         } else if (this.cursor.down.isDown) {
             this.personagem.setVelocityY(vel);
             if (animsOk) this.personagem.play('down', true);
+
         } else {
             this.personagem.stop();
         }
