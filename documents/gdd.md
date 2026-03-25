@@ -550,20 +550,22 @@ O diagrama de cenas (gameflow) é uma ferramenta essencial no desenvolvimento de
 ### 
 
 ## 3.6. Regras do jogo (sprint 3)
+As regras de um jogo possuem um propósito fundamental: O estabelecimento de um desafio quando se traça objetivos claros, as regras atuam como o uma das principais formas de motivação e engajamento para o jogador. Tais restrições são consideradas produtivas, ao definir desafios para a conclusão do desafio, o sistema força o jogador a desenvolver a criatividade para superar obstáculos. Pode-se concluir que as regras não servem para impedir o jogador ou proibi-lo de algo, mas sim para dar significado e emoção quando os mesmos alcançam a vitória através da superação.
 
+\# | Regras
+-|----
+1|O jogador precisa passar pelo  tutorial com o Estadual antes de se direcionar para a cidade (MainScene).
+2| Ao interagir com os estabelecimentos jogador precisa seguir a ordem dita previamente informada.
+3|O jogador precisa conquistar o estabelecimento atual para interagir com o seguinte.
+4| É necessário que o jogador interaja com todos os estabelecimentos para vencer.
+5| A cada rodada o jogador precisa convencer um comerciante a virar um cliente Cielo.
+6| O jogador precisa manter o humor do comerciante acima de 60% para ganhar a fase.
+7| O jogador precisa acertar três perguntas para conquistar o cliente.
+8| Caso o jogador erre duas ou mais quetões ele perde o cliente.
+9| Caso o jogador esgote o banco de questões sem consquitar o cliente, ele é "mandado embora".
+10| O jogador precisa convencer todos os comerciantes da cidade a virarem clientes Cielo.
+11| O jogador deve responder conforme o padrão ensinado no onboarding da Cielo.
 
-
-- O jogador não pode avançar para um estabelecimento sem passar pelo tutorial do início com o Estadual;
-- O jogador deve interagir com os estabelecimentos seguindo as missões dadas pelo Estadual, afim de garantir a ordem dos níveis;
-- O jogador não pode avançar para um estabelecimento sem antes cumprir o anterior;
-- O jogador não pode ir para o próximo estabelecimento sem passar pelo Espaço Cielo;
-- O jogador não pode acessar estabelecimentos sem fazer repique dos anteriores;
-- O jogador deve ir em todos os estabelecimentos;
-- A cada rodada o jogador deve convencer um comerciante a virar um cliente Cielo;
-- O jogador deve manter o humor do comerciante acima de 60% para ganhar a fase;
-- O jogador deve convencer todos os comerciantes da cidade a virarem clientes Cielo;
-- O jogador deve responder a todos os chamados do analista estadual;
-- O jogador deve responder conforme o padrão ensinado no onboarding da Cielo.
 
 ## 3.7. Mecânicas do jogo (sprint 3)
 
@@ -574,12 +576,19 @@ O diagrama de cenas (gameflow) é uma ferramenta essencial no desenvolvimento de
 1| Os movimentos do player no mapa e no Espaço Cielo são determinados pelas teclas de seta do teclado (left, right, up, down).
 2| O jogador entra em cada fase quando a sprite colide com a representação de um dos comércios no mapa.
 3| Para sair das fases (comércios) o jogador pressiona a tecla espaço do teclado
-4| Dentro da fase o jogador permanece na visão de primeira pessoa
+4| Dentro da fase o jogador permanece na visão de terceira pessoa/visão lateral
 5| Durante as fases o jogador utiliza o mouse (tecla esquerda) para clicar em uma das duas opções de diálogo.
 6| Uma variável numérica rastreia o nível de satisfação dos comerciantes em cada fase.
-7| O valor da variável é alterado de acordo com as opções de diálogo escolhidas pelo jogador (+33,3% se for um acerto, -33,3% se for um erro)
-8| O sistema barra o acesso aos estabelecimentos se o jogador não passar pelo tutorial.
-9| O sistema convoca o jogador para o Espaço Cielo ao término de cada fase
+7| O valor da variável é alterado de acordo com as opções de diálogo escolhidas pelo jogador (+33,3% se for um acerto, -33,3% se for um erro).
+8| A escolha de um dos quatro personagens jogáveis é feita através do clique do botão esquerdo do mouse sobre o ícone do GN escolhido na tela de escolha de personagens.
+9| O tutorial do Estadual possui uma sequência de 8 caixas de texto sobre produtos e serviços Cielo que progridem conforme o jogador clica no botão continuar com o botão esquerdo do mouse.
+10| No tutorial do Estadual é o jogador regrede na sequência dos textos sobre produtos e serviços Cielo clicando no botão voltar com o botão esquerdo do mouse.
+11| Para sair do tutorial o jogador clica no botão "Voltar ao escritório" com o botão esquerdo do mouse.
+12| O encerramento de cada fase em vitória se dá quando a variável numérica que rastreia o nível de satisfação tem o valor igual à 100%.
+13| O encerramento de cada fase em derrota se dá quando a variável numérica que rastreia o nível de satisfação tem o valor igual à 1%.
+14| O encerramento de cada fase em "O cliente te mandou embora" se dá quando o jogador esgota todas as questões disponíveis.
+15| Os sprites dos NPC's alteram de acordo com o valor da variável numérica do nível de satisfação, ("Neutro" == 34, "Feliz" >= 34, "Bravo" <= 34).
+17| As alternativas de resposta são posicionadas de forma aletória nas duas caixas de de respostas.
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
@@ -994,3 +1003,6 @@ VALOR ECONÔMICO. A estratégia das adquirentes para não perder espaço para o 
 # <a name="c8"></a>Anexos
 
 *Inclua aqui quaisquer complementos para seu projeto, como diagramas, imagens, tabelas etc. Organize em sub-tópicos utilizando headings menores (use ## ou ### para isso)*
+
+
+
