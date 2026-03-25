@@ -15,6 +15,7 @@ class Padaria extends Combate {
     }
 
     preload() {
+        super.preload();
 
         // Fundo
         this.load.image('bgPadaria', 'assets/padaria_interior.png');

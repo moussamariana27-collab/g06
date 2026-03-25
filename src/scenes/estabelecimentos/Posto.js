@@ -9,6 +9,7 @@ class Posto extends Combate {
     }
 
     preload() {
+        super.preload();
 
         // Fundo
         this.load.image('bgPosto', 'assets/FundoPosto.png');
