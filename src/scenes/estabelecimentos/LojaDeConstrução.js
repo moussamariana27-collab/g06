@@ -1,7 +1,7 @@
 // CENA DA LOJA DE CONSTRUÇÃO - Minigame de vendas
 
 // Aqui acontece toda a lógica do jogo dentro da loja de material de construção.
-// O jogador precisa responder perguntas do Seu Tião e
+// O jogador precisa responder perguntas da Lígia e
 // encher a barra de satisfação pra fechar a venda.
 
 class LojaDeConstrução extends Combate {
@@ -76,41 +76,41 @@ class LojaDeConstrução extends Combate {
 
             // Pergunta 1 — Taxas e prazo de recebimento no parcelado
             {
-                pergunta: "LÍGIA:\n A gente vende bastante no parcelado, mas as taxas pesam demais e o prazo pra receber não ajuda. Fico apertado no caixa toda vez que faço uma venda grande.",
-                certo: "Conseguimos montar uma condição personalizada pro seu negócio, Seu Tião — com taxas mais equilibradas e recebimento em até 1 dia, no D0 ou D1, inclusive em sábados, domingos e feriados. Assim o senhor vende no parcelado sem comprometer o fluxo de caixa.",
-                errado: "As taxas são padrão pra todo mundo e o prazo de recebimento é sempre o mesmo. Infelizmente não tem muito o que fazer nesse ponto.",
+                pergunta: "LÍGIA:\n A gente vende bastante no parcelado, mas as taxas pesam demais e o prazo pra receber não ajuda. Fico apertada no caixa toda vez que faço uma venda grande.",
+                certo: "Entendo, Lígia. Na Cielo, estruturamos uma taxa customizada já atrelada à Antecipação de Recebíveis de forma integral. A senhora recebe o valor total da venda parcelada em D0 ou D1, inclusive fins de semana, sem a cobrança de taxas de antecipação avulsas por parcela.",
+                errado: "É o padrão do varejo, Lígia. O que sugerimos é habilitar a Antecipação Automática. Assim, o sistema adianta o valor das vendas parceladas cobrando uma taxa fixa de desconto sobre o volume útil do dia, protegendo seu caixa contra a desvalorização.",
                 resposta: true
             },
 
             // Pergunta 2 — D0 e D1: entender as modalidades de recebimento
             {
                 pergunta: "LÍGIA:\n Esse tal de D0 e D1 que você mencionou... qual a diferença? E tem algum custo a mais pra receber no mesmo dia?",
-                certo: "No D0 o valor cai na conta no mesmo dia da venda, e no D1 no dia seguinte — ambos contando dias corridos, incluindo fins de semana e feriados. A escolha é sua de acordo com o que faz mais sentido pro fluxo do seu caixa.",
-                errado: "D0 e D1 são modalidades com custo adicional. O mais barato sempre será aguardar o prazo padrão, que garante que o senhor pague menos taxa no final do mês.",
+                certo: "A grande vantagem é que D0 (mesmo dia) e D1 (dia seguinte) consideram dias corridos. Vendendo no sábado ou domingo, o dinheiro entra no próprio fim de semana. A taxa acordada é única e já engloba essa agilidade, sem tarifa extra de transferência.",
+                errado: "No D0 o repasse ocorre no mesmo dia, sujeito à tarifa de liquidez imediata. No D1, o valor entra no próximo dia útil, que é o formato mais econômico. A maioria dos lojistas opta pelo D1 para não pagar spread em transações de fim de semana.",
                 resposta: true
             },
 
             // Pergunta 3 — Previsibilidade: medo de taxa mudar no meio do caminho
             {
                 pergunta: "LÍGIA:\n Pra falar a verdade, já fui enganada antes. Começou com taxa boa e depois mudou. Como eu sei que não vai acontecer a mesma coisa com a Cielo?",
-                certo: "Todas as condições acordadas ficam registradas em contrato, Seu Tião. Isso garante total transparência e previsibilidade — sem surpresas no meio do caminho que comprometam a margem do seu negócio.",
-                errado: "As taxas podem mudar sim, Seu Tião. Isso é algo que depende do mercado e acontece com todas as operadoras. O importante é sempre acompanhar o extrato.",
+                certo: "Na Cielo, a sua condição comercial é registrada e travada em contrato. Nós não fazemos reajustes unilaterais de balcão, garantindo total previsibilidade para a senhora calcular seu preço de venda.",
+                errado: "Nossa taxa acompanha a Selic, Lígia. Como somos 100% transparentes, nós avisamos com 30 dias de antecedência qualquer reajuste de mercado, para a senhora ter tempo de se programar.",
                 resposta: true
             },
 
             // Pergunta 4 — Parcelado em reformas grandes: como não perder vendas
             {
                 pergunta: "LÍGIA:\n E quando eu vendo parcelado em reformas grandes, às vezes o cliente quer parcelas longas. Eu perco dinheiro nisso ou a Cielo resolve?",
-                certo: "A Cielo resolve sim. Com a antecipação de recebíveis, o senhor oferece parcelamento pro cliente e ainda assim recebe em D0 ou D1 — aumentando o ticket médio das suas vendas sem apertar o caixa.",
-                errado: "Infelizmente quanto mais longo o parcelamento, maior a taxa. Nesses casos o ideal é limitar o parcelamento a no máximo 3 vezes pra não comprometer sua margem.",
+                certo: "A Cielo resolve! Com a nossa antecipação, a senhora vende em até 12x e recebe o valor integral de uma vez (descontada a taxa acordada) em D0 ou D1. A senhora ganha poder de venda sem descapitalizar.",
+                errado: "Para vendas muito longas, nós liberamos o valor mês a mês, conforme o cliente paga as parcelas. Assim a senhora não paga a taxa de antecipação e protege 100% da sua margem de lucro.",
                 resposta: true
             },
 
             // Pergunta 5 — Fechamento: simplificar a gestão do dia a dia
             {
                 pergunta: "LÍGIA:\n Olha, você explicou bem. Mas eu sou só eu aqui na loja. Não tenho equipe de financeiro. Preciso de algo simples que eu mesma consiga acompanhar.",
-                certo: "A operação é fácil, rápida e sem complicação. O app Cielo Gestão permite que o senhor acompanhe todas as vendas, o fluxo de caixa e o que vai receber direto pelo celular — sem precisar de equipe especializada.",
-                errado: "Bom, aí já é decisão do senhor ver se tem estrutura. O sistema tem bastante funcionalidade e pode exigir um tempo de adaptação pra usar tudo direitinho.",
+                certo: "O app Cielo Gestão centraliza tudo. A senhora visualiza suas vendas, faz simulador de parcelamento na hora pro cliente e acompanha o saldo a receber, tudo de forma muito intuitiva direto no celular.",
+                errado: "Nós enviamos relatórios financeiros detalhados por e-mail toda sexta-feira, Lígia. Além disso, a senhora pode baixar o extrato em planilhas no nosso portal sempre que for fazer o fechamento do mês.",
                 resposta: true
             }
 
