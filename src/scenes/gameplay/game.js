@@ -67,7 +67,7 @@ class Cidade extends Phaser.Scene {
         const spawnY = spawnObj.y + spawnObj.height / 2;
 
         // Cria o personagem com física na posição de spawn
-        this.personagem = this.physics.add.sprite(this.posicaoSpawn.x, this.posicaoSpawn.y, this.character, 0).setScale(1.0);
+        this.personagem = this.physics.add.sprite(this.posicaoSpawn.x, this.posicaoSpawn.y, 'sheetPersonagem', 0).setScale(1.0);
 
         // Ativa colisão do personagem com as bordas do mundo
         this.personagem.setCollideWorldBounds(true);
