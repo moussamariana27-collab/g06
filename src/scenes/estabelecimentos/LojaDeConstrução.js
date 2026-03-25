@@ -110,7 +110,7 @@ class LojaDeConstrução extends Combate {
 
         ],
 
-        posicaoSpawn: { x: 130, y: 550 },
+        posicaoSpawn: { x: 710, y: 966 },
 
         });
 

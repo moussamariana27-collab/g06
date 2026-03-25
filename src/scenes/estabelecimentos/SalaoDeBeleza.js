@@ -98,7 +98,7 @@ class SalaoDeBeleza extends Combate {
 
         ],
 
-        posicaoSpawn: { x: 130, y: 550 }, 
+        posicaoSpawn: { x: 410, y: 555 }, 
 
         });
 

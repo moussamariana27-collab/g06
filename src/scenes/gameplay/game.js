@@ -3,8 +3,8 @@ class Cidade extends Phaser.Scene {
 
     // Recebe o personagem escolhido na cena anterior
     init(data) { this.personagemEscolhido = data?.character || null;
-                 this.posicaoSpawn = data?.posicaoSpawn || { x: 130, y: 550 };
-     } // x: 190, y: 320
+                 this.posicaoSpawn = data?.posicaoSpawn || {  x: 190, y: 330 };
+     } 
 
     preload() {
         this.load.audio('musicacidade', 'assets/mapa.mp3')
@@ -211,6 +211,12 @@ class Cidade extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers('sheetPersonagem',{start: 48, end: 53 }),
             repeat: -1
         });
+
+
+        this.input.keyboard.once('keydown-SPACE', () => {
+            console.log(`${this.personagem.x} e ${this.personagem.y}` )
+        });
+
 
     }
 

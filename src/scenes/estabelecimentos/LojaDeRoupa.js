@@ -93,7 +93,9 @@ class LojaDeRoupa extends Combate {
                     errado: "Ah, aumentar o movimento eu não posso garantir, né? Isso depende da qualidade das roupas que a senhora vende. Mas pelo menos a senhora vai ter a maquininha verdinha.",
                     resposta: true
                 }
-            ]
+            ],
+
+            posicaoSpawn: { x: 800, y: 690 }, 
         });
 
         this.createUI();

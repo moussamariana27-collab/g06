@@ -95,7 +95,7 @@ class Posto extends Combate {
 
         ],
 
-        posicaoSpawn: { x: 130, y: 550 },
+        posicaoSpawn: { x: 815, y: 220 },
 
         });
 
