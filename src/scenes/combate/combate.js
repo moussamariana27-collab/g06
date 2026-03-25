@@ -346,7 +346,7 @@ reposicionarUI(gameSize) {
 
     this.mostrarTelaFinal({
         texto: "VOCÊ CONVENCEU O CLIENTE",
-        voltarPara: "Cidade"
+        voltarPara: "FeedbackVitoria" + this.scene.key,
     });
 };
 
@@ -354,7 +354,7 @@ reposicionarUI(gameSize) {
 
     this.mostrarTelaFinal({
         texto: "VOCÊ NÃO FOI CAPAZ DE CONQUISTAR O CLIENTE",
-        voltarPara: "Escritorio",
+        voltarPara: "FeedbackDerrota" + this.scene.key,
         tamanhoFonte: 58
     });
 };
@@ -362,7 +362,7 @@ reposicionarUI(gameSize) {
     fimDasPerguntas() {
     this.mostrarTelaFinal({
         texto: "O CLIENTE TE MANDOU EMBORA",
-        voltarPara: "Escritorio"
+        voltarPara: "FeedbackDerrota" + this.scene.key,
     });
 };
 
@@ -400,8 +400,6 @@ reposicionarUI(gameSize) {
 
     // Delay antes de sair
     this.time.delayedCall(4000, () => {
-        // Para a música de combate antes de trocar de cena
-        this.musica.stop();
         this.scene.start(voltarPara, { character: this.personagemEscolhido });
     });
 }

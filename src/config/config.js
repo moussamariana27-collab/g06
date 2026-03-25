@@ -31,7 +31,16 @@ var config = {
         Padaria,
         Posto,
         SalaoDeBeleza,
-        Mercado
+        Mercado,
+        FeedbackDerrotaPadaria,
+        FeedbackVitoriaPadaria,
+        FeedbackDerrotaSalaoDeBeleza,
+        FeedbackVitoriaSalaoDeBeleza,
+        FeedbackDerrotaPosto,
+        FeedbackVitoriaPosto,
+        FeedbackDerrotaSupermercado,
+        FeedbackVitoriaSupermercado,
+        
     ]
 };
 
