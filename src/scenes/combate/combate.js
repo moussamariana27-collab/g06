@@ -157,6 +157,16 @@ class Combate extends Phaser.Scene {
 
         this.barra = this.add.graphics();
 
+        // TEXTO DA BARRA DE SATISFAÇÃO
+        this.textoSatisfacao = this.add.text(300 + 1000 / 2, 95, "BARRA DE SATISFAÇÃO", {        
+            fontSize: "48px", // maior
+        color: "#000000", // preto
+        fontFamily: "Pixelify Sans",
+        fontStyle: "bold", // mais legível
+        stroke: "#ffffff",
+        strokeThickness: 4,
+            }).setDepth(10).setOrigin(0.5);
+
         this.scale.on('resize', this.reposicionarUI, this);
 
     }
@@ -198,6 +208,14 @@ reposicionarUI(gameSize) {
 
     // Atualiza barra
     this.barraSatisfacao();
+
+    //Bota a palavra Satisfação centralizada no no meio da barra
+    if (this.textoSatisfacao) {
+    this.textoSatisfacao.setPosition(
+        300 + 1000 / 2, // centro da barra
+        95
+    );
+}
 }
 
         animarBarra(novoValor) {
