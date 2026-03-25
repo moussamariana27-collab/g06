@@ -1,3 +1,9 @@
+// CENA DO POSTO DE COMBUSTÍVEL - Minigame de vendas
+
+// Aqui acontece toda a lógica do jogo dentro do posto.
+// O jogador precisa responder perguntas da Sra. Roberta e
+// encher a barra de satisfação pra fechar a venda.
+
 class Posto extends Combate {
 
     constructor() {
@@ -9,13 +15,14 @@ class Posto extends Combate {
     }
 
     preload() {
-        super.preload();
+
+        super.preload(); // carrega a música de batalha
 
         // Fundo
         this.load.image('bgPosto', 'assets/FundoPosto.png');
 
-        // NPC (padeiro)
-        this.load.spritesheet('Frentista', 'assets/Roberta.png', {
+        // NPC (Roberta)
+        this.load.spritesheet('roberta', 'assets/Roberta.png', {
             frameWidth: 640,
             frameHeight: 1080
         });
@@ -35,20 +42,20 @@ class Posto extends Combate {
             return;
         }
 
-        this.load.image('personagemFrentista', dadosSprite.file);
+        this.load.image('personagemPosto', dadosSprite.file);
     }
 
     create() {
 
         // Fundo
-        const bg = this.add.image(0, 0, 'bgPosto')
+        this.fundoCena = this.add.image(0, 0, 'bgPosto')
             .setOrigin(0, 0)
             .setDepth(0);
 
-        bg.setDisplaySize(this.scale.width, this.scale.height);
+        this.fundoCena.setDisplaySize(this.scale.width, this.scale.height);
 
         // NPC
-        this.criarFrentista();
+        this.criarRoberta();
 
         // Jogador
         this.criarPlayer();
@@ -59,44 +66,45 @@ class Posto extends Combate {
             questoes: [
 
             {
-                pergunta:"SEU TIÃO:O problema é que oque eu também vendo no fim de semana, até no domingo. Tem hora que eu preciso do dinheiro rápido numa emergência. E aí eu preciso vender no dinheiro, não tem jeito!",
-                certo: "Tem jeito sim SR. João! A CIELO tem um serviço chamado'Vendeu, Tá na Conta', com ele todas as vendas que o senhor fez até 18:59 o valor cai na sua conta no mesmo dia, inclusive nos finais de semana e feriados! O dinheiro cai na conta em poucas horas.",
-                errado: "Infelizmente nós não trabalhalhamos fim de semana, Seu João. Se o senhor quiser o dinheiro no mesmo dia vai ter que vender no físico.",
+                // Abertura: previsibilidade de taxas — gancho central do script do analista
+                pergunta: "SRA. ROBERTA:\n Já tive problema com maquininha que começou com taxa boa e depois subiu. Não tenho como aceitar surpresa no meio do caminho no meu nível de faturamento.",
+                certo: "Todas as condições acordadas ficam formalizadas em contrato, Sra. Roberta. Com o acordo comercial estruturado para postos de alto faturamento, garantimos estabilidade nas taxas por 12 meses, trazendo total previsibilidade pro seu caixa.",
+                errado: "As taxas podem mudar sim, Sra. Roberta. Isso depende do mercado — é algo normal que acontece com todos os players.",
                 resposta: true
             },
 
             {
-                pergunta: "SRA. ROBERTA: \n' Eu movimento uma média de 750 mil por dia, mas meu lucro por litro é muito baixo. Meu contrato atual me dá uma taxa de antecipação que vocês não oferecem. Por que eu trocaria meu fluxo de caixa garantido pelo serviço do 'Vendeu, Tá na Conta' se o custo efetivo total pode corroer minha margem?",
-                certo: "Sra. Roberta, o 'Vendeu, Tá na Conta' não é só antecipação, é liquidez imediata em dias não úteis. Ter o dinheiro das vendas de sábado e domingo na conta no próprio domingo permite ao senhor negociar melhor com a distribuidora, economizando no custo do produto, o que paga qualquer diferença de taxa.",
-                errado: "Nós temos as taxas mais competitivas do mercado para grandes volumes, Sra. Robeta. Se a senhora me mostrar seu contrato, eu consigo uma carência de 3 meses e uma taxa de antecipação fixa que vai garantir que o senhor receba tudo em D+1 sem sustos.",
+                // Liquidez imediata — "Vendeu, Tá na Conta" em dias não úteis
+                pergunta: "SRA. ROBERTA:\n Eu movimento uma média de 750 mil por dia, mas às vezes preciso do dinheiro rápido num fim de semana pra fechar com a distribuidora. Como a Cielo resolve isso?",
+                certo: "Com o 'Vendeu, Tá na Conta', todas as vendas feitas até 18h59 caem na sua conta no mesmo dia — inclusive sábado, domingo e feriados. Isso permite negociar melhor com a distribuidora e reduzir o custo do produto, pagando qualquer diferença de taxa.",
+                errado: "Infelizmente o crédito em finais de semana segue o calendário bancário, Sra. Roberta. Se precisar do dinheiro no mesmo dia, a opção é incentivar o pagamento em dinheiro físico.",
                 resposta: true
             },
 
             { 
-                pergunta:  "SRA. ROBERTA: Minhas máquinas ficam na pista, levam sol, chuva e respingo de gasolina. Já perdi muita maquininha dessas novas porque a tela parou de ler ou a bateria inchou no calor. Esses terminais novos resistem a esse ambiente ou vou ter que chamar o suporte todo dia?",
-                certo: "A Cielo Smart e a LIO On foram projetadas para o uso severo. Além da bateria de longa duração e do carregador magnético que evita desgaste de conectores, o hardware possui um teclado físico com película de silicone para acessibilidade e proteção. E se houver qualquer falha, nosso suporte técnico é prioritário com troca garantida para não parar suas bombas.", 
-                errado: "Nossas máquinas são as melhores do mercado e a senhora pode usar uma capa protetora de borracha. Se ela quebrar, o seguro da Cielo cobre o dano físico e nós enviamos uma nova pelo correio em até 3 dias úteis para a senhora.",
+                // Durabilidade do hardware em ambiente severo — pista, sol, chuva, gasolina
+                pergunta: "SRA. ROBERTA:\n Minhas máquinas ficam na pista, levam sol, chuva e respingo de gasolina. Já perdi muito terminal porque a tela parou ou a bateria inchou no calor. Os da Cielo aguentam esse ambiente?",
+                certo: "A Cielo Smart e a LIO On foram projetadas para uso severo, com bateria de longa duração, carregador magnético que evita desgaste de conectores e teclado físico com película de silicone. Se houver qualquer falha, o suporte técnico é prioritário e a troca é garantida pra não parar suas bombas.", 
+                errado: "Nossas máquinas são as melhores do mercado e a senhora pode usar uma capa protetora de borracha. Se quebrar, enviamos uma nova pelo correio em até 3 dias úteis.", 
                 resposta: true 
             },
             
             {
-                pergunta:  "SRA. ROBERTA:\n A concorrência me dá exclusividade e taxa zero na bandeira X. Por que eu colocaria a Cielo aqui e complicaria a vida dos meus frentistas com duas máquinas diferentes, se a maioria dos meus clientes usam essa bandeira?", 
-                certo: "Porque exclusividade é um risco para o seu posto, Sra. Roberta a Cielo aceita mais de 80 bandeiras diferentes, incluindo vouchers e cartões frota que a concorrência não lê. Ao focar em uma só, o senhor perde caminhoneiros ou frotas de empresas que usam um cartão específico. A Cielo garante que atenda qualquer cliente.",
-                errado: "A Cielo também pode fazer acordos de exclusividade se o volume for alto. Podemos oferecer uma taxa zero para a senhora em nas principais bandeiras por pelo menos 6 meses.",
+                // Exclusividade de bandeira como risco — argumento das 80+ bandeiras e cartões frota
+                pergunta: "SRA. ROBERTA:\n A concorrência me dá exclusividade e taxa zero em uma bandeira. Por que eu colocaria a Cielo aqui e complicaria a vida dos meus frentistas com duas máquinas diferentes?", 
+                certo: "Exclusividade é um risco pro seu posto, Sra. Roberta. A Cielo aceita mais de 80 bandeiras, incluindo vouchers e cartões frota que a concorrência não lê. Focar em uma só significa perder caminhoneiros e frotas corporativas — a Cielo garante que o senhor atenda qualquer cliente que chegar na pista.",
+                errado: "A Cielo também pode fazer acordos de exclusividade se o volume for alto. Podemos oferecer taxa zero nas principais bandeiras por pelo menos 6 meses.", 
                 resposta: true 
             },
             
             { 
-                pergunta: "SRA. ROBERTA:\ n Eu tenho 3 turnos de frentistas e 12 máquinas rodando. No final do dia, é um inferno bater o que caiu na conta com o que cada um vendeu. A concorrência me manda um relatório por e-mail no dia seguinte. O que vocês oferecem pra mim não ficar perdendo tempo?",
-                certo: "A Cielo LIO On possui o app Cielo Gestão, que faz a conciliação em tempo real. O fechamento de caixa é feito com um clique direto na máquina ou pelo celular. A senhora enxerga exatamente o que cada terminal vendeu, separa por turno e o relatório é instantâneo. ",
-                errado: "Nós imprimimos um relatório detalhado em cada máquina ao final do turno. O frentista só precisa grampear esse papel no fechamento dele e a senhora confere tudo de uma vez no final da semana pelo nosso portal no computador.",
+                // Conciliação e gestão em tempo real — fechamento de caixa por turno
+                pergunta: "SRA. ROBERTA:\n Tenho 3 turnos de frentistas e 12 máquinas rodando. No final do dia é um inferno bater o que caiu na conta com o que cada um vendeu. Como a Cielo resolve isso?",
+                certo: "Com o app Cielo Gestão na LIO On, a conciliação é feita em tempo real. O fechamento de caixa é com um clique direto na máquina ou pelo celular — a senhora enxerga exatamente o que cada terminal vendeu, separado por turno, com relatório instantâneo.",
+                errado: "Imprimimos um relatório detalhado em cada máquina ao final do turno. O frentista grampeia no fechamento e a senhora confere tudo no final da semana pelo nosso portal.",
                 resposta: true 
             }
-
-        ],
-
-        posicaoSpawn: { x: 815, y: 220 },
-
+        ]
         });
 
         // UI e lógica (HERDADO)
@@ -105,49 +113,53 @@ class Posto extends Combate {
         this.barraSatisfacao();
 
         // Liga o NPC ao sistema base
-        this.updateNPC = this.faceFrentista;
-        this.faceFrentista();
+        this.updateNPC = this.faceRoberta;
+        this.faceRoberta();
 
         // Voltar pra cidade
-        this.input.keyboard.once('keydown-SPACE', () =>
-            this.scene.start('Cidade', { character: this.personagemEscolhido })
-        );
+        this.input.keyboard.once('keydown-SPACE', () => {
+            // Para a música de batalha antes de voltar
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
+        });
 
-        this.input.keyboard.once('keydown-ENTER', () =>
-            this.scene.start('Cidade', { character: this.personagemEscolhido })
-        );
+        this.input.keyboard.once('keydown-ENTER', () => {
+            // Para a música de batalha antes de voltar
+            this.musica.stop();
+            this.scene.start('Cidade', { character: this.personagemEscolhido });
+        });
     }
 
     // CRIA NPC
-    criarFrentista() {
+    criarRoberta() {
 
-        this.Frentista = this.add.sprite(
+        this.roberta = this.add.sprite(
             (this.scale.width * 2 / 3) + 40,
             this.scale.height - 400,
-            'Frentista'
+            'roberta'
         )
             .setDepth(2)
             .setScale(0.55)
             .setFlip(true, false);
 
-        // Animações
+        // Define as keys e os Frames em que o NPC está estável, feliz e bravo
         this.anims.create({
-            key: "bravoFrentista",
-            frames: this.anims.generateFrameNumbers('Frentista', { start: 0, end: 0 }),
+            key: "bravoRoberta",
+            frames: this.anims.generateFrameNumbers('roberta', { start: 0, end: 0 }),
             frameRate: 1,
             repeat: -1
         });
 
         this.anims.create({
-            key: "estavelFrentista",
-            frames: this.anims.generateFrameNumbers('Frentista', { start: 1, end: 1 }),
+            key: "estavelRoberta",
+            frames: this.anims.generateFrameNumbers('roberta', { start: 1, end: 1 }),
             frameRate: 1,
             repeat: -1
         });
 
         this.anims.create({
-            key: "felizFrentista",
-            frames: this.anims.generateFrameNumbers('Frentista', { start: 2, end: 2 }),
+            key: "felizRoberta",
+            frames: this.anims.generateFrameNumbers('roberta', { start: 2, end: 2 }),
             frameRate: 1,
             repeat: -1
         });
@@ -166,31 +178,31 @@ class Posto extends Combate {
             posY -= 60;
         }
 
-        this.add.image(posX, posY, 'personagemFrentista')
+        this.add.image(posX, posY, 'personagemPosto')
             .setDepth(1)
             .setScale(escala);
     }
 
     // LÓGICA DO NPC (chamada pela classe base)
-    faceFrentista() {
+    faceRoberta() {
 
         if (this.satisfacao === 34) {
-            this.Frentista.play('estavelFrentista', true);
+            this.roberta.play('estavelRoberta', true);
             return;
         }
 
         else if (this.satisfacao === 1) {
-            this.Frentista.play('bravoFrentista', true);
+            this.roberta.play('bravoRoberta', true);
             return;
         }
 
         else if (this.satisfacao === 67) {
-            this.Frentista.play('felizFrentista', true);
+            this.roberta.play('felizRoberta', true);
             return;
         }
 
         else if (this.satisfacao < 0 || this.satisfacao === 100) {
-            this.Frentista.play('felizFrentista', true);
+            this.roberta.play('felizRoberta', true);
         }
     }
 }
