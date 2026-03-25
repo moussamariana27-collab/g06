@@ -525,14 +525,14 @@ Demonstra a centralidade do prédio da Cielo no level design, facilitando o aces
 
 ### 3.3.5. Trilha sonora (sprint 4)
 
-*Descreva a trilha sonora do jogo, indicando quais músicas serão utilizadas no mundo e nas fases. Utilize listas ou tabelas para organizar esta seção. Caso utilize material de terceiros em licença Creative Commons, não deixe de citar os autores/fontes.*
+No mundo dos jogos, a trilha sonora é um recurso de suma importância para a experiência do usuário, sendo utilizada para fornecer feedbacks sonoros (sons para vitória ou derrota) para as ações dos jogadores, como também para deixar a experiência mais imersiva. Além disso, os recursos sonoros de um jogo reduzem a carga cognitiva, já que auxiliam o jogador a entender o ambiente e a integrar-se a ele. 
 
-*Exemplo de tabela*
-\# | titulo | ocorrência | autoria
---- | --- | --- | ---
-1 | tema de abertura | tela de início | própria
-2 | tema de combate | cena de combate com inimigos comuns | Hans Zimmer
-3 | ... 
+\# | titulo | ocorrência | autoria | fonte | Duração
+--- | --- | --- | --- | --- | ---
+1 | Tema de abertura | tela de início e tela de escolha dos personagens | XTREMEFREDDY | (XTREMEFREDDY, 2023) | 1 minuto e 15 segundos.
+2 | Tema do Espaço Cielo | tela do Espaço Cielo | Dean Raul DiArchangeli | (DIARCHANGELI, 2012) | 2 minutos e 33 segundos.
+3 | Tema do mapa da Cidade | tela do mapa da Cidade | Lindsey Sewell | (SEWELL, 2021) | 2 minutos e 38 segundos.
+4 | Tema das cenas de combate | telas de combate (parte interna dos estabelecimentos) | Alexandr Zhelanov | (ZHELANOV, 2014) | 1 minuto e 44 segundos.
 
 ## 3.4. Inventário e Bestiário (sprint 3)
 
@@ -933,6 +933,8 @@ CONSUMIDOR MODERNO. A história da maquininha de cartão e sua evolução no Bra
 
 DATAFOLHA. Mais de 15,5 milhões de brasileiros se identificam como LGBTQIA+. São Paulo: Datafolha, 2022. Disponível em: https://odia.ig.com.br/brasil/2022/09/6492474-datafolha-mais-de-155-milhoes-de-brasileiros-se-identificam-como-lgbtqia-.html
 
+DIARCHANGELI, Dean-Raul. City Office Ambience. [S.l.]: Pixabay, 2012. 1 arquivo sonoro (2 min 33 s). Disponível em: https://pixabay.com/sound-effects/city-office-ambience-6322/.
+
 DOCK TECH. Pix: sistema de pagamentos instantâneos do Banco Central completa cinco anos. 2025. Disponível em: https://dock.tech/fluid/blog/financeiro/pix-sistema-pagamentos-instantaneos-banco-central/
 
 EDRONE. Os dados do e-commerce no Brasil são animadores e colocam o país entre os maiores players deste mercado para os próximos anos. 2026. Disponível em: https://edrone.me/pt/blog/dados-ecommerce-brasil
@@ -979,11 +981,17 @@ PORTER, Michael E. Estratégia competitiva: técnicas para análise de indústri
 
 SEU DINHEIRO. PagSeguro apresenta suas armas na guerra das maquininhas de cartão. 2019. Disponível em: https://www.seudinheiro.com/2019/economia/pagseguro-apresenta-suas-armas-na-guerra-das-maquininhas-de-cartao/
 
+SEWELL, Lindsey. Musical Cottagecore. [S.l.]: Pixabay, 2021. 1 arquivo sonoro (2 min 38 s). Disponível em: https://pixabay.com/pt/sound-effects/musical-cottagecore-17463/.
+
 SILVA LOPES ADVOGADOS. Modelos de negócio no setor de pagamentos: adquirentes e subadquirentes. 2024. Disponível em: https://silvalopes.adv.br/modelos-pagamentos/
 
 SUNO NOTÍCIAS. Cielo e o desafio do setor de maquininhas: como a empresa se reinventa. 2024. Disponível em: https://www.suno.com.br/noticias/cielo-ciel3-desafios-setor-adquirencia/
 
 VALOR ECONÔMICO. A estratégia das adquirentes para não perder espaço para o pagamento instantâneo. 2023. Disponível em: https://valor.globo.com/financas/noticia/2023/10/20/maquininhas-se-adaptam-ao-pix.ghtml
+
+XTREMEFREDDY. Musical Game Music Loop 7. [S.l.]: Pixabay, 2023. 1 arquivo sonoro (1 min 15 s). Disponível em: https://pixabay.com/pt/sound-effects/musical-game-music-loop-7-145285/.
+
+ZHELANOV, Alexandr. Oops. [S.l.]: OpenGameArt, 2014. 1 arquivo sonoro (1 s). Disponível em: https://opengameart.org/content/oops.
 
 
 
