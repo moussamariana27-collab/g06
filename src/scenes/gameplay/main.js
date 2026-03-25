@@ -10,6 +10,7 @@ class MainScene extends Phaser.Scene {
         console.log('Personagem escolhido:', this.characterEscolhido);
         this.load.tilemapTiledJSON('mapaEscritorio', 'assets/escritorio.json');
         this.load.image('escritoriTileset', 'assets/escritorio_tileset.png');
+        this.load.image('estadualEmPe', 'assets/estadual_em_pe.png');
         this.load.audio('escritorio', 'assets/escritorio.mp3')
 
         // Define os sprites de cada personagem disponível com suas dimensões
@@ -129,6 +130,19 @@ class MainScene extends Phaser.Scene {
             // Calcula o centro da zona do dialogo
             const profX = obj.x + obj.width / 2;
             const profY = obj.y + obj.height / 2;
+
+            // Adiciona a imagem do estadual centralizada
+            const estadual = this.add.image(profX, profY, 'estadualEmPe').setOrigin(0.5, 0.5).setScale(0.25);
+            
+            // Animação de pulo
+            this.tweens.add({
+                targets: estadual,
+                y: profY - 15,
+                duration: 600,
+                yoyo: true,
+                repeat: -1,
+                ease: 'Sine.inout'
+            });
 
             // Cria a zona do dialogo
             this.zonaProfessor = this.add.zone(profX, profY, obj.width, obj.height);
