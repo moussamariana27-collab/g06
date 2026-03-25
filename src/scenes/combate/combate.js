@@ -26,50 +26,9 @@ class Combate extends Phaser.Scene {
     createUI() {
 
         this.graficosUI = [];
-        this.graficosBarra = [];
 
         const largura = this.scale.width;
         const altura = this.scale.height;
-
-        // ─── CARD DA BARRA DE SATISFAÇÃO ──────────────────────────────
-        const barraCardX = largura * 0.15;
-        const barraCardY = altura * 0.03;
-        const barraCardW = largura * 0.7;
-        const barraCardH = 115;
-
-        this.barraLayout = {
-            cardX: barraCardX,
-            cardY: barraCardY,
-            cardW: barraCardW,
-            cardH: barraCardH,
-            tituloY: barraCardY + 24,
-            barraX: barraCardX + 26,
-            barraY: barraCardY + 74,
-            barraW: barraCardW - 52,
-            barraH: 26
-        };
-
-        // Camadas do card (igual estilo das perguntas)
-        this.graficosBarra.push(
-            this.add.graphics().setDepth(2)
-                .fillStyle(0x111111, 1)
-                .fillRoundedRect(barraCardX, barraCardY, barraCardW, barraCardH, 16)
-        );
-        this.graficosBarra.push(
-            this.add.graphics().setDepth(3)
-                .fillStyle(0xb8d4f0, 1)
-                .fillRoundedRect(barraCardX + 6, barraCardY + 6, barraCardW - 12, barraCardH - 12, 12)
-        );
-        this.graficosBarra.push(
-            this.add.graphics().setDepth(4)
-                .fillStyle(0xddeeff, 1)
-                .fillRoundedRect(barraCardX + 10, barraCardY + 10, barraCardW - 20, barraCardH - 20, 8)
-        );
-        this.graficosBarra.push(
-            this.add.graphics().setDepth(5)
-                .fillStyle(0xf5f9ff, 1)
-                .fillRoundedRect(barraCardX + 14, barraCardY + 14, barraCardW - 28, barraCardH - 28, 6)
-        );
 
         // ─── CAIXA DE PERGUNTA ────────────────────────────────────────
         
@@ -196,20 +155,17 @@ class Combate extends Phaser.Scene {
         this.opcaoUm.on("pointerdown",  () => this.resposta(this.opcaoUm.valor));
         this.opcaoDois.on("pointerdown", () => this.resposta(this.opcaoDois.valor));
 
-        this.barra = this.add.graphics().setDepth(6);
+        this.barra = this.add.graphics();
 
         // TEXTO DA BARRA DE SATISFAÇÃO
-        this.textoSatisfacao = this.add.text(
-            this.barraLayout.cardX + this.barraLayout.cardW / 2,
-            this.barraLayout.tituloY,
-            "BARRA DE SATISFAÇÃO",
-            {
-                fontSize: "32px",
-                color: "#000000",
-                fontFamily: "Pixelify Sans",
-                fontStyle: "bold"
-            }
-        ).setDepth(10).setOrigin(0.5);
+        this.textoSatisfacao = this.add.text(300 + 1000 / 2, 95, "BARRA DE SATISFAÇÃO", {        
+            fontSize: "48px", // maior
+        color: "#000000", // preto
+        fontFamily: "Pixelify Sans",
+        fontStyle: "bold", // mais legível
+        stroke: "#ffffff",
+        strokeThickness: 4,
+            }).setDepth(10).setOrigin(0.5);
 
         this.scale.on('resize', this.reposicionarUI, this);
 
@@ -221,33 +177,6 @@ reposicionarUI(gameSize) {
     // Destrói os gráficos antigos
     this.graficosUI.forEach(g => g.destroy());
     this.graficosUI = [];
-    if (this.graficosBarra) {
-        this.graficosBarra.forEach(g => g.destroy());
-    }
-    this.graficosBarra = [];
-
-    // Recria o card da barra com as novas dimensões
-    const barraCardX = width * 0.15;
-    const barraCardY = height * 0.03;
-    const barraCardW = width * 0.7;
-    const barraCardH = 115;
-
-    this.barraLayout = {
-        cardX: barraCardX,
-        cardY: barraCardY,
-        cardW: barraCardW,
-        cardH: barraCardH,
-        tituloY: barraCardY + 24,
-        barraX: barraCardX + 26,
-        barraY: barraCardY + 74,
-        barraW: barraCardW - 52,
-        barraH: 26
-    };
-
-    this.graficosBarra.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(barraCardX, barraCardY, barraCardW, barraCardH, 16));
-    this.graficosBarra.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(barraCardX + 6, barraCardY + 6, barraCardW - 12, barraCardH - 12, 12));
-    this.graficosBarra.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(barraCardX + 10, barraCardY + 10, barraCardW - 20, barraCardH - 20, 8));
-    this.graficosBarra.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(barraCardX + 14, barraCardY + 14, barraCardW - 28, barraCardH - 28, 6));
 
     // Recria as caixas com as novas dimensões
     const perguntaX = width * 0.6;
@@ -283,8 +212,8 @@ reposicionarUI(gameSize) {
     //Bota a palavra Satisfação centralizada no no meio da barra
     if (this.textoSatisfacao) {
     this.textoSatisfacao.setPosition(
-        this.barraLayout.cardX + this.barraLayout.cardW / 2,
-        this.barraLayout.tituloY
+        300 + 1000 / 2, // centro da barra
+        95
     );
 }
 }
@@ -364,6 +293,10 @@ reposicionarUI(gameSize) {
 
 
     resposta(decisao) {
+
+        this.opcaoUm.disableInteractive();
+        this.opcaoDois.disableInteractive();
+
         let q = this.questoes[this.questaoAtual];
 
         if (decisao === q.resposta) {
@@ -401,6 +334,9 @@ reposicionarUI(gameSize) {
             return this.fimDasPerguntas();
         }
 
+        this.opcaoUm.setInteractive();
+        this.opcaoDois.setInteractive();
+
         this.mostrarQuestao();
 
         if (this.updateNPC) this.updateNPC();
@@ -412,11 +348,8 @@ reposicionarUI(gameSize) {
         
         this.barra.clear();
 
-        const layout = this.barraLayout || { barraX: 300, barraY: 50, barraW: 1000, barraH: 32 };
-
-        // Fundo da barra
-        this.barra.fillStyle(0x000000, 0.18);
-        this.barra.fillRoundedRect(layout.barraX, layout.barraY, layout.barraW, layout.barraH, 9);
+        this.barra.fillStyle(0x000000, 0.2);
+        this.barra.fillRect(300, 50, 1000, 20);
 
         // Cores dinamicas 
 
@@ -431,13 +364,7 @@ reposicionarUI(gameSize) {
         }
 
         this.barra.fillStyle(cor);
-        this.barra.fillRoundedRect(
-            layout.barraX,
-            layout.barraY,
-            (valor / 100) * layout.barraW,
-            layout.barraH,
-            9
-        );
+        this.barra.fillRect(300, 50, valor * 10, 20);
     }
 
     vitoria() {
