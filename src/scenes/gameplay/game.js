@@ -247,31 +247,48 @@ class Cidade extends Phaser.Scene {
         this.personagem.setVelocity(0);
 
         // Constante de velocidade de movimento do personagem em pixels/segundo
-        const velocidade = 150;
+        const velocidade = 80;
 
         const animsOk = this.anims.exists('left') && this.anims.exists('right') && this.anims.exists('up') && this.anims.exists('down');
 
-        // Movimento para esquerda
-        if (this.cursor.left.isDown) {
-            this.personagem.setVelocityX(-velocidade);
-            if (animsOk) this.personagem.play('left', true);
+        // Definindo os vetores de direção
 
-        // Movimento para direita
-        } else if (this.cursor.right.isDown) {
-            this.personagem.setVelocityX(velocidade);
-            if (animsOk) this.personagem.play('right', true);
+        let vetorX = 0
+        let vetorY = 0
 
-        // Movimento para cima
-        } else if (this.cursor.up.isDown) {
-            this.personagem.setVelocityY(-velocidade);
-            if (animsOk) this.personagem.play('up', true);
+        // Adicionando os valores para direção dos vetores
 
-        // Movimento para baixo
-        } else if (this.cursor.down.isDown) {
-            this.personagem.setVelocityY(velocidade);
-            if (animsOk) this.personagem.play('down', true);
-        } else {
-            this.personagem.stop();
+        if (this.cursor.left.isDown) { vetorX = -1};
+        if (this.cursor.right.isDown) { vetorX = 1};
+        if (this.cursor.up.isDown) {vetorY = -1};
+        if (this.cursor.down.isDown) {vetorY = 1};
+
+        // Nesse caso, se o jogador pressiona duas teclas de forma a andar na diagonal, sua velocidade nessa direção será de sqrt(2)*150
+        // Isso ocorre pela soma dos vetores (que são perpendiculares entre si), já que |vetorX|=1 e |vetorY|=1 e vetorX ⟂ vetorY  => |vetorX + vetorY| = sqrt(2).
+        // Portanto, para que o jogador não fique mais rápido quando andar na perpendicular, temos que equalizar esse valor
+
+        let equalizar = Math.sqrt(Math.pow(vetorX,2) + Math.pow(vetorY,2)); // Math.sqrt(x) = raiz quadrada de x ; Math.pow(x,y) = x^y
+
+        // Perceba que se equalizar > 0 , então equalizar = 1 ou equalizar = sqrt(2)
+
+        if (equalizar > 0) {
+            vetorX = vetorX / equalizar;    // Se um vetor é 0 e o outro não, então a função retorna os valores normais dos vetores (seria 0 e 1 ou 0 e -1 - tanto para x quanto para y)
+            vetorY = vetorY / equalizar;
         }
+
+        // Feito isso, agora pode-se definir a velocidade do jogador
+
+        this.personagem.setVelocity( vetorX * velocidade, vetorY * velocidade )
+
+        // Configurando animações
+
+        if (animsOk) {
+        if (vetorX < 0)      this.personagem.play('left', true);
+        else if (vetorX > 0) this.personagem.play('right', true);
+        else if (vetorY < 0) this.personagem.play('up', true);
+        else if (vetorY > 0) this.personagem.play('down', true);
+        else             this.personagem.stop();
+    }
+
     }
 }
