@@ -40,6 +40,8 @@ var config = {
         FeedbackVitoriaPosto,
         FeedbackDerrotaSupermercado,
         FeedbackVitoriaSupermercado,
+        FeedbackDerrotaLojaDeRoupa,
+        FeedbackVitoriaLojaDeRoupa,
         
     ]
 };
