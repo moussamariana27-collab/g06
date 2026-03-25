@@ -70,38 +70,38 @@ class Padaria extends Combate {
                 [
 
             {
-                pergunta:"SEU TIÃO:O problema é que oque eu também vendo no fim de semana, até no domingo. Tem hora que eu preciso do dinheiro rápido numa emergência. E aí eu preciso vender no dinheiro, não tem jeito!",
-                certo: "Tem jeito sim SR. João! A CIELO tem um serviço chamado'Vendeu, Tá na Conta', com ele todas as vendas que o senhor fez até 18:59 o valor cai na sua conta no mesmo dia, inclusive nos finais de semana e feriados! O dinheiro cai na conta em poucas horas.",
-                errado: "Infelizmente nós não trabalhalhamos fim de semana, Seu João. Se o senhor quiser o dinheiro no mesmo dia vai ter que vender no físico.",
+                pergunta: "SEU TIÃO: Bom dia, eu sei que você trabalha com a Cielo, mas já tive muitos problemas com outras adquirentes. Em situações de emergência, prefiro vender no dinheiro pra receber na hora e evitar dor de cabeça. Então, não tenho interesse em contratar novos serviços agora.",
+                certo: "Entendo sua preocupação, Seu Tião. Com o ‘Vendeu, Tá na Conta’ da Cielo, vendas até 18h59 caem no mesmo dia, inclusive em fins de semana e feriados, ajudando no seu fluxo de caixa sem depender só do dinheiro físico.",
+                errado: "Infelizmente não temos uma solução para isso, Seu Tião. Se quiser receber no mesmo dia, o ideal seria continuar vendendo apenas no dinheiro.",
                 resposta: true
             },
 
             {
-                pergunta: "SEU TOÃO:Outra coisa, eu já fico perdido com os documentos de venda e nota fiscal, trocar de empresa daria muita dor de cabeça. Como eu vou controlar meu estoque de pão e fechar o caixa sem me enrolar?",
-                certo: "Mas nós também pensamos nisso! A Cielo Smart controle de estoque digital e o senhor fecha o caixa com um clique, tudo direto na máquina, sem papelada.",
-                errado: "Mas seu João a documentação é pouca eu te ajudo a resolver! Te garanto que o investimento vale a pena!",
+                pergunta: "SEU TIÃO: Outra coisa... eu já me perco com documentos de venda e nota fiscal. Trocar de empresa vai me dar mais dor de cabeça ainda. Como eu vou controlar meu estoque de pão e fechar o caixa sem me enrolar?",
+                certo: "Pode ficar tranquilo com isso, Seu Tião. A Cielo Smart tem controle de estoque digital e fechamento de caixa simplificado. O senhor consegue acompanhar tudo direto na maquininha, de forma prática e sem precisar lidar com papelada.",
+                errado: "Seu Tião, a documentação é simples e eu posso te ajudar com isso. O importante é que o investimento vale a pena!",
                 resposta: true
             },
 
-            { 
-                pergunta: "SEU TIÃO:Essas maquininhas novas são de tela, meus dedos são grossos e calejados da padaria, eu tenho dificuldade de mexer nisso. Não tem um jeito mais fácil não?",
-                certo: "Pode ficar tranquilo, Seu João! Nossas máquinas têm teclado físico e/ou película de silicone para facilitar o toque, então o senhor não precisa usar só a tela.", 
-                errado: "É questão de costume, Seu João. Hoje em dia tudo é touch, o senhor vai ter que se adaptar de um jeito ou de outro.", 
-                resposta: true 
-            },
-            
             {
-                 pergunta: "SEU TIÃO:Olha, eu já tive maquininhas antes, mas\ndemorava séculos pro dinheiro cair na\nminha conta. Eu quero saber quando que\no dinheiro cai na minha conta.", 
-                 certo: "No dia seguinte seu João! O débito cai em D+1.",
-                 errado: "Demora um pouco seu João, o débito cai em um mês", 
-                 resposta: true 
-            },
-            
-            { 
-                pergunta: "SEU TIÃO:Beleza, mas me responde uma coisa: às\nvezes eu vendo parcelado e o dinheiro\ndemora pra cair. O meu fornecedor de\nfarinha não espera... A Cielo resolve isso?", 
-                certo:  "A Cielo tem a antecipação de recebíveis!\nVocê recebe adiantado pagando uma pequena taxa.",
-                errado: "Infelizmente não tem jeito Seu João. Tem\nque esperar as parcelas caírem.",
+                pergunta: "SEU TIÃO: Pra falar a verdade, o que mais me preocupa são as taxas. Já me prometeram uma coisa e depois mudaram tudo. Como eu sei que isso não vai acontecer de novo?",
+                certo: "Essa é uma preocupação muito válida, Seu Tião. Na Cielo, todas as taxas e condições ficam definidas em contrato. Além disso, com planos de fidelidade, é possível garantir as taxas por um período, como 12 meses, trazendo mais segurança e previsibilidade pro senhor.",
+                errado: "As taxas mudam todo mês, Seu Tião. Isso é normal no mercado, não tem muito o que fazer.",
                 resposta: true 
+            },
+
+            { 
+                pergunta: "SEU TIÃO: E quando eu vendo parcelado? Porque aí o dinheiro demora pra cair, e meu fornecedor de farinha não espera. A Cielo resolve isso?",
+                certo: "Resolve sim, Seu Tião! A Cielo oferece antecipação de recebíveis, então o senhor pode receber antes das parcelas, pagando uma taxa. E o melhor: essas taxas são combinadas em contrato, com condições claras, trazendo mais controle e previsibilidade pro seu negócio.",
+                errado: "Infelizmente não tem solução, Seu Tião. O senhor vai precisar esperar as parcelas caírem normalmente.",
+                resposta: true 
+            },
+
+            {
+                pergunta: "SEU TIÃO: Olha, você explicou bem... mas ainda fico com receio. Vale mesmo a pena trocar agora?",
+                certo: "Com certeza, Seu Tião. Pelo que o senhor me contou, a Cielo resolve seus principais pontos: recebimento rápido, controle do negócio e taxas claras. Podemos começar de forma simples e segura, e eu acompanho o senhor nesse início. Vamos dar esse próximo passo juntos?",
+                errado: "Bom, aí já é uma decisão do senhor. Se quiser depois a gente vê isso com mais calma.",
+                resposta: true
             }
 
         ]
