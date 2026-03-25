@@ -19,7 +19,8 @@ class Tutorial extends Phaser.Scene {
         this.indiceFala = 0; // índice do diálogo atual
         this.modoFeedbackDerrota = data?.modoFeedbackDerrota || false;
         this.modoFeedbackVitoria = data?.modoFeedbackVitoria || false;
-        this.dialogos = data?.dialogos || null; 
+        this.dialogos = data?.dialogos || null;
+        this.posicaoSpawn = data?.posicaoSpawn || null; 
     }
 
     // Carrega as duas imagens do professor:
@@ -180,7 +181,9 @@ class Tutorial extends Phaser.Scene {
                 } else {
 
                     this.scene.stop(this.scene.key);
-                    this.scene.start(this.cenaOrigem, { character: this.character });
+                    this.scene.start(this.cenaOrigem, { character: this.character,
+                                                        posicaoSpawn: this.posicaoSpawn,
+                     });
 
                 }
 }

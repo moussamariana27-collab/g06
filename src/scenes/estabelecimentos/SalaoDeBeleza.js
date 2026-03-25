@@ -96,7 +96,10 @@ class SalaoDeBeleza extends Combate {
                 resposta: true 
             }
 
-        ]
+        ],
+
+        posicaoSpawn: { x: 130, y: 550 }, 
+
         });
 
         // Cria a interface de usuário (UI) herdada da classe Combate

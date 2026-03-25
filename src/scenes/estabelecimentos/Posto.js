@@ -93,7 +93,10 @@ class Posto extends Combate {
                 resposta: true 
             }
 
-        ]
+        ],
+
+        posicaoSpawn: { x: 130, y: 550 },
+
         });
 
         // UI e lógica (HERDADO)

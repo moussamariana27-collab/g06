@@ -17,6 +17,7 @@ class Combate extends Phaser.Scene {
         this.questoes = config.questoes || [];
         this.questaoAtual = 0;
         this.satisfacaoAnimada = this.satisfacao;
+        this.posicaoSpawn = config.posicaoSpawn || null;
 
         // Toca a música de batalha
         this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.3 });
@@ -308,7 +309,9 @@ class Combate extends Phaser.Scene {
         this.graficosUI.forEach(g => g.setVisible(false));
 
         this.time.delayedCall(4000, () => {
-            this.scene.start(voltarPara, { character: this.personagemEscolhido });
+            this.scene.start(voltarPara, { character: this.personagemEscolhido,
+                                            posicaoSpawn: this.posicaoSpawn ,
+             });
         });
     }
 }

@@ -2,7 +2,9 @@ class Cidade extends Phaser.Scene {
     constructor() { super({ key: 'Cidade' }); }
 
     // Recebe o personagem escolhido na cena anterior
-    init(data) { this.personagemEscolhido = data?.character || null; }
+    init(data) { this.personagemEscolhido = data?.character || null;
+                 this.posicaoSpawn = data?.posicaoSpawn || { x: 130, y: 550 };
+     } // x: 190, y: 320
 
     preload() {
         this.load.audio('musicacidade', 'assets/mapa.mp3')
@@ -65,7 +67,7 @@ class Cidade extends Phaser.Scene {
         const spawnY = spawnObj.y + spawnObj.height / 2;
 
         // Cria o personagem com física na posição de spawn
-        this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(1.0);
+        this.personagem = this.physics.add.sprite(this.posicaoSpawn.x, this.posicaoSpawn.y, this.character, 0).setScale(1.0);
 
         // Ativa colisão do personagem com as bordas do mundo
         this.personagem.setCollideWorldBounds(true);

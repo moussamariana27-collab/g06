@@ -103,8 +103,8 @@ class Padaria extends Combate {
                 errado: "Bom, aí já é uma decisão do senhor. Se quiser depois a gente vê isso com mais calma.",
                 resposta: true
             }
-
-        ]
+        ],
+            posicaoSpawn: { x: 130, y: 550 } 
         });
 
         // Cria a interface de usuário (UI) herdada da classe Combate

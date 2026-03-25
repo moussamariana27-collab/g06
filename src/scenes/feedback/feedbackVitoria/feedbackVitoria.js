@@ -8,6 +8,7 @@ class FeedbackVitoria extends Tutorial {
         super.init(data);
         this.modoFeedbackVitoria = true;
         this.dialogos = this.definirDialogos();
+        this.spawnPos = data?.spawnPos || null;
     }
 
     // Sobrescrito em cada subclasse

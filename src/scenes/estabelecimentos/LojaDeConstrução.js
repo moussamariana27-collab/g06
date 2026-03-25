@@ -108,7 +108,10 @@ class LojaDeConstrução extends Combate {
                 resposta: true
             }
 
-        ]
+        ],
+
+        posicaoSpawn: { x: 130, y: 550 },
+
         });
 
         // Cria interface do jogo (UI)
