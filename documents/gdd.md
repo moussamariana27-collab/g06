@@ -550,45 +550,38 @@ O diagrama de cenas (gameflow) é uma ferramenta essencial no desenvolvimento de
 ### 
 
 ## 3.6. Regras do jogo (sprint 3)
-As regras de um jogo possuem um propósito fundamental: O estabelecimento de um desafio quando se traça objetivos claros, as regras atuam como o uma das principais formas de motivação e engajamento para o jogador. Tais restrições são consideradas produtivas, ao definir desafios para a conclusão do desafio, o sistema força o jogador a desenvolver a criatividade para superar obstáculos. Pode-se concluir que as regras não servem para impedir o jogador ou proibi-lo de algo, mas sim para dar significado e emoção quando os mesmos alcançam a vitória através da superação.
+As regras de um jogo possuem um propósito fundamental: o estabelecimento de um desafio. Quando se traçam objetivos claros, as regras atuam como uma das principais formas de motivação e engajamento para o jogador. Tais restrições são consideradas produtivas; ao definir parâmetros para a conclusão do desafio, o sistema força o jogador a desenvolver a criatividade para superar obstáculos. Pode-se concluir que as regras não servem para impedir o jogador ou proibi-lo de algo, mas sim para dar significado e emoção quando ele alcança a vitória através da superação.
 
 \# | Regras
 -|----
-1|O jogador precisa passar pelo  tutorial com o Estadual antes de se direcionar para a cidade (MainScene).
-2| Ao interagir com os estabelecimentos jogador precisa seguir a ordem dita previamente informada.
-3|O jogador precisa conquistar o estabelecimento atual para interagir com o seguinte.
-4| É necessário que o jogador interaja com todos os estabelecimentos para vencer.
-5| A cada rodada o jogador precisa convencer um comerciante a virar um cliente Cielo.
-6| O jogador precisa manter o humor do comerciante acima de 60% para ganhar a fase.
-7| O jogador precisa acertar três perguntas para conquistar o cliente.
-8| Caso o jogador erre duas ou mais quetões ele perde o cliente.
-9| Caso o jogador esgote o banco de questões sem consquitar o cliente, ele é "mandado embora".
-10| O jogador precisa convencer todos os comerciantes da cidade a virarem clientes Cielo.
-11| O jogador deve responder conforme o padrão ensinado no onboarding da Cielo.
+1| A cada rodada, o jogador precisa convencer um comerciante a tornar-se um cliente Cielo.
+2| O jogador precisa manter o humor do comerciante acima de 60% para ganhar a fase.
+3| O jogador precisa acertar três perguntas para conquistar o cliente.
+4| Caso o jogador erre duas ou mais questões, ele perde o cliente.
+5| Caso o jogador esgote o banco de questões sem conquistar o cliente, ele é "mandado embora".
+6| O jogador precisa convencer todos os comerciantes da cidade a se tornarem clientes Cielo.
+7| O jogador deve responder conforme o padrão ensinado no onboarding da Cielo.
 
 
 ## 3.7. Mecânicas do jogo (sprint 3)
-
-
+As mecânicas de um jogo definem as ações, os limites e as interações, transformando o usuário em um agente ativo da narrativa. Ao estabelecê-las, cria-se a tensão que mantém o jogador engajado, dando peso às suas escolhas e conferindo um sentido de propósito à sua jornada.
 
 \# | Mecânicas                      
 -|----------------------------
-1| Os movimentos do player no mapa e no Espaço Cielo são determinados pelas teclas de seta do teclado (left, right, up, down).
-2| O jogador entra em cada fase quando a sprite colide com a representação de um dos comércios no mapa.
-3| Para sair das fases (comércios) o jogador pressiona a tecla espaço do teclado
-4| Dentro da fase o jogador permanece na visão de terceira pessoa/visão lateral
-5| Durante as fases o jogador utiliza o mouse (tecla esquerda) para clicar em uma das duas opções de diálogo.
-6| Uma variável numérica rastreia o nível de satisfação dos comerciantes em cada fase.
-7| O valor da variável é alterado de acordo com as opções de diálogo escolhidas pelo jogador (+33,3% se for um acerto, -33,3% se for um erro).
-8| A escolha de um dos quatro personagens jogáveis é feita através do clique do botão esquerdo do mouse sobre o ícone do GN escolhido na tela de escolha de personagens.
-9| O tutorial do Estadual possui uma sequência de 8 caixas de texto sobre produtos e serviços Cielo que progridem conforme o jogador clica no botão continuar com o botão esquerdo do mouse.
-10| No tutorial do Estadual é o jogador regrede na sequência dos textos sobre produtos e serviços Cielo clicando no botão voltar com o botão esquerdo do mouse.
-11| Para sair do tutorial o jogador clica no botão "Voltar ao escritório" com o botão esquerdo do mouse.
-12| O encerramento de cada fase em vitória se dá quando a variável numérica que rastreia o nível de satisfação tem o valor igual à 100%.
-13| O encerramento de cada fase em derrota se dá quando a variável numérica que rastreia o nível de satisfação tem o valor igual à 1%.
-14| O encerramento de cada fase em "O cliente te mandou embora" se dá quando o jogador esgota todas as questões disponíveis.
-15| Os sprites dos NPC's alteram de acordo com o valor da variável numérica do nível de satisfação, ("Neutro" == 34, "Feliz" >= 34, "Bravo" <= 34).
-17| As alternativas de resposta são posicionadas de forma aletória nas duas caixas de de respostas.
+1| A escolha de um dos quatro personagens jogáveis é feita ao clicar com o mouse sobre o ícone do GN escolhido na tela de seleção.
+2| O tutorial do Estadual possui uma sequência de 8 caixas de texto sobre produtos e serviços Cielo, que progridem conforme o jogador clica no botão "continuar".
+3| No tutorial do Estadual, o jogador pode regredir na sequência de textos clicando no botão "voltar".
+4| Os movimentos do jogador no mapa e no Espaço Cielo são determinados pelas teclas de seta do teclado (left, right, up, down).
+5| O jogador entra em cada fase quando a sprite colide com a representação de um dos comércios no mapa.
+6| Dentro da fase, o jogador permanece na visão de terceira pessoa ou visão lateral.
+7| Durante as fases, o jogador utiliza o botão esquerdo do mouse para clicar em uma das duas opções de diálogo.
+8| Uma variável numérica rastreia o nível de satisfação dos comerciantes em cada fase.
+9| O valor da variável é alterado de acordo com as opções de diálogo escolhidas pelo jogador (+33,3% em caso de acerto e -33,3% em caso de erro).
+10| O encerramento de cada fase em vitória ocorre quando a variável de satisfação atinge o valor igual a 100%. 
+11| O encerramento de cada fase em derrota ocorre quando a variável de satisfação atinge o valor igual a 0%.
+12| O encerramento de cada fase com a mensagem "O cliente te mandou embora" ocorre quando o jogador esgota todas as questões disponíveis.
+13| As sprites dos NPCs alteram-se de acordo com o nível de satisfação: "Neutro" (34%), "Feliz" (acima de 34%) e "Bravo" (abaixo de 34%).
+14| As alternativas de resposta são posicionadas de forma aleatória nas duas caixas de respostas.
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
