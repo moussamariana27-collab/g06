@@ -68,37 +68,42 @@ class Mercado extends Combate {
             questoes: [
 
             {
-                pergunta:"SR. RUAN:\n Meu mercado não para um segundo. São milhares de transações mensais e o seu sistema travar no sábado à tarde, a fila vai parar lá na rua! Como garanto que sua máquina aguenta o trabalho?",
-                certo: "Sr. Ruan, a Cielo evoluiu para um módulo de pagamento muito mais robusto e rápido. Nossas máquinas têm Wi-Fi dual-band e conexão 4G estável para garantir que a venda seja aprovada instantaneamente, sem filas.",
-                errado: "Ela aguenta sim, Sr. Ruan. O senhor só não pode abrir muitos aplicativos, porque aí vai sobrecarregar a memória da maquininha durante o dia.",
+                // Abertura: Sr. Ruan não usa TEF e Pinpad — gancho direto do script do analista
+                pergunta: "SR. RUAN:\n Sempre achei TEF e Pinpad muito complicado. Prefiro continuar como estou, com as maquininhas que já tenho aqui.",
+                certo: "Mas, sem TEF e Pinpad a sua conciliação fica muito mais complicada — e aposto que deixa passar uma coisa ou outra no fechamento, né?",
+                errado: "É verdade! Com o volume de vendas que tem aqui, nem faz cócegas no seu faturamento. Desculpe fazer o senhor perder tempo!",
                 resposta: true
             },
 
             {
-                pergunta: "SR. RUAN:\n Escuta aqui, jovem: eu gastei uma fortuna integrando o software da concorrência com o meu estoque e faturamento. Se eu trocar para a Cielo, vou ter que parar meu sistema por semanas e gastar mais dinheiro implementando o de vocês? Não vale a pena!",
-                certo: "Pelo contrário, Sr. Ruan! A Cielo Smart é baseada em Android aberto, o que facilita a migração. Além disso, temos o portal Cielo Desenvolvedores com toda a documentação pronta para que seu TI integre seu sistema atual sem custos extras de licença, mantendo sua operação rodando enquanto viramos a chave.",
-                errado: "O senhor pode usar os nossos apps prontos da Cielo Store por um tempo. Eles são gratuitos e, enquanto isso, sua equipe de TI vai trabalhando com calma na integração definitiva em um ou dois meses.",
+                // Foco em conciliação e condições exclusivas para o ramo
+                pergunta: "SR. RUAN:\n Tá, me convenceu sobre a conciliação. Mas o que a Cielo tem de diferente pra um supermercado do meu tamanho?",
+                certo: "A Cielo está apresentando condições exclusivas pro seu ramo de atividade, além de ofertar TEF e Pinpad pra aumentar sua segurança e estabilidade nas vendas.",
+                errado: "As condições são as mesmas para todos os clientes. O que muda é o volume de transações que o senhor vai processar.",
                 resposta: true
             },
 
             { 
-                pergunta: "SR. RUAN:\n Olha, a concorrência me dá uma taxa de MDR quase zero no  débito porque meu volume é gigante. Se eu migrar para a Cielo, vou pagar mais caro. O que vocês me oferecem para compensar essa diferença no meu balanço?",
-                certo: "Sr. Ruan, mais do que taxa, oferecemos eficiência operacional. Com a 'Cielo Gestão' e a integração direta no PDV, o senhor reduz erros de digitação e perdas no fechamento de caixa. Sem contar que com o  'Vendeu, tá na conta' que oferta um recebimento acelerado compensa qualquer fração de taxa.", 
-                errado: "Nós cobrimos qualquer oferta da concorrência, Sr. Ruan! Se o senhor me mostra o seu extrato atual, eu consigo uma taxa menor hoje mesmo para fecharmos o contrato agora.", 
+                // Taxa MDR e volume — linguagem de eficiência operacional
+                pergunta: "SR. RUAN:\n A concorrência me dá taxa de MDR quase zero no débito pelo meu volume. Se eu migrar pra Cielo, vou perder essa vantagem?",
+                certo: "Sr. Ruan, mais do que taxa, entregamos eficiência operacional. Com TEF integrado ao PDV e a 'Cielo Gestão', o senhor reduz perdas no fechamento de caixa. O 'Vendeu, tá na conta' ainda garante recebimento acelerado que compensa qualquer fração de taxa.", 
+                errado: "Nós cobrimos qualquer oferta da concorrência! Me mostra o extrato atual e eu consigo uma taxa menor hoje mesmo pra fecharmos o contrato agora.", 
                 resposta: true 
             },
             
             {
-                 pergunta: "SR. RUAN:\n E se o sistema Android da sua máquina for hackeado e clonar os cartões dos meus clientes? Eu vou sair como o culpado! Como a Cielo protege meu negócio de um vazamento de dados?", 
-                 certo: "A Cielo Smart utiliza um ambiente criptografado e isolado para o módulo de pagamento, independente do Android. Além disso, seguimos rigorosamente os padrões PCI-DSS e a LGPD, garantindo que os dados sensíveis nunca fiquem expostos.",
-                 errado: "O sistema Android 10 é muito seguro e possui antivírus. Além disso, o senhor pode contratar um seguro de dados à parte para ficar totalmente tranquilo.", 
-                 resposta: true 
+                // Segurança — TEF e Pinpad como solução, PCI-DSS e LGPD como argumento
+                pergunta: "SR. RUAN:\n E a segurança? Tenho medo de um vazamento de dados dos meus clientes. Como a Cielo garante isso num volume tão alto de transações?", 
+                certo: "Com TEF e Pinpad da Cielo, o ambiente de pagamento é criptografado e isolado. Seguimos rigorosamente PCI-DSS e LGPD, garantindo que os dados sensíveis nunca fiquem expostos.",
+                errado: "O sistema possui antivírus atualizado. Além disso, o senhor pode contratar um seguro de dados à parte pra ficar totalmente tranquilo.", 
+                resposta: true 
             },
             
             { 
-                pergunta: "SR. RUAN:\nSe uma máquina der defeito no meio do meu 'Sábado de Ofertas' com o mercado lotado, quanto tempo eu fico com o caixa parado? A concorrência me troca o equipamento em 4 horas.Vocês batem esse tempo?", 
-                certo:  "Nós trabalhamos com suporte prioritário para o varejo de grande porte. Além da troca rápida, a Cielo Smart permite que o senhor venda via 'Cielo Tap' no celular de qualquer funcionário como opção imediata, garantindo que nenhuma venda seja perdida enquanto o novo terminal chega.",
-                errado: "Nosso suporte funciona em horário comercial e a troca ocorre em até 24 horas úteis. Mas nossas máquinas são as mais duráveis do mercado e dificilmente o senhor terá esse problema.",
+                // Ativação e M0 — garantir que o cliente transacione logo após o fechamento
+                pergunta: "SR. RUAN:\n Fechei com vocês, mas a maquininha chegou e tá parada embaixo da bancada. Não tive tempo de testar ainda.", 
+                certo: "Bora aproveitar que estou aqui e testar agora! Tem um cliente ali no caixa — a gente já passa uma venda, ativa o equipamento e garante que tudo funciona direitinho.",
+                errado: "Sem problema, Sr. Ruan. Quando o senhor tiver tempo, é só ligar pro nosso suporte que eles orientam a ativação.",
                 resposta: true 
             }
         ]

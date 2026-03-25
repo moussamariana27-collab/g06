@@ -61,33 +61,38 @@ class SalaoDeBeleza extends Combate {
             questoes: [
 
             {
-                pergunta: "DONA LEILA: O que a sua maquininha tem que a minha não tem?",
-                certo: "Suporte 24 horas por dia, 7 dias da semana",
-                errado: "Suporte para pagamentos via criptomoeda por sistema desenvolvido pela Cielo",
+                // Dona Leila abre o jogo reclamando de taxas altas no crédito — gancho direto do script do analista
+                pergunta: "DONA LEILA: Quando a cliente paga no crédito, sinto que as taxas pesam demais. Como vocês conseguem me ajudar nisso?",
+                certo: "Conseguimos ajustar uma condição que faça sentido pro seu faturamento, com taxas equilibradas e sem perder o controle dos custos.",
+                errado: "As taxas são padrão e não mudam muito, independente do tipo de negócio.",
                 resposta: true
             },
             {
-                pergunta: "DONA LEILA: E se eu me arrepender?",
-                certo: "Você não vai! Experimente e verá os benefícios com suas clientes.",
-                errado: "Infelizmente não tem jeito. Tem que esperar os prazos.",
+                // Foco em ticket médio — jargão central do analista
+                pergunta: "DONA LEILA: Tenho medo de oferecer parcelamento e acabar perdendo dinheiro. Como fico de olho nisso?",
+                certo: "Com a Cielo você oferece parcelamento de forma estratégica, aumentando seu ticket médio sem perder o controle dos custos.",
+                errado: "Parcelamento sempre tem risco. O melhor é só aceitar pagamento à vista mesmo.",
                 resposta: true
             },
             { 
-                pergunta: "DONA LEILA: Meu salão é pequeno. A CieloHub vai funcionar bem em um lugar assim?", 
-                certo: "Perfeito para negócios de qualquer tamanho! Desde salões pequenos até grandes redes.", 
-                errado: "Infelizmente a solução é só para grandes estabelecimentos.", 
+                // Recebíveis e fluxo de caixa — antecipação como benefício concreto
+                pergunta: "DONA LEILA: Se eu aceitar crédito parcelado, quando esse dinheiro cai na minha conta?", 
+                certo: "Com a antecipação de recebíveis da Cielo, você recebe o valor integral no dia seguinte e mantém seu fluxo de caixa saudável.", 
+                errado: "Você precisa aguardar cada parcela cair separadamente — pode levar meses até receber tudo.", 
                 resposta: true 
             },
             { 
-                pergunta: "DONA LEILA: Minhas clientes pagam muitas vezes com crédito parcelado. Como fica isso com a Cielo?", 
-                certo: "Você recebe o dinheiro integral no dia seguinte, sem esperar pelas parcelas.", 
-                errado: "Você precisa esperar cada parcela cair para começar a usar o dinheiro.", 
+                // Tamanho do negócio — acessibilidade para pequenos
+                pergunta: "DONA LEILA: Meu salão é pequeno. Faz sentido contratar a Cielo pra um negócio do meu tamanho?", 
+                certo: "Faz sim! A solução é ajustada ao seu faturamento — desde pequenos salões até grandes redes, a operação é simples e acessível.", 
+                errado: "Na verdade, o ideal é para negócios maiores com volume alto de transações.", 
                 resposta: true 
             },
             { 
-                pergunta: "DONA LEILA: Eu me sinto mais segura trabalhando com o que conheço. Como funciona essa integração?", 
-                certo: "A máquina é intuitiva e o suporte técnico ajuda em todas as dúvidas!", 
-                errado: "Você vai ter que aprender sozinha, o sistema é complexo.", 
+                // Simplicidade operacional — "operação fácil, rápida e sem complicação" do analista
+                pergunta: "DONA LEILA: Tenho medo de complicar minha rotina aqui no salão. Não quero depender de suporte o tempo todo.", 
+                certo: "A operação é fácil, rápida e sem complicação — e o suporte técnico está disponível 24h pra te ajudar sempre que precisar.", 
+                errado: "É um sistema completo, vai exigir um bom tempo de adaptação da sua equipe.", 
                 resposta: true 
             }
 
