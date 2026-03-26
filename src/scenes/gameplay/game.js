@@ -173,12 +173,12 @@ class Cidade extends Phaser.Scene {
             this.scene.start('LojaDeConstrução', { character: this.personagemEscolhido, posicaoSpawn: this.posicaoSpawn });
         });
         // Lista de cenas para onde o jogador pode ir
-        const cenasDisponiveis = ['Escritorio', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
+        const cenasDisponiveis = ['Escritorio', 'LojaDeRoupa', 'Padaria', 'Posto', 'SalaoDeBeleza', 'LojaDeConstrução', 'Mercado'];
 
         // Percorre as zonas de interação definidas no Tiled
         const layerZonas = map.getObjectLayer('zonas');
         if (layerZonas) {
-            layerZonas.objects.filter(zona => zona.width > 0 && zona.height > 0 && zona.type !== '').forEach(zona => {
+            layerZonas.objects.filter(zona => zona.width > 0 && zona.height > 0 && zona.type !== '' && zona.type !== 'Farmacia').forEach(zona => {
 
                 // Cria uma zona invisível de interação
                 const areaInteracao = this.add.zone(zona.x + zona.width/2, zona.y + zona.height/2, zona.width, zona.height);

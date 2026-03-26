@@ -270,26 +270,29 @@ class Escritorio extends Phaser.Scene {
         }).setOrigin(0.5, 0.5).setScrollFactor(0);
         container.add(dicaInteracao);
 
-        // Texto piscante para fechar
-        const fechar = this.add.text(cx, cy + 140, 'Pressione qualquer tecla para continuar', {
-            fontSize: '12px', fontFamily: 'Arial', color: '#888888', fontStyle: 'italic'
-        }).setOrigin(0.5, 0.5).setScrollFactor(0);
-        container.add(fechar);
-
-        // Animação de piscar
-        this.tweens.add({
-            targets: fechar, alpha: 0.2,
-            duration: 700, yoyo: true, repeat: -1, ease: 'Sine.easeInOut'
-        });
-
-        // Fecha o pop-up ao pressionar qualquer tecla ou clicar
+        // Fecha o pop-up ao clicar no 'X'
         const fecharTutorial = () => {
             container.destroy();
             this.tutorialAtivo = false;
         };
 
-        this.input.keyboard.once('keydown', fecharTutorial);
-        this.input.once('pointerdown', fecharTutorial);
+        const xButton = this.add.text(cx + painelW / 2 - 20, cy - painelH / 2 + 20, 'X', {
+            fontSize: '28px',
+            fontFamily: 'Arial',
+            color: '#ffffff',
+            align: 'center',
+        }).setOrigin(0.5).setScrollFactor(0).setInteractive({ useHandCursor: true });
+        container.add(xButton);
+
+        xButton.on('pointerdown', fecharTutorial);
+
+        xButton.on('pointerover', () => {
+            xButton.setShadow(0, 0, '#ff0000', 10);
+        });
+        
+        xButton.on('pointerout', () => {
+            xButton.setShadow(0, 0, '#ff0000', 0);
+        });
     }
 
     update() {

@@ -26,7 +26,6 @@ var config = {
         Escritorio,
         Tutorial,
         Cidade,
-        Farmacia,
         LojaDeRoupa,
         Padaria,
         Posto,

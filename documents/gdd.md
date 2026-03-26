@@ -3,9 +3,9 @@
 
 # GDD - Game Design Document - Módulo 1 - Inteli
 
-## Nome do Grupo
+## GRUPO HEXA
 
-#### Nomes dos integrantes do grupo
+#### Ana Julia, Fabianne, Mariana, Haila, Fernando, João Paula, Cauan e Luís.
 
 
 
