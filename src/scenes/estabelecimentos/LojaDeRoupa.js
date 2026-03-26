@@ -37,10 +37,6 @@ class LojaDeRoupa extends Combate {
     }
 
     create() {
-        // Toca a música de batalha
-        this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.5 });
-        this.musica.play();
-
         // Fundo com redimensionamento robusto
         this.bg = this.add.image(0, 0, 'bgLojaDeRoupa')
             .setOrigin(0.5)

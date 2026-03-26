@@ -20,9 +20,18 @@ class FeedbackDerrota extends Tutorial {
         super.preload();
         const fundo = this.definirFundo();
         if (fundo) this.load.image('fundoFeedback', fundo);
+        // Carrega o som de derrota
+        this.load.audio('derrota', 'assets/derrota.mp3');
     }
 
     create() {
+        // Toca o som de derrota
+        this.somDerrota = this.sound.add('derrota', {
+            loop: false,
+            volume: 0.5
+        });
+        this.somDerrota.play();
+
         // Adiciona fundo antes de criar os elementos do estadual
         const fundo = this.definirFundo();
         if (fundo) {

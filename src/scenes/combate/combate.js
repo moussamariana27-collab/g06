@@ -10,6 +10,10 @@ class Combate extends Phaser.Scene {
 
     preload() {
         this.load.audio('musicabatalha', 'assets/musicabatalha.mp3');
+        // Carrega o som de mudança negativa
+        this.load.audio('mudancaNegativa', 'assets/mudançanegativa.mp3');
+        // Carrega o som de mudança positiva
+        this.load.audio('mudancaPositiva', 'assets/mudançapositiva.mp3');
     }
 
     initCombate(config) {
@@ -20,7 +24,7 @@ class Combate extends Phaser.Scene {
         this.posicaoSpawn = config.posicaoSpawn || null;
 
         // Toca a música de batalha
-        this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.3 });
+        this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.15 });
         this.musica.play();
     }
 
@@ -227,6 +231,8 @@ class Combate extends Phaser.Scene {
         let q = this.questoes[this.questaoAtual];
 
         if (decisao === q.resposta) {
+            // Toca o som de acerto ao responder corretamente
+            this.sound.play('mudancaPositiva', { loop: false, volume: 0.3 });
             this.satisfacao += 33;
             this.tweens.add({
                 targets: this.barra,
@@ -236,6 +242,8 @@ class Combate extends Phaser.Scene {
             });
             if (this.updateNPC) this.updateNPC();
         } else {
+            // Toca o som de alerta ao responder errado
+            this.sound.play('mudancaNegativa', { loop: false, volume: 1 });
             this.satisfacao -= 33;
             this.tremerBarra();
             this.cameras.main.shake(120, 0.008);
@@ -309,6 +317,10 @@ class Combate extends Phaser.Scene {
         this.graficosUI.forEach(g => g.setVisible(false));
 
         this.time.delayedCall(4000, () => {
+            // Para a música de combate antes de trocar de cena
+            if (this.musica && this.musica.isPlaying) {
+                this.musica.stop();
+            }
             this.scene.start(voltarPara, { character: this.personagemEscolhido,
                                             posicaoSpawn: this.posicaoSpawn ,
              });

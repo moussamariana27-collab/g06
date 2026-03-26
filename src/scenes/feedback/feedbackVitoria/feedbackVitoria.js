@@ -21,9 +21,18 @@ class FeedbackVitoria extends Tutorial {
         super.preload();
         const fundo = this.definirFundo();
         if (fundo) this.load.image('fundoFeedback', fundo);
+        // Carrega o som de vitória
+        this.load.audio('vitoria', 'assets/vitoria.mp3');
     }
 
     create() {
+        // Toca o som de vitória
+        this.somVitoria = this.sound.add('vitoria', {
+            loop: true,
+            volume: 0.5
+        });
+        this.somVitoria.play();
+
         // Adiciona fundo antes de criar os elementos do estadual
         const fundo = this.definirFundo();
         if (fundo) {

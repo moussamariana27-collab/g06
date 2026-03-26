@@ -35,8 +35,10 @@ class Cidade extends Phaser.Scene {
         });
 
         // Carrega o carro
-
         this.load.image('carro', 'assets/carroAzul.png');
+
+        // Carrega o som do carro
+        this.load.audio('carrocidade', 'assets/carrocidade.mp3');
 
     }
 
@@ -87,8 +89,7 @@ class Cidade extends Phaser.Scene {
         10,                    // duração em segundos
         this.carro,            // elemento gráfico
         this
-
-    );
+        );
 
 
         
@@ -142,8 +143,15 @@ class Cidade extends Phaser.Scene {
         zonaSupermercado.body.moves = false;
 
         this.physics.add.overlap(this.personagem, zonaSupermercado, () => {
+            // Para a música e som do carro antes de trocar de cena
+            if (this.musica && this.musica.isPlaying) {
+                this.musica.stop();
+            }
+            if (this.somCarro && this.somCarro.isPlaying) {
+                this.somCarro.stop();
+            }
             // Vai para a cena do Supermercado passando os dados do personagem
-            this.scene.start('Mercado', { character: this.personagemEscolhido });
+            this.scene.start('Mercado', { character: this.personagemEscolhido, posicaoSpawn: this.posicaoSpawn });
         });
 
         // --- REDIRECIONAMENTO: LOJA DE CONSTRUÇÃO ---
@@ -154,8 +162,15 @@ class Cidade extends Phaser.Scene {
         zonaConstrucao.body.moves = false;
 
         this.physics.add.overlap(this.personagem, zonaConstrucao, () => {
+            // Para a música e som do carro antes de trocar de cena
+            if (this.musica && this.musica.isPlaying) {
+                this.musica.stop();
+            }
+            if (this.somCarro && this.somCarro.isPlaying) {
+                this.somCarro.stop();
+            }
             // Vai para a cena da Loja de Construção
-            this.scene.start('LojaDeConstrução', { character: this.personagemEscolhido });
+            this.scene.start('LojaDeConstrução', { character: this.personagemEscolhido, posicaoSpawn: this.posicaoSpawn });
         });
         // Lista de cenas para onde o jogador pode ir
         const cenasDisponiveis = ['Escritorio', 'LojaDeRoupa', 'Farmacia', 'Padaria', 'Posto', 'SalaoDeBeleza'];
@@ -213,6 +228,11 @@ class Cidade extends Phaser.Scene {
 
                         // ✅ Para a música antes de trocar de cena
                         this.musica.stop();
+
+                        // Para o som do carro antes de trocar de cena
+                        if (this.somCarro && this.somCarro.isPlaying) {
+                            this.somCarro.stop();
+                        }
 
                         // Troca para a cena correspondente
                         this.scene.start(zona.type, { character: this.personagemEscolhido });
@@ -318,6 +338,22 @@ class Cidade extends Phaser.Scene {
 
     moverCarro(posicaoInicial,posicaoFinal,duracao,carro,cena) {
 
+        this.somCarro = null;
+        let primeiraVez = true;
+
+        // Função para criar e tocar o som do carro
+        const tocarSomCarro = () => {
+            const volumeSom = primeiraVez ? 0.5 : 0.2;
+            this.somCarro = cena.sound.add('carrocidade', {
+                loop: false,
+                volume: volumeSom
+            });
+            this.somCarro.play();
+            primeiraVez = false;
+        };
+
+        tocarSomCarro();
+
         // Equações da distância em cada eixo
 
         const distanciaX = posicaoFinal.x - posicaoInicial.x;;
@@ -356,6 +392,11 @@ class Cidade extends Phaser.Scene {
 
                 carro.setPosition(posicaoFinal.x, posicaoFinal.y);
 
+                // Para o som do carro
+                if (this.somCarro && this.somCarro.isPlaying) {
+                    this.somCarro.stop();
+                }
+
                 ativar = false;
 
                 cena.events.off('update', registrarAtualizacoes);
@@ -376,6 +417,9 @@ class Cidade extends Phaser.Scene {
                     ativar = true;
 
                     carro.setPosition(posicaoInicial.x, posicaoInicial.y);
+
+                    // Toca o som novamente (com volume reduzido nas próximas voltas)
+                    tocarSomCarro();
 
                     cena.events.on('update', registrarAtualizacoes);
                 });
