@@ -6,7 +6,21 @@ class FeedbackDerrotaSupermercado extends FeedbackDerrota {
         this.cenaOrigem = 'Mercado';
     }
 
-    definirFundo()    { return 'assets/mercado_interior.png'; }
+    preload (){
+        super.preload()
+        this.load.image('bgMercado', 'assets/mercado_interior.png');
+
+    }
+
+    create (){
+
+        this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgMercado')
+            .setDisplaySize(this.scale.width, this.scale.height)
+            .setDepth(-1);
+
+            super.create();
+    }
+
     definirDialogos() { 
         return[
                 'Você deixou passar a oportunidade de conectar as dores do cliente com as soluções da Cielo.',

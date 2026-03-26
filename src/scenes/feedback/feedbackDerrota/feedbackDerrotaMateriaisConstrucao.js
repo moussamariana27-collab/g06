@@ -6,7 +6,21 @@ class FeedbackDerrotaMateriaisConstrucao extends FeedbackDerrota {
         this.cenaOrigem = 'LojaDeConstrução';
     }
 
-    definirFundo()    { return 'assets/LojaDeConstrução_fundo.png'; }
+    preload (){
+        super.preload()
+        this.load.image('bgLojaDeConstrução', 'assets/LojaDeConstrução_fundo.png');
+
+    }
+
+    create (){
+
+        this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgLojaDeConstrução')
+            .setDisplaySize(this.scale.width, this.scale.height)
+            .setDepth(-1);
+
+            super.create();
+    }
+
     definirDialogos() 
     { return[
                 'Você deixou passar a oportunidade de conectar as dores da cliente com as soluções da Cielo.',

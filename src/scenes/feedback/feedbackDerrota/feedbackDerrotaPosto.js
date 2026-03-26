@@ -6,7 +6,21 @@ class FeedbackDerrotaPosto extends FeedbackDerrota {
         this.cenaOrigem = 'Posto';
     }
 
-    definirFundo()    { return 'assets/FundoPosto.png'; }
+    preload (){
+        super.preload()
+        this.load.image('bgPosto', 'assets/FundoPosto.png');
+
+    }
+
+    create (){
+
+        this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgPosto')
+            .setDisplaySize(this.scale.width, this.scale.height)
+            .setDepth(-1);
+
+            super.create();
+    }
+
     definirDialogos() { 
         return [
             'Você deixou passar a oportunidade de conectar as dores da cliente com as soluções da Cielo.',
