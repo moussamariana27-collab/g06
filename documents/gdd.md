@@ -202,7 +202,63 @@ Diversidade, responsabilidade social, linguagem simples e acessível, reconhecim
 
 ### 1.1.4. Proposta de Valor (sprint 4)
 
-*Posicione aqui o canvas de proposta de valor. Descreva os aspectos essenciais para a criação de valor da ideia do produto com o objetivo de ajudar a entender melhor a realidade do cliente e entregar uma solução que está alinhado com o que ele espera.*
+<div align="center">
+  <sub>Figura 1.1.4.1 - Proposta de valor</sub><br>
+  <img src="/assets/propostadevalor.png" width="100%" alt="Descrição breve"><br>
+  <sup>Material produzido pelos autores, 2026</sup>
+</div>
+
+---
+
+## 1. A Realidade do Jogador (O Cliente)
+
+O nosso público-alvo é composto por vendedores da **CIELO** que estão em processo de **onboarding** (ou seja, passando pela integração e capacitação inicial na empresa). O objetivo diário desse profissional é absorver os produtos, aplicar as metodologias na prática e conseguir vender, convertendo leads (potenciais clientes) de forma autônoma.
+
+No entanto, o formato tradicional de capacitação apresenta obstáculos significativos que moldam a realidade desse jogador:
+
+### As Dores (Frustrações)
+
+A maior frustração é a **interrupção da rotina de vendas**. Participar de treinamentos presenciais e lidar com o deslocamento consomem um tempo produtivo valioso, gerando perda de oportunidades comerciais. Além disso, a dificuldade em internalizar os **jargões** (a linguagem técnica e comercial da empresa) compromete a comunicação e a credibilidade do vendedor no campo.
+
+### Os Ganhos (Expectativas)
+
+Esse jogador espera um aprendizado de **qualidade e com equidade** — isto é, que todos recebam o mesmo nível de preparação, independentemente de onde estejam. Ele também deseja se familiarizar com a linguagem da CIELO com naturalidade, para transmitir profissionalismo e segurança nas negociações.
+
+---
+
+## 2. A Criação de Valor (A Solução e o Alinhamento)
+
+Para entender essa realidade e entregar exatamente o que o vendedor espera, a nossa solução substitui o formato tradicional por uma **plataforma digital gamificada** (transformando o processo de integração em um jogo com desafios e progressão).
+
+Os aspectos essenciais que criam valor para esse jogador são:
+
+### Aliviadores de Dor
+
+Para eliminar a perda de tempo com deslocamentos e a interrupção da rotina, a plataforma é **digital e com acesso remoto**, permitindo que o treinamento ocorra nos intervalos do trabalho. Para combater a insegurança na hora da venda, o sistema oferece **simulações práticas** — cenários onde o jogador treina o atendimento sem o risco real de perder um cliente.
+
+### Criadores de Ganhos
+
+O jogo substitui avaliações tradicionais por **feedbacks instantâneos** ao final de cada exercício, impedindo que erros virem hábitos. O progresso ocorre através de **levels** (fases com dificuldade progressiva que evoluem do conhecimento básico ao avançado). O jogador só avança ao demonstrar domínio real, o que gera um senso de conquista e motivação.
+
+### Diferencial Essencial
+
+A mecânica central utiliza o **reforço por repetição**, apresentando os jargões profissionais e técnicas de forma recorrente e natural durante as missões. Isso acelera a internalização da linguagem corporativa na memória de longo prazo.
+
+---
+
+## Conclusão do Alinhamento
+
+Dessa forma, a plataforma gamificada demonstra um **encaixe perfeito** com a realidade do cliente. Ela atende aos vendedores da CIELO que buscam um aprendizado padronizado e domínio rápido das técnicas, entregando valor ao reduzir a frustração dos deslocamentos através de simulações práticas sem risco, progressão por levels e feedback instantâneo.
+
+---
+
+# 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
+
+A solução consiste em um **jogo digital single-player** que simula a atuação de um Gerente de Negócios (GN) da Cielo em processos de prospecção e conversão de clientes. A dinâmica é baseada em **decisões em turnos**, nas quais o jogador seleciona abordagens comerciais diante de diferentes cenários de negociação.
+
+Por meio de **gamificação**, o sistema transforma práticas reais em experiências interativas de aprendizagem, permitindo o desenvolvimento de competências como argumentação, negociação e tratamento de objeções, com **feedback imediato**.
+
+A solução incorpora processos reais da operação, como o **repique**, garantindo aderência ao contexto de atuação e promovendo a padronização de abordagens e o desenvolvimento de performance. Como resultado, atua como uma ferramenta **escalável de capacitação**, alinhada aos objetivos do parceiro de negócios.
 
 ### 1.1.5. Descrição da Solução Desenvolvida (sprint 4)
 
