@@ -55,6 +55,13 @@ class LojaDeRoupa extends Combate {
             satisfacaoInicial: 34,
             questoes: [
                 {
+                    // Saudação inicial
+                    pergunta: "DONA NAYARA: Olá! Como posso ajudar?",
+                    certo: "Olá, Dona Nayara! Sou Gerente de Negócios da Cielo. Vim até aqui porque tenho uma proposta que acredito que faz todo sentido pro seu negócio. A senhora teria uns minutinhos pra conversar?",
+                    errado: "Oi! Você já tem maquininha Cielo? Vim aqui ver se você quer assinar um contrato novo.",
+                    resposta: true
+                },
+                {
                     // Fase 1: Abordagem e objeção sobre fluxo de caixa e parcelamento
                     pergunta: "DONA NAYARA: Ah, vi que você é da Cielo... Olha, eu não gosto de parcelar venda aqui. A taxa pesa, recebo pingado e não dá pra ficar sem dinheiro no caixa diariamente no meu negócio.",
                     certo: "Vim na hora certa, Dona Nayara! A Cielo tem uma oferta incrível pro seu ramo. Com a gente a senhora parcela, mas recebe todos os dias! Seja sábado, domingo ou feriado, o dinheiro cai na conta.",

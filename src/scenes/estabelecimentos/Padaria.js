@@ -70,6 +70,13 @@ class Padaria extends Combate {
                 [
 
             {
+                pergunta: "SEU TIÃO: Bom dia! Seja bem-vindo à padaria. Em que posso ajudar?",
+                certo: "Bom dia, Seu Tião! Sou Gerente de Negócios da Cielo e passei aqui porque acredito que tenho uma proposta que pode fazer diferença pro seu negócio. O senhor teria alguns minutinhos pra conversar?",
+                errado: "Oi! Vim aqui te oferecer uma maquininha. A Cielo tem as melhores taxas do mercado, tá precisando?",
+                resposta: true
+            },
+
+            {
                 pergunta: "SEU TIÃO: Bom dia, eu sei que você trabalha com a Cielo, mas já tive muitos problemas com outras adquirentes. Em situações de emergência, prefiro vender no dinheiro pra receber na hora e evitar dor de cabeça. Então, não tenho interesse em contratar novos serviços agora.",
                 certo: "Entendo sua preocupação, Seu Tião. Com o ‘Vendeu, Tá na Conta’ da Cielo, vendas até 18h59 caem no mesmo dia, inclusive em fins de semana e feriados, ajudando no seu fluxo de caixa sem depender só do dinheiro físico.",
                 errado: "Infelizmente não temos uma solução para isso, Seu Tião. Se quiser receber no mesmo dia, o ideal seria continuar vendendo apenas no dinheiro.",

@@ -74,6 +74,14 @@ class LojaDeConstrução extends Combate {
             satisfacaoInicial: 34,
             questoes: [
 
+            // Saudação inicial
+            {
+                pergunta: "LÍGIA:\n Olá! Boa tarde, pode falar.",
+                certo: "Boa tarde, Lígia! Sou Gerente de Negócios da Cielo. Passei aqui porque tenho uma proposta pensada especialmente pro segmento de materiais de construção. A senhora teria alguns minutos pra ouvir?",
+                errado: "Oi! Vim ver se você quer trocar de maquininha. A Cielo tá com umas condições aí...",
+                resposta: true
+            },
+
             // Pergunta 1 — Taxas e prazo de recebimento no parcelado
             {
                 pergunta: "LÍGIA:\n A gente vende bastante no parcelado, mas as taxas pesam demais e o prazo pra receber não ajuda. Fico apertada no caixa toda vez que faço uma venda grande.",

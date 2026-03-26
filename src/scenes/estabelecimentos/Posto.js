@@ -66,6 +66,14 @@ class Posto extends Combate {
             questoes: [
 
             {
+                // Saudação inicial
+                pergunta: "SRA. ROBERTA:\n Boa tarde! Com quem eu falo?",
+                certo: "Boa tarde, Sra. Roberta! Sou Gerente de Negócios da Cielo. Vim pessoalmente até aqui porque tenho uma proposta estruturada pro seu nível de operação. A senhora teria alguns minutos pra conversar?",
+                errado: "Boa tarde! Sou da Cielo e gostaria de saber se você precisa de maquininha nova aqui no posto.",
+                resposta: true
+            },
+
+            {
                 // Abertura: previsibilidade de taxas — gancho central do script do analista
                 pergunta: "SRA. ROBERTA:\n Já tive problema com maquininha que começou com taxa boa e depois subiu. Não tenho como aceitar surpresa no meio do caminho no meu nível de faturamento.",
                 certo: "Todas as condições acordadas ficam formalizadas em contrato, Sra. Roberta. Com o acordo comercial estruturado para postos de alto faturamento, garantimos estabilidade nas taxas por 12 meses, trazendo total previsibilidade pro seu caixa.",

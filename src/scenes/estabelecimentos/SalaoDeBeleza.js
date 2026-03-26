@@ -61,6 +61,13 @@ class SalaoDeBeleza extends Combate {
             questoes: [
 
             {
+                // Saudação inicial
+                pergunta: "DONA LEILA: Oi, tudo bem? Você tem horário marcado?",
+                certo: "Oi, Dona Leila! Sou Gerente de Negócios da Cielo. Vim até aqui porque tenho uma proposta que acredito que vai fazer sentido pro seu salão. A senhora teria alguns minutinhos pra ouvir?",
+                errado: "Oi! Não, vim aqui pra te oferecer uma maquininha. A gente tem as melhores taxas do mercado!",
+                resposta: true
+            },
+            {
                 // Dona Leila abre o jogo reclamando de taxas altas no crédito — gancho direto do script do analista
                 pergunta: "DONA LEILA: Quando a cliente paga no crédito, sinto que as taxas pesam demais. Como vocês conseguem me ajudar nisso?",
                 certo: "Conseguimos ajustar uma condição que faça sentido pro seu faturamento, com taxas equilibradas e sem perder o controle dos custos.",

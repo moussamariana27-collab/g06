@@ -68,6 +68,14 @@ class Mercado extends Combate {
             questoes: [
 
             {
+                // Saudação inicial
+                pergunta: "SR. RUAN:\n Boa tarde! Veio falar com quem?",
+                certo: "Boa tarde, Sr. Ruan! Sou Gerente de Negócios da Cielo. Vim até aqui porque tenho uma proposta com condições especiais pro seu segmento. O senhor teria alguns minutos pra conversar?",
+                errado: "Boa tarde! Sou da Cielo, vim ver se você quer uma maquininha nova aqui no mercado.",
+                resposta: true
+            },
+
+            {
                 // Abertura: Sr. Ruan não usa TEF e Pinpad — gancho direto do script do analista
                 pergunta: "SR. RUAN:\n Sempre achei TEF e Pinpad muito complicado. Prefiro continuar como estou, com as maquininhas que já tenho aqui.",
                 certo: "Mas, sem TEF e Pinpad a sua conciliação fica muito mais complicada — e aposto que deixa passar uma coisa ou outra no fechamento, né?",
