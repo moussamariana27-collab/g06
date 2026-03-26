@@ -66,11 +66,10 @@ class Posto extends Combate {
             questoes: [
 
             {
-                // Saudação inicial
+                // Saudação inicial (Apenas Diálogo)
                 pergunta: "SRA. ROBERTA:\n Boa tarde! Com quem eu falo?",
                 certo: "Boa tarde, Sra. Roberta! Sou Gerente de Negócios da Cielo. Vim pessoalmente até aqui porque tenho uma proposta estruturada pro seu nível de operação. A senhora teria alguns minutos pra conversar?",
-                errado: "Boa tarde! Sou da Cielo e gostaria de saber se você precisa de maquininha nova aqui no posto.",
-                resposta: true
+                soDialogo: true
             },
 
             {

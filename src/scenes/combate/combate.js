@@ -75,10 +75,11 @@ class Combate extends Phaser.Scene {
         const opcB_W = 620;
         const opcB_H = 110;
 
-        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 12));
-        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(opcB_X + 4, opcB_Y + 4, opcB_W - 8, opcB_H - 8, 9));
-        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(opcB_X + 8, opcB_Y + 8, opcB_W - 16, opcB_H - 16, 6));
-        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 4));
+        this.graficosOpcaoDois = [];
+        this.graficosOpcaoDois.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 12));
+        this.graficosOpcaoDois.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(opcB_X + 4, opcB_Y + 4, opcB_W - 8, opcB_H - 8, 9));
+        this.graficosOpcaoDois.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(opcB_X + 8, opcB_Y + 8, opcB_W - 16, opcB_H - 16, 6));
+        this.graficosOpcaoDois.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 4));
 
         this.opcaoDois = this.add.text(opcB_X + 18, opcB_Y + 18, "", {
             color: "#1a1a2e",
@@ -206,9 +207,32 @@ class Combate extends Phaser.Scene {
         });
     }
 
+    _setModoDialogo(ativo) {
+        this.barra.setVisible(!ativo);
+        this.textoSatisfacao.setVisible(!ativo);
+        this.opcaoDois.setVisible(!ativo);
+        this.graficosOpcaoDois.forEach(g => g.setVisible(!ativo));
+    }
+
     mostrarQuestao() {
         let perguntaAtual = this.questoes[this.questaoAtual];
         this.lugarQuestao.setText(perguntaAtual.pergunta);
+
+        if (perguntaAtual.soDialogo) {
+            this._setModoDialogo(true);
+            this.opcaoUm.setText(perguntaAtual.certo);
+            this.opcaoUm.setInteractive();
+            this.opcaoUm.once("pointerdown", () => {
+                this.opcaoUm.disableInteractive();
+                this._setModoDialogo(false);
+                this.proximaPergunta();
+            });
+            return;
+        }
+
+        this._setModoDialogo(false);
+        this.opcaoUm.setInteractive();
+        this.opcaoDois.setInteractive();
 
         let trocarLugar = Math.random() < 0.5;
         if (trocarLugar) {
@@ -225,6 +249,8 @@ class Combate extends Phaser.Scene {
     }
 
     resposta(decisao) {
+        // Ignora clique se a questão atual for só diálogo
+        if (this.questoes[this.questaoAtual]?.soDialogo) return;
         this.opcaoUm.disableInteractive();
         this.opcaoDois.disableInteractive();
 

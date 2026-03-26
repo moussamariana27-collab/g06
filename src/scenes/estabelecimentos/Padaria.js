@@ -72,8 +72,7 @@ class Padaria extends Combate {
             {
                 pergunta: "SEU TIÃO: Bom dia! Seja bem-vindo à padaria. Em que posso ajudar?",
                 certo: "Bom dia, Seu Tião! Sou Gerente de Negócios da Cielo e passei aqui porque acredito que tenho uma proposta que pode fazer diferença pro seu negócio. O senhor teria alguns minutinhos pra conversar?",
-                errado: "Oi! Vim aqui te oferecer uma maquininha. A Cielo tem as melhores taxas do mercado, tá precisando?",
-                resposta: true
+                soDialogo: true
             },
 
             {
