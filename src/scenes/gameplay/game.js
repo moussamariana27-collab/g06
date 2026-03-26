@@ -463,8 +463,8 @@ class Cidade extends Phaser.Scene {
 
             posicaoX += velocidadeX * tempoSoma;     // Vx = d*t
 
-            //console.log( `velocidade no eixo x: ${velocidadeX.toFixed(2)} pixels por segundo`);
-            //console.log(` posição no eixo x: ${posicaoX.toFixed(2)}`);
+            console.log( `velocidade no eixo x: ${velocidadeX.toFixed(2)} pixels por segundo`);
+            console.log(` posição no eixo x: ${posicaoX.toFixed(2)}`);
 
             // Movimento no eixo Y (MUV)
 
@@ -472,9 +472,9 @@ class Cidade extends Phaser.Scene {
 
             posicaoY += velocidadeY * tempoSoma   // Sy = Sy' + Vy'*t + (a*t*t/2)
 
-            //console.log(  `aceleração no eixo y: ${aceleracaoY.toFixed(2)} pixels por segundo ao quadrado`);
-            //console.log( `velocidade no eixo Y: ${velocidadeY.toFixed(2)} pixels por segundo` ) ;
-            //console.log(` posição no eixo y: ${posicaoY.toFixed(2)}`);
+            console.log(  `aceleração no eixo y: ${aceleracaoY.toFixed(2)} pixels por segundo ao quadrado`);
+            console.log( `velocidade no eixo Y: ${velocidadeY.toFixed(2)} pixels por segundo` ) ;
+            console.log(` posição no eixo y: ${posicaoY.toFixed(2)}`);
 
             // Aplica posicao no carro
 
