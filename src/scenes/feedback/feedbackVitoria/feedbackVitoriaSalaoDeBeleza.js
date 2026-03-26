@@ -4,6 +4,13 @@ class FeedbackVitoriaSalaoDeBeleza extends FeedbackVitoria {
     init(data) {
         super.init(data);
         this.cenaOrigem = 'Cidade';
+
+        // REGISTRO DE VITÓRIA
+        let vitoriasGlobais = this.registry.get('estabelecimentosVencidos') || [];
+        if (!vitoriasGlobais.includes('SalaoDeBeleza')) {
+            vitoriasGlobais.push('SalaoDeBeleza');
+            this.registry.set('estabelecimentosVencidos', vitoriasGlobais);
+        }
     }
     
     preload (){

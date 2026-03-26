@@ -11,6 +11,11 @@ class Cidade extends Phaser.Scene {
 
         // Carrega o mapa exportado do Tiled no formato JSON
         this.load.tilemapTiledJSON('mapaCidade', 'assets/cidade_cielo.json');
+        // Carrega as imagens de vitória para cada personagem
+        this.load.image('vitoriaJoao', 'assets/vitoriaJoao.png');
+        this.load.image('vitoriaJose', 'assets/vitoriaJose.png');
+        this.load.image('vitoriaPaula', 'assets/vitoriaPaula.png');
+        this.load.image('vitoriaMaria', 'assets/vitoriaMaria.png');
 
         // Carrega a imagem do tileset utilizado no mapa
         this.load.image('cidade', 'assets/cidade_tileset.png');
@@ -312,7 +317,75 @@ class Cidade extends Phaser.Scene {
         this.input.keyboard.once('keydown-SPACE', () => {
             console.log(`${this.personagem.x} e ${this.personagem.y}` )
         });
+
+       // =========================================================
+        // === BARRA NO MUNDO (EM CIMA DO PERSONAGEM) ==============
+        // =========================================================
+
+        let estabelecimentosVencidos = this.registry.get('estabelecimentosVencidos') || [];
+        let totalVitorias = estabelecimentosVencidos.length;
+        let totalEstabelecimentos = 6;
+        let progressoPorcentagem = (totalVitorias / totalEstabelecimentos) * 100;
+
+        console.log('A desenhar a barra! Vitórias atuais:', totalVitorias);
+
+        // --- Checar Vitória Final ---
+        if (totalVitorias >= totalEstabelecimentos) {
+            const cenasVitoriaFinal = {
+                'JOÃO': 'vitoriaJoao',
+                'JOSÉ': 'vitoriaJose',
+                'PAULA': 'vitoriaPaula',
+                'MARIA': 'vitoriaMaria'
+            };
+            let chaveImagemVitoria = cenasVitoriaFinal[this.personagemEscolhido];
+            
+            let cam = this.cameras.main;
+
+            // Centralizamos a imagem na câmara e fixamos com setScrollFactor(0)
+            let imgVitoria = this.add.image(cam.centerX, cam.centerY, chaveImagemVitoria)
+                    .setScrollFactor(0) // Fixa no ecrã
+                    .setDepth(9999); 
+            
+            // O SEGREDO: Redimensionamos dividindo pelo zoom da câmara para caber perfeitamente!
+            imgVitoria.setDisplaySize(cam.width / cam.zoom, cam.height / cam.zoom);
+
+            // Pausa a movimentação do personagem por trás da tela de vitória
+            this.physics.world.pause();
+
+            return; 
+        }
+
+        // === NOVA POSIÇÃO: BASEADA NAS COORDENADAS DO PERSONAGEM ===
+        // Removemos o setScrollFactor(0) para a barra pertencer ao mapa
+        let barraX = this.personagem.x - 100; 
+        let barraY = this.personagem.y - 60; // 60 pixels acima do personagem
+
+        // --- Desenhar a Barra ---
+        let bgBarra = this.add.graphics().setDepth(9998);
+        bgBarra.fillStyle(0x000000, 0.8); 
+        bgBarra.fillRect(barraX, barraY, 204, 24); 
+
+        if (totalVitorias > 0) {
+            let barraProgresso = this.add.graphics().setDepth(9999);
+            barraProgresso.fillStyle(0x00ff00, 1); 
+            let larguraAtual = (200 / totalEstabelecimentos) * totalVitorias;
+            barraProgresso.fillRect(barraX + 2, barraY + 2, larguraAtual, 20); 
+        }
+
+        this.add.text(barraX, barraY - 20, 'Progresso:', { 
+            fontSize: '16px', 
+            fill: '#ffffff',
+            stroke: '#000000',
+            strokeThickness: 3
+        }).setDepth(9999);
         
+        this.add.text(barraX + 160, barraY + 2, `${progressoPorcentagem.toFixed(0)}%`, { 
+            fontSize: '16px', 
+            fill: '#ffffff',
+            fontWeight: 'bold',
+            stroke: '#000000',
+            strokeThickness: 3
+        }).setDepth(9999);
 
     }
 

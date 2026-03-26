@@ -4,6 +4,13 @@ class FeedbackVitoriaPosto extends FeedbackVitoria {
     init(data) {
         super.init(data);
         this.cenaOrigem = 'Cidade';
+
+        // REGISTRO DE VITÓRIA
+        let vitoriasGlobais = this.registry.get('estabelecimentosVencidos') || [];
+        if (!vitoriasGlobais.includes('Posto')) {
+            vitoriasGlobais.push('Posto');
+            this.registry.set('estabelecimentosVencidos', vitoriasGlobais);
+        }
     }
 
         preload (){

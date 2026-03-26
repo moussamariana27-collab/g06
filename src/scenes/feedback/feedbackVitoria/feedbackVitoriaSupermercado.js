@@ -5,6 +5,18 @@ class FeedbackVitoriaSupermercado extends FeedbackVitoria {
         super.init(data);
         this.cenaOrigem = 'Cidade';
         console.log('cenaOrigem:', this.cenaOrigem);
+        // =========================================================
+        // === REGISTRAR A VITÓRIA DESTE ESTABELECIMENTO ===========
+        // =========================================================
+        let vitoriasGlobais = this.registry.get('estabelecimentosVencidos') || [];
+        
+        // Verifica se o 'Supermercado' já não está na lista
+        if (!vitoriasGlobais.includes('Supermercado')) {
+            vitoriasGlobais.push('Supermercado'); // Adiciona à lista
+            this.registry.set('estabelecimentosVencidos', vitoriasGlobais); // Salva globalmente
+        }
+        // =========================================================
+
     }
         
 

@@ -4,6 +4,12 @@ class FeedbackVitoriaMateriaisConstrucao extends FeedbackVitoria {
     init(data) {
         super.init(data);
         this.cenaOrigem = 'Cidade';
+        // REGISTRO DE VITÓRIA
+        let vitoriasGlobais = this.registry.get('estabelecimentosVencidos') || [];
+        if (!vitoriasGlobais.includes('MateriaisConstrucao')) {
+            vitoriasGlobais.push('MateriaisConstrucao');
+            this.registry.set('estabelecimentosVencidos', vitoriasGlobais);
+        }
     }
 
         preload (){
