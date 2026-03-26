@@ -214,7 +214,31 @@ A solução incorpora processos reais da operação, como o repique, garantindo 
 
 ### 1.1.6. Matriz de Riscos (sprint 4)
 
-*Registre na matriz os riscos identificados no projeto, visando avaliar situações que possam representar ameaças e oportunidades, bem como os impactos relevantes sobre o projeto. Apresente os riscos, ressaltando, para cada um, impactos e probabilidades com plano de ação e respostas.*
+
+
+![Matriz de risco](/assets/matriz%20de%20risco%20(2).png)
+
+
+A tabela a seguir classifica os riscos reais, potenciais e as oportunidades de inovação do projeto, buscando um equilíbrio estratégico entre a mitigação de ameaças e a alavancagem de oportunidades de negócios para a Cielo.
+
+| ID | Tipo | Nome do Cenário | Descrição do Cenário | Probabilidade | Impacto | Plano de Ação / Resposta | Responsável |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **R01** | Ameaça | Perda de dados de progresso | Perda de progresso do usuário por ausência de persistência. | Muito provável | Alto | Implementar salvamento automático, persistência local e sync em nuvem. | CIELO |
+| **R02** | Ameaça | Obsolescência do conteúdo | Conteúdo desatualizado frente a mudanças nos processos da Cielo. | Provável | Alto | Separar conteúdo da lógica via JSON/API e revisar mensalmente. | CIELO |
+| **R03** | Ameaça | Bugs críticos de sistema | Falhas graves que interrompem a progressão do jogo. | Possível | Muito alto | Implementar testes automatizados e meta de zero bugs em produção. | CIELO |
+| **R04** | Ameaça | Baixo engajamento | Alta taxa de abandono do jogo como ferramenta de onboarding. | Possível | Moderado | Realizar testes com GNs, medir taxa de conclusão e iterar. | CIELO |
+| **R05** | Ameaça | Sobrescrita de commits | Perda de código devido a conflitos e má gestão de versionamento. | Possível | Baixo | Manter comunicação ativa durante o desenvolvimento, a fim de assegurar a prevenção de conflitos na branch principal (main) e evitar a sobrescrita de arquivos. | GRUPO |
+| **R06** | Ameaça | Mecânicas confusas | Controles ou regras pouco intuitivas dificultarem a jogabilidade. | Improvável | Muito alto | Realizar testes de usabilidade com taxa de erro <10% e iterar. | GRUPO |
+| **R07** | Ameaça | Desalinhamento da realidade | Simulação não refletir desafios reais do cargo do GN. | Improvável | Alto | Validar cenários com GNs ativos e revisar com especialistas. | CIELO |
+| **R08** | Ameaça | Atrito por jargão técnico | Uso excessivo de termos corporativos gerar desinteresse. | Muito baixo | Moderado | Introduzir termos progressivamente com glossário contextual. | GRUPO |
+| **R09** | Oportunidade | Aceleração com IA | Uso de IA reduz o tempo e o custo de desenvolvimento do grupo. | Muito provável | Muito alto | Definir padrões de uso de IA e biblioteca de prompts. | GRUPO |
+| **R10** | Oportunidade | Redução de Custos (ROI) | O jogo reduz a necessidade de alocar gerentes seniores para dar aulas. | Provável | Muito alto | Comparar o custo de horas do modelo de onboarding antigo vs. o novo. | CIELO |
+| **R11** | Oportunidade | Reusabilidade Tecnológica | A base do jogo pode ser usada para onboarding de outras áreas. | Possível | Alto | Desenvolver o código com arquitetura modular e documentação robusta. | GRUPO |
+| **R12** | Oportunidade | Sandbox de Novos Produtos | A Cielo pode usar o jogo para testar como GNs vendem novos produtos. | Muito provável | Alto | Criar um módulo de atualização rápida para inserção de novos cenários. | CIELO |
+| **R13** | Oportunidade | Employer Branding | Onboarding inovador aumenta a retenção e satisfação do novo talento. | Provável | Moderado | Incluir pesquisa de satisfação (eNPS) ao final da experiência do jogo. | CIELO |
+
+
+
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
 
