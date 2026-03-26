@@ -9,11 +9,11 @@ class FeedbackVitoriaLojaDeRoupa extends FeedbackVitoria {
     definirFundo()    { return 'assets/lojaderoupa_interior.png'; }
     definirDialogos() { 
         return [
-                    'Parabéns! Você conduziu bem a conversa e conseguiu gerar confiança com a cliente.',
-                    'Agora, você avançará para um novo desafio: a loja de roupas da Nayara.',
-                    'Nayara é dona de um vestuário com faturamento mensal em torno de 15 mil reais e carrega uma forte descendência indígena, refletida em sua história e identidade.',
-                    'Ela já teve experiência com diferentes provedores de maquininhas, o que a torna mais criteriosa na comparação de benefícios e taxas.',
-                    'Seu desafio será apresentar as soluções da Cielo de forma clara e vantajosa, mostrando diferenciais que realmente façam sentido para o negócio dela.'
+            'Parabéns! Você conduziu bem a conversa e conseguiu gerar confiança com a cliente.',
+            'Agora, você avançará para um novo desafio: a loja da Lígia.',
+            'Lígia é dona de uma loja de materiais de construção com faturamento mensal em torno de 80 mil reais, construída após anos de dedicação ao negócio.',
+            'Ela valoriza muito a organização e a integridade da operação, mas tem pouca paciência com abordagens que não sejam objetivas.',
+            'Seu desafio será apresentar as soluções da Cielo com clareza e precisão, evitando deslizes que possam encerrar a conversa rapidamente.'
         ]; 
     }
 }
