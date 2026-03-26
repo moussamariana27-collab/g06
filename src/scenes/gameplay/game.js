@@ -135,8 +135,7 @@ class Cidade extends Phaser.Scene {
             // Ativa colisão entre o personagem e os objetos do grupo
             this.physics.add.collider(this.personagem, grupoColisoes);
         }
-        // --- REDIRECIONAMENTO: SUPERMERCADO ---
-        // Posição: Centro X (380), Centro Y (879.5), Largura (200), Altura (45)
+        // zona para colisão com o supermercado (redirecionamento para a cena do supermercado)
         let zonaSupermercado = this.add.zone(380, 879.5, 200, 45);
         this.physics.world.enable(zonaSupermercado);
         zonaSupermercado.body.setAllowGravity(false);
@@ -154,8 +153,7 @@ class Cidade extends Phaser.Scene {
             this.scene.start('Mercado', { character: this.personagemEscolhido, posicaoSpawn: this.posicaoSpawn });
         });
 
-        // --- REDIRECIONAMENTO: LOJA DE CONSTRUÇÃO ---
-        // Posição: Centro X (710.5), Centro Y (930.5), Largura (117), Altura (33)
+        // zona para colisão com a loja de construção (redirecionamento para a cena da loja de construção)
         let zonaConstrucao = this.add.zone(710.5, 930.5, 117, 33);
         this.physics.world.enable(zonaConstrucao);
         zonaConstrucao.body.setAllowGravity(false);
@@ -173,8 +171,7 @@ class Cidade extends Phaser.Scene {
             this.scene.start('LojaDeConstrução', { character: this.personagemEscolhido, posicaoSpawn: this.posicaoSpawn });
         });
 
-        // --- REDIRECIONAMENTO: ESCRITÓRIO ---
-        // Posição: Centro X (243), Centro Y (290), Largura (356), Altura (32)
+        // zona para colisão com o escritório (redirecionamento para a cena do escritório)
         let zonaEscritorio = this.add.zone(243, 290, 356, 32);
         this.physics.world.enable(zonaEscritorio);
         zonaEscritorio.body.setAllowGravity(false);
@@ -184,7 +181,16 @@ class Cidade extends Phaser.Scene {
             // Vai para a cena do Escritório passando os dados do personagem
             this.scene.start('Escritorio', { character: this.personagemEscolhido });
         });
+
+        // Zona para colisão com a farmacia 
+        let paredeInvisivel = this.add.zone(310, 489, 112, 102);
         
+        // O 'true' transforma a zona diretamente num Corpo Estático (parede imovel)
+        this.physics.add.existing(paredeInvisivel, true); 
+
+        // Adiciona a colisão física entre o personagem e a parede
+        this.physics.add.collider(this.personagem, paredeInvisivel);
+
         // Lista de cenas para onde o jogador pode ir
         const cenasDisponiveis = ['Escritorio', 'LojaDeRoupa', 'Padaria', 'Posto', 'SalaoDeBeleza', 'LojaDeConstrução', 'Mercado'];
 
