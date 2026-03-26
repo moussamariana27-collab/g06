@@ -107,15 +107,6 @@ class LojaDeConstrução extends Combate {
         this.updateNPC = this.faceConstrutora;
         this.faceConstrutora();
 
-        this.input.keyboard.once('keydown-SPACE', () => {
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
-
-        this.input.keyboard.once('keydown-ENTER', () => {
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
     }
 
     resizeBackground() {

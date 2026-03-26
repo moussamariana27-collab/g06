@@ -126,18 +126,6 @@ class Posto extends Combate {
         this.updateNPC = this.faceRoberta;
         this.faceRoberta();
 
-        // Voltar pra cidade
-        this.input.keyboard.once('keydown-SPACE', () => {
-            // Para a música de batalha antes de voltar
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
-
-        this.input.keyboard.once('keydown-ENTER', () => {
-            // Para a música de batalha antes de voltar
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
     }
 
     // CRIA NPC

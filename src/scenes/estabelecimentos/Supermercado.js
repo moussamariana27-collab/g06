@@ -106,15 +106,6 @@ class Mercado extends Combate {
         this.updateNPC = this.faceRuan;
         this.faceRuan();
 
-        this.input.keyboard.once('keydown-SPACE', () => {
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido })
-        });
-
-        this.input.keyboard.once('keydown-ENTER', () => {
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido })
-        });
     }
 
     resizeBackground() {

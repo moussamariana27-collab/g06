@@ -93,15 +93,6 @@ class LojaDeRoupa extends Combate {
         this.updateNPC = this.faceVendedora;
         this.faceVendedora();
 
-        this.input.keyboard.once('keydown-SPACE', () => {
-            if (this.musica) this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
-        
-        this.input.keyboard.once('keydown-ENTER', () => {
-            if (this.musica) this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
     }
 
     resizeBackground() {

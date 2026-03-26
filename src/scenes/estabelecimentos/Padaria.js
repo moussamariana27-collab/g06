@@ -127,18 +127,6 @@ class Padaria extends Combate {
         this.updateNPC = this.facePadeiro;
         this.facePadeiro();
 
-        // Input: retorna para a cidade ao pressionar ESPAÇO ou ENTER
-        this.input.keyboard.once('keydown-SPACE', () => {
-            // Para a música de batalha antes de voltar
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
-
-        this.input.keyboard.once('keydown-ENTER', () => {
-            // Para a música de batalha antes de voltar
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
     }
 
     resizeBackground() {

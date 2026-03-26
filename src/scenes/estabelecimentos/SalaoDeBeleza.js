@@ -99,15 +99,6 @@ class SalaoDeBeleza extends Combate {
         this.updateNPC = this.faceCabelereira;
         this.faceCabelereira();
 
-        this.input.keyboard.once('keydown-SPACE', () => {
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
-
-        this.input.keyboard.once('keydown-ENTER', () => {
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
     }
 
     criarCabelereira() {
