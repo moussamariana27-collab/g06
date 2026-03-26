@@ -172,6 +172,19 @@ class Cidade extends Phaser.Scene {
             // Vai para a cena da Loja de Construção
             this.scene.start('LojaDeConstrução', { character: this.personagemEscolhido, posicaoSpawn: this.posicaoSpawn });
         });
+
+        // --- REDIRECIONAMENTO: ESCRITÓRIO ---
+        // Posição: Centro X (243), Centro Y (290), Largura (356), Altura (32)
+        let zonaEscritorio = this.add.zone(243, 290, 356, 32);
+        this.physics.world.enable(zonaEscritorio);
+        zonaEscritorio.body.setAllowGravity(false);
+        zonaEscritorio.body.moves = false;
+
+        this.physics.add.overlap(this.personagem, zonaEscritorio, () => {
+            // Vai para a cena do Escritório passando os dados do personagem
+            this.scene.start('Escritorio', { character: this.personagemEscolhido });
+        });
+        
         // Lista de cenas para onde o jogador pode ir
         const cenasDisponiveis = ['Escritorio', 'LojaDeRoupa', 'Padaria', 'Posto', 'SalaoDeBeleza', 'LojaDeConstrução', 'Mercado'];
 
