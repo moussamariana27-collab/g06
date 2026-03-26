@@ -34,6 +34,10 @@ class Cidade extends Phaser.Scene {
             frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
         });
 
+        // Carrega o carro
+
+        this.load.image('carro', 'assets/carroAzul.png');
+
     }
 
     create() {
@@ -71,6 +75,25 @@ class Cidade extends Phaser.Scene {
 
         // Ativa colisão do personagem com as bordas do mundo
         this.personagem.setCollideWorldBounds(true);
+
+        // =========================================================================================
+        // Cria o carro e coloca-o para andar
+
+        this.carro = this.physics.add.image(530,85, 'carro').setFlip(false,true);
+
+        this.moverCarro(
+        { x: 530, y: 85  },   // posição inicial
+        { x: 540, y: 1000 },  // posição final
+        10,                    // duração em segundos
+        this.carro,            // elemento gráfico
+        this
+
+    );
+
+
+        
+
+        //==========================================================================================
 
         // Ajusta automaticamente a hitbox para o tamanho do sprite
         this.personagem.body.setSize(
@@ -288,7 +311,102 @@ class Cidade extends Phaser.Scene {
         else if (vetorY < 0) this.personagem.play('up', true);
         else if (vetorY > 0) this.personagem.play('down', true);
         else             this.personagem.stop();
+        }
     }
 
-    }
+    // Aqui temos a logica de movimento do carro
+
+    moverCarro(posicaoInicial,posicaoFinal,duracao,carro,cena) {
+
+        // Equações da distância em cada eixo
+
+        const distanciaX = posicaoFinal.x - posicaoInicial.x;;
+        
+        const distanciaY = posicaoFinal.y - posicaoInicial.y;
+
+        // Equacões base para a formação do vetor velocidade do carro
+
+        const velocidadeX = distanciaX / duracao;  // Vem da equacao V = d/t
+
+        const aceleracaoY = (2 * distanciaY) / Math.pow(duracao, 2); // Vem da equacao S = S' + V'*t + (a*t*t)/2
+
+        // Estado inicial do carro
+
+        let velocidadeY = 0;
+
+        let posicaoX = posicaoInicial.x;
+
+        let posicaoY = posicaoInicial.y;
+
+        let tempoDecorrido = 0;
+
+        let ativar = true;
+
+        // Aqui temos o modo de registrar as atualizacoes na cena
+
+        const registrarAtualizacoes = (time,delta) => {
+            if (!ativar) return;
+
+            const tempoSoma = delta / 1000; // Converte o tempo em 'segundos', para padronizar com as unidades de movimento anteriores
+            tempoDecorrido += tempoSoma;
+
+            // Aqui encerra-se o movimento
+
+            if (tempoDecorrido >= duracao) {
+
+                carro.setPosition(posicaoFinal.x, posicaoFinal.y);
+
+                ativar = false;
+
+                cena.events.off('update', registrarAtualizacoes);
+
+                console.log(`Movimento ${carro} concluído`);
+
+                // Aguarda 1 segundo, reposiciona o carro e reinicia o movimento
+                cena.time.delayedCall(1000, () => {
+
+                    posicaoX = posicaoInicial.x;
+
+                    posicaoY = posicaoInicial.y;
+
+                    velocidadeY = 0;
+
+                    tempoDecorrido = 0;
+
+                    ativar = true;
+
+                    carro.setPosition(posicaoInicial.x, posicaoInicial.y);
+
+                    cena.events.on('update', registrarAtualizacoes);
+                });
+
+                return;
+            }
+            
+
+            // Movimento no eixo X  (MU)
+
+            posicaoX += velocidadeX * tempoSoma;     // Vx = d*t
+
+            console.log( `velocidade no eixo x: ${velocidadeX.toFixed(2)} pixels por segundo`);
+            console.log(` posição no eixo x: ${posicaoX.toFixed(2)}`);
+
+            // Movimento no eixo Y (MUV)
+
+            velocidadeY += aceleracaoY * tempoSoma  // Vy = Vy' a*t
+
+            posicaoY += velocidadeY * tempoSoma   // Sy = Sy' + Vy'*t + (a*t*t/2)
+
+            console.log(  `aceleração no eixo y: ${aceleracaoY.toFixed(2)} pixels por segundo ao quadrado`);
+            console.log( `velocidade no eixo Y: ${velocidadeY.toFixed(2)} pixels por segundo` ) ;
+            console.log(` posição no eixo y: ${posicaoY.toFixed(2)}`);
+
+            // Aplica posicao no carro
+
+            carro.setPosition(posicaoX, posicaoY);
+        }
+        
+        cena.events.on('update', registrarAtualizacoes); // Toda vez que o evento 'update' (Phaser emite esse evento junto de cada frame) ocorre, a funcao registrarAtualizacoes é executada
+        }
+
 }
