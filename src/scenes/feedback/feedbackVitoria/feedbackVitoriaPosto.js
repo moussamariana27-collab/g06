@@ -6,7 +6,21 @@ class FeedbackVitoriaPosto extends FeedbackVitoria {
         this.cenaOrigem = 'Cidade';
     }
 
-    definirFundo()    { return 'assets/FundoPosto.png'; }
+        preload (){
+        super.preload()
+        this.load.image('bgPosto', 'assets/FundoPosto.png');
+
+    }
+
+    create (){
+
+        this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgPosto')
+            .setDisplaySize(this.scale.width, this.scale.height)
+            .setDepth(-1);
+
+            super.create();
+    }
+
     definirDialogos() 
     { return [
             'Parabéns! Você concluiu todos os desafios com excelência.',

@@ -6,7 +6,21 @@ class FeedbackVitoriaLojaDeRoupa extends FeedbackVitoria {
         this.cenaOrigem = 'Cidade';
     }
 
-    definirFundo()    { return 'assets/lojaderoupa_interior.png'; }
+        preload (){
+        super.preload()
+        this.load.image('bgLojaDeRoupa', 'assets/lojaderoupa_interior.png');
+
+    }
+
+    create (){
+
+        this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgLojaDeRoupa')
+            .setDisplaySize(this.scale.width, this.scale.height)
+            .setDepth(-1);
+
+            super.create();
+    }
+
     definirDialogos() { 
         return [
             'Parabéns! Você conduziu bem a conversa e conseguiu gerar confiança com a cliente.',

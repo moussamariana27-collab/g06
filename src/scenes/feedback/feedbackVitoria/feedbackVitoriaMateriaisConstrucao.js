@@ -6,6 +6,21 @@ class FeedbackVitoriaMateriaisConstrucao extends FeedbackVitoria {
         this.cenaOrigem = 'Cidade';
     }
 
+        preload (){
+        super.preload()
+        this.load.image('bgLojaDeConstrução', 'assets/LojaDeConstrução_fundo.png');
+
+    }
+
+    create (){
+
+        this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgLojaDeConstrução')
+            .setDisplaySize(this.scale.width, this.scale.height)
+            .setDepth(-1);
+
+            super.create();
+    }
+
     definirDialogos() 
     { return[
                     'Parabéns! Você conduziu bem a conversa e conseguiu gerar confiança com o cliente.',
