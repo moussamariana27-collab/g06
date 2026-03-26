@@ -784,8 +784,18 @@ Inserção de Novos NPCs: Adicionar sprites e diálogos para os clientes dos dem
 # <a name="c5"></a>5. Testes
 
 ## 5.1. Casos de Teste (sprints 2 a 4)
+\# | Sumário dos testes
+--|--
+1| [CT-01](#t1)
+2| [CT-02](#t2)
+3| [CT-03](#t3)
+4| [CT-04](#t4)
+5| [CT-05](#t5)
+6| [CT-06](#t6)
+7| [CT-07](#t7)
+8| [CT-08](#t8)
 
-#### 5.1.1. CT-01 — Transição da tela inicial para Seleção de Personagens
+#### <a name="t1"></a>5.1.1. CT-01 — Transição da tela inicial para Seleção de Personagens
 ##### Objetivo
 Verificar se o botão **Iniciar** na tela de inicial direciona o usuário para a tela de Escolha de Personagens.
 ##### Pré-condições
@@ -803,7 +813,7 @@ Verificar se o botão **Iniciar** na tela de inicial direciona o usuário para a
 ##### Pós-condições
 A tela de Escolha de Personagens deve ser exibida com todos os seus elementos (sprites dos personagens jogáveis, nomes, etc.) carregados e prontos para a escolha.
 
-#### 5.1.2. CT-02 — Transição da Tela de Escolha dos personagens para o Espaço Cielo
+#### <a name="t2"></a>5.1.2. CT-02 — Transição da Tela de Escolha dos personagens para o Espaço Cielo
 ##### Objetivo 
   Verificar se, ao clicar no botão **CONTINUAR** na tela de escolha dos personagens, o jogador é corretamente direcionado para a cena do **Espaço Cielo**.
 ##### Pré-condições
@@ -825,7 +835,7 @@ A tela de Escolha de Personagens deve ser exibida com todos os seus elementos (s
 - O jogador deve conseguir movimentar o personagem normalmente após a transição.
 
 
-#### 5.1.3. CT-03 — Início do Tutorial ao Colidir com o Estadual
+#### <a name="t3"></a>5.1.3. CT-03 — Início do Tutorial ao Colidir com o Estadual
 ##### Objetivo
 Verificar se o **tutorial é iniciado corretamente** quando o jogador colide com a área de colisão associada ao **Estadual** no mapa do Espaço Cielo.
 ##### Pré-condições
@@ -844,7 +854,7 @@ Verificar se o **tutorial é iniciado corretamente** quando o jogador colide com
 - A interface do tutorial (mensagens, instruções ou elementos visuais) devem aparecer na tela.
 - O tutorial deve ser exibido sem erros ou travamentos.
 
-#### 5.1.4. CT-04 — Transição de cena do Espaço Cielo para o mapa da cidade
+#### <a name="t4"></a>5.1.4. CT-04 — Transição de cena do Espaço Cielo para o mapa da cidade
 ##### Objetivo 
   Verificar se a colisão do jogador com a zona de porta do **Espaço Cielo** (layer 'porta') aciona o evento de transição e direciona o jogador ao mapa da cidade **CidadeScene**.
 ##### Pré-condições
@@ -864,8 +874,7 @@ Verificar se o **tutorial é iniciado corretamente** quando o jogador colide com
 ##### Pós-condições
 O sistema inicia a **CidadeScene** passando o personagem selecionado via data. O mapa da cidade é exibido sem erros no console.
 
-#### 5.1.5. CT-05 — Validar transição de cena ao colidir com a padaria no mapa
-
+#### <a name="t5"></a>5.1.5. CT-05 — Validar transição de cena ao colidir com a padaria no mapa
 ##### Objetivo 
 Verificar se a representação da padaria no mapa da cidade possui colisão funcional que dispara a transição para a cena **Padaria** e exibe os diálogos corretamente.
 
@@ -886,6 +895,197 @@ Verificar se a representação da padaria no mapa da cidade possui colisão func
 
 ##### Pós-condições
 O sistema inicia a cena **Padaria**, exibe o ambiente e o personagem selecionado, e apresenta os diálogos da padaria sem erros no console.
+
+#### <a name="t6"></a>5.1.6. CT-06 — Validar transição de cena de feedback para o caso de derrota
+##### Objetivo
+Verificar se a tela de feedback para o caso de derrota (em cada cena) apresenta todas as caixas de diálogos e botões de continuar/voltar corretamente e se reinicia a cena que o player precisa vencer. 
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado.
+- Cena de combate com NPC iniciada.
+- Jogador baixou o nível de satisfação para 0.
+- Cena **FeedBackDerrota** registrada no array de cenas do game.js.
+- Ter as cenas **FeedBackDerrotaPadaria**, **FeedBackDerrotaSalaoDeBeleza**,**FeedBackDerrotaLojaDeRoupa**,**FeedBackDerrotaPosto**,**FeedBackDerrotaMateriaisDeConstrucao** e **FeedBackDerrotaSupermercado**.
+- Transição da cena perdida para sua tela de feedback equivalente.
+
+##### Passos para Execução
+1. Selecionar a alternativa errada do primeiro diálogo .
+2. Selecionar a alternativa errada do segundo diálogo .
+3. Selecionar a alternativa errada do terceiro diálogo .
+4. Verificar se a transição equivalente a cena perdida é disparada automaticamente.
+5. Selecionar o botão continuar para verificar a transição de textos.
+6. Selecionar o botão anterior para verificar a transição de textos.
+7. Selecionar o botão continuar até o fim das transições de textos.
+8. Verificar se a cena de batalha anteriormente perdida é reiniciada.
+
+##### Pós-condições
+O sistema reinicia a cena de batalha anteriormente perdida com todos os diálogos e personagens posicionados.
+
+#### <a name="t7"></a>5.1.7. CT-07 — Validar transição de cena de feedback para o caso de vitória
+##### Objetivo
+Verificar se a tela de feedback para o caso de vitória apresenta todas as caixas de diálogos e botões de continuar/voltar corretamente e se realiza a transição para o mapa da **CidadeScene**.
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado.
+- Cena de combate com NPC iniciada.
+- Jogador alcançou o nível de satisfação 100.
+- Cena **FeedBackVitoria** registrada no array de cenas do game.js.
+ Ter as cenas **FeedBackVitoriaPadaria**, **FeedBackVitoriaSalaoDeBeleza**,**FeedBackVitoriaLojaDeRoupa**,**FeedBackVitoriaPosto**,**FeedBackVitoriaMateriaisDeConstrucao** e **FeedBackVitoriaSupermercado**.
+- Transição da cena vencida para sua tela de feedback equivalente.
+
+##### Passos para Execução
+1. Selecionar a alternativa certa do primeiro diálogo.
+2. Selecionar a alternativa certa do segundo diálogo.
+3. Selecionar a alternativa certa do terceiro diálogo.
+4. Verificar se a transição equivalente a cena vencida é disparada automaticamente.
+5. Selecionar o botão continuar para verificar a transição de textos.
+6. Selecionar o botão anterior para verificar a transição de textos.
+7. Selecionar o botão continuar até o fim das transições de textos.
+8. Verificar se a sprite do jogador é direcionada de volta ao mapa da **CidadeScene**.
+
+##### Pós-condições
+O sistema direciona a sprite do jogador de volta ao mapa da cena **CidadeScene**.
+
+#### <a name="t8"></a>5.1.8. CT-08 — Validar transição de cena de feedback para o caso de “Cliente mandou embora”
+##### Objetivo
+Verificar se a tela de feedback para o caso de vitória apresenta todas as caixas de diálogos e botões de continuar/voltar corretamente e se reinicia a cena que o player precisa vencer.
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado.
+- Cena de combate com NPC iniciada.
+- Jogador esgotou as alternativas disponíveis da cena e não conquistou o NPC.
+- Cena **FeedBackDerrota** registrada no array de cenas do game.js.
+- Ter as cenas **FeedBackDerrotaPadaria**, **FeedBackDerrotaSalaoDeBeleza**,**FeedBackDerrotaLojaDeRoupa**,**FeedBackDerrotaPosto**,**FeedBackDerrotaMateriaisDeConstrucao** e **FeedBackDerrotaSupermercado**.
+- Transição da cena perdida para sua tela de feedback equivalente.
+
+##### Passos para Execução
+1. Selecionar a alternativa certa do primeiro diálogo.
+2. Selecionar a alternativa errada do segundo diálogo.
+3. Selecionar a alternativa certa do terceiro diálogo.
+4. Selecionar a alternativa errada do quarto diálogo.
+5. Selecionar a alternativa certa do quinto diálogo.
+6. Verificar se a transição equivalente a cena vencida é disparada automaticamente.
+7. Selecionar o botão continuar para verificar a transição de textos.
+8. Selecionar o botão anterior para verificar a transição de textos.
+9. Selecionar o botão continuar até o fim das transições de textos.
+10. Verificar se a cena de batalha anteriormente perdida é reiniciada.
+
+##### Pós-condições
+O sistema reinicia a cena de batalha anteriormente perdida com todos os diálogos e personagens posicionados.
+
+#### <a name="t9"></a>5.1.9. CT-09 — Validar transição de cena ao colidir com a loja de roupa no mapa
+##### Objetivo
+Verificar se a representação da Loja de Roupa no mapa da cidade possui colisão funcional que dispara a transição para a cena **LojaDeRoupa** e exibe os diálogos corretamente.
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado.
+- Jogador posicionado no mapa da cidade **CidadeScene**.
+- Cena **LojaDeRoupa** registrada no array de cenas do game.js.
+
+##### Passos para Execução
+1. Concluir a transição da cena FeedbackVitoriaPadaria para o mapa da **CidadeScene**.
+2. Localizar a representação da Loja de Roupa no mapa da **CidadeScene**.
+3. Mover o personagem em direção à entrada da Loja de Roupa.
+4. Posicionar o personagem sobre o objeto de colisão da Loja de Roupa no mapa.
+5. Verificar se o evento de transição é disparado automaticamente.
+6. Verificar se a cena **LojaDeRoupa** é carregada com o personagem correto.
+7. Verificar se os diálogos da cena  **LojaDeRoupa** são exibidos na tela.
+
+##### Pós-condições
+O sistema inicia a cena **LojaDeRoupa**, exibe o ambiente e o personagem selecionado, e apresenta os diálogos da Loja de Roupa sem erros no console.
+
+#### <a name="t10"></a>5.1.10. CT-10 — Validar transição de cena ao colidir com o salão de beleza no mapa
+##### Objetivo
+Verificar se a representação do salão de beleza no mapa da cidade possui colisão funcional que dispara a transição para a cena **SalaoDeBeleza** e exibe os diálogos corretamente.
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado.
+- Jogador posicionado no mapa da cidade **CidadeScene**.
+- Cena **SalaoDeBeleza** registrada no array de cenas do game.js.
+
+##### Passos para Execução
+1. Concluir a transição da cena FeedbackVitoriaLojaDeRoupa para o mapa da **CidadeScene**.
+2. Localizar a representação do Salão de Beleza no mapa da **CidadeScene**.
+3. Mover o personagem em direção à entrada do Salão de Beleza.
+4. Posicionar o personagem sobre o objeto de colisão do Salão de Beleza no mapa.
+5. Verificar se o evento de transição é disparado automaticamente.
+6. Verificar se a cena **SalaoDeBeleza** é carregada com o personagem correto.
+7. Verificar se os diálogos da cena  **SalaoDeBeleza** são exibidos na tela.
+
+##### Pós-condições
+O sistema inicia a cena **SalaoDeBeleza**, exibe o ambiente e o personagem selecionado, e apresenta os diálogos do Salão de Beleza sem erros no console.
+
+#### <a name="t11"></a>5.1.11. CT-11 — Validar transição de cena ao colidir com a loja de  construção no mapa
+##### Objetivo
+Verificar se a representação da Loja de Construção do mapa da cidade possui colisão funcional que dispara a transição para a cena **LojaDeConstrucao** e exibe os diálogos corretamente.
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado.
+- Jogador posicionado no mapa da cidade **CidadeScene**.
+- Cena **LojaDeConstrucao** registrada no array de cenas do game.js.
+
+##### Passos para Execução
+1. Concluir a transição da cena FeedbackVitoriaSalaoDeBeleza para o mapa da **CidadeScene**.
+2. Localizar a representação da Loja de Construção no mapa da **CidadeScene**.
+3. Mover o personagem em direção à entrada da Loja de Construção.
+4. Posicionar o personagem sobre o objeto de colisão da Loja de Construção no mapa.
+5. Verificar se o evento de transição é disparado automaticamente.
+6. Verificar se a cena **LojaDeConstrucao** é carregada com o personagem correto.
+7. Verificar se os diálogos da cena  **LojaDeConstrucao** são exibidos na tela.
+
+##### Pós-condições
+O sistema inicia a cena **LojaDeConstrucao**, exibe o ambiente e o personagem selecionado, e apresenta os diálogos da Loja de Construção sem erros no console.
+
+#### <a name="t12"></a>5.1.12. CT-12 — Validar transição de cena ao colidir com a Supermercado no mapa
+##### Objetivo
+Verificar se a representação da Supermercado do mapa da cidade possui colisão funcional que dispara a transição para a cena **Supermercado** e exibe os diálogos corretamente.
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado.
+- Jogador posicionado no mapa da cidade **CidadeScene**.
+- Cena **Supermercado** registrada no array de cenas do game.js.
+
+##### Passos para Execução
+1. Concluir a transição da cena FeedbackVitoriaLojaConstrução para o mapa da **CidadeScene**.
+2. Localizar a representação da Supermercado no mapa da **CidadeScene**.
+3. Mover o personagem em direção à entrada da Supermercado.
+4. Posicionar o personagem sobre o objeto de colisão da Supermercado no mapa.
+5. Verificar se o evento de transição é disparado automaticamente.
+6. Verificar se a cena **Supermercado** é carregada com o personagem correto.
+7. Verificar se os diálogos da cena  **Supermercado** são exibidos na tela.
+
+##### Pós-condições
+O sistema inicia a cena **Supermercado**, exibe o ambiente e o personagem selecionado, e apresenta os diálogos da Supermercado sem erros no console.
+
+#### <a name="t13"></a>5.1.13. CT-13 — Validar transição de cena ao colidir com a Posto De Gasolina no mapa
+##### Objetivo
+Verificar se a representação da Posto De Gasolina do mapa da cidade possui colisão funcional que dispara a transição para a cena **PostoDeGasolina** e exibe os diálogos corretamente.
+
+##### Pré-condições
+- Jogo iniciado.
+- Personagem selecionado.
+- Jogador posicionado no mapa da cidade **CidadeScene**.
+- Cena **PostoDeGasolina** registrada no array de cenas do game.js.
+
+##### Passos para Execução
+1. Concluir a transição da cena FeedbackVitoriaLojaConstrução para o mapa da **CidadeScene**.
+2. Localizar a representação da Posto De Gasolina no mapa da **CidadeScene**.
+3. Mover o personagem em direção à entrada da Posto De Gasolina.
+4. Posicionar o personagem sobre o objeto de colisão da Posto De Gasolina no mapa.
+5. Verificar se o evento de transição é disparado automaticamente.
+6. Verificar se a cena **PostoDeGasolina** é carregada com o personagem correto.
+7. Verificar se os diálogos da cena  **PostoDeGasolina** são exibidos na tela.
+
+##### Pós-condições
+O sistema inicia a cena **PostoDeGasolina**, exibe o ambiente e o personagem selecionado, e apresenta os diálogos da Posto De Gasolina sem erros no console.
+
 
 
 
