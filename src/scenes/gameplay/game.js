@@ -34,8 +34,9 @@ class Cidade extends Phaser.Scene {
             frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
         });
 
-        // Carrega o carro
-        this.load.image('carro', 'assets/carroAzul.png');
+        // Carrega os carros
+        this.load.image('carro1', 'assets/carro1.png');
+        this.load.image('carro2', 'assets/carro2.png');
 
         // Carrega o som do carro
         this.load.audio('carrocidade', 'assets/carrocidade.mp3');
@@ -79,15 +80,25 @@ class Cidade extends Phaser.Scene {
         this.personagem.setCollideWorldBounds(true);
 
         // =========================================================================================
-        // Cria o carro e coloca-o para andar
+        // Cria os carros e coloca-os para andar
 
-        this.carro = this.physics.add.image(530,85, 'carro').setFlip(false,true);
+        this.carro1 = this.physics.add.image(530,85, 'carro1').setFlip(false,true);
+
+        this.carro2 = this.physics.add.image(530,85, 'carro2').setFlip(false,true);
 
         this.moverCarro(
         { x: 530, y: 85  },   // posição inicial
         { x: 540, y: 1000 },  // posição final
         10,                    // duração em segundos
-        this.carro,            // elemento gráfico
+        this.carro1,            // elemento gráfico
+        this
+        );
+
+        this.moverCarro(
+        { x: 530, y: 85  },   // posição inicial
+        { x: 540, y: 1000 },  // posição final
+        6,                    // duração em segundos
+        this.carro2,            // elemento gráfico
         this
         );
 
@@ -95,6 +106,7 @@ class Cidade extends Phaser.Scene {
         
 
         //==========================================================================================
+
 
         // Ajusta automaticamente a hitbox para o tamanho do sprite
         this.personagem.body.setSize(
