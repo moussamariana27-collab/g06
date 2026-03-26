@@ -16,8 +16,8 @@
 - <a href="https://br.linkedin.com/in/fabianne-silva-7b3b13199">Fabianne Jesus Silva Leite</a> 
 - <a href="https://www.linkedin.com/in/victorbarq/">Fernando Alves Carmo Filho</a> 
 - <a href="https://www.linkedin.com/in/jo%C3%A3o-paulo-barreto-ferreira-andrade-rodrigues-de-paula-b483203aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">João Paulo Barreto Ferreira Andrade Rodrigues de Paula</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Haila Thauane Falcão Novaes</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Luís Felipe Campagnaro Copolillo</a>
+- <a href="www.linkedin.com/in/haila-falcao">Haila Thauane Falcão Novaes</a> 
+- <a href="https://www.linkedin.com/in/lu%C3%ADs-felipe-campagnaro-copolillo-202b78373/">Luís Felipe Campagnaro Copolillo</a>
 - <a href="https://www.linkedin.com/in/marianamoussa/">Mariana Pires de Carvalho Moussa</a>
 ## 👩‍🏫 Professores:
 ### Orientador(a) 
