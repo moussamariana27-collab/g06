@@ -84,20 +84,20 @@ class Cidade extends Phaser.Scene {
 
         this.carro1 = this.physics.add.image(530,85, 'carro1').setFlip(false,true);
 
-        this.carro2 = this.physics.add.image(530,85, 'carro2').setFlip(false,true);
+        this.carro2 = this.physics.add.image(530,85, 'carro2').setRotation(3 * Math.PI / 2)
 
         this.moverCarro(
         { x: 530, y: 85  },   // posição inicial
-        { x: 540, y: 1000 },  // posição final
+        { x: 540, y: 1060 },  // posição final
         10,                    // duração em segundos
         this.carro1,            // elemento gráfico
         this
         );
 
         this.moverCarro(
-        { x: 530, y: 85  },   // posição inicial
-        { x: 540, y: 1000 },  // posição final
-        6,                    // duração em segundos
+        { x: 1013, y: 365  },   // posição inicial
+        { x: -30, y: 385 },  // posição final
+        10,                    // duração em segundos
         this.carro2,            // elemento gráfico
         this
         );
@@ -463,8 +463,8 @@ class Cidade extends Phaser.Scene {
 
             posicaoX += velocidadeX * tempoSoma;     // Vx = d*t
 
-            console.log( `velocidade no eixo x: ${velocidadeX.toFixed(2)} pixels por segundo`);
-            console.log(` posição no eixo x: ${posicaoX.toFixed(2)}`);
+            //console.log( `velocidade no eixo x: ${velocidadeX.toFixed(2)} pixels por segundo`);
+            //console.log(` posição no eixo x: ${posicaoX.toFixed(2)}`);
 
             // Movimento no eixo Y (MUV)
 
@@ -472,9 +472,9 @@ class Cidade extends Phaser.Scene {
 
             posicaoY += velocidadeY * tempoSoma   // Sy = Sy' + Vy'*t + (a*t*t/2)
 
-            console.log(  `aceleração no eixo y: ${aceleracaoY.toFixed(2)} pixels por segundo ao quadrado`);
-            console.log( `velocidade no eixo Y: ${velocidadeY.toFixed(2)} pixels por segundo` ) ;
-            console.log(` posição no eixo y: ${posicaoY.toFixed(2)}`);
+            //console.log(  `aceleração no eixo y: ${aceleracaoY.toFixed(2)} pixels por segundo ao quadrado`);
+            //console.log( `velocidade no eixo Y: ${velocidadeY.toFixed(2)} pixels por segundo` ) ;
+            //console.log(` posição no eixo y: ${posicaoY.toFixed(2)}`);
 
             // Aplica posicao no carro
 
