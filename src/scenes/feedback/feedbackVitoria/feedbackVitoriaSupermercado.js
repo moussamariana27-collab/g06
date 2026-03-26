@@ -1,9 +1,10 @@
 class FeedbackVitoriaSupermercado extends FeedbackVitoria {
-    constructor() { super('FeedbackVitoriaSupermercado'); }
+    constructor() { super('FeedbackVitoriaMercado'); }
 
     init(data) {
         super.init(data);
         this.cenaOrigem = 'Cidade';
+        console.log('cenaOrigem:', this.cenaOrigem);
     }
 
     definirFundo()    { return 'assets/mercado_interior.png'; }

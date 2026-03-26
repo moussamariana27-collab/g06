@@ -111,7 +111,10 @@ class Posto extends Combate {
                 errado: "Imprimimos um relatório detalhado em cada máquina ao final do turno. O frentista grampeia no fechamento e a senhora confere tudo no final da semana pelo nosso portal.",
                 resposta: true 
             }
-        ]
+        ],
+
+        posicaoSpawn: { x: 813, y: 220.5 },
+
         });
 
         // UI e lógica (HERDADO)

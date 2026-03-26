@@ -95,7 +95,7 @@ class Mercado extends Combate {
             }
         ],
 
-        posicaoSpawn: { x: 380, y: 917.5 },
+        posicaoSpawn: { x: 380, y: 925.5 },
 
         });
 

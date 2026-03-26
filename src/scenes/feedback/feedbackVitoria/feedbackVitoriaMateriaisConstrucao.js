@@ -1,9 +1,9 @@
 class FeedbackVitoriaMateriaisConstrucao extends FeedbackVitoria {
-    constructor() { super('FeedbackVitoriaMateriaisConstrucao'); }
+    constructor() { super('FeedbackVitoriaLojaDeConstrução'); }
 
     init(data) {
         super.init(data);
-        this.cenaOrigem = 'LojaDeConstrução';
+        this.cenaOrigem = 'Cidade';
     }
 
     definirDialogos() 

@@ -349,6 +349,7 @@ class Combate extends Phaser.Scene {
             }
             this.scene.start(voltarPara, { character: this.personagemEscolhido,
                                             posicaoSpawn: this.posicaoSpawn ,
+                                            cenaCombate: this.scene.key
              });
         });
     }

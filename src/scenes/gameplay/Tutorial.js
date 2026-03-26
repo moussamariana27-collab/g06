@@ -21,6 +21,7 @@ class Tutorial extends Phaser.Scene {
         this.modoFeedbackVitoria = data?.modoFeedbackVitoria || false;
         this.dialogos = data?.dialogos || null;
         this.posicaoSpawn = data?.posicaoSpawn || null; 
+        this.cenaCombate = data?.cenaCombate || null;
     }
 
     // Carrega as duas imagens do professor:
@@ -181,10 +182,11 @@ class Tutorial extends Phaser.Scene {
                 } else {
 
                     this.scene.stop(this.scene.key);
-                    this.scene.start(this.cenaOrigem, { character: this.character,
+                    if (this.cenaCombate) this.scene.stop(this.cenaCombate);  
+                    this.scene.start(this.cenaOrigem, {
+                                                        character: this.character,
                                                         posicaoSpawn: this.posicaoSpawn,
-                     });
-
+                                                    });
                 }
 }
             

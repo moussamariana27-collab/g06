@@ -42,6 +42,8 @@ var config = {
         FeedbackVitoriaSupermercado,
         FeedbackDerrotaLojaDeRoupa,
         FeedbackVitoriaLojaDeRoupa,
+        FeedbackDerrotaMateriaisConstrucao,
+        FeedbackVitoriaMateriaisConstrucao,
         
     ]
 };

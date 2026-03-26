@@ -1,5 +1,5 @@
 class FeedbackDerrotaSupermercado extends FeedbackDerrota {
-    constructor() { super('FeedbackDerrotaSupermercado'); }
+    constructor() { super('FeedbackDerrotaMercado'); }
 
     init(data) {
         super.init(data);
