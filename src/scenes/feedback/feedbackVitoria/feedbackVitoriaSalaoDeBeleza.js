@@ -38,10 +38,3 @@ class FeedbackVitoriaSalaoDeBeleza extends FeedbackVitoria {
         ]; 
     }
 }
-
-//===================================================================================================================================================
-// AQUI VOU ATUALIZAR UM METODO PARA O REPIQUE ACONTECER:
-// SERÁ CRIADA OUTRA CENA SIMILAR À SalaoDeBeleza, MAS COM OUTROS DIÁLOGOS;
-// DESSA CENA DE FEEDBACK DE VITÓRIA, O ESTADUAL VAI MENCIONAR ESSE CONCEITO NO FEEDBACK (AS FALAS DO ESTADUAL NÃO DEVEM SER SIMPLESMENTE JOGADAS);
-// DEPOIS DISSO O JOGADOR VAI SER ENVIADO PARA A CENA SIMILAR.
-//====================================================================================================================================================
