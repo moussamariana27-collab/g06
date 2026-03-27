@@ -283,17 +283,65 @@ A tabela a seguir classifica os riscos reais, potenciais e as oportunidades de i
 | **R02** | Ameaça | Obsolescência do conteúdo | Conteúdo desatualizado frente a mudanças nos processos da Cielo. | Provável | Alto | Separar conteúdo da lógica via JSON/API e revisar mensalmente. | CIELO |
 | **R03** | Ameaça | Bugs críticos de sistema | Falhas graves que interrompem a progressão do jogo. | Possível | Muito alto | Implementar testes automatizados e meta de zero bugs em produção. | CIELO |
 | **R04** | Ameaça | Baixo engajamento | Alta taxa de abandono do jogo como ferramenta de onboarding. | Possível | Moderado | Realizar testes com GNs, medir taxa de conclusão e iterar. | CIELO |
-| **R05** | Ameaça | Sobrescrita de commits | Perda de código devido a conflitos e má gestão de versionamento. | Possível | Baixo | Manter comunicação ativa durante o desenvolvimento, a fim de assegurar a prevenção de conflitos na branch principal (main) e evitar a sobrescrita de arquivos. | GRUPO |
-| **R06** | Ameaça | Mecânicas confusas | Controles ou regras pouco intuitivas dificultarem a jogabilidade. | Improvável | Muito alto | Realizar testes de usabilidade com taxa de erro <10% e iterar. | GRUPO |
+| **R05** | Ameaça | Sobrescrita de commits | Perda de código devido a conflitos e má gestão de versionamento. | Possível | Baixo | Manter comunicação ativa durante o desenvolvimento, a fim de assegurar a prevenção de conflitos na branch principal (main) e evitar a sobrescrita de arquivos. | Scrum master |
+| **R06** | Ameaça | Mecânicas confusas | Controles ou regras pouco intuitivas dificultarem a jogabilidade. | Improvável | Muito alto | Realizar testes de usabilidade com taxa de erro <10% e iterar. | Haila |
 | **R07** | Ameaça | Desalinhamento da realidade | Simulação não refletir desafios reais do cargo do GN. | Improvável | Alto | Validar cenários com GNs ativos e revisar com especialistas. | CIELO |
-| **R08** | Ameaça | Atrito por jargão técnico | Uso excessivo de termos corporativos gerar desinteresse. | Muito baixo | Moderado | Introduzir termos progressivamente com glossário contextual. | GRUPO |
-| **R09** | Oportunidade | Aceleração com IA | Uso de IA reduz o tempo e o custo de desenvolvimento do grupo. | Muito provável | Muito alto | Definir padrões de uso de IA e biblioteca de prompts. | GRUPO |
+| **R08** | Ameaça | Atrito por jargão técnico | Uso excessivo de termos corporativos gerar desinteresse. | Muito baixo | Moderado | Introduzir termos progressivamente com glossário contextual. | Fernando |
+| **R09** | Oportunidade | Aceleração com IA | Uso de IA reduz o tempo e o custo de desenvolvimento do grupo. | Muito provável | Muito alto | Definir padrões de uso de IA e biblioteca de prompts. | Ana júlia |
 | **R10** | Oportunidade | Redução de Custos (ROI) | O jogo reduz a necessidade de alocar gerentes seniores para dar aulas. | Provável | Muito alto | Comparar o custo de horas do modelo de onboarding antigo vs. o novo. | CIELO |
-| **R11** | Oportunidade | Reusabilidade Tecnológica | A base do jogo pode ser usada para onboarding de outras áreas. | Possível | Alto | Desenvolver o código com arquitetura modular e documentação robusta. | GRUPO |
+| **R11** | Oportunidade | Reusabilidade Tecnológica | A base do jogo pode ser usada para onboarding de outras áreas. | Possível | Alto | Desenvolver o código com arquitetura modular e documentação robusta. | João Paulo |
 | **R12** | Oportunidade | Sandbox de Novos Produtos | A Cielo pode usar o jogo para testar como GNs vendem novos produtos. | Muito provável | Alto | Criar um módulo de atualização rápida para inserção de novos cenários. | CIELO |
 | **R13** | Oportunidade | Employer Branding | Onboarding inovador aumenta a retenção e satisfação do novo talento. | Provável | Moderado | Incluir pesquisa de satisfação (eNPS) ao final da experiência do jogo. | CIELO |
 
+## Glossário de Termos Tecnológicos
 
+##### JSON  
+Formato de texto usado para estruturar e trocar dados entre sistemas.
+
+##### API  
+Interface que permite a comunicação entre diferentes sistemas.
+
+##### Persistência Local  
+Armazenamento de dados diretamente no dispositivo do usuário.
+
+##### Sync em Nuvem  
+Processo de sincronizar dados entre dispositivo e servidores online.
+
+##### Testes Automatizados  
+Execução automática de testes para verificar se o sistema funciona corretamente.
+
+##### Produção  
+Ambiente final onde o sistema é disponibilizado para usuários reais.
+
+##### Versionamento  
+Controle das alterações feitas no código ao longo do tempo.
+
+##### Commit  
+Registro de uma alteração no código dentro do sistema de versionamento.
+
+##### Branch  
+Linha paralela de desenvolvimento usada para trabalhar sem afetar o código principal.
+
+##### Main  
+Branch principal do projeto onde fica a versão oficial do sistema.
+
+##### Biblioteca de Prompts  
+Conjunto organizado de instruções usadas para interagir com modelos de IA.
+
+##### Código  
+Conjunto de instruções escritas para criar um sistema ou aplicação.
+
+##### Arquitetura Modular  
+Forma de desenvolver sistemas dividindo-os em partes independentes e reutilizáveis.
+
+##### Documentação  
+Registro de informações que explicam como o sistema funciona e como utilizá-lo.
+
+##### Módulo  
+Parte específica de um sistema com uma função definida.
+
+##### Sandbox  
+Ambiente isolado usado para testes sem afetar o sistema principal.
 
 
 ### 1.1.7. Objetivos, Metas e Indicadores (sprint 4)
