@@ -55,11 +55,10 @@ class Escritorio extends Phaser.Scene {
         this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(3.0);
         this.personagem.setCollideWorldBounds(true);
         this.personagem.body.setSize(
-            this.personagem.width,
-            this.personagem.height
+            this.personagem.width/2,
+            this.personagem.height/3
         );
-
-        this.personagem.body.setOffset(0, 0);
+        this.personagem.body.setOffset(this.personagem.width/4, this.personagem.height/3);
 
         // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);

@@ -267,7 +267,7 @@ class Cidade extends Phaser.Scene {
                     // Caso a zona leve para outra cena disponível
                     } else if (cenasDisponiveis.includes(zona.type)) {
 
-                        // ✅ Para a música antes de trocar de cena
+                        //  Para a música antes de trocar de cena
                         this.musica.stop();
 
                         // Para o som do carro antes de trocar de cena
