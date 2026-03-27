@@ -1374,7 +1374,7 @@ O sistema inicia a cena **PostoDeGasolina**, exibe o ambiente e o personagem sel
 Nome | Socorro de Jesus
 --- | ---
 Qual a sua ocupação? | Trabalha com TI, especificamente nas áreas de segurança, infraestrutura, integração, etc.
-Já possuía experiência prévia com games? | Sim, joga com frequencia.
+Já possuía experiência prévia com games? | Sim, joga com frequência.
 Conseguiu iniciar o jogo? | Sim.
 Entendeu as regras e mecânicas do jogo? | Conseguiu, sem dificuldades.
 Conseguiu progredir no jogo? | Sim, sem dificuldades.
