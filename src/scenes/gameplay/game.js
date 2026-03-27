@@ -50,6 +50,9 @@ class Cidade extends Phaser.Scene {
     }
 
     create() {
+        // Flag para bloquear sons/movimentos após vitória final
+        this.jogoFinalizado = false;
+
         // Cria o mapa baseado no JSON carregado
         const map = this.make.tilemap({ key: 'mapaCidade' });
 
@@ -346,6 +349,9 @@ class Cidade extends Phaser.Scene {
             // Para todos os sons antes de tocar o áudio de vitória final
             this.sound.stopAll();
 
+            // Ativa a flag para bloquear sons dos carros após a vitória
+            this.jogoFinalizado = true;
+
             // Toca o áudio mestredevendas.mp3 quando atinge 100%
             const somVitoriaFinal = this.sound.add('mestredevendas', { loop: false, volume: 1 });
             somVitoriaFinal.play();
@@ -458,6 +464,9 @@ class Cidade extends Phaser.Scene {
 
         // Função para criar e tocar o som do carro
         const tocarSomCarro = () => {
+            // Bloqueia novos sons se o jogo já foi finalizado
+            if (cena.jogoFinalizado) return;
+
             const volumeSom = primeiraVez ? 0.5 : 0.2;
             this.somCarro = cena.sound.add('carrocidade', {
                 loop: false,
@@ -521,6 +530,8 @@ class Cidade extends Phaser.Scene {
 
                 // Aguarda 1 segundo, reposiciona o carro e reinicia o movimento
                 cena.time.delayedCall(1000, () => {
+                    // Bloqueia o reinício do carro se o jogo já foi finalizado
+                    if (cena.jogoFinalizado) return;
 
                     posicaoX = posicaoInicial.x;
 
