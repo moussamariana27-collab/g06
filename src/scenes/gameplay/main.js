@@ -59,12 +59,6 @@ class Escritorio extends Phaser.Scene {
             this.personagem.height
         );
 
-        // Voltar pra cidade com SPACE
-        this.input.keyboard.once('keydown-SPACE', () => {
-            this.musica.stop();
-            this.scene.start('Cidade', { character: this.personagemEscolhido });
-        });
-
         this.personagem.body.setOffset(0, 0);
 
         // Faz a câmera seguir o personagem

@@ -314,10 +314,6 @@ class Cidade extends Phaser.Scene {
         });
 
 
-        this.input.keyboard.once('keydown-SPACE', () => {
-            console.log(`${this.personagem.x} e ${this.personagem.y}` )
-        });
-
        // =========================================================
         // === BARRA NO MUNDO (EM CIMA DO PERSONAGEM) ==============
         // =========================================================
