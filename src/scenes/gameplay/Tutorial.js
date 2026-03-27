@@ -47,7 +47,10 @@ class Tutorial extends Phaser.Scene {
             "E a novidade da linha inteligente é a Cielo Smart! Ela evoluiu da LIO On com Android mais atual, aprovação de pagamentos mais rápida e compatibilidade com diferentes modelos de terminais.",
             "Também temos o 'Vendeu, Tá na Conta', um produto que os clientes adoram! Com ele, na modalidade D0, o lojista recebe o valor das vendas no débito, crédito à vista ou parcelado no mesmo dia, até nos feriados! Já na modalidade D1, recebe o pagamento no dia seguinte.",
             "Para funcionar, o domicílio bancário do cliente precisa aceitar transferência via Pix. Vendas feitas até as 20h59 caem no mesmo dia, após esse horário, no dia seguinte.",
-            "Cada loja que você visitar vai ter um desafio diferente. Use o que aprendeu aqui para identificar qual produto se encaixa melhor na necessidade de cada cliente. Bora começar, dirija-se a padaria!",
+            "Cada loja que você visitar vai ter um desafio diferente. Use o que aprendeu aqui para identificar qual produto se encaixa melhor na necessidade de cada cliente.",
+            "Bora começar, o seu primeiro cliente é o Tião.",
+            "Ele é dono de uma padaria com faturamento mensal de cerca de 30 mil reais, é aberto a mudanças, mas valoriza negociações objetivas e seguras.",
+            "Seu desafio agora será manter esse padrão de atendimento e se preparar para os próximos estabelecimentos, apresentando as soluções da  com clareza e foco nas necessidades de cada negócio."
         ];
 
         // Garante que a câmera do tutorial ocupa a tela inteira
