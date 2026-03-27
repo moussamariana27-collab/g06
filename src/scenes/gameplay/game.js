@@ -85,7 +85,7 @@ class Cidade extends Phaser.Scene {
         this.personagem.setCollideWorldBounds(true);
 
         // =========================================================================================
-        // Cria os carros e coloca-os para andar
+        // Cria os carros, coloca-os para andar e adiciona colisao entre eles e o jogador
 
         this.carro1 = this.physics.add.image(530,85, 'carro1').setFlip(false,true);
 
@@ -107,8 +107,8 @@ class Cidade extends Phaser.Scene {
         this
         );
 
-
-        
+        this.physics.add.collider(this.personagem, this.carro1, () => {this.musica.stop() ;this.scene.restart()});
+        this.physics.add.collider(this.personagem, this.carro2, () => {this.musica.stop() ;this.scene.restart()});;
 
         //==========================================================================================
 
