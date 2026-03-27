@@ -343,19 +343,8 @@ class Cidade extends Phaser.Scene {
             };
             let chaveImagemVitoria = cenasVitoriaFinal[this.personagemEscolhido];
 
-            // Para outros sons antes de tocar o áudio de vitória final
-            if (this.musica && this.musica.isPlaying) {
-                this.musica.stop();
-            }
-            if (this.somCarro && this.somCarro.isPlaying) {
-                this.somCarro.stop();
-            }
-            // Para todos os sons dos carros
-            this.carSounds.forEach(sound => {
-                if (sound && sound.isPlaying) {
-                    sound.stop();
-                }
-            });
+            // Para todos os sons antes de tocar o áudio de vitória final
+            this.sound.stopAll();
 
             // Toca o áudio mestredevendas.mp3 quando atinge 100%
             const somVitoriaFinal = this.sound.add('mestredevendas', { loop: false, volume: 1 });

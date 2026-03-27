@@ -28,7 +28,7 @@ class FeedbackVitoria extends Tutorial {
     create() {
         // Toca o som de vitória
         this.somVitoria = this.sound.add('vitoria', {
-            loop: true,
+            loop: false,
             volume: 0.5
         });
         this.somVitoria.play();
