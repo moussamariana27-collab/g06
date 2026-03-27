@@ -665,7 +665,174 @@ As mecânicas de um jogo definem as ações, os limites e as interações, trans
 
 ## 3.8. Implementação Matemática de Animação/Movimento (sprint 4)
 
-*Descreva aqui a função que implementa a movimentação/animação de personagens ou elementos gráficos no seu jogo. Sua função deve se basear em alguma formulação matemática (e.g. fórmula de aceleração). A explicação do funcionamento desta função deve conter notação matemática formal de fórmulas/equações. Se necessário, crie subseções para sua descrição.*
+Para a implementação matemática foi desenvolvida uma função moverCarro(), onde são colocados cinco parâmetros e ela automaticamente coloca um elemento em movimento com base nesses parâmetros. Além disso, quando o movimento termina, ele recomeça, para que o jogo fique dinâmico, com esses elementos sempre se movimentando na cena Cidade.
+
+**Parâmetros da função:**
+
+*posicaoInicial* : Ponto de origem do movimento (objeto da forma {x: n , y: m }, onde n e m são números.
+
+*posicaoFinal* : Ponto final do movimento (objeto da mesma forma de posicaoInicial).
+
+*duracao* : Tempo em segundos que o movimento deve durar.
+
+*carro* : Elemento a ser movimentado 
+
+*cena* : Referência da cena (this).
+
+``` javascript
+moverCarro(posicaoInicial, posicaoFinal, duracao, carro, cena) {...}
+```
+**Cálculo das distâncias:**
+
+Antes de definir os movimentos, calcula-se a distância total a percorrer em cada eixo:
+``` javascript
+distanciaX = posicaoFinal.x - posicaoInicial.x
+distanciaY = posicaoFinal.y - posicaoInicial.y 
+```
+Note que a função utiliza dos seus parâmetros para calcular as distâncias em cada eixo.
+
+**Variáveis tempoSoma e tempoDecorrido:**
+
+Antes de prosseguir para a parte da movimentação, deve-se entender o que são essas variáveis e como elas se relacionam.
+
+O Phaser fornece a cada frame um parâmetro chamado $delta$, que representa o tempo decorrido em milissegundos desde o frame anterior. Para padronizar esse parâmetro em segundos, cria-se a variável tempoSoma:
+``` javascript
+const tempoSoma = delta / 1000
+```
+A variável tempoDecorrido representa o tempo total acumulado desde o ínicio do movimento. Portanto, inicialmente ela recebe o valor 0 e, depois, é atualizada a cada frame:
+``` javascript
+let tempoDecorrido = 0;
+// ... depois de algumas linhas de código ...
+tempoDecorrido += tempoSoma
+```
+Equacionando isso de forma matemática para um frame n qualquer:
+$$tempoDecorrido(n) = \sum_{i=1}^{n}tempoSoma_i$$
+
+**Movimento no eixo x: Movimento Uniforme**
+
+No movimento uniforme, a velocidade é constante durante todo o movimento, isto é, não há aceleração alguma nesse movimento.
+Para encontrarmos a velocidade nesse eixo, utilizamos da fórmula: 
+$$v = \frac{\Delta S}{\Delta t}$$ 
+ onde $v$ é a velocidade, ${\Delta S}$  é a distância percorrida em um tempo ${\Delta t}$. Tome ${\Delta S} = S_f - S_i$ e ${\Delta t} = t_f - t_i$ para a distância e para o tempo decorrido.
+
+No código:
+``` javascript 
+const velocidadeX = distanciaX / duracao
+```
+
+Para definir a posição no eixo x, podemos fazer o seguinte caminho matematicamente:
+
+$$v = \frac{\Delta S}{\Delta t} \Rightarrow {\Delta S} = v{\Delta t} \Rightarrow S_f = S_i +v(t_f - t_i)$$
+
+Com esse resultado, pode-se fazer o seguinte no código para a posição do elemento no eixo X:
+``` javascript 
+posicaoX = posicaoInicial.x + velocidadeX * tempoDecorrido
+```
+
+
+**Movimento no eixo Y: Movimento Uniformemente Variável**
+
+Nesse movimento, a aceleração é constante, isso significa dizer que a velocidade cresce de forma linear: 
+$$a = \frac{\Delta v}{\Delta t} \Rightarrow v_f = v_i + a{\Delta t}$$
+A fórmula para a posição em um MUV é encontrada a partir da área abaixo do grafico $vXt$:
+$$S_f = S_i + {v_i}t + \frac{at^2}{2}$$
+Partindo dessa equação (com $v_i=0$):
+
+$$S_f = S_i + {v_i}t + \frac{at^2}{2} \Rightarrow {\Delta S} = \frac{at^2}{2}\Rightarrow a = \frac{2\Delta S}{t^2}$$
+
+Tendo essas três equações como base, podemos montar duas equações no código para atualizar a posição e a velocidade no eixo Y (levando em consideração que a velocidade inicial do elemento em y é 0):
+``` javascript 
+const aceleracaoY = (2 * distanciaY) / Math.pow(duracao, 2); // primeiro é definido o valor da aceleração
+
+velocidadeY = aceleracaoY * tempoDecorrido;
+
+posicaoY = posicaoInicial.y + 0.5 * aceleracaoY * Math.pow(tempoDecorrido,2) ;
+```
+
+
+**Atualização do elemento:**
+
+Após atualizadas todas essas equações no código, a posição do elemento é atualizada:
+``` javascript
+carro.setPosition(posicaoX, posicaoY)
+```
+Além disso, também é exibido no console todas as seguintes mensagens:
+``` javascript
+console.log( `velocidade no eixo x: ${velocidadeX.toFixed(2)} pixels por segundo`);
+console.log(` posição no eixo x: ${posicaoX.toFixed(2)}`);
+console.log(  `aceleração no eixo y: ${aceleracaoY.toFixed(2)} pixels por segundo ao quadrado`);
+console.log( `velocidade no eixo Y: ${velocidadeY.toFixed(2)} pixels por segundo` ) ;
+console.log(` posição no eixo y: ${posicaoY.toFixed(2)}`);
+```
+**Encerramento e loop do movimento:**
+
+O movimento se encerra quando o tempo de duração do movimento alcança o tempo parametrizado no início da função. Quando o movimento acaba, a função fica um segundo sem rodar, reposiciona o elemento em sua posição inicial e o coloca o movimento para acontecer novamente.
+
+No código:
+
+```javascript
+if (tempoDecorrido >= duracao) {
+    carro.setPosition(posicaoFinal.x, posicaoFinal.y);
+    ativar = false;
+    cena.events.off('update', registrarAtualizacoes);
+
+    cena.time.delayedCall(1000, () => {
+        posicaoX = posicaoInicial.x;
+        posicaoY = posicaoInicial.y;
+        velocidadeY = 0;
+        tempoDecorrido = 0;
+        ativar = true;
+        carro.setPosition(posicaoInicial.x, posicaoInicial.y);
+        cena.events.on('update', registrarAtualizacoes);
+    });
+}
+```
+
+**Vetores:**
+Do ponto de vista físico, o código da função opera sobre componentes escalares do vetor velocidade do elemento, já que as posições do elemento são atualizadas em suas coordenadas x e y de forma individuais. Portanto, apesar da implementação computacional não utilizar uma classe de vetor estruturada, sua lógica se baseia na decomposição vetorial.
+Em contrapartida, os vetores foram utilizados computacionalmente de forma explícita para implementar a movimentação do jogador, já que não alteramos diretamente a posição deste, e sim sua velocidade.
+O código inicialmente lê o input da seta do teclado e monta um vetor direção:
+
+$$esquerda \rightarrow vetorX = -1, direita \rightarrow vetorX = 1$$
+
+$$cima \rightarrow vetorY = -1, baixo \rightarrow vetorY = 1$$
+
+``` javascript 
+if (this.cursor.left.isDown) { vetorX = -1};
+if (this.cursor.right.isDown) { vetorX = 1};
+if (this.cursor.up.isDown) {vetorY = -1};
+if (this.cursor.down.isDown) {vetorY = 1};
+```
+Feito isso, agora o vetor diagonal é normalizado para evitar que andar nessa direção deixe o jogador mais rápido: Tome $\vec{v_x}$ e $\vec{v_y}$ perpendiculares entre si e de mesmo módulo $v$
+Então:$$|\vec{v_x} + \vec{v_y}| = {\sqrt{v_x^2 +v_y^2}} \Rightarrow |\vec{v_x} + \vec{v_y}| = {\sqrt{2v^2}}\Rightarrow |\vec{v_x} + \vec{v_y}| = v{\sqrt{2}}$$
+Logo, devemos normalizar os vetores diagonais, o que basicamente significa encontrar o versor desse vetor:
+$$\hat{v} = \left(\frac{v_x}{\sqrt{v_x^2 + v_y^2 }},\frac{v_y}{\sqrt{v_x^2 + v_y^2 }}\right)$$
+
+No código: 
+``` javascript 
+let equalizar = Math.sqrt(Math.pow(vetorX,2) + Math.pow(vetorY,2));
+if (equalizar > 0) {
+    vetorX = vetorX / equalizar;
+    vetorY = vetorY / equalizar; }
+```
+
+Depois disso, o personagem finalmente pode receber a direção, sentido e módulo de seu vetor velocidade:
+``` javascript 
+this.personagem.setVelocity( vetorX * velocidade, vetorY * velocidade )
+```
+*Observação:* Esse método Phaser apenas repassa esses valores ao motor de física que é onde a troca de posição das coordenadas acontece (Isso foi feito manualmente na função moverCarro()).
+
+**Unidades:** 
+* Coordenadas x,y : Pixels ($px$)
+* Tempo : Segundos ($s$)
+* Velocidades : Pixels por segundo ($px/s$)
+* Aceleração : Pixels por segundo ao quadrado ($px/s^2$)
+
+**Link para a pasta:**
+ https://git.inteli.edu.br/graduacao/2026-1a/t28/g06/-/blob/main/src/scenes/gameplay/game.js?ref_type=heads
+(linhas 443 - 558 = Função moverCarro(); linhas 394-439 = Movimentação do jogador )
+
+**Referência:** NUSSENZVEIG, H. Moysés. Curso de Física Básica: Mecânica. 5. ed. São Paulo: Blucher, 2013. v. 1. ISBN 978-85-212-0745-0
 
 # <a name="c4"></a>4. Desenvolvimento do Jogo
 

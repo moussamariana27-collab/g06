@@ -460,7 +460,7 @@ class Cidade extends Phaser.Scene {
 
         // Equações da distância em cada eixo
 
-        const distanciaX = posicaoFinal.x - posicaoInicial.x;;
+        const distanciaX = posicaoFinal.x - posicaoInicial.x;
         
         const distanciaY = posicaoFinal.y - posicaoInicial.y;
 
@@ -534,16 +534,16 @@ class Cidade extends Phaser.Scene {
 
             // Movimento no eixo X  (MU)
 
-            posicaoX += velocidadeX * tempoSoma;     // Vx = d*t
+            posicaoX = posicaoInicial.x + velocidadeX * tempoDecorrido;     // Vx = d/t
 
             console.log( `velocidade no eixo x: ${velocidadeX.toFixed(2)} pixels por segundo`);
             console.log(` posição no eixo x: ${posicaoX.toFixed(2)}`);
 
             // Movimento no eixo Y (MUV)
 
-            velocidadeY += aceleracaoY * tempoSoma  // Vy = Vy' a*t
+            velocidadeY = aceleracaoY * tempoDecorrido // Vy = Vy' a*t
 
-            posicaoY += velocidadeY * tempoSoma   // Sy = Sy' + Vy'*t + (a*t*t/2)
+            posicaoY = posicaoInicial.y + 0.5 * aceleracaoY * Math.pow(tempoDecorrido,2)  // Sy = Sy' + Vy'*t + (a*t*t/2)
 
             console.log(  `aceleração no eixo y: ${aceleracaoY.toFixed(2)} pixels por segundo ao quadrado`);
             console.log( `velocidade no eixo Y: ${velocidadeY.toFixed(2)} pixels por segundo` ) ;
