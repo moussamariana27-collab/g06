@@ -380,22 +380,27 @@ RF15 | O jogador deve poder entrar nos estabelecimentos.
 RF16 | O jogo deve possuir sistema de captura em turnos.
 RF17 | O jogador deve escolher entre diferentes opções durante o turno.
 RF18 | Cada captura deve simular uma situação real com clientes.
-RF19 | Os personagens dos estabelecimentos devem possuir um sistema de satisfação.
-RF20 | O turno deve possuir sistema de reputação do vendedor.
-RF21 | Os sistemas de satisfação e reputação devem diminuir a cada resposta errada.
-RF22 | Os sistemas de satisfação e reputação devem aumentar a cada resposta correta.
-RF23 | Cada turno é vencido quando o nível de satisfação atingir o máximo.
-RF24 | Cada turno é perdido quando o nível de satisfação atingir o mínimo.
+RF19 | As personagens dos estabelecimentos devem possuir uma barra de satisfação durante o combate.
+RF20 | O turno deve possuir sistema de satisfação do vendedor.
+RF21 | A barra de satisfação diminui a cada resposta errada.
+RF22 | A barra de satisfação aumenta a cada resposta correta.
+RF23 | Cada estabelecimento é perdido quando a quantidade total de respostas certas não atingirem 100%.
+RF24 | Cada estabelecimento é ganho quando a quantidade total de respostas certas atingirem 100%.
 RF25 | O jogo deve aumentar a dificuldade a cada cena vencida pelo jogador.
-RF26 | O jogo deve dar dicas e revisões conforme o progresso do jogo.
+RF26 | O jogo oferece feedbacks conforme a derrota e vitória nos estabelecimentos.
+RF27 | O jogo contém uma barra de progresso total do jogo.
+RF28 | A barra de progresso total aumenta de acordo com o avanço de vitórias sob os estabelecimentos.
+RF29 | Ao atingir 100% do progresso, o jogo é concluído. 
+RNF30 | O jogo deve possuir um tutorial sobre os controles de teclado.
+RNF31 | Os áudios devem ser usados para fortalecer a imersividade do usuário
 
 \# | Requisitos não funcionais
 --- | ---
-RNF01 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
-RNF02 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
-RNF03 | O jogo deve apresentar compatibilidade com teclado e mouse.
-RNF04 | O código do sistema deve seguir boas práticas de organização e modularização.
-RNF05 | O jogo deve ser visualmente confortável.
+RNF01 | O jogo deve apresentar uma interface intuitiva e de fácil compreensão.
+RNF02 | O jogo deve apresentar compatibilidade com teclado e mouse.
+RNF03 | O código do sistema deve seguir boas práticas de organização e modularização.
+RNF04 | O jogo deve ser visualmente confortável.
+
 
 
 
