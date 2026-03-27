@@ -128,11 +128,11 @@ class Tutorial extends Phaser.Scene {
         this.add.graphics().setDepth(6).fillStyle(0x5078D8, 1).fillRoundedRect(larguraTela / 2 + 90,  btnY, btnW, btnH, 10);
 
         const botaoAnterior = this.add.text(larguraTela / 2 - 155, btnY + btnH / 2, 'Anterior', {
-            fontFamily: 'Press Start 2P', fontSize: '20px', fill: '#ffffff'
+            fontSize: '25px', fill: '#ffffff'
         }).setDepth(7).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
         this.botaoProximo = this.add.text(larguraTela / 2 + 155, btnY + btnH / 2, 'Próximo', {
-            fontFamily: 'Press Start 2P', fontSize: '20px', fill: '#ffffff'
+            fontSize: '25px', fill: '#ffffff'
         }).setDepth(7).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
         // ---------------------------------------------------------
