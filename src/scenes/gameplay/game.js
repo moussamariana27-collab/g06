@@ -8,6 +8,7 @@ class Cidade extends Phaser.Scene {
 
     preload() {
         this.load.audio('musicacidade', 'assets/mapa.mp3')
+        this.load.audio('mestredevendas', 'assets/mestredevendas.mp3')
 
         // Carrega o mapa exportado do Tiled no formato JSON
         this.load.tilemapTiledJSON('mapaCidade', 'assets/cidade_cielo.json');
@@ -339,7 +340,19 @@ class Cidade extends Phaser.Scene {
                 'MARIA': 'vitoriaMaria'
             };
             let chaveImagemVitoria = cenasVitoriaFinal[this.personagemEscolhido];
-            
+
+            // Para outros sons antes de tocar o áudio de vitória final
+            if (this.musica && this.musica.isPlaying) {
+                this.musica.stop();
+            }
+            if (this.somCarro && this.somCarro.isPlaying) {
+                this.somCarro.stop();
+            }
+
+            // Toca o áudio mestredevendas.mp3 quando atinge 100%
+            const somVitoriaFinal = this.sound.add('mestredevendas', { loop: false, volume: 1 });
+            somVitoriaFinal.play();
+
             let cam = this.cameras.main;
 
             // Centralizamos a imagem na câmara e fixamos com setScrollFactor(0)
