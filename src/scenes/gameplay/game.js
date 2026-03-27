@@ -88,6 +88,8 @@ class Cidade extends Phaser.Scene {
         // =========================================================================================
         // Cria os carros, coloca-os para andar e adiciona colisao entre eles e o jogador
 
+        this.carSounds = []; // Array para armazenar os sons dos carros
+
         this.carro1 = this.physics.add.image(530,85, 'carro1').setFlip(false,true);
 
         this.carro2 = this.physics.add.image(530,85, 'carro2').setRotation(3 * Math.PI / 2).setSize(58, 26)
@@ -348,6 +350,12 @@ class Cidade extends Phaser.Scene {
             if (this.somCarro && this.somCarro.isPlaying) {
                 this.somCarro.stop();
             }
+            // Para todos os sons dos carros
+            this.carSounds.forEach(sound => {
+                if (sound && sound.isPlaying) {
+                    sound.stop();
+                }
+            });
 
             // Toca o áudio mestredevendas.mp3 quando atinge 100%
             const somVitoriaFinal = this.sound.add('mestredevendas', { loop: false, volume: 1 });
@@ -467,6 +475,7 @@ class Cidade extends Phaser.Scene {
                 volume: volumeSom
             });
             this.somCarro.play();
+            cena.carSounds.push(this.somCarro); // Adiciona o som ao array
             primeiraVez = false;
         };
 
