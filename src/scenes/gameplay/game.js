@@ -89,7 +89,8 @@ class Cidade extends Phaser.Scene {
 
         this.carro1 = this.physics.add.image(530,85, 'carro1').setFlip(false,true);
 
-        this.carro2 = this.physics.add.image(530,85, 'carro2').setRotation(3 * Math.PI / 2)
+        this.carro2 = this.physics.add.image(530,85, 'carro2').setRotation(3 * Math.PI / 2).setSize(58, 26)
+
 
         this.moverCarro(
         { x: 530, y: 85  },   // posição inicial
@@ -107,20 +108,24 @@ class Cidade extends Phaser.Scene {
         this
         );
 
-        this.physics.add.collider(this.personagem, this.carro1, () => {this.musica.stop() ;this.scene.restart()});
-        this.physics.add.collider(this.personagem, this.carro2, () => {this.musica.stop() ;this.scene.restart()});;
+        this.physics.add.collider(this.personagem, this.carro1, () => {this.scene.restart()});
+        this.physics.add.collider(this.personagem, this.carro2, () => {this.scene.restart()});
+
+        this.events.on('shutdown', () => {
+                this.sound.stopAll();  // para todos os sons da cena
+            })
 
         //==========================================================================================
 
 
         // Ajusta automaticamente a hitbox para o tamanho do sprite
         this.personagem.body.setSize(
-            this.personagem.width,
-            this.personagem.height
+            this.personagem.width/2,
+            this.personagem.height/3
         );
 
         // Centraliza a hitbox no sprite
-        this.personagem.body.setOffset(0, 0);
+        this.personagem.body.setOffset(this.personagem.width/4, this.personagem.height/3);
 
         // Faz a câmera seguir o personagem
         this.cameras.main.startFollow(this.personagem);
