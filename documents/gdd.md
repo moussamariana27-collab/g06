@@ -1366,16 +1366,29 @@ O sistema inicia a cena **PostoDeGasolina**, exibe o ambiente e o personagem sel
 
 *Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir.*
 
-Nome | João Jonas (use nomes fictícios)
+Nome | Socorro de Jesus
 --- | ---
-Já possuía experiência prévia com games? | sim, é um jogador casual
-Conseguiu iniciar o jogo? | sim
-Entendeu as regras e mecânicas do jogo? | entendeu as regras, mas sobre as mecânicas, apenas as essenciais, não explorou os comandos complexos
-Conseguiu progredir no jogo? | sim, sem dificuldades  
-Apresentou dificuldades? | Não, conseguiu jogar com facilidade e afirmou ser fácil
+Qual a sua ocupação? | Trabalha com TI, especificamente nas áreas de segurança, infraestrutura, integração, etc.
+Já possuía experiência prévia com games? | Sim, joga com frequencia.
+Conseguiu iniciar o jogo? | Sim.
+Entendeu as regras e mecânicas do jogo? | Conseguiu, sem dificuldades.
+Conseguiu progredir no jogo? | Sim, sem dificuldades.
+Apresentou dificuldades? | Afirmou não ter encontrado dificuldades.
 Que nota deu ao jogo? | 9.0
-O que gostou no jogo? | Gostou  de como o jogo vai ficando mais difícil ao longo do tempo sem deixar de ser divertido
-O que poderia melhorar no jogo? | A responsividade do personagem aos controles, disse que havia um pouco de atraso desde o momento do comando até a resposta do personagem
+O que gostou no jogo? | Afirmou ter gostado da temática 8 bit, pois lembrou ele de sua infância. Também gostou da trilha sonora e a objetividade do jogo.
+O que poderia melhorar no jogo? | Disse que poderiam ser adicionadas mais mecânicas, animações, etc. 
+
+Nome | Carlos Ricardo 
+--- | ---
+Qual a sua ocupação? | Estudante de primeiro ano de uma faculdade de tecnologia e liderança.
+Já possuía experiência prévia com games? | Sim, joga com frequencia.
+Conseguiu iniciar o jogo? | Sim.
+Entendeu as regras e mecânicas do jogo? | Sim, conseguiu entender.
+Conseguiu progredir no jogo? | Sim, sem dificuldades. 
+Apresentou dificuldades? | Não.
+Que nota deu ao jogo? | 8.0
+O que gostou no jogo? | Gostou da não-linearidade do jogo e liberdade dada ao jogador.
+O que poderia melhorar no jogo? | Demonstrou facilidade ao responder as perguntas nas cenas de combate e afirmou que as respostas deveriam ser menos óbvias. Também disse que os botões selecionáveis deveriam ser mais facilmente identificáveis.
 
 ### 5.2.2 Melhorias
 
