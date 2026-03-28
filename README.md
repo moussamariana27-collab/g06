@@ -1,7 +1,7 @@
 # Inteli - Instituto de Tecnologia e Liderança 
 
 <p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="/documents/assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
+<a href= "https://www.inteli.edu.br/"><img src="documents/assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
 </p>
 
 <br>
@@ -12,9 +12,9 @@
 
 ## 👨‍🎓 Integrantes: 
 - <a href="https://www.linkedin.com/in/ana-julia-bertola-de-campos-311667312?utm_source=share_via&utm_content=profile&utm_medium=member_ios">Ana Julia Bertola de Campos</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Cauan da Rocha Martins</a>
+- <a href="https://www.linkedin.com/in/cauan-martins-375912282/">Cauan da Rocha Martins</a>
 - <a href="https://br.linkedin.com/in/fabianne-silva-7b3b13199">Fabianne Jesus Silva Leite</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Fernando Alves Carmo Filho</a> 
+- <a href="hhttps://www.linkedin.com/in/fernando-alves-carmo-filho-72373a3a9/">Fernando Alves Carmo Filho</a> 
 - <a href="https://www.linkedin.com/in/jo%C3%A3o-paulo-barreto-ferreira-andrade-rodrigues-de-paula-b483203aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">João Paulo Barreto Ferreira Andrade Rodrigues de Paula</a>
 - <a href="www.linkedin.com/in/haila-falcao">Haila Thauane Falcão Novaes</a> 
 - <a href="https://www.linkedin.com/in/lu%C3%ADs-felipe-campagnaro-copolillo-202b78373/">Luís Felipe Campagnaro Copolillo</a>
@@ -31,7 +31,11 @@
 
 ## 📜 Descrição
 
-Um jogo de turnos em que o jogador, no caso o gerente de vendas da Cielo deve enfrentar missões que tem como objetivo vender uma maquininha da Cielo 
+A solução proposta consiste em um jogo digital single-player que simula, de maneira interativa, a atuação de um Gerente de Negócios (GN) da Cielo durante processos de prospecção, abordagem e conversão de clientes. A dinâmica do jogo é estruturada em turnos, nos quais o jogador deve tomar decisões estratégicas diante de diferentes cenários de negociação, selecionando abordagens comerciais que impactam diretamente os resultados obtidos ao longo da experiência.
+
+Por meio da aplicação de conceitos de gamificação, o sistema transforma práticas reais do ambiente corporativo em uma experiência de aprendizagem envolvente, possibilitando o desenvolvimento de competências essenciais, como argumentação, técnicas de negociação e tratamento de objeções. Além disso, o jogo oferece feedback imediato ao jogador, permitindo a compreensão dos impactos de suas escolhas e incentivando a melhoria contínua de desempenho.
+
+A solução também incorpora processos reais da operação comercial, como o repique, assegurando maior aderência ao contexto de atuação dos profissionais e contribuindo para a padronização de abordagens. Dessa forma, o projeto se consolida como uma ferramenta escalável de capacitação, alinhada aos objetivos estratégicos do parceiro de negócios e voltada ao aprimoramento da performance dos colaboradores.
 
 Inclua o link para o jogo aqui
 
@@ -54,13 +58,60 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o código e executar o jogo a partir de sua máquina ou seu repositório.
 
 
+
+Este tutorial tem como objetivo orientar, de forma clara e detalhada, como baixar, configurar e executar o projeto do jogo em sua máquina local utilizando o Visual Studio Code e a extensão Live Server.
+
+---
+
+## Pré-requisitos
+
+Antes de começar, você precisa garantir que possui os seguintes itens instalados:
+
+### 1. Visual Studio Code (VS Code)
+- IDE (Ambiente de Desenvolvimento) utilizada para abrir e executar o projeto.
+- Recomenda-se utilizar a versão mais recente.
+
+### 2. Extensão Live Server
+- Extensão do VS Code responsável por criar um servidor local.
+- Permite visualizar o projeto diretamente no navegador.
+
+### 3. Navegador de Internet
+Você pode utilizar qualquer navegador moderno, como:
+- Google Chrome
+- Microsoft Edge
+- Opera
+- Safari
+
+---
+
+## Passo 1:  Acessar o código do projeto
+
+Você pode obter o código do projeto utilizando git, basta usar o comando abaixono terminal:
+
+## Passo 2: executar o live server
+
+Há 3 formas de executar o live server
+
+### Primeira forma: 
+
+Abrir direto clicando em ``go live`` no canto inferior direito
+
+### Segunda forma:
+
+clicar no ícone de arquivos e em seguida clicar com o botão direito do mouse ou com dois dedos no touchpad em  ``index.html`` e depois clicar em Open with live server
+
+
+```bash
+git clone <URL_DO_REPOSITORIO>
+```
+
 ## 🗃 Histórico de lançamentos
 
 * 0.5.0 - xx/xx/2026
     * 
-* 0.4.0 - xx/xx/2026
+* 0.4.0 - 27/03/2026
     * 
-* 0.3.0 - XX/XX/2026
+* 0.3.0 - 13/03/2026
     * 
 * 0.2.0 - 28/02/2026
     * 
