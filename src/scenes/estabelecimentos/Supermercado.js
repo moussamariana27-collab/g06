@@ -8,6 +8,9 @@ class Mercado extends Combate {
 
     init(data) {
         super.init(data);
+        this.cenaVitoria = 'FeedbackVitoriaSupermercado';
+        this.cenaDerrota = 'FeedbackDerrotaSupermercado';
+        this.vitorias = this.registry.get('estabelecimentosVencidos');
     }
 
     preload() {
