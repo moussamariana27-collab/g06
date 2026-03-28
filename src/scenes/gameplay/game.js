@@ -19,7 +19,7 @@ class Cidade extends Phaser.Scene {
         this.load.image('vitoriaMaria', 'assets/vitoriaMaria.png');
 
         // Carrega a imagem do tileset utilizado no mapa
-        this.load.image('cidade', 'assets/cidade_tileset.png');
+        this.load.image('cidade', 'assets/cidade_tileset1.png');
 
         // Objeto que define qual spritesheet usar para cada personagem
         const sprites = {
