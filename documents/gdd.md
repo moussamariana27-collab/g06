@@ -528,54 +528,48 @@ O processo de criação dos NPCs ocorreu em duas etapas principais: primeiro, o 
 Para a próxima sprint, o objetivo é realizar o desenho manual das sprites desses personagens, que serão utilizadas no desenvolvimento das animações e farão parte da dinâmica do jogo.
 
 <div align="center">
-  <sub>Figura 3.2.2.1 - Esboço e digitalização do Tião, o dono da padaria.</sub><br>
-  <img src="/documents/assets/padeiro.jpg" width="100%" alt="Esboço Tião"><br>
-  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
-</div>
-
-<div align="center">
-  <sub>Figura 3.2.2.2 - Sprite do padeiro feita a mão</sub><br>
-  <img src="/documents/assets/spritePadeiro.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.1 - Tião, o dono da padaria.</sub><br>
+  <img src="/documents/assets/tiao.png" width="100%" alt="Esboço Tião"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.3 - Esboço e digitalização do Pedro, o dono da loja de roupas.</sub><br>
-  <img src="/documents/assets/homem.jpg" width="100%" alt="Esboço Dono da loja de roupa"><br>
+  <sub>Figura 3.2.2.2 - Leila, a dona do Salão de beleza.</sub><br>
+  <img src="/documents/assets/Leila.png" width="100%" alt="Esboço Tião"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.4 - Esboço e digitalização da Márcia, a dona de farmácia.</sub><br>
-  <img src="/documents/assets/mulher.jpg" width="100%" alt="Esboço Dona da ???"><br>
+  <sub>Figura 3.2.2.3 - Ligia, dona da loja da loja de materiais de construção.</sub><br>
+  <img src="/documents/assets/ligia.png" width="100%" alt="Esboço Dona da ???"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.5 - Esboço e digitalização da Leila, a dona de salão de beleza.</sub><br>
-  <img src="/documents/assets/cabeleleira.jpg" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.4 - Ruan, dono do mercado.</sub><br>
+  <img src="/documents/assets/Ruan.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 #####
 
 <div align="center">
-  <sub>Figura 3.2.2.6 - Sprite da Leila feita a mão</sub><br>
-  <img src="/documents/assets/spriteLeila.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.5 - Roberta, dona do posto de gasolina</sub><br>
+  <img src="/documents/assets/Roberta.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.7 - Sprite do estadual (Mestre de vendas da Cielo)</sub><br>
-  <img src="/documents/assets/spriteEstadual.png" width="70%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.6 - Nayara, dona da loja de roupas</sub><br>
+  <img src="/documents/assets/Nayara.png" width="70%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
