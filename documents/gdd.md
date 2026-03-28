@@ -1369,31 +1369,83 @@ O sistema inicia a cena **PostoDeGasolina**, exibe o ambiente e o personagem sel
 
 ### 5.2.1 Registros de testes
 
-*Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir.*
+Os testes de jogabilidade são uma importante ferramenta para validar o sucesso/fracasso de um jogo, para além de testar funcionalidades ou mecânicas, nos testes de jogabilidade testamos o nível de imersão do jogador, para isso a equipe buscou testar o jogo com um público bem diverso, tanto em faixa etária, quanto em experiências na área de Ti e games. Os testes aqui aprensentados são prévios e na sprint 05 serão expandidos e utilizados para o planejamentos dos ajustes finais do nosso jogo.
 
-Nome | Socorro de Jesus
---- | ---
-Qual a sua ocupação? | Trabalha com TI, especificamente nas áreas de segurança, infraestrutura, integração, etc.
-Já possuía experiência prévia com games? | Sim, joga com frequência.
-Conseguiu iniciar o jogo? | Sim.
-Entendeu as regras e mecânicas do jogo? | Conseguiu, sem dificuldades.
-Conseguiu progredir no jogo? | Sim, sem dificuldades.
-Apresentou dificuldades? | Afirmou não ter encontrado dificuldades.
+#### 5.2.1.1 - Teste 1
+Nome | Victória Matos
+---|---
+Idade| 46 anos
+Ocupação| Professora de Liderança
+Já possuía experiência prévia com games?| Sim, mas havia algum tempo que não jogava
+Estuda/Trabalha na área de TI?| Sim trabalha na área
+Conseguiu iniciar o jogo?| Sim, conseguiu iniciar o jogo sem apresentar nenhuma dificuldade.
+Entendeu as regras e mecânicas do jogo?| Conseguiu entender as regras e mecânicas do jogo de forma plena. Entretanto, ao colidir com um estabelecimento já feito, a jogadora teve que refazê-lo, ela sentiu a necessidade de um botão de sair para esses casos.
+Conseguiu progredir no jogo? | Sim, a jogadora conseguiu progredir e finalizou o jogo inteiro.
+Apresentou dificuldades?| Para além da colisão acidental com um estabelecimento já concluído, a jogadora não apresentou nenhuma dificuldade.
 Que nota deu ao jogo? | 9.0
-O que gostou no jogo? | Afirmou ter gostado da temática 8 bit, pois lembrou ele de sua infância. Também gostou da trilha sonora e a objetividade do jogo.
-O que poderia melhorar no jogo? | Disse que poderiam ser adicionadas mais mecânicas, animações, etc. 
+O que gostou no jogo? | Gostou da linearidade do jogo, que deu a sensação de maior dificuldade a cada nível, do mapa aberto que permite livre locomoção para explorar.
+O que poderia melhorar no jogo?| Baixar o volume das músicas, ter o botão de sair dos estabelecimentos e adicionar algumas outras colisões.
 
-Nome | Carlos Ricardo 
---- | ---
-Qual a sua ocupação? | Estudante de primeiro ano de uma faculdade de tecnologia e liderança.
-Já possuía experiência prévia com games? | Sim, joga com frequencia.
-Conseguiu iniciar o jogo? | Sim.
-Entendeu as regras e mecânicas do jogo? | Sim, conseguiu entender.
-Conseguiu progredir no jogo? | Sim, sem dificuldades. 
-Apresentou dificuldades? | Não.
-Que nota deu ao jogo? | 8.0
-O que gostou no jogo? | Gostou da não-linearidade do jogo e liberdade dada ao jogador.
-O que poderia melhorar no jogo? | Demonstrou facilidade ao responder as perguntas nas cenas de combate e afirmou que as respostas deveriam ser menos óbvias. Também disse que os botões selecionáveis deveriam ser mais facilmente identificáveis.
+#### 5.2.1.2 - Teste 2
+Nome | Fiona Rodriguez
+---|---
+Idade| 29 anos
+Ocupação| Professora de Dados e Robótica
+Já possuía experiência prévia com games? | Muito pouca
+Estuda/Trabalha na área de TI?| Trabalha na área de dados e robótica, estudou engenharia da computação.
+Conseguiu iniciar o jogo?| Sim, iniciou sem dificuldades.
+Entendeu as regras e mecânicas do jogo?| Em partes, ficou confusa de como funcionava os combates no início da cena da Padaria, mas depois que viu como funcionava a jogabilidade fluiu bem.
+Conseguiu progredir no jogo?| Sim, mesmo com a dificuldade inicial a jogadora conseguiu progredir e finalizou o jogo na sequência lógica sugerida no tutorial.
+Apresentou dificuldades?| Somente a inicial no início da cena de combate da padaria já mencionada. 
+Que nota deu ao jogo? | 10
+O que gostou no jogo?| Gostou do formato do jogo, e das informações, achou tudo bem didático.
+O que poderia melhorar no jogo? | Sugeriu colocar um sistema de pontos para erros/acertos.
+
+#### 5.2.1.3 - Teste 3
+Nome | Pedro Henrique Dantas
+---|--
+Idade| 23 anos
+Ocupação|CTO da Hakutaku 
+Já possuía experiência prévia com games? | Sim, jogava CS
+Estuda/Trabalha na área de TI? | CTO de uma startup de tecnologia e estudante de Ciências da computação
+Conseguiu iniciar o jogo? | Sim, iniciou o jogo sem dificuldades.
+Entendeu as regras e mecânicas do jogo? | Conseguiu entender as mecânicas com facilidade.
+Conseguiu progredir no jogo? | O jogador progrediu e concluiu o jogo, entretanto não seguiu a ordem sugerida pelo Estadual do tutorial, ainda sim o jogo não apresentou problemas.
+Apresentou dificuldades? | Sentiu dificuldade em identificar a ordem lógica dos estabelecimentos.
+Que nota deu ao jogo? | 9
+O que gostou no jogo? | Sim, gostou das sprites e da trilha sonora, achou o jogo bem imersivo, e disse que jogaria novamente.
+O que poderia melhorar no jogo? | Ter algum indicador de direção para que o jogador consiga seguir a ordem lógica dos estabelecimentos.
+
+#### 5.2.1.4 - Teste 4
+Nome | Saulo Bertolli
+---|---
+Idade| 21 anos
+Ocupação| Desenvolvedor Back-End do banco BTG Pactual
+Já possuía experiência prévia com games?| Sim, joga desde os oito anos de idade.
+Estuda/Trabalha na área de TI?| Sim, estuda Ciências da computação e trabalha como desenvolvedor Back-End.
+Conseguiu iniciar o jogo? | Sim, o jogador fala que as instruções iniciais ajudaram bastante.
+Entendeu as regras e mecânicas do jogo? | Sim, também ressaltou que o entendimento aconteceu por conta das instruções e do tutorial.
+Conseguiu progredir no jogo? | Sim, o jogador conseguiu progredir com facilidade e finalizou o jogo seguindo a ordem lógica sugerida no tutorial.
+Apresentou dificuldades? | Não, achou o jogo bem intuitivo, e por trabalhar em banco, já conhecia algumas terminologias do onboarding.
+Que nota deu ao jogo? | 9
+O que gostou no jogo? | Gostou muito das artes, achou bem feitas, gostou das opções de personagens e do mundo aberto. Também achou o conteúdo coerente e bem didático.
+O que poderia melhorar no jogo? | Diminuir o volume das músicas e alguma HUD que mostre o próximo estabelecimento a seguir.
+
+#### 5.2.1.5 - Teste 5
+Nome| Lunna Pedroza
+---|--
+Idade| 20 anos
+Ocupação| Estudante
+Já possuía experiência prévia com jogos?| Não. A participante relatou ter jogado apenas The Sims.
+Estuda ou trabalha na área de TI?|Sim. Atualmente cursa Engenharia da Computação.
+Conseguiu iniciar o jogo?| Sim, conseguiu iniciar o jogo sem dificuldades.
+Entendeu as regras e mecânicas do jogo?| Sim. Considerou as regras claras, porém sugeriu a adição de setas indicativas no mapa para tornar a navegação mais intuitiva.
+Conseguiu progredir no jogo?|Sim. Relatou que o avanço pelas etapas ocorreu de forma tranquila.
+Apresentou dificuldades? | Sim. Teve dificuldade em compreender o funcionamento do sistema de batalha, especialmente em relação às interações e aos locais corretos para clicar.
+Que nota deu ao jogo?| 8,5 de 10.
+O que gostou no jogo?| Destacou o design, considerado fluido e bem integrado, além da boa velocidade de movimentação.
+O que poderia melhorar?| Apontou que o volume da música estava elevado, sugeriu a substituição da música final e recomendou a implementação de uma funcionalidade que permita “travar” estabelecimentos após a conquista de clientes.
+
 
 ### 5.2.2 Melhorias
 
