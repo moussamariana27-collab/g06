@@ -1,4 +1,4 @@
-<img src="/assets/inteli.png">
+<img src="/documents/assets/inteli.png">
 
 
 # GDD - Game Design Document - Módulo 1 - Inteli
@@ -133,7 +133,7 @@ A matriz SWOT, ou FOFA, é uma abreviação para forças, oportunidades, fraquez
 
 <div align="center">
   <sub>Figura 1.1.2.1 - Análise SWOT</sub><br>
-  <img src="/assets/swot.png" width="100%" alt="Descrição breve"><br>
+  <img src="/documents/assets/swot.png" width="100%" alt="Descrição breve"><br>
   <sup>Material produzido pelos autores, 2026<sup>
 </div>
 
@@ -204,7 +204,7 @@ Diversidade, responsabilidade social, linguagem simples e acessível, reconhecim
 
 <div align="center">
   <sub>Figura 1.1.4.1 - Proposta de valor</sub><br>
-  <img src="/assets/propostadevalor.png" width="100%" alt="Descrição breve"><br>
+  <img src="/documents/assets/propostadevalor.png" width="100%" alt="Descrição breve"><br>
   <sup>Material produzido pelos autores, 2026</sup>
 </div>
 
@@ -272,7 +272,7 @@ A solução incorpora processos reais da operação, como o repique, garantindo 
 
 
 
-![Matriz de risco](/assets/matriz%20de%20risco%20(2).png)
+![Matriz de risco](/documents/assets/matriz%20de%20risco%20(2).png)
 
 
 A tabela a seguir classifica os riscos reais, potenciais e as oportunidades de inovação do projeto, buscando um equilíbrio estratégico entre a mitigação de ameaças e a alavancagem de oportunidades de negócios para a Cielo.
@@ -380,22 +380,27 @@ RF15 | O jogador deve poder entrar nos estabelecimentos.
 RF16 | O jogo deve possuir sistema de captura em turnos.
 RF17 | O jogador deve escolher entre diferentes opções durante o turno.
 RF18 | Cada captura deve simular uma situação real com clientes.
-RF19 | Os personagens dos estabelecimentos devem possuir um sistema de satisfação.
-RF20 | O turno deve possuir sistema de reputação do vendedor.
-RF21 | Os sistemas de satisfação e reputação devem diminuir a cada resposta errada.
-RF22 | Os sistemas de satisfação e reputação devem aumentar a cada resposta correta.
-RF23 | Cada turno é vencido quando o nível de satisfação atingir o máximo.
-RF24 | Cada turno é perdido quando o nível de satisfação atingir o mínimo.
+RF19 | As personagens dos estabelecimentos devem possuir uma barra de satisfação durante o combate.
+RF20 | O turno deve possuir sistema de satisfação do vendedor.
+RF21 | A barra de satisfação diminui a cada resposta errada.
+RF22 | A barra de satisfação aumenta a cada resposta correta.
+RF23 | Cada estabelecimento é perdido quando a quantidade total de respostas certas não atingirem 100%.
+RF24 | Cada estabelecimento é ganho quando a quantidade total de respostas certas atingirem 100%.
 RF25 | O jogo deve aumentar a dificuldade a cada cena vencida pelo jogador.
-RF26 | O jogo deve dar dicas e revisões conforme o progresso do jogo.
+RF26 | O jogo oferece feedbacks conforme a derrota e vitória nos estabelecimentos.
+RF27 | O jogo contém uma barra de progresso total do jogo.
+RF28 | A barra de progresso total aumenta de acordo com o avanço de vitórias sob os estabelecimentos.
+RF29 | Ao atingir 100% do progresso, o jogo é concluído. 
+RNF30 | O jogo deve possuir um tutorial sobre os controles de teclado.
+RNF31 | Os áudios devem ser usados para fortalecer a imersividade do usuário
 
 \# | Requisitos não funcionais
 --- | ---
-RNF01 | O jogo deve apresentar interface intuitiva e de fácil compreensão.
-RNF02 | O jogo deve possuir acessibilidade básica (legendas, contraste adequado e textos legíveis).
-RNF03 | O jogo deve apresentar compatibilidade com teclado e mouse.
-RNF04 | O código do sistema deve seguir boas práticas de organização e modularização.
-RNF05 | O jogo deve ser visualmente confortável.
+RNF01 | O jogo deve apresentar uma interface intuitiva e de fácil compreensão.
+RNF02 | O jogo deve apresentar compatibilidade com teclado e mouse.
+RNF03 | O código do sistema deve seguir boas práticas de organização e modularização.
+RNF04 | O jogo deve ser visualmente confortável.
+
 
 
 
@@ -467,52 +472,52 @@ O jogo possui quatro personagens controláveis, sendo dois homens e duas mulhere
 
 <div align="center">
   <sub>Figura 3.2.1.1 - Sprite do João</sub><br>
-  <img src="/assets/joao.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/joao.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
 <div align="center">
   <sub>Figura 3.2.1.2 - Sprite do João dentro do comércio</sub><br>
-  <img src="/assets/joaoCorpo.png" width="50%" alt="Sprite João"><br>
+  <img src="/documents/assets/joaoCorpo.png" width="50%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 
 <div align="center">
   <sub>Figura 3.2.1.3 - Sprite do José</sub><br>
-  <img src="/assets/jose.png" width="100%" alt="Sprite José"><br>
+  <img src="/documents/assets/jose.png" width="100%" alt="Sprite José"><br>
   <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
 <div align="center">
   <sub>Figura 3.2.1.4 - Sprite do José dentro do comércio</sub><br>
-  <img src="/assets/joseCorpo.png" width="50%" alt="Sprite José"><br>
+  <img src="/documents/assets/joseCorpo.png" width="50%" alt="Sprite José"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 
 <div align="center">
   <sub>Figura 3.2.1.5 - Sprite da Maria</sub><br>
-  <img src="/assets/mariaGdd.png" width="100%" alt="Sprite Maria"><br>
+  <img src="/documents/assets/mariaGdd.png" width="100%" alt="Sprite Maria"><br>
   <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
 <div align="center">
   <sub>Figura 3.2.1.6 - Sprite da Maria dentro do comércio</sub><br>
-  <img src="/assets/mariaCorpo.png" width="50%" alt="Sprite Maria"><br>
+  <img src="/documents/assets/mariaCorpo.png" width="50%" alt="Sprite Maria"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 
 <div align="center">
   <sub>Figura 3.2.1.7 - Sprite da Paula</sub><br>
-  <img src="/assets/paulaGdd.png" width="100%" alt="Sprite Paula"><br>
+  <img src="/documents/assets/paulaGdd.png" width="100%" alt="Sprite Paula"><br>
   <sup>Fonte: <a href="http://limezu.itch.io/" target="_blank">LimeZu</a>, 2025 e editado pelos autores, 2026.</sup>
 </div>
 
 <div align="center">
   <sub>Figura 3.2.1.8 - Sprite da Paula dentro do comércio</sub><br>
-  <img src="/assets/paulaCorpo.png" width="50%" alt="Sprite Paula"><br>
+  <img src="/documents/assets/paulaCorpo.png" width="50%" alt="Sprite Paula"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -524,13 +529,13 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
 
 <div align="center">
   <sub>Figura 3.2.2.1 - Esboço e digitalização do Tião, o dono da padaria.</sub><br>
-  <img src="/assets/padeiro.jpg" width="100%" alt="Esboço Tião"><br>
+  <img src="/documents/assets/padeiro.jpg" width="100%" alt="Esboço Tião"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 <div align="center">
   <sub>Figura 3.2.2.2 - Sprite do padeiro feita a mão</sub><br>
-  <img src="/assets/spritePadeiro.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <img src="/documents/assets/spritePadeiro.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -538,7 +543,7 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
 
 <div align="center">
   <sub>Figura 3.2.2.3 - Esboço e digitalização do Pedro, o dono da loja de roupas.</sub><br>
-  <img src="/assets/homem.jpg" width="100%" alt="Esboço Dono da loja de roupa"><br>
+  <img src="/documents/assets/homem.jpg" width="100%" alt="Esboço Dono da loja de roupa"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -546,7 +551,7 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
 
 <div align="center">
   <sub>Figura 3.2.2.4 - Esboço e digitalização da Márcia, a dona de farmácia.</sub><br>
-  <img src="/assets/mulher.jpg" width="100%" alt="Esboço Dona da ???"><br>
+  <img src="/documents/assets/mulher.jpg" width="100%" alt="Esboço Dona da ???"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -554,7 +559,7 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
 
 <div align="center">
   <sub>Figura 3.2.2.5 - Esboço e digitalização da Leila, a dona de salão de beleza.</sub><br>
-  <img src="/assets/cabeleleira.jpg" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <img src="/documents/assets/cabeleleira.jpg" width="100%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -562,7 +567,7 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
 
 <div align="center">
   <sub>Figura 3.2.2.6 - Sprite da Leila feita a mão</sub><br>
-  <img src="/assets/spriteLeila.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <img src="/documents/assets/spriteLeila.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -570,7 +575,7 @@ Para a próxima sprint, o objetivo é realizar o desenho manual das sprites dess
 
 <div align="center">
   <sub>Figura 3.2.2.7 - Sprite do estadual (Mestre de vendas da Cielo)</sub><br>
-  <img src="/assets/spriteEstadual.png" width="70%" alt="Esboço Dona do salão de beleza"><br>
+  <img src="/documents/assets/spriteEstadual.png" width="70%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -622,7 +627,7 @@ Abaixo estão os estudos iniciais de level design e a identidade visual do jogo 
 
 <div align="center">
   <sub>Figura 3.3.4.1 - Estudo de interface visual e estilo de arte (Pixel Art)</sub><br>
-  <img src="/assets/cidade_tileset.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/cidade_tileset.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -634,7 +639,7 @@ Os objetos do Tiled Map foram projetados por [LimeZu](http://limezu.itch.io/).
 
 <div align="center">
   <sub>Figura 3.3.4.2 - Esboço preliminar (Side-scroller) ilustrando a escala dos edifícios.</sub><br>
-  <img src="/assets/concept1.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/concept1.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -643,7 +648,7 @@ Destaque para o escritório da Cielo como ponto de partida (nascimento do sprite
 
 <div align="center">
   <sub>Figura 3.3.4.3 - Esboço do Mapa Geral (Top-down)</sub><br>
-  <img src="/assets/concept2.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/concept2.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -671,7 +676,7 @@ No mundo dos jogos, a trilha sonora é um recurso de suma importância para a ex
 O diagrama de cenas (gameflow) é uma ferramenta essencial no desenvolvimento de jogos. Ele dita a lógica de transição e o ciclo de vida entre diferentes cenas do jogo, assim a equipe de desenvolvimento dos jogos consegue visualisar e seguir a mesma lógica. A implementação dos diagramas UML, servem para indicar as classes do jogo (cenas), os atributos, que são todas as características que cada cena deve ter e os métodos, as ações que cada cena deve fazer.
 <div align="center">
   <sub>Figura 3.5.1 - Diagrama de cenas</sub><br>
-  <img src="/assets/DiagramaOficial.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/DiagramaOficial.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -898,7 +903,7 @@ Na parte superior, foi inserido o título "Cielo: Mestre de Vendas" e, na inferi
 
 <div align="center">
   <sub>Figura 4.1.1 - tela inicial do jogo</sub><br>
-  <img src="/assets/image-1.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/image-1.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -920,7 +925,7 @@ Colisões: Refinar as áreas de colisão do escritório para impedir que o perso
 
 <div align="center">
   <sub>Figura 4.1.2 - concept art do escritório Cielo</sub><br>
-  <img src="/assets/image-2.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/image-2.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -935,7 +940,7 @@ No código, o sistema de física Arcade do framework Phaser foi ativado para hab
 
 <div align="center">
   <sub>Figura 3.3.4.1 - parte do concept do mapa do jogo</sub><br>
-  <img src="/assets/cidade2.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/cidade2.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -947,7 +952,7 @@ A alta complexidade em manipular múltiplas ferramentas de design e programaçã
 
 <div align="center">
   <sub>Figura 3.3.4.1 - parte do concept do mapa do jogo</sub><br>
-  <img src="/assets/cidade3.png" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/cidade3.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -966,7 +971,7 @@ Nesta sprint foi implementada a cena de seleção de personagens, permitindo que
 
 <div align="center">
   <sub>Figura 4.3.1 - Tela de seleção de personagens</sub><br>
-  <img src="/assets/selecao_personagens.png" width="100%" alt="Tela de seleção de personagens"><br>
+  <img src="/documents/assets/selecao_personagens.png" width="100%" alt="Tela de seleção de personagens"><br>
 
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -975,7 +980,7 @@ A cena seguinte exibe as características e a ficha do personagem escolhido. Par
 
 <div align="center">
   <sub>Figura 4.3.2 - Tela de informações de um dos personagens</sub><br>
-  <img src="/assets/info_personagem.png" width="100%" alt="Tela de informações do personagem"><br>
+  <img src="/documents/assets/info_personagem.png" width="100%" alt="Tela de informações do personagem"><br>
   
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -986,14 +991,14 @@ A cena principal do Espaço Cielo foi construída com o editor de mapas Tiled e 
 
 <div align="center">
   <sub>Figura 4.3.3 - Personagem posicionado no ponto de spawn ao iniciar o Espaço Cielo</sub><br>
-  <img src="/assets/spawn_escritorio.png" width="100%" alt="Spawn do personagem no escritório"><br>
+  <img src="/documents/assets/spawn_escritorio.png" width="100%" alt="Spawn do personagem no escritório"><br>
 
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 <div align="center">
   <sub>Figura 4.3.4 - Visão geral do escritório com debug ativado, indicando as layers de colisão, professor e porta</sub><br>
-  <img src="/assets/debug_escritorio.png" width="100%" alt="Debug do escritório com layers visíveis"><br>
+  <img src="/documents/assets/debug_escritorio.png" width="100%" alt="Debug do escritório com layers visíveis"><br>
   
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -1006,7 +1011,7 @@ As principais funcionalidades implementadas foram: efeito de máquina de escreve
 
 <div align="center">
   <sub>Figura 4.3.5 - Tutorial ativo sobre o escritório, exibindo a primeira fala do instrutor com efeito de digitação</sub><br>
-  <img src="/assets/tutorial4.png" width="100%" alt="Tutorial em execução sobre o mapa do escritório"><br>
+  <img src="/documents/assets/tutorial4.png" width="100%" alt="Tutorial em execução sobre o mapa do escritório"><br>
   
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -1019,14 +1024,14 @@ Tecnicamente, o sistema é sustentado por um array de objetos que armazena as pe
 
 <div align="center">
   <sub>Figura 4.3.6 - Telas do sistema de combate durante uma interação com o NPC</sub><br>
-  <img src="/assets/combate_perguntas.png" width="100%" alt="Sistema de perguntas e respostas com o NPC"><br>
+  <img src="/documents/assets/combate_perguntas.png" width="100%" alt="Sistema de perguntas e respostas com o NPC"><br>
   
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 <div align="center">
   <sub>Figura 4.3.7 - Tela de vitória exibida ao convencer o cliente</sub><br>
-  <img src="/assets/tela_vitoria.png" width="100%" alt="Tela de vitória com mensagem 'Você convenceu o cliente'"><br>
+  <img src="/documents/assets/tela_vitoria.png" width="100%" alt="Tela de vitória com mensagem 'Você convenceu o cliente'"><br>
   
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -1364,83 +1369,31 @@ O sistema inicia a cena **PostoDeGasolina**, exibe o ambiente e o personagem sel
 
 ### 5.2.1 Registros de testes
 
-Os testes de jogabilidade são uma importante ferramenta para validar o sucesso/fracasso de um jogo, para além de testar funcionalidades ou mecânicas, nos testes de jogabilidade testamos o nível de imersão do jogador, para isso a equipe buscou testar o jogo com um público bem diverso, tanto em faixa etária, quanto em experiências na área de Ti e games. Os testes aqui aprensentados são prévios e na sprint 05 serão expandidos e utilizados para o planejamentos dos ajustes finais do nosso jogo.
+*Descreva nesta seção as sessões de teste/entrevista com diferentes jogadores. Registre cada teste conforme o template a seguir.*
 
-#### 5.2.1.1 - Teste 1
-Nome | Victória Matos
----|---
-Idade| 46 anos
-Ocupação| Professora de Liderança
-Já possuía experiência prévia com games?| Sim, mas havia algum tempo que não jogava
-Estuda/Trabalha na área de TI?| Sim trabalha na área
-Conseguiu iniciar o jogo?| Sim, conseguiu iniciar o jogo sem apresentar nenhuma dificuldade.
-Entendeu as regras e mecânicas do jogo?| Conseguiu entender as regras e mecânicas do jogo de forma plena. Entretanto, ao colidir com um estabelecimento já feito, a jogadora teve que refazê-lo, ela sentiu a necessidade de um botão de sair para esses casos.
-Conseguiu progredir no jogo? | Sim, a jogadora conseguiu progredir e finalizou o jogo inteiro.
-Apresentou dificuldades?| Para além da colisão acidental com um estabelecimento já concluído, a jogadora não apresentou nenhuma dificuldade.
+Nome | Socorro de Jesus
+--- | ---
+Qual a sua ocupação? | Trabalha com TI, especificamente nas áreas de segurança, infraestrutura, integração, etc.
+Já possuía experiência prévia com games? | Sim, joga com frequência.
+Conseguiu iniciar o jogo? | Sim.
+Entendeu as regras e mecânicas do jogo? | Conseguiu, sem dificuldades.
+Conseguiu progredir no jogo? | Sim, sem dificuldades.
+Apresentou dificuldades? | Afirmou não ter encontrado dificuldades.
 Que nota deu ao jogo? | 9.0
-O que gostou no jogo? | Gostou da linearidade do jogo, que deu a sensação de maior dificuldade a cada nível, do mapa aberto que permite livre locomoção para explorar.
-O que poderia melhorar no jogo?| Baixar o volume das músicas, ter o botão de sair dos estabelecimentos e adicionar algumas outras colisões.
+O que gostou no jogo? | Afirmou ter gostado da temática 8 bit, pois lembrou ele de sua infância. Também gostou da trilha sonora e a objetividade do jogo.
+O que poderia melhorar no jogo? | Disse que poderiam ser adicionadas mais mecânicas, animações, etc. 
 
-#### 5.2.1.2 - Teste 2
-Nome | Fiona Rodriguez
----|---
-Idade| 29 anos
-Ocupação| Professora de Dados e Robótica
-Já possuía experiência prévia com games? | Muito pouca
-Estuda/Trabalha na área de TI?| Trabalha na área de dados e robótica, estudou engenharia da computação.
-Conseguiu iniciar o jogo?| Sim, iniciou sem dificuldades.
-Entendeu as regras e mecânicas do jogo?| Em partes, ficou confusa de como funcionava os combates no início da cena da Padaria, mas depois que viu como funcionava a jogabilidade fluiu bem.
-Conseguiu progredir no jogo?| Sim, mesmo com a dificuldade inicial a jogadora conseguiu progredir e finalizou o jogo na sequência lógica sugerida no tutorial.
-Apresentou dificuldades?| Somente a inicial no início da cena de combate da padaria já mencionada. 
-Que nota deu ao jogo? | 10
-O que gostou no jogo?| Gostou do formato do jogo, e das informações, achou tudo bem didático.
-O que poderia melhorar no jogo? | Sugeriu colocar um sistema de pontos para erros/acertos.
-
-#### 5.2.1.3 - Teste 3
-Nome | Pedro Henrique Dantas
----|--
-Idade| 23 anos
-Ocupação|CTO da Hakutaku 
-Já possuía experiência prévia com games? | Sim, jogava CS
-Estuda/Trabalha na área de TI? | CTO de uma startup de tecnologia e estudante de Ciências da computação
-Conseguiu iniciar o jogo? | Sim, iniciou o jogo sem dificuldades.
-Entendeu as regras e mecânicas do jogo? | Conseguiu entender as mecânicas com facilidade.
-Conseguiu progredir no jogo? | O jogador progrediu e concluiu o jogo, entretanto não seguiu a ordem sugerida pelo Estadual do tutorial, ainda sim o jogo não apresentou problemas.
-Apresentou dificuldades? | Sentiu dificuldade em identificar a ordem lógica dos estabelecimentos.
-Que nota deu ao jogo? | 9
-O que gostou no jogo? | Sim, gostou das sprites e da trilha sonora, achou o jogo bem imersivo, e disse que jogaria novamente.
-O que poderia melhorar no jogo? | Ter algum indicador de direção para que o jogador consiga seguir a ordem lógica dos estabelecimentos.
-
-#### 5.2.1.4 - Teste 4
-Nome | Saulo Bertolli
----|---
-Idade| 21 anos
-Ocupação| Desenvolvedor Back-End do banco BTG Pactual
-Já possuía experiência prévia com games?| Sim, joga desde os oito anos de idade.
-Estuda/Trabalha na área de TI?| Sim, estuda Ciências da computação e trabalha como desenvolvedor Back-End.
-Conseguiu iniciar o jogo? | Sim, o jogador fala que as instruções iniciais ajudaram bastante.
-Entendeu as regras e mecânicas do jogo? | Sim, também ressaltou que o entendimento aconteceu por conta das instruções e do tutorial.
-Conseguiu progredir no jogo? | Sim, o jogador conseguiu progredir com facilidade e finalizou o jogo seguindo a ordem lógica sugerida no tutorial.
-Apresentou dificuldades? | Não, achou o jogo bem intuitivo, e por trabalhar em banco, já conhecia algumas terminologias do onboarding.
-Que nota deu ao jogo? | 9
-O que gostou no jogo? | Gostou muito das artes, achou bem feitas, gostou das opções de personagens e do mundo aberto. Também achou o conteúdo coerente e bem didático.
-O que poderia melhorar no jogo? | Diminuir o volume das músicas e alguma HUD que mostre o próximo estabelecimento a seguir.
-
-#### 5.2.1.5 - Teste 5
-Nome| Lunna Pedroza
----|--
-Idade| 20 anos
-Ocupação| Estudante
-Já possuía experiência prévia com jogos?| Não. A participante relatou ter jogado apenas The Sims.
-Estuda ou trabalha na área de TI?|Sim. Atualmente cursa Engenharia da Computação.
-Conseguiu iniciar o jogo?| Sim, conseguiu iniciar o jogo sem dificuldades.
-Entendeu as regras e mecânicas do jogo?| Sim. Considerou as regras claras, porém sugeriu a adição de setas indicativas no mapa para tornar a navegação mais intuitiva.
-Conseguiu progredir no jogo?|Sim. Relatou que o avanço pelas etapas ocorreu de forma tranquila.
-Apresentou dificuldades? | Sim. Teve dificuldade em compreender o funcionamento do sistema de batalha, especialmente em relação às interações e aos locais corretos para clicar.
-Que nota deu ao jogo?| 8,5 de 10.
-O que gostou no jogo?| Destacou o design, considerado fluido e bem integrado, além da boa velocidade de movimentação.
-O que poderia melhorar?| Apontou que o volume da música estava elevado, sugeriu a substituição da música final e recomendou a implementação de uma funcionalidade que permita “travar” estabelecimentos após a conquista de clientes.
-
+Nome | Carlos Ricardo 
+--- | ---
+Qual a sua ocupação? | Estudante de primeiro ano de uma faculdade de tecnologia e liderança.
+Já possuía experiência prévia com games? | Sim, joga com frequencia.
+Conseguiu iniciar o jogo? | Sim.
+Entendeu as regras e mecânicas do jogo? | Sim, conseguiu entender.
+Conseguiu progredir no jogo? | Sim, sem dificuldades. 
+Apresentou dificuldades? | Não.
+Que nota deu ao jogo? | 8.0
+O que gostou no jogo? | Gostou da não-linearidade do jogo e liberdade dada ao jogador.
+O que poderia melhorar no jogo? | Demonstrou facilidade ao responder as perguntas nas cenas de combate e afirmou que as respostas deveriam ser menos óbvias. Também disse que os botões selecionáveis deveriam ser mais facilmente identificáveis.
 
 ### 5.2.2 Melhorias
 
