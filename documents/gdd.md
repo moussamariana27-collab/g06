@@ -528,54 +528,48 @@ O processo de criação dos NPCs ocorreu em duas etapas principais: primeiro, o 
 Para a próxima sprint, o objetivo é realizar o desenho manual das sprites desses personagens, que serão utilizadas no desenvolvimento das animações e farão parte da dinâmica do jogo.
 
 <div align="center">
-  <sub>Figura 3.2.2.1 - Esboço e digitalização do Tião, o dono da padaria.</sub><br>
-  <img src="/documents/assets/padeiro.jpg" width="100%" alt="Esboço Tião"><br>
-  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
-</div>
-
-<div align="center">
-  <sub>Figura 3.2.2.2 - Sprite do padeiro feita a mão</sub><br>
-  <img src="/documents/assets/spritePadeiro.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.1 - Tião, o dono da padaria.</sub><br>
+  <img src="/documents/assets/tiao.png" width="100%" alt="Esboço Tião"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.3 - Esboço e digitalização do Pedro, o dono da loja de roupas.</sub><br>
-  <img src="/documents/assets/homem.jpg" width="100%" alt="Esboço Dono da loja de roupa"><br>
+  <sub>Figura 3.2.2.2 - Leila, a dona do Salão de beleza.</sub><br>
+  <img src="/documents/assets/Leila.png" width="100%" alt="Esboço Tião"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.4 - Esboço e digitalização da Márcia, a dona de farmácia.</sub><br>
-  <img src="/documents/assets/mulher.jpg" width="100%" alt="Esboço Dona da ???"><br>
+  <sub>Figura 3.2.2.3 - Ligia, dona da loja da loja de materiais de construção.</sub><br>
+  <img src="/documents/assets/ligia.png" width="100%" alt="Esboço Dona da ???"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.5 - Esboço e digitalização da Leila, a dona de salão de beleza.</sub><br>
-  <img src="/documents/assets/cabeleleira.jpg" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.4 - Ruan, dono do mercado.</sub><br>
+  <img src="/documents/assets/Ruan.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 #####
 
 <div align="center">
-  <sub>Figura 3.2.2.6 - Sprite da Leila feita a mão</sub><br>
-  <img src="/documents/assets/spriteLeila.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.5 - Roberta, dona do posto de gasolina</sub><br>
+  <img src="/documents/assets/Roberta.png" width="100%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
 ###
 
 <div align="center">
-  <sub>Figura 3.2.2.7 - Sprite do estadual (Mestre de vendas da Cielo)</sub><br>
-  <img src="/documents/assets/spriteEstadual.png" width="70%" alt="Esboço Dona do salão de beleza"><br>
+  <sub>Figura 3.2.2.6 - Nayara, dona da loja de roupas</sub><br>
+  <img src="/documents/assets/Nayara.png" width="70%" alt="Esboço Dona do salão de beleza"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
@@ -939,7 +933,7 @@ Implementação do Mapa e Delimitação de Escopo O cenário do jogo foi constru
 No código, o sistema de física Arcade do framework Phaser foi ativado para habilitar as colisões mecânicas. As propriedades de colisão foram mapeadas nas camadas de obstáculos do mapa gerado no Tiled, garantindo que o personagem principal interaja corretamente com os limites físicos dos ambientes (como paredes e balcões), solidificando as bases da exploração espacial.
 
 <div align="center">
-  <sub>Figura 3.3.4.1 - parte do concept do mapa do jogo</sub><br>
+  <sub>Figura 4.2.1 - parte do concept do mapa do jogo</sub><br>
   <img src="/documents/assets/cidade2.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -951,7 +945,7 @@ Dificuldades Encontradas O maior desafio técnico enfrentado pela equipe esteve 
 A alta complexidade em manipular múltiplas ferramentas de design e programação simultaneamente motivou a decisão de reduzir o escopo geográfico do jogo nesta sprint. Além disso, a transição entre o mapa exportado e a sua renderização tornou-se um grande obstáculo. Compreender como a arquitetura de dados era alocada no arquivo JSON gerado pelo Tiled e conectar essas referências internas com os assets de imagem carregados no código exigiu muitas revisões para que o cenário fosse reproduzido fielmente e sem falhas de textura.
 
 <div align="center">
-  <sub>Figura 3.3.4.1 - parte do concept do mapa do jogo</sub><br>
+  <sub>Figura 4.2.2 - parte do concept do mapa do jogo</sub><br>
   <img src="/documents/assets/cidade3.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
@@ -1051,7 +1045,133 @@ Inserção de Novos NPCs: Adicionar sprites e diálogos para os clientes dos dem
 
 ## 4.4. Desenvolvimento final do MVP (sprint 4)
 
-*Descreva e ilustre aqui o desenvolvimento da versão final do jogo, explicando brevemente o que foi entregue em termos de MVP. Utilize prints de tela para ilustrar. Indique as eventuais dificuldades e planos futuros.*
+O desenvolvimento da quarta e última sprint teve como foco a consolidação do Produto Mínimo Viável (MVP), integrando todas as mecânicas desenvolvidas nas etapas anteriores em um ciclo principal de jogo completo e funcional. As entregas abrangeram a finalização das cenas de combate, a reestruturação da arquitetura do sistema, a implementação de progressão global, melhorias visuais e sonoras, além da definição das condições de encerramento da partida.
+
+### Sistema de Combate e Arquitetura — combate.js
+
+Nesta sprint, todas as cenas de combate foram finalizadas, com exceção da farmácia, que foi removida do escopo. Além das já existentes, foram implementadas novas cenas de combate nos estabelecimentos supermercado, posto de gasolina e loja de materiais de construção, ampliando a diversidade de interações do jogo.
+
+A arquitetura do sistema de combate foi significativamente aprimorada. Anteriormente, cada cena possuía um código próprio baseado em cópia e adaptação. Com a refatoração, foi criada uma classe base **Combate**, responsável por centralizar atributos e métodos comuns. As cenas específicas passaram a herdar dessa classe, eliminando duplicação de código e facilitando a manutenção.
+
+<div align="center">
+  <sub>Figura 4.4.1 - Estabelecimentos implementados.</sub><br>
+  <img src="/documents/assets/estabelecimentos.jpeg" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+<div align="center">
+  <sub>Figura 4.4.2 - Classe combate.</sub><br>
+  <img src="/documents/assets/classeCombate.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+<div align="center">
+  <sub>Figura 4.4.3 - Exemplo de herança do combate nos estabelecimentos.</sub><br>
+  <img src="/documents/assets/herancaCombate.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Sistema de Feedback — feedback.js
+
+Foi implementado um sistema estruturado de feedback ao jogador após cada combate. As classes **FeedbackVitoria** e **FeedbackDerrota** foram criadas como extensões da classe Tutorial, reutilizando comportamentos já existentes.
+
+A partir dessas classes base, foram desenvolvidas subclasses específicas para cada estabelecimento, permitindo personalização de conteúdo sem comprometer a organização do código. Esse modelo reforça o uso de herança em múltiplos níveis, garantindo escalabilidade ao sistema.
+
+<div align="center">
+  <sub>Figura 4.4.4 - Exemplo de aplicação do feedback de vitória.</sub><br>
+  <img src="/documents/assets/feedVitoria.jpeg" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+<div align="center">
+  <sub>Figura 4.4.5 - Exemplo de aplicação do feedback de derrota.</sub><br>
+  <img src="/documents/assets/feedDerrota.jpeg" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Sistema de Progressão Global e HUD — main.js
+
+Para viabilizar o acompanhamento do progresso do jogador, foi implementado um sistema de estado persistente utilizando o *registry* do Phaser. Um array dinâmico denominado *estabelecimentosVencidos* armazena os locais já conquistados.
+
+A integração ocorre nas cenas de feedback de vitória, que verificam e registram o progresso antes de retornar o jogador ao mapa principal.
+
+Além disso, foi desenvolvida uma interface de progresso (HUD), representada por uma barra visual no mapa da cidade. Essa barra é renderizada via código com a classe *Graphics* e atualizada dinamicamente com base na proporção de estabelecimentos conquistados.
+
+<div align="center">
+  <sub>Figura 4.4.6 - Imagem da barra de progresso implementada ao mapa.</sub><br>
+  <img src="/documents/assets/barraProgresso.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Condição de Vitória Final (Endgame) — cidade.js
+
+O encerramento do jogo foi implementado com base no progresso do jogador. Ao atingir 100% de conquistas (seis estabelecimentos), o sistema interrompe a jogabilidade, pausa a física da cena e exibe uma tela de vitória final.
+
+A tela de encerramento adapta-se ao personagem escolhido pelo jogador, garantindo consistência visual com as escolhas realizadas anteriormente. Também foram realizados ajustes no mapa da cidade, incluindo a criação de zonas invisíveis com corpos estáticos para evitar movimentações indevidas.
+
+<div align="center">
+  <sub>Figura 4.4.7 - Tela de vitória.</sub><br>
+  <img src="/documents/assets/telaVitoria.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Movimentação e Sistemas Físicos
+
+Foram aplicados conceitos matemáticos e físicos na movimentação de elementos do jogo. Nos veículos presentes no mapa, foram utilizados princípios de aceleração e decomposição vetorial sem dependência direta do Phaser. Já na movimentação do personagem, a decomposição vetorial foi aplicada em conjunto com o sistema do framework.
+
+Além disso, foi implementado o sistema de respawn inteligente, no qual o jogador retorna ao estabelecimento visitado após cada combate, substituindo o comportamento anterior de retorno fixo ao escritório.
+
+<div align="center">
+  <sub>Figura 4.4.8 - Chamada da função responsável pelo movimento dos carros.</sub><br>
+  <img src="/documents/assets/codCarro.jpeg" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+<div align="center">
+  <sub>Figura 4.4.9 - Aplicação física da movimentação do personagem.</sub><br>
+  <img src="/documents/assets/movPersona.jpeg" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+<div align="center">
+  <sub>Figura 4.4.10 - Código de respawn do personagem.</sub><br>
+  <img src="/documents/assets/coordenadaPersona.jpeg" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Padronização Visual e Interface
+
+Foram realizadas melhorias significativas na interface do jogo. A caixa de perguntas e respostas foi reformulada para garantir padronização estética entre todas as cenas. A barra de satisfação também foi redesenhada, adotando um visual mais integrado com os demais elementos da interface.
+
+Além disso, ajustes foram feitos nos fundos das telas de feedback, corrigindo problemas onde imagens permaneciam fixas incorretamente após a transição entre cenas.
+
+<div align="center">
+  <sub>Figura 4.4.11 - Exemplo de pdronização da tela de diálogo.</sub><br>
+  <img src="/documents/assets/dialogo.png" width="100%" alt="Sprite João"><br>
+  <sup>Fonte: Material produzido pelos autores, 2026.</sup>
+</div>
+
+### Sound Design — áudio.js
+
+O MVP passou a contar com um sistema completo de sound design, cobrindo todas as principais interações do jogo. Foram implementadas trilhas sonoras e efeitos para o menu inicial, cenas de combate, ambientação do escritório e da cidade, além de áudios específicos para feedbacks positivos e negativos e para a tela final de vitória.
+
+Também foi desenvolvida a lógica de controle de áudio, garantindo a reprodução adequada das trilhas sem sobreposição indevida entre cenas.
+
+### Dificuldades Encontradas
+
+Os desafios técnicos desta sprint estiveram relacionados principalmente à estruturação e integração dos sistemas. A implementação da classe base Combate e seu uso em múltiplos arquivos exigiu compreensão aprofundada de herança e organização modular do código.
+
+Outras dificuldades incluíram a padronização das caixas de diálogo, especialmente em relação ao ajuste de textos dentro dos limites visuais, e a correta renderização dos fundos nas telas de feedback. Também houve desafios na exibição da HUD devido ao sistema de câmera e zoom do Phaser, solucionados com o uso de *setScrollFactor(0)*.
+
+No sound design, destacou-se a dificuldade na curadoria de áudios adequados, que equilibrassem imersão e concentração sem prejudicar a experiência do jogador.
+
+### Próximos Passos (Sprint 5)
+
+Como continuidade do projeto, estão previstos aprimoramentos voltados à ampliação da experiência do usuário e ao refinamento técnico do jogo. Entre eles, destaca-se a implementação de um botão “Jogar Novamente” na tela final, permitindo reiniciar o progresso por meio da limpeza do registro global e retorno à tela inicial, aumentando a rejogabilidade. Também está prevista a expansão do banco de perguntas, com o objetivo de diversificar as interações e evitar a memorização das respostas pelos jogadores.
+
+Além disso, pretende-se aprimorar o feedback audiovisual por meio da inserção de efeitos sonoros em transições de cena e no preenchimento da barra de progresso, bem como realizar a equalização dos volumes das trilhas já existentes, garantindo maior consistência sonora. No aspecto de usabilidade, planeja-se a implementação de um botão “Voltar” nos estabelecimentos, permitindo maior controle de navegação ao jogador.
+
+Por fim, serão realizadas revisões gerais para correção de eventuais sobreposições de áudio e ajustes visuais finos, contribuindo para o polimento final do jogo.
 
 ## 4.5. Revisão do MVP (sprint 5)
 

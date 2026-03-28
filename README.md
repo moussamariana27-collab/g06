@@ -1,7 +1,7 @@
 # Inteli - Instituto de Tecnologia e Liderança 
 
 <p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
+<a href= "https://www.inteli.edu.br/"><img src="documents/assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width=40% height=40%></a>
 </p>
 
 <br>
@@ -86,7 +86,7 @@ Você pode utilizar qualquer navegador moderno, como:
 
 ## Passo 1:  Acessar o código do projeto
 
-Você pode obter o código do projeto utilizando git, basta usar o comando abaixono terminal:
+Você pode obter o código do projeto utilizando git, basta usar o comando abaixo no terminal:
 
 ```bash
 git clone <URL_DO_REPOSITORIO>
@@ -94,7 +94,7 @@ git clone <URL_DO_REPOSITORIO>
 
 ## Passo 2: executar o live server
 
-Há 3 formas de executar o live server
+Há 3 formas de executar o live server.
 
 ### Primeira forma: 
 
@@ -102,7 +102,7 @@ Abrir direto clicando em ``go live`` no canto inferior direito
 
 ### Segunda forma:
 
-clicar no ícone de arquivos e em seguida clicar com o botão direito do mouse ou com dois dedos no touchpad em  ``index.html`` e depois clicar em Open with live server
+Clicar no ícone de arquivos e em seguida clicar com o botão direito do mouse ou com dois dedos no touchpad em  ``index.html`` e depois clicar em Open with live server
 
 
 ## 🗃 Histórico de lançamentos

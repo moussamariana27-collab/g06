@@ -242,7 +242,7 @@ class Cidade extends Phaser.Scene {
                 // Detecta quando o personagem entra na zona
                 this.physics.add.overlap(this.personagem, areaInteracao, () => {
 
-                    // Caso a zona seja o Hotel (ainda não implementado)
+                    // Caso a zona seja o Hotel 
                     if (zona.type === 'Hotel') {
 
                         // Evita criar múltiplos avisos ao mesmo tempo
@@ -325,9 +325,7 @@ class Cidade extends Phaser.Scene {
         });
 
 
-       // =========================================================
-        // === BARRA NO MUNDO (EM CIMA DO PERSONAGEM) ==============
-        // =========================================================
+       // barra de progresso de vitórias (baseada na quantidade de estabelecimentos vencidos)
 
         let estabelecimentosVencidos = this.registry.get('estabelecimentosVencidos') || [];
         let totalVitorias = estabelecimentosVencidos.length;
@@ -336,7 +334,7 @@ class Cidade extends Phaser.Scene {
 
         console.log('A desenhar a barra! Vitórias atuais:', totalVitorias);
 
-        // --- Checar Vitória Final ---
+        // checa a vitória final 
         if (totalVitorias >= totalEstabelecimentos) {
             const cenasVitoriaFinal = {
                 'JOÃO': 'vitoriaJoao',
@@ -363,7 +361,7 @@ class Cidade extends Phaser.Scene {
                     .setScrollFactor(0) // Fixa no ecrã
                     .setDepth(9999); 
             
-            // O SEGREDO: Redimensionamos dividindo pelo zoom da câmara para caber perfeitamente!
+            // Redimensionamos dividindo pelo zoom da câmara para caber perfeitamente!
             imgVitoria.setDisplaySize(cam.width / cam.zoom, cam.height / cam.zoom);
 
             // Pausa a movimentação do personagem por trás da tela de vitória
@@ -372,12 +370,12 @@ class Cidade extends Phaser.Scene {
             return; 
         }
 
-        // === NOVA POSIÇÃO: BASEADA NAS COORDENADAS DO PERSONAGEM ===
+        //  Calcula a posição da barra de progresso (acima do personagem, centralizada horizontalmente)
         // Removemos o setScrollFactor(0) para a barra pertencer ao mapa
         let barraX = this.personagem.x - 100; 
         let barraY = this.personagem.y - 60; // 60 pixels acima do personagem
 
-        // --- Desenhar a Barra ---
+        // Desenha o fundo da barra (preto com opacidade)
         let bgBarra = this.add.graphics().setDepth(9998);
         bgBarra.fillStyle(0x000000, 0.8); 
         bgBarra.fillRect(barraX, barraY, 204, 24); 
