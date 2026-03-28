@@ -1105,7 +1105,7 @@ Além disso, foi desenvolvida uma interface de progresso (HUD), representada por
 
 <div align="center">
   <sub>Figura 4.4.6 - Imagem da barra de progresso implementada ao mapa.</sub><br>
-  <img src="/documents/assets/barraProgresso" width="100%" alt="Sprite João"><br>
+  <img src="/documents/assets/barraProgresso.png" width="100%" alt="Sprite João"><br>
   <sup>Fonte: Material produzido pelos autores, 2026.</sup>
 </div>
 
