@@ -8,7 +8,7 @@ class TelaInicial extends Phaser.Scene {
         this.load.image('fundo', 'assets/telainicial.jpeg');
         this.load.image('imagemBotao', 'assets/btnJogar.png');
         this.load.image('nome', 'assets/nomeTela.png');
-        this.load.audio('musicamenu', 'assets/musicamenu.mp3');
+        this.load.audio('musicamenu', 'assets/menuMusic.mp3');
     }
 
     create() {
