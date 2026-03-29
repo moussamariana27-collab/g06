@@ -299,14 +299,14 @@ class Combate extends Phaser.Scene {
     vitoria() {
         this.mostrarTelaFinal({
             texto: "VOCÊ CONVENCEU O CLIENTE",
-            voltarPara: "FeedbackVitoria" + this.scene.key,
+            voltarPara: this.cenaVitoria || ("FeedbackVitoria" + this.scene.key),
         });
     }
 
     derrota() {
         this.mostrarTelaFinal({
             texto: "VOCÊ NÃO FOI CAPAZ DE CONQUISTAR O CLIENTE",
-            voltarPara: "FeedbackDerrota" + this.scene.key,
+            voltarPara: this.cenaDerrota || ("FeedbackDerrota" + this.scene.key),
             tamanhoFonte: 58
         });
     }
@@ -314,7 +314,7 @@ class Combate extends Phaser.Scene {
     fimDasPerguntas() {
         this.mostrarTelaFinal({
             texto: "O CLIENTE TE MANDOU EMBORA",
-            voltarPara: "FeedbackDerrota" + this.scene.key,
+            voltarPara: this.cenaDerrota || ("FeedbackDerrota" + this.scene.key),
         });
     }
 

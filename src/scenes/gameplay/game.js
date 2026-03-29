@@ -3,7 +3,7 @@ class Cidade extends Phaser.Scene {
 
     // Recebe o personagem escolhido na cena anterior
     init(data) { this.personagemEscolhido = data?.character || null;
-                 this.posicaoSpawn = data?.posicaoSpawn || {  x: 190, y: 330 };
+                 this.posicaoSpawn = data?.posicaoSpawn || null;
      } 
 
     preload() {
@@ -19,7 +19,7 @@ class Cidade extends Phaser.Scene {
         this.load.image('vitoriaMaria', 'assets/vitoriaMaria.png');
 
         // Carrega a imagem do tileset utilizado no mapa
-        this.load.image('cidade', 'assets/cidade_tileset1.png');
+        this.load.image('cidade', 'documents/assets/cidade_tileset1.png');
 
         // Objeto que define qual spritesheet usar para cada personagem
         const sprites = {
@@ -83,7 +83,8 @@ class Cidade extends Phaser.Scene {
         const spawnY = spawnObj.y + spawnObj.height / 2;
 
         // Cria o personagem com física na posição de spawn
-        this.personagem = this.physics.add.sprite(this.posicaoSpawn.x, this.posicaoSpawn.y, 'sheetPersonagem', 0).setScale(1.0);
+        const posicaoInicial = this.posicaoSpawn || { x: spawnX, y: spawnY };
+        this.personagem = this.physics.add.sprite(posicaoInicial.x, posicaoInicial.y, 'sheetPersonagem', 0).setScale(1.0);
 
         // Ativa colisão do personagem com as bordas do mundo
         this.personagem.setCollideWorldBounds(true);
