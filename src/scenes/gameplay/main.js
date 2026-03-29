@@ -289,6 +289,8 @@ class Escritorio extends Phaser.Scene {
     }
 
     update() {
+        if (!this.personagem || !this.cursor) return;
+
         // Congela o personagem enquanto o tutorial estiver aberto
         if (this.tutorialAtivo) {
             this.personagem.setVelocity(0);

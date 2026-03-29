@@ -16,12 +16,12 @@ class Combate extends Phaser.Scene {
         this.load.audio('mudancaPositiva', 'assets/mudançapositiva.mp3');
     }
 
-    initCombate(config) {
-        this.satisfacao = config.satisfacaoInicial || 34;
-        this.questoes = config.questoes || [];
+    initCombate(combateConfig) {
+        this.satisfacao = combateConfig.satisfacaoInicial || 34;
+        this.questoes = combateConfig.questoes || [];
         this.questaoAtual = 0;
         this.satisfacaoAnimada = this.satisfacao;
-        this.posicaoSpawn = config.posicaoSpawn || null;
+        this.posicaoSpawn = combateConfig.posicaoSpawn || null;
 
         // Toca a música de batalha
         this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.15 });
@@ -52,39 +52,39 @@ class Combate extends Phaser.Scene {
         }).setDepth(6);
 
         // ─── OPÇÃO A ──────────────────────────────────────────────────
-        const opcA_X = largura * 0.1;
-        const opcA_Y = altura * 0.68;
-        const opcA_W = 620;
-        const opcA_H = 110;
+        const opcaoUmX = largura * 0.1;
+        const opcaoUmY = altura * 0.68;
+        const opcaoUmLargura = 620;
+        const opcaoUmAltura = 110;
 
-        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(opcA_X, opcA_Y, opcA_W, opcA_H, 12));
-        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(opcA_X + 4, opcA_Y + 4, opcA_W - 8, opcA_H - 8, 9));
-        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(opcA_X + 8, opcA_Y + 8, opcA_W - 16, opcA_H - 16, 6));
-        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(opcA_X + 12, opcA_Y + 12, opcA_W - 24, opcA_H - 24, 4));
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(opcaoUmX, opcaoUmY, opcaoUmLargura, opcaoUmAltura, 12));
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(opcaoUmX + 4, opcaoUmY + 4, opcaoUmLargura - 8, opcaoUmAltura - 8, 9));
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(opcaoUmX + 8, opcaoUmY + 8, opcaoUmLargura - 16, opcaoUmAltura - 16, 6));
+        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(opcaoUmX + 12, opcaoUmY + 12, opcaoUmLargura - 24, opcaoUmAltura - 24, 4));
 
-        this.opcaoUm = this.add.text(opcA_X + 18, opcA_Y + 18, "", {
+        this.opcaoUm = this.add.text(opcaoUmX + 18, opcaoUmY + 18, "", {
             color: "#1a1a2e",
             fontSize: "20px",
-            wordWrap: { width: opcA_W - 36 },
+            wordWrap: { width: opcaoUmLargura - 36 },
             fontFamily: "Pixelify Sans"
         }).setInteractive().setDepth(6);
 
         // ─── OPÇÃO B ──────────────────────────────────────────────────
-        const opcB_X = largura * 0.1;
-        const opcB_Y = altura * 0.85;
-        const opcB_W = 620;
-        const opcB_H = 110;
+        const opcaoDoisX = largura * 0.1;
+        const opcaoDoisY = altura * 0.85;
+        const opcaoDoisLargura = 620;
+        const opcaoDoisAltura = 110;
 
         this.graficosOpcaoDois = [];
-        this.graficosOpcaoDois.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 12));
-        this.graficosOpcaoDois.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(opcB_X + 4, opcB_Y + 4, opcB_W - 8, opcB_H - 8, 9));
-        this.graficosOpcaoDois.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(opcB_X + 8, opcB_Y + 8, opcB_W - 16, opcB_H - 16, 6));
-        this.graficosOpcaoDois.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 4));
+        this.graficosOpcaoDois.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(opcaoDoisX, opcaoDoisY, opcaoDoisLargura, opcaoDoisAltura, 12));
+        this.graficosOpcaoDois.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(opcaoDoisX + 4, opcaoDoisY + 4, opcaoDoisLargura - 8, opcaoDoisAltura - 8, 9));
+        this.graficosOpcaoDois.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(opcaoDoisX + 8, opcaoDoisY + 8, opcaoDoisLargura - 16, opcaoDoisAltura - 16, 6));
+        this.graficosOpcaoDois.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(opcaoDoisX + 12, opcaoDoisY + 12, opcaoDoisLargura - 24, opcaoDoisAltura - 24, 4));
 
-        this.opcaoDois = this.add.text(opcB_X + 18, opcB_Y + 18, "", {
+        this.opcaoDois = this.add.text(opcaoDoisX + 18, opcaoDoisY + 18, "", {
             color: "#1a1a2e",
             fontSize: "20px",
-            wordWrap: { width: opcB_W - 36 },
+            wordWrap: { width: opcaoDoisLargura - 36 },
             fontFamily: "Pixelify Sans"
         }).setInteractive().setDepth(6);
 
@@ -118,21 +118,21 @@ class Combate extends Phaser.Scene {
         this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(perguntaX + 10, perguntaY + 10, perguntaW - 20, perguntaH - 20, 8));
         this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(perguntaX + 14, perguntaY + 14, perguntaW - 28, perguntaH - 28, 6));
 
-        const opcA_X = width * 0.1, opcA_Y = height * 0.68, opcA_W = 620, opcA_H = 110;
-        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(opcA_X, opcA_Y, opcA_W, opcA_H, 12));
-        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(opcA_X + 4, opcA_Y + 4, opcA_W - 8, opcA_H - 8, 9));
-        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(opcA_X + 8, opcA_Y + 8, opcA_W - 16, opcA_H - 16, 6));
-        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(opcA_X + 12, opcA_Y + 12, opcA_W - 24, opcA_H - 24, 4));
+        const opcaoUmX = width * 0.1, opcaoUmY = height * 0.68, opcaoUmLargura = 620, opcaoUmAltura = 110;
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(opcaoUmX, opcaoUmY, opcaoUmLargura, opcaoUmAltura, 12));
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(opcaoUmX + 4, opcaoUmY + 4, opcaoUmLargura - 8, opcaoUmAltura - 8, 9));
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(opcaoUmX + 8, opcaoUmY + 8, opcaoUmLargura - 16, opcaoUmAltura - 16, 6));
+        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(opcaoUmX + 12, opcaoUmY + 12, opcaoUmLargura - 24, opcaoUmAltura - 24, 4));
 
-        const opcB_X = width * 0.1, opcB_Y = height * 0.85, opcB_W = 620, opcB_H = 110;
-        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(opcB_X, opcB_Y, opcB_W, opcB_H, 12));
-        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(opcB_X + 4, opcB_Y + 4, opcB_W - 8, opcB_H - 8, 9));
-        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(opcB_X + 8, opcB_Y + 8, opcB_W - 16, opcB_H - 16, 6));
-        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(opcB_X + 12, opcB_Y + 12, opcB_W - 24, opcB_H - 24, 4));
+        const opcaoDoisX = width * 0.1, opcaoDoisY = height * 0.85, opcaoDoisLargura = 620, opcaoDoisAltura = 110;
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(opcaoDoisX, opcaoDoisY, opcaoDoisLargura, opcaoDoisAltura, 12));
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(opcaoDoisX + 4, opcaoDoisY + 4, opcaoDoisLargura - 8, opcaoDoisAltura - 8, 9));
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(opcaoDoisX + 8, opcaoDoisY + 8, opcaoDoisLargura - 16, opcaoDoisAltura - 16, 6));
+        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(opcaoDoisX + 12, opcaoDoisY + 12, opcaoDoisLargura - 24, opcaoDoisAltura - 24, 4));
 
         this.lugarQuestao.setPosition(perguntaX + 22, perguntaY + 24);
-        this.opcaoUm.setPosition(opcA_X + 18, opcA_Y + 18);
-        this.opcaoDois.setPosition(opcB_X + 18, opcB_Y + 18);
+        this.opcaoUm.setPosition(opcaoUmX + 18, opcaoUmY + 18);
+        this.opcaoDois.setPosition(opcaoDoisX + 18, opcaoDoisY + 18);
 
         this.barraSatisfacao();
     }
@@ -215,7 +215,11 @@ class Combate extends Phaser.Scene {
     }
 
     mostrarQuestao() {
-        let perguntaAtual = this.questoes[this.questaoAtual];
+        const perguntaAtual = this.questoes[this.questaoAtual];
+        if (!perguntaAtual) {
+            this.fimDasPerguntas();
+            return;
+        }
         this.lugarQuestao.setText(perguntaAtual.pergunta);
 
         if (perguntaAtual.soDialogo) {
@@ -234,7 +238,7 @@ class Combate extends Phaser.Scene {
         this.opcaoUm.setInteractive();
         this.opcaoDois.setInteractive();
 
-        let trocarLugar = Math.random() < 0.5;
+        const trocarLugar = Math.random() < 0.5;
         if (trocarLugar) {
             this.opcaoUm.setText(perguntaAtual.certo);
             this.opcaoDois.setText(perguntaAtual.errado);
@@ -251,12 +255,17 @@ class Combate extends Phaser.Scene {
     resposta(decisao) {
         // Ignora clique se a questão atual for só diálogo
         if (this.questoes[this.questaoAtual]?.soDialogo) return;
+        if (typeof decisao !== 'boolean') return;
         this.opcaoUm.disableInteractive();
         this.opcaoDois.disableInteractive();
 
-        let q = this.questoes[this.questaoAtual];
+        const questaoAtual = this.questoes[this.questaoAtual];
+        if (!questaoAtual) {
+            this.fimDasPerguntas();
+            return;
+        }
 
-        if (decisao === q.resposta) {
+        if (decisao === questaoAtual.resposta) {
             // Toca o som de acerto ao responder corretamente
             this.sound.play('mudancaPositiva', { loop: false, volume: 0.3 });
             this.satisfacao += 33;

@@ -2,9 +2,10 @@ class Cidade extends Phaser.Scene {
     constructor() { super({ key: 'Cidade' }); }
 
     // Recebe o personagem escolhido na cena anterior
-    init(data) { this.personagemEscolhido = data?.character || null;
-                 this.posicaoSpawn = data?.posicaoSpawn || null;
-     } 
+    init(data) {
+        this.personagemEscolhido = data?.character || null;
+        this.posicaoSpawn = data?.posicaoSpawn || null;
+    } 
 
     preload() {
         this.load.audio('musicacidade', 'assets/mapa.mp3')
@@ -76,11 +77,12 @@ class Cidade extends Phaser.Scene {
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
         // Busca o objeto de spawn criado no Tiled
-        const spawnObj = map.getObjectLayer('spawn').objects[0];
+        const spawnLayer = map.getObjectLayer('spawn');
+        const spawnObj = spawnLayer?.objects?.[0];
 
         // Calcula a posição central do spawn
-        const spawnX = spawnObj.x + spawnObj.width / 2;
-        const spawnY = spawnObj.y + spawnObj.height / 2;
+        const spawnX = spawnObj ? spawnObj.x + spawnObj.width / 2 : 190;
+        const spawnY = spawnObj ? spawnObj.y + spawnObj.height / 2 : 330;
 
         // Cria o personagem com física na posição de spawn
         const posicaoInicial = this.posicaoSpawn || { x: spawnX, y: spawnY };
@@ -119,8 +121,8 @@ class Cidade extends Phaser.Scene {
         this.physics.add.collider(this.personagem, this.carro2, () => {this.scene.restart()});
 
         this.events.on('shutdown', () => {
-                this.sound.stopAll();  // para todos os sons da cena
-            })
+            this.sound.stopAll();  // para todos os sons da cena
+        });
 
         //==========================================================================================
 
@@ -179,7 +181,7 @@ class Cidade extends Phaser.Scene {
                 this.somCarro.stop();
             }
             // Vai para a cena do Supermercado passando os dados do personagem
-            this.scene.start('Mercado', { character: this.personagemEscolhido, posicaoSpawn: this.posicaoSpawn });
+            this.iniciarCenaSegura('Mercado', { character: this.personagemEscolhido, posicaoSpawn: this.posicaoSpawn });
         });
 
         // zona para colisão com a loja de construção (redirecionamento para a cena da loja de construção)
@@ -208,7 +210,7 @@ class Cidade extends Phaser.Scene {
 
         this.physics.add.overlap(this.personagem, zonaEscritorio, () => {
             // Vai para a cena do Escritório passando os dados do personagem
-            this.scene.start('Escritorio', { character: this.personagemEscolhido });
+            this.iniciarCenaSegura('Escritorio', { character: this.personagemEscolhido });
         });
 
         // Zona para colisão com a farmacia 
@@ -283,7 +285,7 @@ class Cidade extends Phaser.Scene {
                         }
 
                         // Troca para a cena correspondente
-                        this.scene.start(zona.type, { character: this.personagemEscolhido });
+                        this.iniciarCenaSegura(zona.type, { character: this.personagemEscolhido });
                     }
                 });
             });
@@ -406,6 +408,8 @@ class Cidade extends Phaser.Scene {
     }
 
     update() {
+        if (!this.personagem || !this.cursor) return;
+
         // Define a velocidade inicial do personagem como zero
         this.personagem.setVelocity(0);
 
@@ -416,21 +420,21 @@ class Cidade extends Phaser.Scene {
 
         // Definindo os vetores de direção
 
-        let vetorX = 0
-        let vetorY = 0
+        let vetorX = 0;
+        let vetorY = 0;
 
         // Adicionando os valores para direção dos vetores
 
-        if (this.cursor.left.isDown) { vetorX = -1};
-        if (this.cursor.right.isDown) { vetorX = 1};
-        if (this.cursor.up.isDown) {vetorY = -1};
-        if (this.cursor.down.isDown) {vetorY = 1};
+        if (this.cursor.left.isDown) { vetorX = -1; }
+        if (this.cursor.right.isDown) { vetorX = 1; }
+        if (this.cursor.up.isDown) { vetorY = -1; }
+        if (this.cursor.down.isDown) { vetorY = 1; }
 
         // Nesse caso, se o jogador pressiona duas teclas de forma a andar na diagonal, sua velocidade nessa direção será de sqrt(2)*150
         // Isso ocorre pela soma dos vetores (que são perpendiculares entre si), já que |vetorX|=1 e |vetorY|=1 e vetorX ⟂ vetorY  => |vetorX + vetorY| = sqrt(2).
         // Portanto, para que o jogador não fique mais rápido quando andar na perpendicular, temos que equalizar esse valor
 
-        let equalizar = Math.sqrt(Math.pow(vetorX,2) + Math.pow(vetorY,2)); // Math.sqrt(x) = raiz quadrada de x ; Math.pow(x,y) = x^y
+        const equalizar = Math.sqrt(Math.pow(vetorX,2) + Math.pow(vetorY,2)); // Math.sqrt(x) = raiz quadrada de x ; Math.pow(x,y) = x^y
 
         // Perceba que se equalizar > 0 , então equalizar = 1 ou equalizar = sqrt(2)
 
@@ -441,17 +445,27 @@ class Cidade extends Phaser.Scene {
 
         // Feito isso, agora pode-se definir a velocidade do jogador
 
-        this.personagem.setVelocity( vetorX * velocidade, vetorY * velocidade )
+        this.personagem.setVelocity(vetorX * velocidade, vetorY * velocidade);
 
         // Configurando animações
 
         if (animsOk) {
-        if (vetorX < 0)      this.personagem.play('left', true);
-        else if (vetorX > 0) this.personagem.play('right', true);
-        else if (vetorY < 0) this.personagem.play('up', true);
-        else if (vetorY > 0) this.personagem.play('down', true);
-        else             this.personagem.stop();
+            if (vetorX < 0) this.personagem.play('left', true);
+            else if (vetorX > 0) this.personagem.play('right', true);
+            else if (vetorY < 0) this.personagem.play('up', true);
+            else if (vetorY > 0) this.personagem.play('down', true);
+            else this.personagem.stop();
         }
+    }
+
+    iniciarCenaSegura(chaveCena, dadosCena) {
+        const cenaDestinoExiste = Boolean(this.scene.manager.keys[chaveCena]);
+        if (!cenaDestinoExiste) {
+            console.error('Cena não encontrada:', chaveCena);
+            return;
+        }
+
+        this.scene.start(chaveCena, dadosCena);
     }
 
     // Aqui temos a logica de movimento do carro
