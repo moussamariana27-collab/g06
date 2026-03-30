@@ -6,42 +6,42 @@ class SelecaoPersonagem extends Phaser.Scene {
 
     preload() {
         this.load.image('botao', 'assets/btnJogar.png');
-        this.load.image('JOSÃ‰', 'assets/jose1.png');
+        this.load.image('JOSÉ', 'assets/jose1.png');
         this.load.image('PAULA', 'assets/paula2.png');
         this.load.image('MARIA', 'assets/maria2.png');
-        this.load.image('JOÃƒO', 'assets/joao1.png');
+        this.load.image('JOÃO', 'assets/joao1.png');
         this.load.image('fundo2', 'assets/fundo2.png');
     }
 
     create() {
-        // Calcula os pontos centrais da cÃ¢mera para centralizaÃ§Ãµes
+        // Calcula os pontos centrais da câmera para centralizações
         const { centerX, centerY } = this.cameras.main;
 
-        // Carrega a imagem de fundo responsiva da tela de seleÃ§Ã£o
+        // Carrega a imagem de fundo responsiva da tela de seleção
         this.add.image(this.scale.width / 2, this.scale.height / 2, "fundo2")
             .setDisplaySize(this.scale.width, this.scale.height);
         
-        // Exibe o tÃ­tulo da cena
-        this.add.text(centerX, 80, "ConheÃ§a seu Personagem", {
+        // Exibe o título da cena
+        this.add.text(centerX, 80, "Conheça seu Personagem", {
             fontSize: "60px",
             fill: "#000000"
         }).setOrigin(0.5);
         
-        // Exibe a instruÃ§Ã£o para o jogador
-        this.add.text(centerX, 150, "Clique em cima do personagem desejado para saber mais informaÃ§Ãµes sobre ele", {
+        // Exibe a instrução para o jogador
+        this.add.text(centerX, 150, "Clique em cima do personagem desejado para saber mais informações sobre ele", {
             fontSize: "32px",
             fill: "#000000",
             align: "center",
             wordWrap: { width: 900 }
         }).setOrigin(0.5);
 
-        // Define os personagens disponÃ­veis no jogo
-        const personagens = ['JOSÃ‰', 'PAULA', 'MARIA', 'JOÃƒO'];
+        // Define os personagens disponíveis no jogo
+        const personagens = ['JOSÉ', 'PAULA', 'MARIA', 'JOÃO'];
         
-        // EspaÃ§amento horizontal entre os sprites dos personagens
+        // Espaçamento horizontal entre os sprites dos personagens
         const espacamento = 200;
         
-        // Calcula a posiÃ§Ã£o X inicial para centralizar os personagens na tela
+        // Calcula a posição X inicial para centralizar os personagens na tela
         const posicaoInicialX = centerX - (espacamento * (personagens.length - 1)) / 2;
         
         // Cria cada personagem com seu nome e interatividade
@@ -50,13 +50,13 @@ class SelecaoPersonagem extends Phaser.Scene {
         });
     }
     
-    // Cria um personagem clickÃ¡vel com nome e escala apropriados
+    // Cria um personagem clickável com nome e escala apropriados
     criarPersonagem(x, y, chave) {
-        // Define a escala padrÃ£o para personagens de corpo inteiro
+        // Define a escala padrão para personagens de corpo inteiro
         let escala = 0.5;
 
-        // Reduz a escala para JOSÃ‰ e JOÃƒO (personagens mais altos)
-        if (chave === 'JOSÃ‰' || chave === 'JOÃƒO') {
+        // Reduz a escala para JOSÉ e JOÃO (personagens mais altos)
+        if (chave === 'JOSÉ' || chave === 'JOÃO') {
             escala = 0.3;
         }
 
@@ -70,7 +70,7 @@ class SelecaoPersonagem extends Phaser.Scene {
         const imagemPersonagem = this.add.image(x, y, chave).setScale(escala);
         imagemPersonagem.setInteractive({ cursor: 'pointer' });
 
-        // Ao clicar no personagem, passa para a cena de informaÃ§Ãµes
+        // Ao clicar no personagem, passa para a cena de informações
         imagemPersonagem.on('pointerdown', () => {
             this.scene.start('InfoPersonagem', { character: chave });
         });

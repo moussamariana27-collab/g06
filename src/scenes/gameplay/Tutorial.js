@@ -37,17 +37,17 @@ class Tutorial extends Phaser.Scene {
 
         // Roteiro padrao do tutorial.
         this.dialogos = this.dialogos?.length > 0 ? this.dialogos : [
-            "OlÃ¡! Seja bem-vindo ao time Cielo! Eu sou o seu instrutor e vou te apresentar os principais produtos que vocÃª vai oferecer aos nossos clientes.",
-            "Vamos comeÃ§ar pela Cielo Flash â€” a maquininha mais veloz da linha! Ela faz atÃ© 3 vendas por minuto, aceita dÃ©bito, crÃ©dito, Pix, QR Code e mais de 80 bandeiras. Ideal para o varejo!",
-            "A Flash tambÃ©m jÃ¡ vem com chip de dados incluso, entÃ£o o cliente nÃ£o precisa de Wi-Fi para vender. E a reposiÃ§Ã£o de bobina Ã© automÃ¡tica â€” sem preocupaÃ§Ã£o!",
-            "Agora vamos falar da Cielo LIO On â€” nosso terminal inteligente. Ela vai alÃ©m dos pagamentos: controla estoque, emite Nota Fiscal e tem acesso Ã  Cielo Store com mais de 50 apps de gestÃ£o.",
-            "E a novidade da linha inteligente Ã© a Cielo Smart! Ela evoluiu da LIO On com Android mais atual, aprovaÃ§Ã£o de pagamentos mais rÃ¡pida e compatibilidade com diferentes modelos de terminais.",
-            "TambÃ©m temos o 'Vendeu, TÃ¡ na Conta', um produto que os clientes adoram! Com ele, na modalidade D0, o lojista recebe o valor das vendas no dÃ©bito, crÃ©dito Ã  vista ou parcelado no mesmo dia, atÃ© nos feriados! JÃ¡ na modalidade D1, recebe o pagamento no dia seguinte.",
-            "Para funcionar, o domicÃ­lio bancÃ¡rio do cliente precisa aceitar transferÃªncia via Pix. Vendas feitas atÃ© as 20h59 caem no mesmo dia, apÃ³s esse horÃ¡rio, no dia seguinte.",
-            "Cada loja que vocÃª visitar vai ter um desafio diferente. Use o que aprendeu aqui para identificar qual produto se encaixa melhor na necessidade de cada cliente.",
-            "Bora comeÃ§ar, o seu primeiro cliente Ã© o TiÃ£o.",
-            "Ele Ã© dono de uma padaria com faturamento mensal de cerca de 30 mil reais, Ã© aberto a mudanÃ§as, mas valoriza negociaÃ§Ãµes objetivas e seguras.",
-            "Seu desafio agora serÃ¡ manter esse padrÃ£o de atendimento e se preparar para os prÃ³ximos estabelecimentos, apresentando as soluÃ§Ãµes da Cielo com clareza e foco nas necessidades de cada negÃ³cio."
+            "Olá! Seja bem-vindo ao time Cielo! Eu sou o seu instrutor e vou te apresentar os principais produtos que você vai oferecer aos nossos clientes.",
+            "Vamos começar pela Cielo Flash — a maquininha mais veloz da linha! Ela faz até 3 vendas por minuto, aceita débito, crédito, Pix, QR Code e mais de 80 bandeiras. Ideal para o varejo!",
+            "A Flash também já vem com chip de dados incluso, então o cliente não precisa de Wi-Fi para vender. E a reposição de bobina é automática — sem preocupação!",
+            "Agora vamos falar da Cielo LIO On — nosso terminal inteligente. Ela vai além dos pagamentos: controla estoque, emite Nota Fiscal e tem acesso à Cielo Store com mais de 50 apps de gestão.",
+            "E a novidade da linha inteligente é a Cielo Smart! Ela evoluiu da LIO On com Android mais atual, aprovação de pagamentos mais rápida e compatibilidade com diferentes modelos de terminais.",
+            "Também temos o 'Vendeu, Tá na Conta', um produto que os clientes adoram! Com ele, na modalidade D0, o lojista recebe o valor das vendas no débito, crédito à vista ou parcelado no mesmo dia, até nos feriados! Já na modalidade D1, recebe o pagamento no dia seguinte.",
+            "Para funcionar, o domicílio bancário do cliente precisa aceitar transferência via Pix. Vendas feitas até as 20h59 caem no mesmo dia, após esse horário, no dia seguinte.",
+            "Cada loja que você visitar vai ter um desafio diferente. Use o que aprendeu aqui para identificar qual produto se encaixa melhor na necessidade de cada cliente.",
+            "Bora começar, o seu primeiro cliente é o Tião.",
+            "Ele é dono de uma padaria com faturamento mensal de cerca de 30 mil reais, é aberto a mudanças, mas valoriza negociações objetivas e seguras.",
+            "Seu desafio agora será manter esse padrão de atendimento e se preparar para os próximos estabelecimentos, apresentando as soluções da Cielo com clareza e foco nas necessidades de cada negócio."
         ];
 
         this.cameras.main.setViewport(0, 0, larguraTela, alturaTela);
@@ -106,7 +106,7 @@ class Tutorial extends Phaser.Scene {
             fill: '#ffffff'
         }).setDepth(7).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
-        this.botaoProximo = this.add.text(larguraTela / 2 + 155, botoesY + botaoAltura / 2, 'PrÃ³ximo', {
+        this.botaoProximo = this.add.text(larguraTela / 2 + 155, botoesY + botaoAltura / 2, 'Próximo', {
             fontSize: '25px',
             fill: '#ffffff'
         }).setDepth(7).setOrigin(0.5).setInteractive({ useHandCursor: true });
@@ -119,7 +119,7 @@ class Tutorial extends Phaser.Scene {
             .fillRoundedRect(larguraTela - botaoVoltarLargura - 20, 20, botaoVoltarLargura, botaoVoltarAltura, 10)
             .setVisible(false);
 
-        const botaoVoltar = this.add.text(larguraTela - botaoVoltarLargura / 2 - 20, 40, 'â† Voltar ao EscritÃ³rio', {
+        const botaoVoltar = this.add.text(larguraTela - botaoVoltarLargura / 2 - 20, 40, '← Voltar ao Escritório', {
             fontFamily: 'Press Start 2P',
             fontSize: '20px',
             fill: '#ffffff'
