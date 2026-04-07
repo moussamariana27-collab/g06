@@ -2,7 +2,7 @@ class Escritorio extends Phaser.Scene {
     constructor() { super({ key: 'Escritorio' }); }
 
     init(data) {
-        this.personagemEscolhido = data?.character || null;
+        this.personagemEscolhido = utilitariosJogo.resolverChavePersonagem(data?.personagem);
     }
 
     preload() {
@@ -12,14 +12,13 @@ class Escritorio extends Phaser.Scene {
         this.load.audio('escritorio', 'assets/escritorio.mp3');
 
         const sprites = {
-            'JOSÉ':  { file: 'assets/josePronto.png',  frameWidth: 16, frameHeight: 32 },
+            'JOSE':  { file: 'assets/josePronto.png',  frameWidth: 16, frameHeight: 32 },
             'MARIA': { file: 'assets/mariaPronto.png', frameWidth: 16, frameHeight: 32 },
-            'JOÃO':  { file: 'assets/joaoPronto.png',  frameWidth: 16, frameHeight: 32 },
+            'JOAO':  { file: 'assets/joaoPronto.png',  frameWidth: 16, frameHeight: 32 },
             'PAULA': { file: 'assets/paulaPronto.png', frameWidth: 16, frameHeight: 32 },
         };
 
-        const dadosSprite = sprites[this.personagemEscolhido];
-        if (!dadosSprite) { console.error('Personagem inválido:', this.personagemEscolhido); return; }
+        const dadosSprite = utilitariosJogo.obterAssetPersonagem(this.personagemEscolhido, sprites);
         this.load.spritesheet('sheetPersonagem', dadosSprite.file, {
             frameWidth: dadosSprite.frameWidth, frameHeight: dadosSprite.frameHeight
         });
@@ -30,19 +29,22 @@ class Escritorio extends Phaser.Scene {
         const tiles = map.addTilesetImage('escritorio', 'escritoriTileset');
         map.createLayer('Fundo', tiles, 0, 0);
 
-        // Adiciona música
-        this.musica = this.sound.add('escritorio', {
+        this.transicaoEmAndamento = false;
+        // Encerra a trilha do menu ao entrar no escritorio.
+        utilitariosJogo.pararAudio(this.sound.get('musicamenu'));
+
+        // Adiciona a musica da cena.
+        this.musica = utilitariosJogo.tocarAudio(this, 'escritorio', {
             loop: true,
             volume: 0.40
         });
-        this.musica.play();
 
-        // Define o limite do mundo físico
+        // Define o limite do mundo fisico.
         this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        // Define os limites da câmera
+        // Define os limites da camera.
         this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-        // Define onde o personagem começa
+        // Define onde o personagem comeca.
         let spawnX = 550, spawnY = 300;
         const spawnLayer = map.getObjectLayer('spawn');
         if (spawnLayer?.objects.length > 0) {
@@ -51,7 +53,7 @@ class Escritorio extends Phaser.Scene {
             spawnY = objetoSpawn.y + objetoSpawn.height / 2;
         }
 
-        // Cria o sprite do personagem na posição de spawn
+        // Cria o sprite do personagem na posicao inicial.
         this.personagem = this.physics.add.sprite(spawnX, spawnY, 'sheetPersonagem', 0).setScale(3.0);
         this.personagem.setCollideWorldBounds(true);
         this.personagem.body.setSize(
@@ -60,12 +62,12 @@ class Escritorio extends Phaser.Scene {
         );
         this.personagem.body.setOffset(this.personagem.width/4, this.personagem.height/3);
 
-        // Faz a câmera seguir o personagem
+        // Faz a camera seguir o personagem.
         this.cameras.main.startFollow(this.personagem);
         this.cameras.main.setZoom(1.0);
         this.cursor = this.input.keyboard.createCursorKeys();
 
-        // Colisões do mapa
+        // Cria as colisoes do mapa.
         const grupoColisoes = this.physics.add.staticGroup();
         const colisaoLayer = map.getObjectLayer('colisoes');
         if (colisaoLayer) {
@@ -82,7 +84,7 @@ class Escritorio extends Phaser.Scene {
             this.physics.add.collider(this.personagem, grupoColisoes);
         }
 
-        // Porta de saída
+        // Cria a porta de saida.
         const portaLayer = map.getObjectLayer('porta');
         if (portaLayer) {
             portaLayer.objects.filter(o => o.width > 0 && o.height > 0).forEach(o => {
@@ -91,13 +93,17 @@ class Escritorio extends Phaser.Scene {
                 zona.body.setAllowGravity(false);
                 zona.body.moves = false;
                 this.physics.add.overlap(this.personagem, zona, () => {
-                    this.musica.stop();
-                    this.scene.start('Cidade', { character: this.personagemEscolhido });
+                    if (this.transicaoEmAndamento) return;
+                    this.transicaoEmAndamento = true;
+                    utilitariosJogo.pararAudio(this.musica);
+                    utilitariosJogo.iniciarCenaSeDisponivel(this, 'Cidade', {
+                        personagem: this.personagemEscolhido
+                    });
                 });
             });
         }
 
-        // Zona do professor
+        // Cria a zona do professor.
         const professorLayer = map.getObjectLayer('professor');
         if (professorLayer?.objects.length > 0) {
             const obj = professorLayer.objects[0];
@@ -127,11 +133,11 @@ class Escritorio extends Phaser.Scene {
                 this.zonaProfessor.body.enable = false;
 
                 this.scene.pause();
-                this.scene.launch('Tutorial', { cenaOrigem: 'Escritorio', character: this.personagemEscolhido });
+                this.scene.launch('Tutorial', { cenaOrigem: 'Escritorio', personagem: this.personagemEscolhido });
             });
         }
 
-        // Reativa a zona do professor ao voltar do tutorial
+        // Reativa a zona do professor ao voltar do tutorial.
         this.events.on('resume', () => {
             this.time.delayedCall(1000, () => {
                 if (this.zonaProfessor) {
@@ -141,70 +147,70 @@ class Escritorio extends Phaser.Scene {
             });
         });
 
-        // Animações do personagem
-        this.anims.create({
+        // Registra as animacoes do personagem.
+        utilitariosJogo.garantirAnimacao(this, {
             key: "up",
             frameRate: 12,
             frames: this.anims.generateFrameNumbers('sheetPersonagem', { start: 54, end: 59 }),
             repeat: -1
         });
 
-        this.anims.create({
+        utilitariosJogo.garantirAnimacao(this, {
             key: "down",
             frameRate: 12,
             frames: this.anims.generateFrameNumbers('sheetPersonagem', { start: 66, end: 71 }),
             repeat: -1
         });
 
-        this.anims.create({
+        utilitariosJogo.garantirAnimacao(this, {
             key: "left",
             frameRate: 12,
             frames: this.anims.generateFrameNumbers('sheetPersonagem', { start: 60, end: 65 }),
             repeat: -1
         });
 
-        this.anims.create({
+        utilitariosJogo.garantirAnimacao(this, {
             key: "right",
             frameRate: 12,
             frames: this.anims.generateFrameNumbers('sheetPersonagem', { start: 48, end: 53 }),
             repeat: -1
         });
 
-        // Exibe o pop-up de tutorial ao entrar na cena
+        // Exibe o pop-up de tutorial ao entrar na cena.
         this.mostrarTutorial();
     }
 
     mostrarTutorial() {
-        // Bloqueia o movimento durante o tutorial
+        // Bloqueia o movimento durante o tutorial.
         this.tutorialAtivo = true;
 
         const { width, height } = this.cameras.main;
         const cx = width / 2;
         const cy = height / 2;
 
-        // Container pai — setScrollFactor(0) mantém tudo fixo na tela
+        // Cria o container principal fixo na tela.
         const container = this.add.container(0, 0).setScrollFactor(0).setDepth(100);
 
-        // Fundo escuro semi-transparente
+        // Cria o fundo escuro semitransparente.
         const overlay = this.add.rectangle(cx, cy, width, height, 0x000000, 0.65)
             .setScrollFactor(0);
         container.add(overlay);
 
-        // Painel central
+        // Cria o painel central.
         const painelW = 420, painelH = 320;
         const painel = this.add.rectangle(cx, cy, painelW, painelH, 0x1a1a2e, 1)
             .setStrokeStyle(2, 0x4a9eff)
             .setScrollFactor(0);
         container.add(painel);
 
-        // Título
+        // Exibe o titulo.
         const titulo = this.add.text(cx, cy - 130, '📋  BEM-VINDO AO MESTRE DE VENDAS!', {
             fontSize: '18px', fontFamily: 'Arial', color: '#4a9eff',
             fontStyle: 'bold'
         }).setOrigin(0.5, 0.5).setScrollFactor(0);
         container.add(titulo);
 
-        // Descrição do jogo
+        // Exibe a descricao do jogo.
         const descricao = this.add.text(cx, cy - 90,
             'Explore o escritório, converse com\no Professor e descubra os desafios!', {
             fontSize: '13px', fontFamily: 'Arial', color: '#cccccc',
@@ -212,18 +218,18 @@ class Escritorio extends Phaser.Scene {
         }).setOrigin(0.5, 0.5).setScrollFactor(0);
         container.add(descricao);
 
-        // Separador
+        // Desenha o separador.
         const sep = this.add.rectangle(cx, cy - 56, 360, 1, 0x4a9eff, 0.4)
             .setScrollFactor(0);
         container.add(sep);
 
-        // Label de controles
+        // Exibe o titulo da area de controles.
         const labelControles = this.add.text(cx, cy - 40, '🕹️  CONTROLES', {
             fontSize: '14px', fontFamily: 'Arial', color: '#4a9eff', fontStyle: 'bold'
         }).setOrigin(0.5, 0.5).setScrollFactor(0);
         container.add(labelControles);
 
-        // Teclas com descrição
+        // Mostra as teclas com suas descricoes.
         const teclas = [
             { icone: '⬆', label: 'Mover para cima',     offsetY: -10 },
             { icone: '⬇', label: 'Mover para baixo',    offsetY:  14 },
@@ -250,12 +256,12 @@ class Escritorio extends Phaser.Scene {
             container.add(descTexto);
         });
 
-        // Separador 2
+        // Desenha o segundo separador.
         const sep2 = this.add.rectangle(cx, cy + 82, 360, 1, 0x4a9eff, 0.4)
             .setScrollFactor(0);
         container.add(sep2);
 
-        // Dica de interação
+        // Exibe a dica de interacao.
         const dicaInteracao = this.add.text(cx, cy + 100,
             '💬  Para falar com o Professor,\n     chegue perto dele!', {
             fontSize: '13px', fontFamily: 'Arial', color: '#cccccc',
@@ -263,7 +269,7 @@ class Escritorio extends Phaser.Scene {
         }).setOrigin(0.5, 0.5).setScrollFactor(0);
         container.add(dicaInteracao);
 
-        // Fecha o pop-up ao clicar no 'X'
+        // Fecha o pop-up ao clicar no X.
         const fecharTutorial = () => {
             container.destroy();
             this.tutorialAtivo = false;
@@ -291,7 +297,7 @@ class Escritorio extends Phaser.Scene {
     update() {
         if (!this.personagem || !this.cursor) return;
 
-        // Congela o personagem enquanto o tutorial estiver aberto
+        // Congela o personagem enquanto o tutorial estiver aberto.
         if (this.tutorialAtivo) {
             this.personagem.setVelocity(0);
             return;

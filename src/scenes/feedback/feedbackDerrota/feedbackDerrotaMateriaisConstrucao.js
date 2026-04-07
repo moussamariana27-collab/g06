@@ -1,19 +1,22 @@
+// Feedback exibido quando o jogador perde na loja de materiais de construcao.
 class FeedbackDerrotaMateriaisConstrucao extends FeedbackDerrota {
     constructor() { super('FeedbackDerrotaLojaDeConstrução'); }
 
     init(data) {
         super.init(data);
+        // Define para qual cena o jogador pode retornar depois do feedback.
         this.cenaOrigem = 'LojaDeConstrução';
     }
 
     preload (){
         super.preload()
+        // Carrega o fundo especifico da loja.
         this.load.image('bgLojaDeConstrução', 'assets/LojaDeConstrução_fundo.png');
 
     }
 
     create (){
-
+        // Exibe o fundo da fase antes da interface base do feedback.
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgLojaDeConstrução')
             .setDisplaySize(this.scale.width, this.scale.height)
             .setDepth(-1);
@@ -21,6 +24,7 @@ class FeedbackDerrotaMateriaisConstrucao extends FeedbackDerrota {
             super.create();
     }
 
+    // Define os textos explicativos mostrados ao jogador.
     definirDialogos() 
     { return[
                 'Você deixou passar a oportunidade de conectar as dores da cliente com as soluções da Cielo.',

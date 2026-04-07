@@ -1,4 +1,4 @@
-// CENA DA LOJA DE CONSTRUÇÃO - Minigame de vendas
+// Cena da loja de construcao.
 
 class LojaDeConstrução extends Combate {
 
@@ -13,6 +13,7 @@ class LojaDeConstrução extends Combate {
     preload() {
         super.preload();
 
+        // Carrega fundo, NPC e sprite do personagem escolhido.
         this.load.image('bgLojaDeConstrução', 'assets/LojaDeConstrução_fundo.png');
 
         this.load.spritesheet('Construtora', 'assets/Lígia.png', {
@@ -21,9 +22,9 @@ class LojaDeConstrução extends Combate {
         });
 
         const sprites = {
-            'JOSÉ':  { file: 'assets/joseCorpo.png' },
+            'JOSE':  { file: 'assets/joseCorpo.png' },
             'MARIA': { file: 'assets/mariaCorpo.png' },
-            'JOÃO':  { file: 'assets/joaoCorpo.png' },
+            'JOAO':  { file: 'assets/joaoCorpo.png' },
             'PAULA': { file: 'assets/paulaCorpo.png' }
         };
 
@@ -38,6 +39,7 @@ class LojaDeConstrução extends Combate {
     }
 
     create() {
+        // Monta o cenario e os personagens da fase.
         this.bg = this.add.image(0, 0, 'bgLojaDeConstrução')
             .setOrigin(0.5)
             .setDepth(0)
@@ -47,12 +49,20 @@ class LojaDeConstrução extends Combate {
         this.resizeBackground();
         this.criarConstrutora();
         this.criarPlayer();
+          // Botão no canto superior esquerdo (30, 30)
+        this.criarBotaoSair(30, 30, () => {
+        this.scene.start('Cidade', { 
+        personagem: this.personagemEscolhido, 
+        posicaoSpawn: { x: 710, y: 966 } // Posição exata de retorno no mapa
+        });
+    });
 
+        // Inicializa perguntas, barra de satisfacao e ponto de retorno.
         this.initCombate({
             satisfacaoInicial: 34,
             questoes: [
 
-            // Saudação inicial (Apenas Diálogo)
+            // Saudacao inicial.
             {
                 pergunta: "LÍGIA:\n Olá! Boa tarde, pode falar.",
                 certo: "Boa tarde, Lígia! Sou Gerente de Negócios da Cielo. Passei aqui porque tenho uma proposta pensada especialmente pro segmento de materiais de construção. A senhora teria alguns minutos pra ouvir?",
@@ -100,15 +110,18 @@ class LojaDeConstrução extends Combate {
 
         });
 
+        // Cria a interface herdada da classe base.
         this.createUI();
         this.mostrarQuestao();
         this.barraSatisfacao();
 
+        // Liga a expressao da NPC ao valor atual da satisfacao.
         this.updateNPC = this.faceConstrutora;
         this.faceConstrutora();
 
     }
 
+    // Mantem o fundo ajustado ao tamanho atual da tela.
     resizeBackground() {
         const largura = this.scale.width;
         const altura = this.scale.height;
@@ -117,8 +130,9 @@ class LojaDeConstrução extends Combate {
         this.bg.setDisplaySize(largura, altura);
     }
 
+    // Cria a NPC e registra as animacoes de humor.
     criarConstrutora() {
-        this.Construtora = this.add.sprite(
+        this.construtoraSprite = this.add.sprite(
             (this.scale.width * 2 / 3) + 40,
             this.scale.height - 400,
             'Construtora'
@@ -127,21 +141,21 @@ class LojaDeConstrução extends Combate {
             .setScale(0.55)
             .setFlip(true, false);
 
-        this.anims.create({
+        utilitariosJogo.garantirAnimacao(this, {
             key: "bravoConstrutora",
             frames: this.anims.generateFrameNumbers('Construtora', { start: 0, end: 0 }),
             frameRate: 1,
             repeat: -1
         });
 
-        this.anims.create({
+        utilitariosJogo.garantirAnimacao(this, {
             key: "estavelConstrutora",
             frames: this.anims.generateFrameNumbers('Construtora', { start: 1, end: 1 }),
             frameRate: 1,
             repeat: -1
         });
 
-        this.anims.create({
+        utilitariosJogo.garantirAnimacao(this, {
             key: "felizConstrutora",
             frames: this.anims.generateFrameNumbers('Construtora', { start: 2, end: 2 }),
             frameRate: 1,
@@ -149,12 +163,13 @@ class LojaDeConstrução extends Combate {
         });
     }
 
+    // Posiciona o personagem do jogador na cena.
     criarPlayer() {
         let escala = 1;
         let posX = (this.scale.width * 1 / 3) - 100;
         let posY = this.scale.height - 270;
 
-        if (this.personagemEscolhido === 'JOSÉ' || this.personagemEscolhido === 'JOÃO') {
+        if (this.personagemEscolhido === 'JOSE' || this.personagemEscolhido === 'JOAO') {
             escala = 0.5;
             posX -= 20;
             posY -= 60;
@@ -165,18 +180,19 @@ class LojaDeConstrução extends Combate {
             .setScale(escala);
     }
 
+    // Atualiza a animacao da NPC conforme a satisfacao da conversa.
     faceConstrutora() {
         if (this.satisfacao === 34) {
-            this.Construtora.play('estavelConstrutora', true);
+            this.construtoraSprite.play('estavelConstrutora', true);
             return;
         } else if (this.satisfacao === 1) {
-            this.Construtora.play('bravoConstrutora', true);
+            this.construtoraSprite.play('bravoConstrutora', true);
             return;
         } else if (this.satisfacao === 67) {
-            this.Construtora.play('felizConstrutora', true);
+            this.construtoraSprite.play('felizConstrutora', true);
             return;
         } else if (this.satisfacao < 0 || this.satisfacao === 100) {
-            this.Construtora.play('felizConstrutora', true);
+            this.construtoraSprite.play('felizConstrutora', true);
         }
     }
 }

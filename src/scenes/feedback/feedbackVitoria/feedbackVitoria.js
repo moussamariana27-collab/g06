@@ -1,3 +1,5 @@
+// Classe base dos feedbacks de vitoria.
+// Reaproveita a estrutura do tutorial e troca apenas fundo, audio e textos.
 class FeedbackVitoria extends Tutorial {
 
     constructor(key) {
@@ -6,6 +8,7 @@ class FeedbackVitoria extends Tutorial {
 
     init(data) {
         super.init(data);
+        // Marca a cena como feedback e recebe os dialogos da subclasse.
         this.modoFeedbackVitoria = true;
         this.dialogos = this.definirDialogos();
         this.spawnPos = data?.spawnPos || null;
@@ -21,19 +24,19 @@ class FeedbackVitoria extends Tutorial {
         super.preload();
         const fundo = this.definirFundo();
         if (fundo) this.load.image('fundoFeedback', fundo);
-        // Carrega o som de vitória
+        // Carrega o som de vitoria.
         this.load.audio('vitoria', 'assets/vitoria.mp3');
     }
 
     create() {
-        // Toca o som de vitória
-        this.somVitoria = this.sound.add('vitoria', {
+        // Toca o audio e monta o fundo especifico do feedback.
+        // Toca o som de vitoria sem quebrar a cena caso o navegador bloqueie autoplay.
+        this.somVitoria = utilitariosJogo.tocarAudio(this, 'vitoria', {
             loop: false,
             volume: 0.5
         });
-        this.somVitoria.play();
 
-        // Adiciona fundo antes de criar os elementos do estadual
+        // Adiciona o fundo antes de criar os elementos do estadual.
         const fundo = this.definirFundo();
         if (fundo) {
             this.add.image(this.scale.width / 2, this.scale.height / 2, 'fundoFeedback')
@@ -42,5 +45,8 @@ class FeedbackVitoria extends Tutorial {
         }
 
         super.create();
+
+        // Libera o audio quando a cena for encerrada.
+        this.events.once('shutdown', () => utilitariosJogo.pararAudio(this.somVitoria));
     }
 }

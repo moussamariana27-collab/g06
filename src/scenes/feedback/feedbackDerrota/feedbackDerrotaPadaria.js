@@ -1,19 +1,22 @@
+// Feedback exibido quando o jogador perde na padaria.
 class FeedbackDerrotaPadaria extends FeedbackDerrota {
     constructor() { super('FeedbackDerrotaPadaria'); }
 
     init(data) {
         super.init(data);
+        // Define para qual cena o jogador pode retornar depois do feedback.
         this.cenaOrigem = 'Padaria';
     }
 
     preload (){
         super.preload()
+        // Carrega o fundo especifico da padaria.
         this.load.image('bgPadaria', 'assets/padaria_interior.png');
 
     }
 
     create (){
-
+        // Exibe o fundo da fase antes da interface base do feedback.
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgPadaria')
             .setDisplaySize(this.scale.width, this.scale.height)
             .setDepth(-1);
@@ -21,6 +24,7 @@ class FeedbackDerrotaPadaria extends FeedbackDerrota {
             super.create();
     }
 
+    // Define os textos explicativos mostrados ao jogador.
     definirDialogos() 
         { return[
                     'Você deixou passar a oportunidade de conectar as dores do cliente com as soluções da Cielo.',

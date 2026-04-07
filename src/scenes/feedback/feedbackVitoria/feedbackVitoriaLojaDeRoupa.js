@@ -1,10 +1,11 @@
+// Feedback exibido quando o jogador vence a fase da loja de roupa.
 class FeedbackVitoriaLojaDeRoupa extends FeedbackVitoria {
     constructor() { super('FeedbackVitoriaLojaDeRoupa'); }
 
     init(data) {
         super.init(data);
         this.cenaOrigem = 'Cidade';
-        // REGISTRO DE VITÓRIA
+        // Registra a vitoria no progresso global.
         let vitoriasGlobais = this.registry.get('estabelecimentosVencidos') || [];
         if (!vitoriasGlobais.includes('LojaDeRoupa')) {
             vitoriasGlobais.push('LojaDeRoupa');
@@ -12,14 +13,15 @@ class FeedbackVitoriaLojaDeRoupa extends FeedbackVitoria {
         }
     }
 
-        preload (){
+    preload (){
         super.preload()
+        // Carrega o fundo especifico da loja.
         this.load.image('bgLojaDeRoupa', 'assets/lojaderoupa_interior.png');
 
     }
 
     create (){
-
+        // Exibe o fundo da fase antes da interface base do feedback.
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgLojaDeRoupa')
             .setDisplaySize(this.scale.width, this.scale.height)
             .setDepth(-1);
@@ -27,6 +29,7 @@ class FeedbackVitoriaLojaDeRoupa extends FeedbackVitoria {
             super.create();
     }
 
+    // Define os textos de progresso para a proxima fase.
     definirDialogos() { 
         return [
             'Parabéns! Você conduziu bem a conversa e conseguiu gerar confiança com a cliente.',

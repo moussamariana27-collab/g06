@@ -1,19 +1,22 @@
+// Feedback exibido quando o jogador perde no supermercado.
 class FeedbackDerrotaSupermercado extends FeedbackDerrota {
     constructor() { super('FeedbackDerrotaSupermercado'); }
 
     init(data) {
         super.init(data);
+        // Define para qual cena o jogador pode retornar depois do feedback.
         this.cenaOrigem = 'Mercado';
     }
 
     preload (){
         super.preload()
+        // Carrega o fundo especifico do supermercado.
         this.load.image('bgMercado', 'assets/mercado_interior.png');
 
     }
 
     create (){
-
+        // Exibe o fundo da fase antes da interface base do feedback.
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgMercado')
             .setDisplaySize(this.scale.width, this.scale.height)
             .setDepth(-1);
@@ -21,6 +24,7 @@ class FeedbackDerrotaSupermercado extends FeedbackDerrota {
             super.create();
     }
 
+    // Define os textos explicativos mostrados ao jogador.
     definirDialogos() { 
         return[
                 'Você deixou passar a oportunidade de conectar as dores do cliente com as soluções da Cielo.',

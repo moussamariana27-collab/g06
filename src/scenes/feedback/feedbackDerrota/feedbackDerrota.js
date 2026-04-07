@@ -1,3 +1,5 @@
+// Classe base dos feedbacks de derrota.
+// Reaproveita a estrutura do tutorial e troca apenas fundo, audio e textos.
 class FeedbackDerrota extends Tutorial {
 
     constructor(key) {
@@ -6,6 +8,7 @@ class FeedbackDerrota extends Tutorial {
 
     init(data) {
         super.init(data);
+        // Marca a cena como feedback e recebe os dialogos da subclasse.
         this.modoFeedbackDerrota = true;
         this.dialogos = this.definirDialogos();
     }
@@ -20,19 +23,19 @@ class FeedbackDerrota extends Tutorial {
         super.preload();
         const fundo = this.definirFundo();
         if (fundo) this.load.image('fundoFeedback', fundo);
-        // Carrega o som de derrota
+        // Carrega o som de derrota.
         this.load.audio('derrota', 'assets/derrota.mp3');
     }
 
     create() {
-        // Toca o som de derrota
-        this.somDerrota = this.sound.add('derrota', {
+        // Toca o audio e monta o fundo especifico do feedback.
+        // Toca o som de derrota sem interromper o fluxo se o audio falhar.
+        this.somDerrota = utilitariosJogo.tocarAudio(this, 'derrota', {
             loop: false,
             volume: 0.5
         });
-        this.somDerrota.play();
 
-        // Adiciona fundo antes de criar os elementos do estadual
+        // Adiciona o fundo antes de criar os elementos do estadual.
         const fundo = this.definirFundo();
         if (fundo) {
             this.add.image(this.scale.width / 2, this.scale.height / 2, 'fundoFeedback')
@@ -41,6 +44,9 @@ class FeedbackDerrota extends Tutorial {
         }
 
         super.create();
+
+        // Libera o audio quando a cena for encerrada.
+        this.events.once('shutdown', () => utilitariosJogo.pararAudio(this.somDerrota));
 
     }
 }

@@ -1,31 +1,35 @@
 class Combate extends Phaser.Scene {
 
     constructor(key) {
+        // Define a chave de identificação da cena
         super({ key });
     }
 
     init(data) {
-        this.personagemEscolhido = data?.character || null;
+        // Recupera o personagem selecionado vindo da cena anterior
+        this.personagemEscolhido = utilitariosJogo.resolverChavePersonagem(data?.personagem);
     }
 
     preload() {
+        // Carrega os arquivos de áudio necessários
         this.load.audio('musicabatalha', 'assets/musicabatalha.mp3');
-        // Carrega o som de mudança negativa
         this.load.audio('mudancaNegativa', 'assets/mudançanegativa.mp3');
-        // Carrega o som de mudança positiva
         this.load.audio('mudancaPositiva', 'assets/mudançapositiva.mp3');
     }
 
     initCombate(combateConfig) {
-        this.satisfacao = combateConfig.satisfacaoInicial || 34;
-        this.questoes = combateConfig.questoes || [];
-        this.questaoAtual = 0;
-        this.satisfacaoAnimada = this.satisfacao;
-        this.posicaoSpawn = combateConfig.posicaoSpawn || null;
+        const configSeguro = combateConfig || {};
 
-        // Toca a música de batalha
-        this.musica = this.sound.add('musicabatalha', { loop: true, volume: 0.15 });
-        this.musica.play();
+        // Inicializa valores de satisfação, lista de questões e posição de retorno
+        this.satisfacao = utilitariosJogo.limitarNumero(configSeguro.satisfacaoInicial, 34, -1, 100);
+        this.questoes = utilitariosJogo.sanitizarQuestoes(configSeguro.questoes);
+        this.questaoAtual = 0;
+        this.satisfacaoAnimada = this.satisfacao; // Variável para controle da animação da barra
+        this.posicaoSpawn = utilitariosJogo.normalizarPosicaoSpawn(configSeguro.posicaoSpawn, { x: 190, y: 330 });
+        this.finalizacaoEmAndamento = false;
+
+        // Inicia a música tema do combate
+        this.musica = utilitariosJogo.tocarAudio(this, 'musicabatalha', { loop: true, volume: 0.15 });
     }
 
     createUI() {
@@ -33,17 +37,19 @@ class Combate extends Phaser.Scene {
         const largura = this.scale.width;
         const altura = this.scale.height;
 
-        // ─── CAIXA DE PERGUNTA ────────────────────────────────────────
-        const perguntaX = largura * 0.6;
-        const perguntaY = altura * 0.7;
+        // Configuração das coordenadas e dimensões da caixa de pergunta
+        const perguntaX = largura * 0.1;
+        const perguntaY = altura * 0.57;
         const perguntaW = largura * 0.35;
-        const perguntaH = altura * 0.3;
+        const perguntaH = altura * 0.47;
 
+        // Criação das camadas visuais da caixa de diálogo (efeito de borda)
         this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 16));
         this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(perguntaX + 6, perguntaY + 6, perguntaW - 12, perguntaH - 12, 12));
         this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(perguntaX + 10, perguntaY + 10, perguntaW - 20, perguntaH - 20, 8));
         this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(perguntaX + 14, perguntaY + 14, perguntaW - 28, perguntaH - 28, 6));
 
+        // Objeto de texto para a pergunta
         this.lugarQuestao = this.add.text(perguntaX + 22, perguntaY + 24, "", {
             fontSize: "26px",
             color: "#000000",
@@ -51,49 +57,49 @@ class Combate extends Phaser.Scene {
             fontFamily: "Pixelify Sans"
         }).setDepth(6);
 
-        // ─── OPÇÃO A ──────────────────────────────────────────────────
-        const opcaoUmX = largura * 0.1;
-        const opcaoUmY = altura * 0.68;
-        const opcaoUmLargura = 620;
-        const opcaoUmAltura = 110;
+        // Função auxiliar para criar botões de opção estilizados
+        const criarBotaoOpcao = (x, y, larguraBtn, alturaBtn) => {
+            const graficos = this.add.graphics();
+            graficos.fillStyle(0x111111, 1).fillRoundedRect(0, 0, larguraBtn, alturaBtn, 12);
+            graficos.fillStyle(0xb8d4f0, 1).fillRoundedRect(4, 4, larguraBtn - 8, alturaBtn - 8, 9);
+            graficos.fillStyle(0xddeeff, 1).fillRoundedRect(8, 8, larguraBtn - 16, alturaBtn - 16, 6);
+            graficos.fillStyle(0xf5f9ff, 1).fillRoundedRect(12, 12, larguraBtn - 24, alturaBtn - 24, 4);
 
-        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(opcaoUmX, opcaoUmY, opcaoUmLargura, opcaoUmAltura, 12));
-        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(opcaoUmX + 4, opcaoUmY + 4, opcaoUmLargura - 8, opcaoUmAltura - 8, 9));
-        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(opcaoUmX + 8, opcaoUmY + 8, opcaoUmLargura - 16, opcaoUmAltura - 16, 6));
-        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(opcaoUmX + 12, opcaoUmY + 12, opcaoUmLargura - 24, opcaoUmAltura - 24, 4));
+            const texto = this.add.text(18, 18, "", {
+                color: "#1a1a2e",
+                fontSize: "20px",
+                wordWrap: { width: larguraBtn - 36 },
+                fontFamily: "Pixelify Sans"
+            }).setDepth(1);
 
-        this.opcaoUm = this.add.text(opcaoUmX + 18, opcaoUmY + 18, "", {
-            color: "#1a1a2e",
-            fontSize: "20px",
-            wordWrap: { width: opcaoUmLargura - 36 },
-            fontFamily: "Pixelify Sans"
-        }).setInteractive().setDepth(6);
+            const container = this.add.container(x, y, [graficos, texto]).setDepth(5);
+            container.setSize(larguraBtn, alturaBtn);
+            container.setInteractive(new Phaser.Geom.Rectangle(0, 0, larguraBtn, alturaBtn), Phaser.Geom.Rectangle.Contains);
 
-        // ─── OPÇÃO B ──────────────────────────────────────────────────
-        const opcaoDoisX = largura * 0.1;
-        const opcaoDoisY = altura * 0.85;
-        const opcaoDoisLargura = 620;
-        const opcaoDoisAltura = 110;
+            return { container, texto };
+        };
 
-        this.graficosOpcaoDois = [];
-        this.graficosOpcaoDois.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(opcaoDoisX, opcaoDoisY, opcaoDoisLargura, opcaoDoisAltura, 12));
-        this.graficosOpcaoDois.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(opcaoDoisX + 4, opcaoDoisY + 4, opcaoDoisLargura - 8, opcaoDoisAltura - 8, 9));
-        this.graficosOpcaoDois.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(opcaoDoisX + 8, opcaoDoisY + 8, opcaoDoisLargura - 16, opcaoDoisAltura - 16, 6));
-        this.graficosOpcaoDois.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(opcaoDoisX + 12, opcaoDoisY + 12, opcaoDoisLargura - 24, opcaoDoisAltura - 24, 4));
+        // Cria os botões A e B
+        const btnA = criarBotaoOpcao(largura * 0.5, altura * 0.62, 620, 110);
+        this.containerOpcaoUm = btnA.container;
+        this.opcaoUm = btnA.texto;
 
-        this.opcaoDois = this.add.text(opcaoDoisX + 18, opcaoDoisY + 18, "", {
-            color: "#1a1a2e",
-            fontSize: "20px",
-            wordWrap: { width: opcaoDoisLargura - 36 },
-            fontFamily: "Pixelify Sans"
-        }).setInteractive().setDepth(6);
+        const btnB = criarBotaoOpcao(largura * 0.5, altura * 0.82, 620, 110);
+        this.containerOpcaoDois = btnB.container;
+        this.opcaoDois = btnB.texto;
 
-        this.opcaoUm.on("pointerdown", () => this.resposta(this.opcaoUm.valor));
-        this.opcaoDois.on("pointerdown", () => this.resposta(this.opcaoDois.valor));
+        // Define as funções de clique para as opções
+        this.containerOpcaoUm.on("pointerdown", () => this.resposta(this.opcaoUm.valor));
+        this.containerOpcaoDois.on("pointerdown", () => this.resposta(this.opcaoDois.valor));
 
-        // ─── BARRA DE SATISFAÇÃO UNIFICADA ─────────────────────────────
+        // Adiciona efeito visual de escala ao passar o mouse
+        [this.containerOpcaoUm, this.containerOpcaoDois].forEach(btn => {
+            btn.on('pointerover', () => btn.setScale(1.04));
+            btn.on('pointerout', () => btn.setScale(1));
+        });
+
+        // Configura os gráficos da barra de satisfação
         this.barra = this.add.graphics().setDepth(10);
-        
         this.textoSatisfacao = this.add.text(0, 0, "BARRA DE SATISFAÇÃO", {
             fontSize: "28px",
             color: "#000000",
@@ -101,78 +107,74 @@ class Combate extends Phaser.Scene {
             fontStyle: "bold"
         }).setDepth(11).setOrigin(0.5);
 
-        this.barraSatisfacao(); // Chama o desenho inicial
+        this.barraSatisfacao(); // Desenha a barra pela primeira vez
 
+        // Gerencia redimensionamento da tela e limpeza ao fechar a cena
         this.scale.on('resize', this.reposicionarUI, this);
+        this.events.once('shutdown', () => {
+            this.scale.off('resize', this.reposicionarUI, this);
+            utilitariosJogo.pararAudio(this.musica);
+        });
     }
 
     reposicionarUI(gameSize) {
+        // Reajusta a posição dos elementos quando a janela do jogo muda de tamanho
         const { width, height } = gameSize;
 
-        this.graficosUI.forEach(g => g.destroy());
+        (this.graficosUI || []).forEach(g => g.destroy());
         this.graficosUI = [];
 
-        const perguntaX = width * 0.6, perguntaY = height * 0.7, perguntaW = width * 0.35, perguntaH = height * 0.3;
-        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 16));
-        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(perguntaX + 6, perguntaY + 6, perguntaW - 12, perguntaH - 12, 12));
-        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(perguntaX + 10, perguntaY + 10, perguntaW - 20, perguntaH - 20, 8));
-        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(perguntaX + 14, perguntaY + 14, perguntaW - 28, perguntaH - 28, 6));
+        const perguntaX = width * 0.1;
+        const perguntaY = height * 0.57;
+        const perguntaW = width * 0.35;
+        const perguntaH = height * 0.3;
 
-        const opcaoUmX = width * 0.1, opcaoUmY = height * 0.68, opcaoUmLargura = 620, opcaoUmAltura = 110;
-        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(opcaoUmX, opcaoUmY, opcaoUmLargura, opcaoUmAltura, 12));
-        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(opcaoUmX + 4, opcaoUmY + 4, opcaoUmLargura - 8, opcaoUmAltura - 8, 9));
-        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(opcaoUmX + 8, opcaoUmY + 8, opcaoUmLargura - 16, opcaoUmAltura - 16, 6));
-        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(opcaoUmX + 12, opcaoUmY + 12, opcaoUmLargura - 24, opcaoUmAltura - 24, 4));
-
-        const opcaoDoisX = width * 0.1, opcaoDoisY = height * 0.85, opcaoDoisLargura = 620, opcaoDoisAltura = 110;
-        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111).fillRoundedRect(opcaoDoisX, opcaoDoisY, opcaoDoisLargura, opcaoDoisAltura, 12));
-        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0).fillRoundedRect(opcaoDoisX + 4, opcaoDoisY + 4, opcaoDoisLargura - 8, opcaoDoisAltura - 8, 9));
-        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff).fillRoundedRect(opcaoDoisX + 8, opcaoDoisY + 8, opcaoDoisLargura - 16, opcaoDoisAltura - 16, 6));
-        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff).fillRoundedRect(opcaoDoisX + 12, opcaoDoisY + 12, opcaoDoisLargura - 24, opcaoDoisAltura - 24, 4));
+        // Redesenha a moldura da pergunta
+        this.graficosUI.push(this.add.graphics().setDepth(2).fillStyle(0x111111, 1).fillRoundedRect(perguntaX, perguntaY, perguntaW, perguntaH, 16));
+        this.graficosUI.push(this.add.graphics().setDepth(3).fillStyle(0xb8d4f0, 1).fillRoundedRect(perguntaX + 6, perguntaY + 6, perguntaW - 12, perguntaH - 12, 12));
+        this.graficosUI.push(this.add.graphics().setDepth(4).fillStyle(0xddeeff, 1).fillRoundedRect(perguntaX + 10, perguntaY + 10, perguntaW - 20, perguntaH - 20, 8));
+        this.graficosUI.push(this.add.graphics().setDepth(5).fillStyle(0xf5f9ff, 1).fillRoundedRect(perguntaX + 14, perguntaY + 14, perguntaW - 28, perguntaH - 28, 6));
 
         this.lugarQuestao.setPosition(perguntaX + 22, perguntaY + 24);
-        this.opcaoUm.setPosition(opcaoUmX + 18, opcaoUmY + 18);
-        this.opcaoDois.setPosition(opcaoDoisX + 18, opcaoDoisY + 18);
+        this.containerOpcaoUm.setPosition(width * 0.5, height * 0.62);
+        this.containerOpcaoDois.setPosition(width * 0.5, height * 0.82);
 
         this.barraSatisfacao();
     }
 
     barraSatisfacao() {
+        // Lógica de desenho da barra de satisfação (fundo e preenchimento colorido)
         const larguraCard = 600;
         const alturaCard = 110;
-        const x = (this.scale.width / 2) - (larguraCard / 2);
-        const y = 30;
+        const cardX = (this.scale.width / 2) - (larguraCard / 2);
+        const cardY = 30;
 
         const valor = Phaser.Math.Clamp(this.satisfacaoAnimada, 0, 100);
         this.barra.clear();
 
-        // ─── CARD DA BARRA (Estilo Pergunta) ───
-        this.barra.fillStyle(0x111111, 1).fillRoundedRect(x, y, larguraCard, alturaCard, 16);
-        this.barra.fillStyle(0xb8d4f0, 1).fillRoundedRect(x + 5, y + 5, larguraCard - 10, alturaCard - 10, 12);
-        this.barra.fillStyle(0xddeeff, 1).fillRoundedRect(x + 9, y + 9, larguraCard - 18, alturaCard - 18, 8);
-        this.barra.fillStyle(0xf5f9ff, 1).fillRoundedRect(x + 13, y + 13, larguraCard - 26, alturaCard - 26, 6);
+        // Moldura externa da barra
+        this.barra.fillStyle(0x111111, 1).fillRoundedRect(cardX, cardY, larguraCard, alturaCard, 16);
+        this.barra.fillStyle(0xb8d4f0, 1).fillRoundedRect(cardX + 5, cardY + 5, larguraCard - 10, alturaCard - 10, 12);
+        this.barra.fillStyle(0xddeeff, 1).fillRoundedRect(cardX + 9, cardY + 9, larguraCard - 18, alturaCard - 18, 8);
+        this.barra.fillStyle(0xf5f9ff, 1).fillRoundedRect(cardX + 13, cardY + 13, larguraCard - 26, alturaCard - 26, 6);
 
-        // Posiciona texto dentro do card
         if (this.textoSatisfacao) {
-            this.textoSatisfacao.setPosition(x + larguraCard / 2, y + 35);
+            this.textoSatisfacao.setPosition(cardX + larguraCard / 2, cardY + 35);
         }
 
-        // ─── DESENHO DA BARRA "GORDA" ───
         const barraW = larguraCard - 60;
-        const barraH = 35; // Altura aumentada para ser "gorda"
-        const barraX = x + 30;
-        const barraY = y + 58;
+        const barraH = 35;
+        const barraX = cardX + 30;
+        const barraY = cardY + 58;
 
-        // Fundo cinza da barra
         this.barra.fillStyle(0xcccccc, 1);
         this.barra.fillRoundedRect(barraX, barraY, barraW, barraH, 8);
 
-        // Cor dinâmica baseada no valor
+        // Define a cor da barra com base na satisfação: Verde, Amarelo ou Vermelho
         let cor = 0x00ff00;
         if (valor <= 33) cor = 0xff0000;
         else if (valor <= 66) cor = 0xffff00;
 
-        // Preenchimento
         if (valor > 0) {
             this.barra.fillStyle(cor, 1);
             const larguraPreenchida = (valor / 100) * barraW;
@@ -181,6 +183,7 @@ class Combate extends Phaser.Scene {
     }
 
     animarBarra(novoValor) {
+        // Cria uma transição suave para a mudança visual da barra
         this.tweens.add({
             targets: this,
             satisfacaoAnimada: Phaser.Math.Clamp(novoValor, 0, 100),
@@ -193,6 +196,7 @@ class Combate extends Phaser.Scene {
     }
 
     tremerBarra() {
+        // Efeito de vibração visual na barra quando o jogador erra
         this.tweens.add({
             targets: [this.barra, this.textoSatisfacao],
             x: '+=6',
@@ -208,13 +212,14 @@ class Combate extends Phaser.Scene {
     }
 
     _setModoDialogo(ativo) {
+        // Esconde ou mostra elementos de interface dependendo se é uma pergunta ou só uma fala
         this.barra.setVisible(!ativo);
         this.textoSatisfacao.setVisible(!ativo);
-        this.opcaoDois.setVisible(!ativo);
-        this.graficosOpcaoDois.forEach(g => g.setVisible(!ativo));
+        this.containerOpcaoDois.setVisible(!ativo);
     }
 
     mostrarQuestao() {
+        // Gerencia a exibição da pergunta atual e embaralha as opções
         const perguntaAtual = this.questoes[this.questaoAtual];
         if (!perguntaAtual) {
             this.fimDasPerguntas();
@@ -222,12 +227,13 @@ class Combate extends Phaser.Scene {
         }
         this.lugarQuestao.setText(perguntaAtual.pergunta);
 
+        // Caso seja um diálogo simples (apenas avança ao clicar)
         if (perguntaAtual.soDialogo) {
             this._setModoDialogo(true);
             this.opcaoUm.setText(perguntaAtual.certo);
-            this.opcaoUm.setInteractive();
-            this.opcaoUm.once("pointerdown", () => {
-                this.opcaoUm.disableInteractive();
+            this.containerOpcaoUm.setInteractive();
+            this.containerOpcaoUm.once("pointerdown", () => {
+                this.containerOpcaoUm.disableInteractive();
                 this._setModoDialogo(false);
                 this.proximaPergunta();
             });
@@ -235,9 +241,10 @@ class Combate extends Phaser.Scene {
         }
 
         this._setModoDialogo(false);
-        this.opcaoUm.setInteractive();
-        this.opcaoDois.setInteractive();
+        this.containerOpcaoUm.setInteractive();
+        this.containerOpcaoDois.setInteractive();
 
+        // Embaralhamento aleatório das respostas A e B
         const trocarLugar = Math.random() < 0.5;
         if (trocarLugar) {
             this.opcaoUm.setText(perguntaAtual.certo);
@@ -253,11 +260,13 @@ class Combate extends Phaser.Scene {
     }
 
     resposta(decisao) {
-        // Ignora clique se a questão atual for só diálogo
+        // Lógica disparada após o clique em uma resposta
         if (this.questoes[this.questaoAtual]?.soDialogo) return;
         if (typeof decisao !== 'boolean') return;
-        this.opcaoUm.disableInteractive();
-        this.opcaoDois.disableInteractive();
+        if (this.finalizacaoEmAndamento) return;
+
+        this.containerOpcaoUm.disableInteractive();
+        this.containerOpcaoDois.disableInteractive();
 
         const questaoAtual = this.questoes[this.questaoAtual];
         if (!questaoAtual) {
@@ -265,10 +274,10 @@ class Combate extends Phaser.Scene {
             return;
         }
 
+        // Verifica se acertou ou errou e aplica as consequências
         if (decisao === questaoAtual.resposta) {
-            // Toca o som de acerto ao responder corretamente
             this.sound.play('mudancaPositiva', { loop: false, volume: 0.3 });
-            this.satisfacao += 33;
+            this.satisfacao = Phaser.Math.Clamp(this.satisfacao + 33, -1, 100);
             this.tweens.add({
                 targets: this.barra,
                 scaleY: 1.05,
@@ -277,9 +286,8 @@ class Combate extends Phaser.Scene {
             });
             if (this.updateNPC) this.updateNPC();
         } else {
-            // Toca o som de alerta ao responder errado
             this.sound.play('mudancaNegativa', { loop: false, volume: 1 });
-            this.satisfacao -= 33;
+            this.satisfacao = Phaser.Math.Clamp(this.satisfacao - 33, -1, 100);
             this.tremerBarra();
             this.cameras.main.shake(120, 0.008);
             if (this.updateNPC) this.updateNPC();
@@ -287,6 +295,7 @@ class Combate extends Phaser.Scene {
 
         this.animarBarra(this.satisfacao);
 
+        // Checa condições de fim de combate
         if (this.satisfacao >= 100) return this.vitoria();
         if (this.satisfacao < 0) return this.derrota();
 
@@ -296,16 +305,18 @@ class Combate extends Phaser.Scene {
     }
 
     proximaPergunta() {
+        // Incrementa o índice e carrega a nova questão
         this.questaoAtual++;
         if (this.questaoAtual >= this.questoes.length) {
             return this.fimDasPerguntas();
         }
-        this.opcaoUm.setInteractive();
-        this.opcaoDois.setInteractive();
+        this.containerOpcaoUm.setInteractive();
+        this.containerOpcaoDois.setInteractive();
         this.mostrarQuestao();
     }
 
     vitoria() {
+        // Configura a tela de sucesso
         this.mostrarTelaFinal({
             texto: "VOCÊ CONVENCEU O CLIENTE",
             voltarPara: this.cenaVitoria || ("FeedbackVitoria" + this.scene.key),
@@ -313,6 +324,7 @@ class Combate extends Phaser.Scene {
     }
 
     derrota() {
+        // Configura a tela de falha por falta de satisfação
         this.mostrarTelaFinal({
             texto: "VOCÊ NÃO FOI CAPAZ DE CONQUISTAR O CLIENTE",
             voltarPara: this.cenaDerrota || ("FeedbackDerrota" + this.scene.key),
@@ -321,6 +333,7 @@ class Combate extends Phaser.Scene {
     }
 
     fimDasPerguntas() {
+        // Configura a tela de falha por acabar as perguntas
         this.mostrarTelaFinal({
             texto: "O CLIENTE TE MANDOU EMBORA",
             voltarPara: this.cenaDerrota || ("FeedbackDerrota" + this.scene.key),
@@ -328,11 +341,16 @@ class Combate extends Phaser.Scene {
     }
 
     mostrarTelaFinal({ texto, voltarPara = 'Cidade', tamanhoFonte = 64 }) {
+        // Cria o quadro final de mensagem e transiciona para outra cena
+        if (this.finalizacaoEmAndamento) return;
+        this.finalizacaoEmAndamento = true;
+
         const textoX = (this.scale.width / 2) - 600;
         const textoY = (this.scale.height / 2) - 200;
         const textoW = 1200;
         const textoH = 300;
 
+        // Moldura da mensagem final
         this.add.graphics().setDepth(3).fillStyle(0x5078D8, 1).fillRoundedRect(textoX, textoY, textoW, textoH, 20);
         this.add.graphics().setDepth(3).fillStyle(0xA0C8F0, 1).fillRoundedRect(textoX + 8, textoY + 8, textoW - 16, textoH - 16, 16);
         this.add.graphics().setDepth(3).fillStyle(0xE8F0FF, 1).fillRoundedRect(textoX + 16, textoY + 16, textoW - 32, textoH - 32, 12);
@@ -344,22 +362,65 @@ class Combate extends Phaser.Scene {
             fontFamily: "Pixelify Sans"
         }).setDepth(4).setOrigin(0.5);
 
+        // Esconde os elementos de combate
         this.barra.setVisible(false);
         this.textoSatisfacao.setVisible(false);
-        this.opcaoUm.setVisible(false);
-        this.opcaoDois.setVisible(false);
         this.lugarQuestao.setVisible(false);
-        this.graficosUI.forEach(g => g.setVisible(false));
+        this.containerOpcaoUm.setVisible(false);
+        this.containerOpcaoDois.setVisible(false);
+        (this.graficosUI || []).forEach(g => g.setVisible(false));
 
+        // Aguarda 4 segundos e muda de cena
         this.time.delayedCall(4000, () => {
-            // Para a música de combate antes de trocar de cena
-            if (this.musica && this.musica.isPlaying) {
-                this.musica.stop();
-            }
-            this.scene.start(voltarPara, { character: this.personagemEscolhido,
-                                            posicaoSpawn: this.posicaoSpawn ,
-                                            cenaCombate: this.scene.key
-             });
+            utilitariosJogo.pararAudio(this.musica);
+            utilitariosJogo.iniciarCenaSeDisponivel(this, voltarPara, {
+                personagem: this.personagemEscolhido,
+                posicaoSpawn: this.posicaoSpawn,
+                cenaCombate: this.scene.key
+            });
         });
+    }
+
+    criarBotaoSair(x, y, acao) {
+        // Cria um botão funcional para sair da cena manualmente
+        const larguraBotao = 180;
+        const alturaBotao = 60;
+        const grupoBotao = this.add.container(x, y).setDepth(100);
+
+        const BotaoSair = this.add.graphics();
+        BotaoSair.fillStyle(0x111111, 1).fillRoundedRect(0, 0, larguraBotao, alturaBotao, 16);
+        BotaoSair.fillStyle(0xb8d4f0, 1).fillRoundedRect(5, 5, larguraBotao - 10, alturaBotao - 10, 12);
+        BotaoSair.fillStyle(0xddeeff, 1).fillRoundedRect(9, 9, larguraBotao - 18, alturaBotao - 18, 8);
+        BotaoSair.fillStyle(0xf5f9ff, 1).fillRoundedRect(13, 13, larguraBotao - 26, alturaBotao - 26, 6);
+
+        const escritaSair = this.add.text(larguraBotao / 2, alturaBotao / 2, "SAIR", {
+            fontSize: "22px",
+            color: "#000000",
+            fontFamily: "Pixelify Sans",
+            fontStyle: "bold"
+        }).setOrigin(0.5);
+
+        grupoBotao.add([BotaoSair, escritaSair]);
+
+        const zona = this.add.zone(0, 0, larguraBotao, alturaBotao)
+            .setOrigin(0, 0)
+            .setInteractive({ useHandCursor: true });
+
+        grupoBotao.add(zona);
+
+        // Efeitos de feedback no botão de sair
+        zona.on('pointerover', () => BotaoSair.setAlpha(0.8));
+        zona.on('pointerout', () => BotaoSair.setAlpha(1));
+
+        zona.on('pointerdown', () => {
+            grupoBotao.setScale(0.95);
+            this.time.delayedCall(100, () => {
+                grupoBotao.setScale(1);
+                if (this.musica) this.musica.stop();
+                acao();
+            });
+        });
+
+        return grupoBotao;
     }
 }

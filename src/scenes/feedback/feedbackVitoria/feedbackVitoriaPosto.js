@@ -1,3 +1,4 @@
+// Feedback exibido quando o jogador vence a fase do posto.
 class FeedbackVitoriaPosto extends FeedbackVitoria {
     constructor() { super('FeedbackVitoriaPosto'); }
 
@@ -5,7 +6,7 @@ class FeedbackVitoriaPosto extends FeedbackVitoria {
         super.init(data);
         this.cenaOrigem = 'Cidade';
 
-        // REGISTRO DE VITÓRIA
+        // Registra a vitoria no progresso global.
         let vitoriasGlobais = this.registry.get('estabelecimentosVencidos') || [];
         if (!vitoriasGlobais.includes('Posto')) {
             vitoriasGlobais.push('Posto');
@@ -13,14 +14,15 @@ class FeedbackVitoriaPosto extends FeedbackVitoria {
         }
     }
 
-        preload (){
+    preload (){
         super.preload()
+        // Carrega o fundo especifico do posto.
         this.load.image('bgPosto', 'assets/FundoPosto.png');
 
     }
 
     create (){
-
+        // Exibe o fundo da fase antes da interface base do feedback.
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgPosto')
             .setDisplaySize(this.scale.width, this.scale.height)
             .setDepth(-1);
@@ -28,6 +30,7 @@ class FeedbackVitoriaPosto extends FeedbackVitoria {
             super.create();
     }
 
+    // Define os textos finais de encerramento da jornada.
     definirDialogos() 
     { return [
             'Parabéns! Você concluiu todos os desafios com excelência.',

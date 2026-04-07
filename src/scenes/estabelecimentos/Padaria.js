@@ -1,8 +1,8 @@
-// CENA DA PADARIA - Minigame de vendas
+// Cena da padaria.
 
-// Aqui acontece toda a lógica do jogo dentro da padaria.
-// O jogador precisa responder perguntas do Seu João e
-// encher a barra de satisfação pra fechar a venda.
+// O minigame da padaria acontece nesta cena.
+// O jogador responde as perguntas do cliente
+// e preenche a barra de satisfacao para fechar a venda.
 
 class Padaria extends Combate {
 
@@ -28,9 +28,9 @@ class Padaria extends Combate {
 
         // Personagem do jogador
         const sprites = {
-            'JOSÉ':  { file: 'assets/joseCorpo.png' },
+            'JOSE':  { file: 'assets/joseCorpo.png' },
             'MARIA': { file: 'assets/mariaCorpo.png' },
-            'JOÃO':  { file: 'assets/joaoCorpo.png' },
+            'JOAO':  { file: 'assets/joaoCorpo.png' },
             'PAULA': { file: 'assets/paulaCorpo.png' }
         };
 
@@ -45,7 +45,7 @@ class Padaria extends Combate {
     }
 
     create() {
-        // Fundo da padaria — imagem responsiva que se adapta ao tamanho da tela
+        // Ajusta o fundo da padaria ao tamanho da tela.
         this.bg = this.add.image(0, 0, 'bgPadaria')
             .setOrigin(0.5)
             .setDepth(0)
@@ -61,9 +61,17 @@ class Padaria extends Combate {
         // Cria o sprite do jogador na cena
         this.criarPlayer();
 
-        // Inicializa o sistema de combate (satisfação, questões e lógica de vitória/derrota)
-        // A satisfação começa em 34 — já dá uma largada pra não começar zerado
-        // Com 3 acertos consecutivos (33 cada) chega em 100 e vence
+        // Exemplo: Botão no canto superior esquerdo (30, 30)
+        this.criarBotaoSair(30, 30, () => {
+        this.scene.start('Cidade', { 
+        personagem: this.personagemEscolhido, 
+        posicaoSpawn: { x: 130, y: 550 } // Posição exata de retorno no mapa
+        });
+    });
+
+        // Inicializa o sistema de combate.
+        // A satisfacao comeca em 34 para evitar inicio zerado.
+        // Com 3 acertos consecutivos chega em 100 e vence.
         this.initCombate({
             satisfacaoInicial: 34,
             questoes: 
@@ -113,17 +121,17 @@ class Padaria extends Combate {
             posicaoSpawn: { x: 130, y: 550 } 
         });
 
-        // Cria a interface de usuário (UI) herdada da classe Combate
+        // Cria a interface herdada da classe Combate.
         this.createUI();
         
-        // Exibe a primeira questão na tela
+        // Exibe a primeira questao na tela.
         this.mostrarQuestao();
         
-        // Mostra a barra visual de satisfação do NPC
+        // Mostra a barra visual de satisfacao do NPC.
         this.barraSatisfacao();
 
-        // Conecta o método de expressão do NPC ao sistema de atualização da base
-        // Qualquer mudança em this.satisfacao acionará facePadeiro()
+        // Liga a expressao do NPC ao valor de satisfacao.
+        // Qualquer mudanca em this.satisfacao aciona facePadeiro().
         this.updateNPC = this.facePadeiro;
         this.facePadeiro();
 
@@ -137,7 +145,7 @@ class Padaria extends Combate {
         this.bg.setDisplaySize(largura, altura);
     }
 
-    // CRIA NPC
+    // Cria o NPC.
     criarPadeiro() {
 
         this.padeiro = this.add.sprite(
@@ -149,22 +157,22 @@ class Padaria extends Combate {
             .setScale(0.55)
             .setFlip(true, false);
 
-        // Animações
-        this.anims.create({
+        // Registra as animacoes do padeiro.
+        utilitariosJogo.garantirAnimacao(this, {
             key: "bravoPadeiro",
             frames: this.anims.generateFrameNumbers('padeiro', { start: 0, end: 0 }),
             frameRate: 1,
             repeat: -1
         });
 
-        this.anims.create({
+        utilitariosJogo.garantirAnimacao(this, {
             key: "estavelPadeiro",
             frames: this.anims.generateFrameNumbers('padeiro', { start: 1, end: 1 }),
             frameRate: 1,
             repeat: -1
         });
 
-        this.anims.create({
+        utilitariosJogo.garantirAnimacao(this, {
             key: "felizPadeiro",
             frames: this.anims.generateFrameNumbers('padeiro', { start: 2, end: 2 }),
             frameRate: 1,
@@ -172,14 +180,14 @@ class Padaria extends Combate {
         });
     }
 
-    // CRIA PLAYER
+    // Cria o jogador.
     criarPlayer() {
 
         let escala = 1;
         let posX = (this.scale.width * 1 / 3) - 100;
         let posY = this.scale.height - 270;
 
-        if (this.personagemEscolhido === 'JOSÉ' || this.personagemEscolhido === 'JOÃO') {
+        if (this.personagemEscolhido === 'JOSE' || this.personagemEscolhido === 'JOAO') {
             escala = 0.5;
             posX -= 20;
             posY -= 60;
@@ -190,7 +198,7 @@ class Padaria extends Combate {
             .setScale(escala);
     }
 
-    // LÓGICA DO NPC (chamada pela classe base)
+    // Atualiza a expressao do NPC.
     facePadeiro() {
 
         if (this.satisfacao === 34) {

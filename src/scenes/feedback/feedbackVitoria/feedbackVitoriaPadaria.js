@@ -1,10 +1,11 @@
+// Feedback exibido quando o jogador vence a fase da padaria.
 class FeedbackVitoriaPadaria extends FeedbackVitoria {
     constructor() { super('FeedbackVitoriaPadaria'); }
 
     init(data) {
         super.init(data);
         this.cenaOrigem = 'Cidade';
-        // REGISTRO DE VITÓRIA
+        // Registra a vitoria.
         let vitoriasGlobais = this.registry.get('estabelecimentosVencidos') || [];
         if (!vitoriasGlobais.includes('Padaria')) {
             vitoriasGlobais.push('Padaria');
@@ -12,14 +13,15 @@ class FeedbackVitoriaPadaria extends FeedbackVitoria {
         }
     }
 
-        preload (){
+    preload (){
         super.preload()
+        // Carrega o fundo especifico da padaria.
         this.load.image('bgPadaria', 'assets/padaria_interior.png');
 
     }
 
     create (){
-
+        // Exibe o fundo da fase antes da interface base do feedback.
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgPadaria')
             .setDisplaySize(this.scale.width, this.scale.height)
             .setDepth(-1);
@@ -27,6 +29,7 @@ class FeedbackVitoriaPadaria extends FeedbackVitoria {
             super.create();
     }
 
+    // Define os textos de progresso para a proxima fase.
     definirDialogos() { 
         return [  
                 'Parabéns! Você conduziu bem a conversa e conseguiu gerar confiança com a cliente.',

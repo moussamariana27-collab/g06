@@ -1,19 +1,22 @@
+// Feedback exibido quando o jogador perde no salao de beleza.
 class FeedbackDerrotaSalaoDeBeleza extends FeedbackDerrota {
     constructor() { super('FeedbackDerrotaSalaoDeBeleza'); }
 
     init(data) {
         super.init(data);
+        // Define para qual cena o jogador pode retornar depois do feedback.
         this.cenaOrigem = 'SalaoDeBeleza';
     }
 
     preload (){
         super.preload()
+        // Carrega o fundo especifico do salao.
         this.load.image('bgSalaoDeBeleza', 'assets/salaodebeleza_interior.png');
 
     }
 
     create (){
-
+        // Exibe o fundo da fase antes da interface base do feedback.
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgSalaoDeBeleza')
             .setDisplaySize(this.scale.width, this.scale.height)
             .setDepth(-1);
@@ -21,6 +24,7 @@ class FeedbackDerrotaSalaoDeBeleza extends FeedbackDerrota {
             super.create();
     }
 
+    // Define os textos explicativos mostrados ao jogador.
     definirDialogos() 
     { return [
                 'Você deixou passar a oportunidade de conectar as dores da cliente com as soluções da Cielo.',

@@ -1,31 +1,28 @@
-// =============================================================
-// Tutorial.js
-// Cena de tutorial exibida ao colidir com o professor no escritorio.
-// Funciona como um overlay sobre o Escritorio: pausa o jogo,
-// exibe dialogos com efeito de digitacao e redireciona ao fim.
-// =============================================================
+// Cena de tutorial exibida ao colidir com o professor.
+// Funciona como uma sobreposicao ao Escritorio.
+// Pausa o jogo, mostra os dialogos e redireciona ao final.
 
 class Tutorial extends Phaser.Scene {
     constructor(key = 'Tutorial') { 
         super({ key });
     }
 
-    // Recebe dados passados por quem lancou esta cena (Escritorio)
-    // - cenaOrigem: nome da cena que abriu o tutorial (para retomar ao voltar)
-    // - character: personagem escolhido (repassado a Cidade ao finalizar)
+    // Recebe os dados enviados pela cena de origem.
+    // cenaOrigem: cena que abriu o tutorial.
+    // personagem: personagem escolhido pelo jogador.
     init(data) {
         this.cenaOrigem = data?.cenaOrigem || 'Escritorio';
-        this.character = data?.character || null;
+        this.personagemSelecionado = utilitariosJogo.resolverChavePersonagem(data?.personagem);
         this.indiceFala = 0;
         this.modoFeedbackDerrota = data?.modoFeedbackDerrota || false;
         this.modoFeedbackVitoria = data?.modoFeedbackVitoria || false;
-        this.dialogos = data?.dialogos || null;
-        this.posicaoSpawn = data?.posicaoSpawn || null; 
+        this.dialogos = Array.isArray(data?.dialogos) ? data.dialogos : null;
+        this.posicaoSpawn = utilitariosJogo.normalizarPosicaoSpawn(data?.posicaoSpawn, { x: 190, y: 330 }); 
         this.cenaCombate = data?.cenaCombate || null;
     }
 
-    // Carrega as duas imagens do professor:
-    // estadual1 = boca fechada | estadual2 = boca aberta
+    // Carrega as duas imagens do professor.
+    // estadual1 representa a boca fechada e estadual2 a boca aberta.
     preload() {
         this.load.image('estadual1', 'assets/estadual1.png');
         this.load.image('estadual2', 'assets/estadual2.png');
@@ -35,7 +32,7 @@ class Tutorial extends Phaser.Scene {
         const larguraTela = this.scale.width;
         const alturaTela = this.scale.height;
 
-        // Roteiro padrao do tutorial.
+        // Define o roteiro padrao do tutorial.
         this.dialogos = this.dialogos?.length > 0 ? this.dialogos : [
             "Olá! Seja bem-vindo ao time Cielo! Eu sou o seu instrutor e vou te apresentar os principais produtos que você vai oferecer aos nossos clientes.",
             "Vamos começar pela Cielo Flash — a maquininha mais veloz da linha! Ela faz até 3 vendas por minuto, aceita débito, crédito, Pix, QR Code e mais de 80 bandeiras. Ideal para o varejo!",
@@ -145,21 +142,25 @@ class Tutorial extends Phaser.Scene {
 
             if (this.modoFeedbackDerrota) {
                 this.scene.stop(this.scene.key);
-                this.scene.start(this.cenaOrigem, { character: this.character });
+                utilitariosJogo.iniciarCenaSeDisponivel(this, this.cenaOrigem, {
+                    personagem: this.personagemSelecionado
+                });
                 return;
             }
 
             if (!this.modoFeedbackDerrota && !this.modoFeedbackVitoria) {
                 this.scene.stop(this.cenaOrigem);
                 this.scene.stop(this.scene.key);
-                this.scene.start('Cidade', { character: this.character });
+                utilitariosJogo.iniciarCenaSeDisponivel(this, 'Cidade', {
+                    personagem: this.personagemSelecionado
+                });
                 return;
             }
 
             this.scene.stop(this.scene.key);
             if (this.cenaCombate) this.scene.stop(this.cenaCombate);
-            this.scene.start(this.cenaOrigem, {
-                character: this.character,
+            utilitariosJogo.iniciarCenaSeDisponivel(this, this.cenaOrigem, {
+                personagem: this.personagemSelecionado,
                 posicaoSpawn: this.posicaoSpawn,
             });
         });
@@ -176,8 +177,10 @@ class Tutorial extends Phaser.Scene {
             this._pararDigitacao();
             this.timerFala.remove();
             const origem = this.cenaOrigem;
-            this.scene.stop('tutorial');
-            this.scene.resume(origem);
+            this.scene.stop(this.scene.key);
+            if (this.scene.manager.keys[origem]) {
+                this.scene.resume(origem);
+            }
         });
 
         [this.botaoProximo, botaoAnterior].forEach(botao => {
@@ -189,19 +192,23 @@ class Tutorial extends Phaser.Scene {
         botaoVoltar.on('pointerout', () => botaoVoltar.setStyle({ fill: '#ffffff' }));
     }
 
-    // Efeito maquina de escrever: revela o texto caractere por caractere.
+    // Aplica o efeito de maquina de escrever no texto.
     _digitarTexto(texto) {
+        const textoSeguro = typeof texto === 'string' && texto.length > 0
+            ? texto
+            : 'Sem dialogo configurado para esta etapa.';
+
         this.digitando = true;
         this.txtDialogo.setText('');
         let indiceCaractere = 0;
 
         this.timerDigitacao = this.time.addEvent({
             delay: 30,
-            repeat: texto.length - 1,
+            repeat: textoSeguro.length - 1,
             callback: () => {
-                this.txtDialogo.setText(texto.substring(0, indiceCaractere + 1));
+                this.txtDialogo.setText(textoSeguro.substring(0, indiceCaractere + 1));
                 indiceCaractere++;
-                if (indiceCaractere >= texto.length) {
+                if (indiceCaractere >= textoSeguro.length) {
                     this.digitando = false;
                     this.imgProfessor.setTexture('estadual1');
                 }

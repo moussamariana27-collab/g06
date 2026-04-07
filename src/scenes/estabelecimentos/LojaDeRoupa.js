@@ -1,3 +1,4 @@
+// Cena de combate da loja de roupa.
 class LojaDeRoupa extends Combate {
     constructor() {
         super('LojaDeRoupa'); 
@@ -10,6 +11,7 @@ class LojaDeRoupa extends Combate {
     preload() {
         super.preload(); 
 
+        // Carrega fundo, NPC e sprite do personagem escolhido.
         this.load.audio('musicabatalha', 'assets/musicabatalha.mp3');
         this.load.image('bgLojaDeRoupa', 'assets/lojaderoupa_interior.png');
         
@@ -19,9 +21,9 @@ class LojaDeRoupa extends Combate {
         }); 
 
         const sprites = {
-            'JOSÉ':  { file: 'assets/joseCorpo.png' },
+            'JOSE':  { file: 'assets/joseCorpo.png' },
             'MARIA': { file: 'assets/mariaCorpo.png' },
-            'JOÃO':  { file: 'assets/joaoCorpo.png' },
+            'JOAO':  { file: 'assets/joaoCorpo.png' },
             'PAULA': { file: 'assets/paulaCorpo.png' }
         };
 
@@ -32,6 +34,7 @@ class LojaDeRoupa extends Combate {
     }
 
     create() {
+        // Monta o cenario e os personagens da fase.
         this.bg = this.add.image(0, 0, 'bgLojaDeRoupa')
             .setOrigin(0.5)
             .setDepth(0)
@@ -41,12 +44,21 @@ class LojaDeRoupa extends Combate {
         this.resizeBackground();
         this.criarVendedora();
         this.criarPlayer();
+         
+        // Botão no canto superior esquerdo (30, 30)
+        this.criarBotaoSair(30, 30, () => {
+        this.scene.start('Cidade', { 
+        personagem: this.personagemEscolhido, 
+        posicaoSpawn: { x: 800, y: 690 } // Posição exata de retorno no mapa
+        });
+    });
 
+        // Inicializa perguntas, barra de satisfacao e ponto de retorno.
         this.initCombate({
             satisfacaoInicial: 34,
             questoes: [
                 {
-                    // Saudação inicial (Apenas Diálogo)
+                    // Saudacao inicial.
                     pergunta: "DONA NAYARA: Olá! Como posso ajudar?",
                     certo: "Olá, Dona Nayara! Sou Gerente de Negócios da Cielo. Vim até aqui porque tenho uma proposta que acredito que faz todo sentido pro seu negócio. A senhora teria uns minutinhos pra conversar?",
                     soDialogo: true
@@ -86,15 +98,18 @@ class LojaDeRoupa extends Combate {
             posicaoSpawn: { x: 800, y: 690 }, 
         });
 
+        // Cria a interface herdada da classe base.
         this.createUI();
         this.mostrarQuestao();
         this.barraSatisfacao();
 
+        // Liga a expressao da NPC ao valor atual da satisfacao.
         this.updateNPC = this.faceVendedora;
         this.faceVendedora();
 
     }
 
+    // Mantem o fundo ajustado ao tamanho atual da tela.
     resizeBackground() {
         const largura = this.scale.width;
         const altura = this.scale.height;
@@ -102,35 +117,38 @@ class LojaDeRoupa extends Combate {
         this.bg.setDisplaySize(largura, altura);
     }
 
+    // Cria a NPC e registra as animacoes de humor.
     criarVendedora() {
-        this.Vendedora = this.add.sprite(
+        this.vendedoraSprite = this.add.sprite(
             (this.scale.width * 2 / 3) + 40,
             this.scale.height - 400,
             'Vendedora'
         ).setScale(0.55).setFlip(true, false).setDepth(2);
 
-        this.anims.create({ key: "bravoVendedora", frames: this.anims.generateFrameNumbers('Vendedora', { start: 0, end: 0 }) });
-        this.anims.create({ key: "estavelVendedora", frames: this.anims.generateFrameNumbers('Vendedora', { start: 1, end: 1 }) });
-        this.anims.create({ key: "felizVendedora", frames: this.anims.generateFrameNumbers('Vendedora', { start: 2, end: 2 }) });
+        utilitariosJogo.garantirAnimacao(this, { key: "bravoVendedora", frames: this.anims.generateFrameNumbers('Vendedora', { start: 0, end: 0 }) });
+        utilitariosJogo.garantirAnimacao(this, { key: "estavelVendedora", frames: this.anims.generateFrameNumbers('Vendedora', { start: 1, end: 1 }) });
+        utilitariosJogo.garantirAnimacao(this, { key: "felizVendedora", frames: this.anims.generateFrameNumbers('Vendedora', { start: 2, end: 2 }) });
     }
 
+    // Posiciona o personagem do jogador na cena.
     criarPlayer() {
-        let escala = (this.personagemEscolhido === 'JOSÉ' || this.personagemEscolhido === 'JOÃO') ? 0.5 : 1;
+        let escala = (this.personagemEscolhido === 'JOSE' || this.personagemEscolhido === 'JOAO') ? 0.5 : 1;
         let posX = (this.scale.width * 1 / 3) - 100;
         let posY = (escala === 0.5) ? this.scale.height - 330 : this.scale.height - 270;
 
         this.add.image(posX, posY, 'personagemLoja').setScale(escala).setDepth(1);
     }
 
+    // Atualiza a animacao da NPC conforme a satisfacao da conversa.
     faceVendedora() {
         if (this.satisfacao === 34) {
-            this.Vendedora.play('estavelVendedora', true);
+            this.vendedoraSprite.play('estavelVendedora', true);
         } else if (this.satisfacao <= 1) {
-            this.Vendedora.play('bravoVendedora', true);
+            this.vendedoraSprite.play('bravoVendedora', true);
         } else if (this.satisfacao >= 67) {
-            this.Vendedora.play('felizVendedora', true);
+            this.vendedoraSprite.play('felizVendedora', true);
         } else {
-            this.Vendedora.play('estavelVendedora', true);
+            this.vendedoraSprite.play('estavelVendedora', true);
         }
     }
 }

@@ -1,3 +1,4 @@
+// Feedback exibido quando o jogador vence a fase do salao de beleza.
 class FeedbackVitoriaSalaoDeBeleza extends FeedbackVitoria {
     constructor() { super('FeedbackVitoriaSalaoDeBeleza'); }
 
@@ -5,7 +6,7 @@ class FeedbackVitoriaSalaoDeBeleza extends FeedbackVitoria {
         super.init(data);
         this.cenaOrigem = 'Cidade';
 
-        // REGISTRO DE VITÓRIA
+        // Registra a vitoria no progresso global.
         let vitoriasGlobais = this.registry.get('estabelecimentosVencidos') || [];
         if (!vitoriasGlobais.includes('SalaoDeBeleza')) {
             vitoriasGlobais.push('SalaoDeBeleza');
@@ -15,12 +16,13 @@ class FeedbackVitoriaSalaoDeBeleza extends FeedbackVitoria {
     
     preload (){
         super.preload()
+        // Carrega o fundo especifico do salao.
         this.load.image('bgSalaoDeBeleza', 'assets/salaodebeleza_interior.png');
 
     }
 
     create (){
-
+        // Exibe o fundo da fase antes da interface base do feedback.
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'bgSalaoDeBeleza')
             .setDisplaySize(this.scale.width, this.scale.height)
             .setDepth(-1);
@@ -28,6 +30,7 @@ class FeedbackVitoriaSalaoDeBeleza extends FeedbackVitoria {
             super.create();
     }
 
+    // Define os textos de progresso para a proxima fase.
     definirDialogos() 
         { return [
                     'Parabéns! Você conduziu bem a conversa e conseguiu gerar confiança com a cliente.',

@@ -1,17 +1,19 @@
+// Configuracao principal do Phaser.
+// Reune as opcoes globais do jogo e registra todas as cenas.
 const config = {
     type: Phaser.AUTO,
-
-
-
     parent: 'game-container',
     scale: {
+        // Redimensiona o canvas para acompanhar a tela do navegador.
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
 
+    // Mantem o visual pixelado dos sprites.
     pixelArt: true,
 
     physics: {
+        // Usa fisica arcade em todas as cenas.
         default: 'arcade',
         arcade: {
             gravity: { y: 0 },
@@ -19,6 +21,7 @@ const config = {
         }
     },
 
+    // Define a ordem de carregamento das cenas do jogo.
     scene: [
         TelaInicial,
         SelecaoPersonagem,
@@ -48,4 +51,5 @@ const config = {
     ]
 };
 
+// Instancia o jogo com a configuracao acima.
 const game = new Phaser.Game(config);
